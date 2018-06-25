@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Bravura
+﻿namespace Bravura
 {
     public struct NoteSymbol
     {
