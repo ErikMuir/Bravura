@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Bravura
+﻿namespace Bravura
 {
     public struct NoteName
     {
@@ -15,7 +13,7 @@ namespace Bravura
         {
             Index = index;
             Value = value;
-            Symbol = symbol ?? throw new NullReferenceException("Symbol cannot be null.");
+            Symbol = symbol ?? throw new BravuraException("A NoteName's Symbol cannot be null.");
             KeyAccidental = keyAccidental;
             IsLowerNeighborHalfstep = isLowerNeighborHalfstep;
             IsHigherNeighborHalfstep = isHigherNeighborHalfstep;
@@ -26,5 +24,15 @@ namespace Bravura
 
         public NoteName HigherNeighbor
             => NoteNames.AllNotes[((Index + 1) == 7 ? 0 : (Index + 1))];
+
+        public static bool operator ==(NoteName a, NoteName b)
+        {
+            return a.Value == b.Value;
+        }
+
+        public static bool operator !=(NoteName a, NoteName b)
+        {
+            return !(a == b);
+        }
     }
 }

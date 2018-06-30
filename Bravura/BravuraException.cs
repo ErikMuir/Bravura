@@ -2,5 +2,8 @@
 
 namespace Bravura
 {
-    public class BravuraException : Exception { }
+    public class BravuraException : Exception
+    {
+        public BravuraException(string message) : base(message) { }
+    }
 }

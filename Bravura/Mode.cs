@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Bravura
 {
@@ -11,7 +10,7 @@ namespace Bravura
 
         public Mode(string name, List<int> noteIndices, List<Interval> intervals)
         {
-            Name = name ?? throw new NullReferenceException("Name cannot be null.");
+            Name = name ?? throw new BravuraException("A Mode's Name cannot be null.");
             NoteIndices = noteIndices;
             Intervals = intervals;
         }

@@ -7,23 +7,23 @@ namespace Bravura
     {
         public Pitch Root { get; }
         public Mode Mode { get; }
-        public List<Pitch> ScalePitches { get; }
+        public List<Pitch> Pitches { get; }
 
         public Scale(Pitch root, Mode mode)
         {
             Root = root;
             Mode = mode;
-            ScalePitches = new List<Pitch>();
-            SetScalePitches();
+            Pitches = new List<Pitch>();
+            SetPitches();
         }
 
-        private void SetScalePitches()
+        private void SetPitches()
         {
             for (var i = 0; i < Mode.Intervals.Count; i++)
             {
                 var note = GetNote(i);
                 var accidental = GetAccidental(i, note.Value);
-                ScalePitches.Add(new Pitch(note, accidental));
+                Pitches.Add(new Pitch(note, accidental));
             }
         }
 

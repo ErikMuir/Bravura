@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Bravura
+﻿namespace Bravura
 {
     public struct Interval
     {
@@ -20,8 +18,18 @@ namespace Bravura
             Semitones = semitones;
             Accidental = accidental;
             NoteIndex = noteIndex;
-            Name = name ?? throw new NullReferenceException("Name cannot be null.");
-            Symbol = symbol ?? throw new NullReferenceException("Symbol cannot be null.");
+            Name = name ?? throw new BravuraException("An Interval's Name cannot be null.");
+            Symbol = symbol ?? throw new BravuraException("An Interval's Symbol cannot be null.");
+        }
+
+        public static bool operator ==(Interval a, Interval b)
+        {
+            return a.Semitones == b.Semitones;
+        }
+
+        public static bool operator !=(Interval a, Interval b)
+        {
+            return !(a == b);
         }
 
         public override string ToString()

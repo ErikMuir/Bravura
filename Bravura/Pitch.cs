@@ -84,6 +84,21 @@ namespace Bravura
             HigherSymbol = new NoteSymbol(higherAlphabet, higherAccidental);
         }
 
+        public static bool operator ==(Pitch a, Pitch b)
+        {
+            return a.NoteName == b.NoteName && a.Accidental == b.Accidental;
+        }
+
+        public static bool operator !=(Pitch a, Pitch b)
+        {
+            return !(a == b);
+        }
+
+        public bool EnharmonicallyEqual(Pitch that)
+        {
+            return this.Value == that.Value;
+        }
+
         public Pitch GetPitchByInterval(Interval interval)
         {
             var noteNameIndex = NoteName.Index + interval.NoteIndex - 1;
@@ -101,6 +116,11 @@ namespace Bravura
         public override string ToString()
         {
             return InitialSymbol.ToString();
+        }
+
+        public string ToConsoleString()
+        {
+            return InitialSymbol.ToConsoleString();
         }
     }
 }
