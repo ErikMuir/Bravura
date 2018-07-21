@@ -11,7 +11,9 @@ namespace Bravura
         public ChordQuality(string symbol, List<Interval> intervals)
         {
             Symbol = symbol ?? throw new BravuraException("A Chord Quality's Symbol cannot be null.");
-            Intervals = intervals;
+            Intervals = intervals ?? throw new BravuraException("A Chord Quality's Intervals cannot be null");
+            if (intervals.Count < 2)
+                throw new BravuraException("A Chord Quality must have at least 2 Intervals");
         }
 
         public static bool operator ==(ChordQuality a, ChordQuality b)

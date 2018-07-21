@@ -117,10 +117,5 @@ namespace Bravura
         {
             return InitialSymbol.ToString();
         }
-
-        public string ToConsoleString()
-        {
-            return InitialSymbol.ToConsoleString();
-        }
     }
 }

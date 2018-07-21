@@ -18,7 +18,7 @@ namespace Bravura
         public static readonly Interval AugmentedThird = new Interval(5, Accidentals.DoubleSharp, 3, "Augmented Third", "A3");
         public static readonly Interval AugmentedFourth = new Interval(6, Accidentals.Sharp, 4, "Augmented Fourth", "A4");
         public static readonly Interval DiminishedFifth = new Interval(6, Accidentals.Flat, 5, "Diminished Fifth", "d5");
-        public static readonly Interval Tritone = new Interval(6, Accidentals.Natural, 0, "Tritone", "TT");
+        //public static readonly Interval Tritone = new Interval(6, Accidentals.Natural, 0, "Tritone", "TT");
         public static readonly Interval PerfectFifth = new Interval(7, Accidentals.Natural, 5, "Perfect Fifth", "P5");
         public static readonly Interval DiminishedSixth = new Interval(7, Accidentals.DoubleFlat, 6, "Diminished Sixth", "d6");
         public static readonly Interval MinorSixth = new Interval(8, Accidentals.Flat, 6, "Minor Sixth", "m6");
@@ -35,7 +35,7 @@ namespace Bravura
         public static List<Interval> AllIntervals = new List<Interval>
         {
             PerfectUnison, DiminishedSecond, MinorSecond, AugmentedUnison, MajorSecond, DiminishedThird, MinorThird, AugmentedSecond,
-            MajorThird, DiminishedFourth, PerfectFourth, AugmentedThird, AugmentedFourth, DiminishedFifth, Tritone, PerfectFifth,
+            MajorThird, DiminishedFourth, PerfectFourth, AugmentedThird, AugmentedFourth, DiminishedFifth, /*Tritone,*/ PerfectFifth,
             DiminishedSixth, MinorSixth, AugmentedFifth, MajorSixth, DiminishedSeventh, MinorSeventh, AugmentedSixth, MajorSeventh,
             DiminishedOctave, PerfectOctave, AugmentedSeventh,
         };

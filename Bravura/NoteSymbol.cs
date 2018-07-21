@@ -15,10 +15,5 @@
         {
             return $"{NoteName.Symbol}{Accidental.DefaultSymbol}";
         }
-
-        public string ToConsoleString()
-        {
-            return $"{NoteName.Symbol}{Accidental.ConsoleSymbol}";
-        }
     }
 }
