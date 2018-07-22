@@ -18,6 +18,10 @@ namespace Bravura
             if (noteIndices.Any(i => i < 0 || i > 6))
                 throw new BravuraException("All NoteIndices must be between 0 and 6.");
             Intervals = intervals ?? throw new BravuraException("A Mode's Intervals cannot be null.");
+            if (intervals.Count < 5 || intervals.Count > 12)
+                throw new BravuraException("A Mode must have between 5 and 12 Intervals.");
+            if (intervals.Count != noteIndices.Count)
+                throw new BravuraException("A Mode must have the same number of NoteIndices and Intervals.");
         }
     }
 }

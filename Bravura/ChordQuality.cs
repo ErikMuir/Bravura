@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Bravura
 {
@@ -18,15 +18,33 @@ namespace Bravura
 
         public static bool operator ==(ChordQuality a, ChordQuality b)
         {
-            if (a.Intervals.Count != b.Intervals.Count)
-                return false;
+            return EqualityComparer<List<Interval>>.Default.Equals(a.Intervals, b.Intervals);
 
-            return !a.Intervals.Where((t, i) => t.Semitones != b.Intervals[i].Semitones).Any();
+            //if (a.Intervals.Count != b.Intervals.Count)
+            //    return false;
+
+            //return !a.Intervals.Where((t, i) => t.Semitones != b.Intervals[i].Semitones).Any();
         }
 
         public static bool operator !=(ChordQuality a, ChordQuality b)
         {
             return !(a == b);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is ChordQuality))
+            {
+                return false;
+            }
+
+            var quality = (ChordQuality)obj;
+            return EqualityComparer<List<Interval>>.Default.Equals(Intervals, quality.Intervals);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Intervals);
         }
     }
 }

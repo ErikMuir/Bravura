@@ -1,4 +1,6 @@
-﻿namespace Bravura
+﻿using System;
+
+namespace Bravura
 {
     public struct Interval
     {
@@ -26,6 +28,11 @@
             Symbol = symbol ?? throw new BravuraException("An Interval's Symbol cannot be null.");
         }
 
+        public override string ToString()
+        {
+            return $"{Accidental.DefaultSymbol}{NoteIndex}";
+        }
+
         public static bool operator ==(Interval a, Interval b)
         {
             return a.Semitones == b.Semitones;
@@ -36,9 +43,20 @@
             return !(a == b);
         }
 
-        public override string ToString()
+        public override bool Equals(object obj)
         {
-            return $"{Accidental.DefaultSymbol}{NoteIndex}";
+            if (!(obj is Interval))
+            {
+                return false;
+            }
+
+            var interval = (Interval)obj;
+            return Semitones == interval.Semitones;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Semitones);
         }
     }
 }
