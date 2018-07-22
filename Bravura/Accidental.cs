@@ -5,16 +5,20 @@ namespace Bravura
     public struct Accidental
     {
         public int Value { get; }
+        public string Name { get; }
         public string DefaultSymbol { get; }
         public string ActualSymbol { get; }
+        public string AsciiSymbol { get; }
 
-        public Accidental(int value, string defaultSymbol, string actualSymbol)
+        public Accidental(int value, string name, string defaultSymbol, string actualSymbol, string asciiSymbol)
         {
             if (value < -2 || value > 2)
                 throw new BravuraException("An Accidental's Value must be between -2 and 2.");
             Value = value;
+            Name = name ?? throw new BravuraException("An Accidental's Name cannot be null.");
             DefaultSymbol = defaultSymbol ?? throw new BravuraException("An Accidental's DefaultSymbol cannot be null.");
             ActualSymbol = actualSymbol ?? throw new BravuraException("An Accidental's ActualSymbol cannot be null.");
+            AsciiSymbol = asciiSymbol ?? throw new BravuraException("An Accidental's AsciiSymbol cannot be null.");
         }
 
         public static bool operator ==(Accidental a, Accidental b)

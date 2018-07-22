@@ -15,5 +15,10 @@
         {
             return $"{NoteName.Symbol}{Accidental.DefaultSymbol}";
         }
+
+        public string ToAsciiString()
+        {
+            return $"{NoteName.Symbol}{Accidental.AsciiSymbol}";
+        }
     }
 }

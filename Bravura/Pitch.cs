@@ -75,6 +75,8 @@ namespace Bravura
                     higherAlphabet = logicalAlphabet;
                     higherAccidental = logicalAccidental;
                     break;
+                default:
+                    throw new BravuraException("An Accidental's Value must be between -2 and 2.");
             }
 
             NoteName = note;
