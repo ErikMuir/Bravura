@@ -1,12 +1,15 @@
-﻿using System.Collections.Generic;
-using Xunit;
+﻿using Xunit;
 
 namespace Bravura.Tests
 {
     public class AccidentalTests
     {
         [Theory]
-        [MemberData(nameof(AccidentalWorksData))]
+        [InlineData(-2, "Double Flat", "♭♭", "♭♭", "bb")]
+        [InlineData(-1, "Flat", "♭", "♭", "b")]
+        [InlineData(0, "Natural", "", "♮", "")]
+        [InlineData(1, "Sharp", "♯", "♯", "#")]
+        [InlineData(2, "Double Sharp", "♯♯", "♯♯", "##")]
         public void Accidental_Works_Test(int value, string name, string defaultSymbol, string actualSymbol, string asciiSymbol)
         {
             var accidental = new Accidental(value, name, defaultSymbol, actualSymbol, asciiSymbol);
@@ -21,7 +24,12 @@ namespace Bravura.Tests
         }
 
         [Theory]
-        [MemberData(nameof(AccidentalThrowsData))]
+        [InlineData(-3, "", "", "", "")]
+        [InlineData(3, "", "", "", "")]
+        [InlineData(0, null, "", "", "")]
+        [InlineData(0, "", null, "", "")]
+        [InlineData(0, "", "", null, "")]
+        [InlineData(0, "", "", "", null)]
         public void Accidental_Throws_Test(int value, string name, string defaultSymbol, string actualSymbol, string asciiSymbol)
         {
             var exception = Record.Exception(() => new Accidental(value, name, defaultSymbol, actualSymbol, asciiSymbol));
@@ -29,23 +37,13 @@ namespace Bravura.Tests
             Assert.IsType<BravuraException>(exception);
         }
 
-        public static IEnumerable<object[]> AccidentalWorksData()
+        [Fact]
+        public void Accidental_Equality_Test()
         {
-            yield return new object[] { -2, "Double Flat", "♭♭", "♭♭", "bb" };
-            yield return new object[] { -1, "Flat", "♭", "♭", "b" };
-            yield return new object[] { 0, "Natural", "", "♮", "" };
-            yield return new object[] { 1, "Sharp", "♯", "♯", "#" };
-            yield return new object[] { 2, "Double Sharp", "♯♯", "♯♯", "##" };
-        }
-
-        public static IEnumerable<object[]> AccidentalThrowsData()
-        {
-            yield return new object[] { -3, "", "", "", "" };
-            yield return new object[] { 3, "", "", "", "" };
-            yield return new object[] { 0, null, "", "", "" };
-            yield return new object[] { 0, "", null, "", "" };
-            yield return new object[] { 0, "", "", null, "" };
-            yield return new object[] { 0, "", "", "", null };
+            var fakeFlat = new Accidental(-1, "Fake Flat", "-", "-", "-");
+            Assert.True(fakeFlat == Accidentals.Flat);
+            Assert.True(fakeFlat.Equals(Accidentals.Flat));
+            Assert.Equal(fakeFlat.GetHashCode(), Accidentals.Flat.GetHashCode());
         }
     }
 }

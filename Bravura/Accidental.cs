@@ -22,29 +22,19 @@ namespace Bravura
         }
 
         public static bool operator ==(Accidental a, Accidental b)
-        {
-            return a.Value == b.Value;
-        }
+            => a.Value == b.Value;
 
         public static bool operator !=(Accidental a, Accidental b)
-        {
-            return !(a == b);
-        }
+            => !(a == b);
 
         public override bool Equals(object obj)
         {
-            if (!(obj is Accidental))
-            {
-                return false;
-            }
-
+            if (!(obj is Accidental)) return false;
             var accidental = (Accidental)obj;
             return Value == accidental.Value;
         }
 
         public override int GetHashCode()
-        {
-            return HashCode.Combine(Value);
-        }
+            => HashCode.Combine(Value);
     }
 }

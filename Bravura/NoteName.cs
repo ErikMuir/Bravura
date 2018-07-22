@@ -31,29 +31,19 @@ namespace Bravura
             => NoteNames.AllNotes[((Index + 1) == 7 ? 0 : (Index + 1))];
 
         public static bool operator ==(NoteName a, NoteName b)
-        {
-            return a.Value == b.Value;
-        }
+            => a.Value == b.Value;
 
         public static bool operator !=(NoteName a, NoteName b)
-        {
-            return !(a == b);
-        }
+            => !(a == b);
 
         public override bool Equals(object obj)
         {
-            if (!(obj is NoteName))
-            {
-                return false;
-            }
-
+            if (!(obj is NoteName)) return false;
             var name = (NoteName)obj;
             return Value == name.Value;
         }
 
         public override int GetHashCode()
-        {
-            return HashCode.Combine(Value);
-        }
+            => HashCode.Combine(Value);
     }
 }

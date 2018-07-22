@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Bravura
 {
@@ -14,37 +14,28 @@ namespace Bravura
             Intervals = intervals ?? throw new BravuraException("A Chord Quality's Intervals cannot be null");
             if (intervals.Count < 2)
                 throw new BravuraException("A Chord Quality must have at least 2 Intervals");
+            if (intervals[0] != Bravura.Intervals.PerfectUnison)
+                throw new BravuraException("A Chord Quality's first Interval must be Perfect Unison.");
         }
 
         public static bool operator ==(ChordQuality a, ChordQuality b)
         {
-            return EqualityComparer<List<Interval>>.Default.Equals(a.Intervals, b.Intervals);
-
-            //if (a.Intervals.Count != b.Intervals.Count)
-            //    return false;
-
-            //return !a.Intervals.Where((t, i) => t.Semitones != b.Intervals[i].Semitones).Any();
+            if (a.Intervals.Count != b.Intervals.Count) return false;
+            return !a.Intervals.Where((t, i) => t != b.Intervals[i]).Any();
         }
 
         public static bool operator !=(ChordQuality a, ChordQuality b)
-        {
-            return !(a == b);
-        }
+            => !(a == b);
 
         public override bool Equals(object obj)
         {
-            if (!(obj is ChordQuality))
-            {
-                return false;
-            }
-
+            if (!(obj is ChordQuality)) return false;
             var quality = (ChordQuality)obj;
-            return EqualityComparer<List<Interval>>.Default.Equals(Intervals, quality.Intervals);
+            if (Intervals.Count != quality.Intervals.Count) return false;
+            return !Intervals.Where((t, i) => t != quality.Intervals[i]).Any();
         }
 
         public override int GetHashCode()
-        {
-            return HashCode.Combine(Intervals);
-        }
+            => Intervals.Sum(i => i.Semitones);
     }
 }

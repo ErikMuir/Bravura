@@ -29,34 +29,22 @@ namespace Bravura
         }
 
         public override string ToString()
-        {
-            return $"{Accidental.DefaultSymbol}{NoteIndex}";
-        }
+            => $"{Accidental.DefaultSymbol}{NoteIndex}";
 
         public static bool operator ==(Interval a, Interval b)
-        {
-            return a.Semitones == b.Semitones;
-        }
+            => a.Semitones == b.Semitones;
 
         public static bool operator !=(Interval a, Interval b)
-        {
-            return !(a == b);
-        }
+            => !(a == b);
 
         public override bool Equals(object obj)
         {
-            if (!(obj is Interval))
-            {
-                return false;
-            }
-
+            if (!(obj is Interval)) return false;
             var interval = (Interval)obj;
             return Semitones == interval.Semitones;
         }
 
         public override int GetHashCode()
-        {
-            return HashCode.Combine(Semitones);
-        }
+            => HashCode.Combine(Semitones);
     }
 }

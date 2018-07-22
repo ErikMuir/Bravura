@@ -102,47 +102,31 @@ namespace Bravura
             return new Pitch(note, accidental);
         }
 
-        public override string ToString()
-        {
-            return InitialSymbol.ToString();
-        }
+        public override string ToString() 
+            => InitialSymbol.ToString();
 
         public bool EnharmonicallyEquals(object obj)
         {
-            if (!(obj is Pitch))
-            {
-                return false;
-            }
-
+            if (!(obj is Pitch)) return false;
             var pitch = (Pitch)obj;
             return Value == pitch.Value;
         }
 
-        public static bool operator ==(Pitch a, Pitch b)
-        {
-            return a.NoteName == b.NoteName && a.Accidental == b.Accidental;
-        }
+        public static bool operator ==(Pitch a, Pitch b) 
+            => a.NoteName == b.NoteName && a.Accidental == b.Accidental;
 
         public static bool operator !=(Pitch a, Pitch b)
-        {
-            return !(a == b);
-        }
+            => !(a == b);
 
         public override bool Equals(object obj)
         {
-            if (!(obj is Pitch))
-            {
-                return false;
-            }
-
+            if (!(obj is Pitch)) return false;
             var pitch = (Pitch)obj;
             return EqualityComparer<NoteName>.Default.Equals(NoteName, pitch.NoteName) &&
                    EqualityComparer<Accidental>.Default.Equals(Accidental, pitch.Accidental);
         }
 
         public override int GetHashCode()
-        {
-            return HashCode.Combine(NoteName, Accidental);
-        }
+            => HashCode.Combine(NoteName, Accidental);
     }
 }

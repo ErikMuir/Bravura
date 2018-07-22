@@ -5,10 +5,47 @@ namespace Bravura.Tests
 {
     public class ChordQualityTests
     {
-        [Theory]
-        [MemberData(nameof(ChordQualityWorksData))]
-        public void ChordQuality_Works_Test(string symbol, List<Interval> intervals)
+        #region -- Private Members --
+
+        private static readonly List<Interval> ZeroIntervals = new List<Interval>();
+
+        private static readonly List<Interval> OneInterval = new List<Interval>
         {
+            Intervals.PerfectUnison,
+        };
+
+        private static readonly List<Interval> TwoIntervalsGood = new List<Interval>
+        {
+            Intervals.PerfectUnison,
+            Intervals.PerfectFifth,
+        };
+
+        private static readonly List<Interval> TwoIntervalsBad = new List<Interval>
+        {
+            Intervals.MajorThird,
+            Intervals.PerfectFifth,
+        };
+
+        #endregion 
+
+        #region -- Member Data -- 
+
+        public static IEnumerable<object[]> ChordQualityThrowsData()
+        {
+            yield return new object[] { null, TwoIntervalsGood };
+            yield return new object[] { "", null };
+            yield return new object[] { "", ZeroIntervals };
+            yield return new object[] { "", OneInterval };
+            yield return new object[] { "", TwoIntervalsBad };
+        }
+
+        #endregion 
+
+        [Fact]
+        public void ChordQuality_Works_Test()
+        {
+            const string symbol = "";
+            var intervals = TwoIntervalsGood;
             var chordQuality = new ChordQuality(symbol, intervals);
             Assert.IsType<ChordQuality>(chordQuality);
             Assert.Equal(symbol, chordQuality.Symbol);
@@ -28,30 +65,18 @@ namespace Bravura.Tests
             Assert.IsType<BravuraException>(exception);
         }
 
-        private static readonly List<Interval> ZeroIntervals = new List<Interval>();
-
-        private static readonly List<Interval> OneInterval = new List<Interval>
+        [Fact]
+        public void ChordQuality_Equality_Test()
         {
-            Intervals.PerfectFifth,
-        };
-
-        private static readonly List<Interval> TwoIntervals = new List<Interval>
-        {
-            Intervals.MajorThird,
-            Intervals.PerfectFifth,
-        };
-
-        public static IEnumerable<object[]> ChordQualityWorksData()
-        {
-            yield return new object[] { "", TwoIntervals };
-        }
-
-        public static IEnumerable<object[]> ChordQualityThrowsData()
-        {
-            yield return new object[] { null, TwoIntervals };
-            yield return new object[] { "", null };
-            yield return new object[] { "", ZeroIntervals };
-            yield return new object[] { "", OneInterval };
+            var fakeMajor = new ChordQuality("M", new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MajorThird,
+                Intervals.PerfectFifth,
+            });
+            Assert.True(fakeMajor == ChordQualities.Maj);
+            Assert.True(fakeMajor.Equals(ChordQualities.Maj));
+            Assert.Equal(fakeMajor.GetHashCode(), ChordQualities.Maj.GetHashCode());
         }
     }
 }

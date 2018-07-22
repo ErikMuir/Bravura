@@ -5,28 +5,7 @@ namespace Bravura.Tests
 {
     public class ModeTests
     {
-        [Theory]
-        [MemberData(nameof(ModeWorksData))]
-        public void Mode_Works_Test(string name, List<int> noteIndices, List<Interval> intervals)
-        {
-            var mode = new Mode(name, noteIndices, intervals);
-            Assert.IsType<Mode>(mode);
-            Assert.Equal(name, mode.Name);
-            for (var i = 0; i < noteIndices.Count; i++)
-            {
-                Assert.Equal(noteIndices[i], mode.NoteIndices[i]);
-                Assert.Equal(intervals[i], mode.Intervals[i]);
-            }
-        }
-
-        [Theory]
-        [MemberData(nameof(ModeThrowsData))]
-        public void Mode_Throws_Test(string name, List<int> noteIndices, List<Interval> intervals)
-        {
-            var exception = Record.Exception(() => new Mode(name, noteIndices, intervals));
-            Assert.NotNull(exception);
-            Assert.IsType<BravuraException>(exception);
-        }
+        #region -- Member Data --
 
         public static IEnumerable<object[]> ModeWorksData()
         {
@@ -217,6 +196,31 @@ namespace Bravura.Tests
                     Intervals.MajorSeventh,
                 },
             };
+        }
+
+        #endregion 
+
+        [Theory]
+        [MemberData(nameof(ModeWorksData))]
+        public void Mode_Works_Test(string name, List<int> noteIndices, List<Interval> intervals)
+        {
+            var mode = new Mode(name, noteIndices, intervals);
+            Assert.IsType<Mode>(mode);
+            Assert.Equal(name, mode.Name);
+            for (var i = 0; i < noteIndices.Count; i++)
+            {
+                Assert.Equal(noteIndices[i], mode.NoteIndices[i]);
+                Assert.Equal(intervals[i], mode.Intervals[i]);
+            }
+        }
+
+        [Theory]
+        [MemberData(nameof(ModeThrowsData))]
+        public void Mode_Throws_Test(string name, List<int> noteIndices, List<Interval> intervals)
+        {
+            var exception = Record.Exception(() => new Mode(name, noteIndices, intervals));
+            Assert.NotNull(exception);
+            Assert.IsType<BravuraException>(exception);
         }
     }
 }

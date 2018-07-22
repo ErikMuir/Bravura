@@ -5,24 +5,7 @@ namespace Bravura.Tests
 {
     public class KeyTests
     {
-        [Theory]
-        [MemberData(nameof(KeyWorksData))]
-        public void Key_Works_Test(Pitch root, KeyMode keyMode)
-        {
-            var key = new Key(root, keyMode);
-            Assert.IsType<Key>(key);
-            Assert.True(root == key.Root);
-            Assert.Equal(keyMode, key.Mode);
-        }
-
-        [Theory]
-        [MemberData(nameof(KeyThrowsData))]
-        public void Key_Throws_Test(Pitch root, KeyMode keyMode)
-        {
-            var exception = Record.Exception(() => new Key(root, keyMode));
-            Assert.NotNull(exception);
-            Assert.IsType<BravuraException>(exception);
-        }
+        #region -- Member Data --
 
         public static IEnumerable<object[]> KeyWorksData()
         {
@@ -100,6 +83,27 @@ namespace Bravura.Tests
             yield return new object[] { Pitches.EDoubleSharp, KeyMode.Minor };
             yield return new object[] { Pitches.FDoubleSharp, KeyMode.Minor };
             yield return new object[] { Pitches.GDoubleSharp, KeyMode.Minor };
+        }
+
+        #endregion 
+
+        [Theory]
+        [MemberData(nameof(KeyWorksData))]
+        public void Key_Works_Test(Pitch root, KeyMode keyMode)
+        {
+            var key = new Key(root, keyMode);
+            Assert.IsType<Key>(key);
+            Assert.True(root == key.Root);
+            Assert.Equal(keyMode, key.Mode);
+        }
+
+        [Theory]
+        [MemberData(nameof(KeyThrowsData))]
+        public void Key_Throws_Test(Pitch root, KeyMode keyMode)
+        {
+            var exception = Record.Exception(() => new Key(root, keyMode));
+            Assert.NotNull(exception);
+            Assert.IsType<BravuraException>(exception);
         }
     }
 }

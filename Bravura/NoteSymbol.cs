@@ -12,13 +12,9 @@
         }
 
         public override string ToString()
-        {
-            return $"{NoteName.Symbol}{Accidental.DefaultSymbol}";
-        }
+            => $"{NoteName.Symbol}{Accidental.DefaultSymbol}";
 
         public string ToAsciiString()
-        {
-            return $"{NoteName.Symbol}{Accidental.AsciiSymbol}";
-        }
+            => $"{NoteName.Symbol}{Accidental.AsciiSymbol}";
     }
 }

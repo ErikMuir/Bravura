@@ -1,12 +1,17 @@
-﻿using System.Collections.Generic;
-using Xunit;
+﻿using Xunit;
 
 namespace Bravura.Tests
 {
     public class NoteNameTests
     {
         [Theory]
-        [MemberData(nameof(NoteNameWorksData))]
+        [InlineData(0, 0, "C", true, false)]
+        [InlineData(1, 2, "D", false, false)]
+        [InlineData(2, 4, "E", false, true)]
+        [InlineData(3, 5, "F", true, false)]
+        [InlineData(4, 7, "G", false, false)]
+        [InlineData(5, 9, "A", false, false)]
+        [InlineData(6, 11, "B", false, true)]
         public void NoteName_Works_Test(int index, int value, string symbol, bool isLowerNeighborHalfstep, bool isHigherNeighborHalfstep)
         {
             var noteName = new NoteName(index, value, symbol, isLowerNeighborHalfstep, isHigherNeighborHalfstep);
@@ -19,7 +24,11 @@ namespace Bravura.Tests
         }
 
         [Theory]
-        [MemberData(nameof(NoteNameThrowsData))]
+        [InlineData(-1, 0, "C", true, false)]
+        [InlineData(7, 0, "C", true, false)]
+        [InlineData(0, -1, "C", true, false)]
+        [InlineData(0, 12, "C", true, false)]
+        [InlineData(0, 0, null, true, false)]
         public void NoteName_Throws_Test(int index, int value, string symbol, bool isLowerNeighborHalfstep, bool isHigherNeighborHalfstep)
         {
             var exception = Record.Exception(() => new NoteName(index, value, symbol, isLowerNeighborHalfstep, isHigherNeighborHalfstep));
@@ -27,24 +36,13 @@ namespace Bravura.Tests
             Assert.IsType<BravuraException>(exception);
         }
 
-        public static IEnumerable<object[]> NoteNameWorksData()
+        [Fact]
+        public void NoteName_Equality_Test()
         {
-            yield return new object[] { 0, 0, "C", true, false };
-            yield return new object[] { 1, 2, "D", false, false };
-            yield return new object[] { 2, 4, "E", false, true };
-            yield return new object[] { 3, 5, "F", true, false };
-            yield return new object[] { 4, 7, "G", false, false };
-            yield return new object[] { 5, 9, "A", false, false };
-            yield return new object[] { 6, 11, "B", false, true };
-        }
-
-        public static IEnumerable<object[]> NoteNameThrowsData()
-        {
-            yield return new object[] { -1, 0, "C", true, false };
-            yield return new object[] { 7, 0, "C", true, false };
-            yield return new object[] { 0, -1, "C", true, false };
-            yield return new object[] { 0, 12, "C", true, false };
-            yield return new object[] { 0, 0, null, true, false };
+            var fakeNoteName = new NoteName(1, 0, "Cee", false, false);
+            Assert.True(fakeNoteName == NoteNames.C);
+            Assert.True(fakeNoteName.Equals(NoteNames.C));
+            Assert.Equal(fakeNoteName.GetHashCode(), NoteNames.C.GetHashCode());
         }
     }
 }
