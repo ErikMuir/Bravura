@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Bravura.Exceptions;
+using Bravura.Theory;
 using Xunit;
 
 namespace Bravura.Tests

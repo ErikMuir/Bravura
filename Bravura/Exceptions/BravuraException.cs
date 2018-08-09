@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bravura
+namespace Bravura.Exceptions
 {
     public class BravuraException : Exception
     {

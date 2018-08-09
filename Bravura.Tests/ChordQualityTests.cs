@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Bravura.Exceptions;
+using Bravura.Theory;
 using Xunit;
 
 namespace Bravura.Tests
@@ -46,7 +48,7 @@ namespace Bravura.Tests
         {
             const string symbol = "";
             var intervals = TwoIntervalsGood;
-            var chordQuality = new ChordQuality(symbol, intervals);
+            var chordQuality = new ChordQuality(symbol, symbol, intervals);
             Assert.IsType<ChordQuality>(chordQuality);
             Assert.Equal(symbol, chordQuality.Symbol);
             Assert.Equal(intervals.Count, chordQuality.Intervals.Count);
@@ -60,7 +62,7 @@ namespace Bravura.Tests
         [MemberData(nameof(ChordQualityThrowsData))]
         public void ChordQuality_Throws_Test(string symbol, List<Interval> intervals)
         {
-            var exception = Record.Exception(() => new ChordQuality(symbol, intervals));
+            var exception = Record.Exception(() => new ChordQuality(symbol, symbol, intervals));
             Assert.NotNull(exception);
             Assert.IsType<BravuraException>(exception);
         }
@@ -68,7 +70,7 @@ namespace Bravura.Tests
         [Fact]
         public void ChordQuality_Equality_Test()
         {
-            var fakeMajor = new ChordQuality("M", new List<Interval>
+            var fakeMajor = new ChordQuality("M", "M", new List<Interval>
             {
                 Intervals.PerfectUnison,
                 Intervals.MajorThird,

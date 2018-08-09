@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Bravura.Exceptions;
 
-namespace Bravura
+namespace Bravura.Theory
 {
     public struct Mode
     {

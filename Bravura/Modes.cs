@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
+using Bravura.Constants;
+using Bravura.Theory;
 
 namespace Bravura
 {
-    public struct Modes
+    public static class Modes
     {
         public static readonly Mode Major = new Mode(
-            "Major",
+            ModeNames.Major,
             new List<int> { 0, 1, 2, 3, 4, 5, 6 },
             new List<Interval>
             {
@@ -19,7 +21,7 @@ namespace Bravura
             });
 
         public static readonly Mode NaturalMinor = new Mode(
-            "Natural Minor",
+            ModeNames.NaturalMinor,
             new List<int> { 0, 1, 2, 3, 4, 5, 6 },
             new List<Interval>
             {
@@ -33,7 +35,7 @@ namespace Bravura
             });
 
         public static readonly Mode HarmonicMinor = new Mode(
-            "Harmonic Minor",
+            ModeNames.HarmonicMinor,
             new List<int> { 0, 1, 2, 3, 4, 5, 6 },
             new List<Interval>
             {
@@ -47,7 +49,7 @@ namespace Bravura
             });
 
         public static readonly Mode MelodicMinor = new Mode(
-            "Melodic Minor",
+            ModeNames.MelodicMinor,
             new List<int> { 0, 1, 2, 3, 4, 5, 6 },
             new List<Interval>
             {
@@ -61,7 +63,7 @@ namespace Bravura
             });
 
         public static readonly Mode MajorPentatonic = new Mode(
-            "Major Pentatonic",
+            ModeNames.MajorPentatonic,
             new List<int> { 0, 1, 2, 4, 5 },
             new List<Interval>
             {
@@ -73,7 +75,7 @@ namespace Bravura
             });
 
         public static readonly Mode MinorPentatonic = new Mode(
-            "Minor Pentatonic",
+            ModeNames.MinorPentatonic,
             new List<int> { 0, 2, 3, 4, 6 },
             new List<Interval>
             {
@@ -85,7 +87,7 @@ namespace Bravura
             });
 
         public static readonly Mode Ionian = new Mode(
-            "Ionian",
+            ModeNames.Ionian,
             new List<int> { 0, 1, 2, 3, 4, 5, 6 },
             new List<Interval>
             {
@@ -99,7 +101,7 @@ namespace Bravura
             });
 
         public static readonly Mode Dorian = new Mode(
-            "Dorian",
+            ModeNames.Dorian,
             new List<int> { 0, 1, 2, 3, 4, 5, 6 },
             new List<Interval>
             {
@@ -113,7 +115,7 @@ namespace Bravura
             });
 
         public static readonly Mode Phrygian = new Mode(
-            "Phrygian",
+            ModeNames.Phrygian,
             new List<int> { 0, 1, 2, 3, 4, 5, 6 },
             new List<Interval>
             {
@@ -127,7 +129,7 @@ namespace Bravura
             });
 
         public static readonly Mode Lydian = new Mode(
-            "Lydian",
+            ModeNames.Lydian,
             new List<int> { 0, 1, 2, 3, 4, 5, 6 },
             new List<Interval>
             {
@@ -141,7 +143,7 @@ namespace Bravura
             });
 
         public static readonly Mode Mixolydian = new Mode(
-            "Mixolydian",
+            ModeNames.Mixolydian,
             new List<int> { 0, 1, 2, 3, 4, 5, 6 },
             new List<Interval>
             {
@@ -155,7 +157,7 @@ namespace Bravura
             });
 
         public static readonly Mode Aeolian = new Mode(
-            "Aeolian",
+            ModeNames.Aeolian,
             new List<int> { 0, 1, 2, 3, 4, 5, 6 },
             new List<Interval>
             {
@@ -169,7 +171,7 @@ namespace Bravura
             });
 
         public static readonly Mode Locrian = new Mode(
-            "Locrian",
+            ModeNames.Locrian,
             new List<int> { 0, 1, 2, 3, 4, 5, 6 },
             new List<Interval>
             {
@@ -182,21 +184,22 @@ namespace Bravura
                 Intervals.MinorSeventh,
             });
 
-        public static List<Mode> AllModes = new List<Mode>
-        {
-            Major,
-            NaturalMinor,
-            HarmonicMinor,
-            MelodicMinor,
-            MajorPentatonic,
-            MinorPentatonic,
-            Ionian,
-            Dorian,
-            Phrygian,
-            Lydian,
-            Mixolydian,
-            Aeolian,
-            Locrian,
-        };
+        public static List<Mode> AllModes = 
+            new List<Mode>
+            {
+                Major,
+                NaturalMinor,
+                HarmonicMinor,
+                MelodicMinor,
+                MajorPentatonic,
+                MinorPentatonic,
+                Ionian,
+                Dorian,
+                Phrygian,
+                Lydian,
+                Mixolydian,
+                Aeolian,
+                Locrian,
+            };
     }
 }

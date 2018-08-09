@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bravura
+namespace Bravura.Theory
 {
     public struct Interval
     {
@@ -10,26 +10,31 @@ namespace Bravura
         public string Name { get; }
         public string Symbol { get; }
 
-        public Interval(
+        internal Interval(
             int semitones,
             Accidental accidental,
             int noteIndex,
             string name,
             string symbol)
         {
-            if (semitones < 0 || semitones > 12)
-                throw new BravuraException("An Interval's Semitones must be between 0 and 12.");
             Semitones = semitones;
             Accidental = accidental;
-            if (noteIndex < 1 || noteIndex > 8)
-                throw new BravuraException("An Interval's NoteIndex must be between 1 and 8.");
             NoteIndex = noteIndex;
-            Name = name ?? throw new BravuraException("An Interval's Name cannot be null.");
-            Symbol = symbol ?? throw new BravuraException("An Interval's Symbol cannot be null.");
+            Name = name;
+            Symbol = symbol;
         }
+
+        #region -- String Methods --
 
         public override string ToString()
             => $"{Accidental.DefaultSymbol}{NoteIndex}";
+
+        public string ToAsciiString()
+            => $"{Accidental.AsciiSymbol}{NoteIndex}";
+
+        #endregion
+
+        #region -- Equality Methods --
 
         public static bool operator ==(Interval a, Interval b)
             => a.Semitones == b.Semitones;
@@ -46,5 +51,7 @@ namespace Bravura
 
         public override int GetHashCode()
             => HashCode.Combine(Semitones);
+
+        #endregion
     }
 }

@@ -1,22 +1,27 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Bravura.Exceptions;
 
-namespace Bravura
+namespace Bravura.Theory
 {
     public struct ChordQuality
     {
         public string Symbol { get; }
+        public string AsciiSymbol { get; }
         public List<Interval> Intervals { get; }
 
-        public ChordQuality(string symbol, List<Interval> intervals)
+        public ChordQuality(string symbol, string asciiSymbol, List<Interval> intervals)
         {
             Symbol = symbol ?? throw new BravuraException("A Chord Quality's Symbol cannot be null.");
+            AsciiSymbol = asciiSymbol ?? throw new BravuraException("A Chord Quality's Ascii Symbol cannot be null.");
             Intervals = intervals ?? throw new BravuraException("A Chord Quality's Intervals cannot be null");
             if (intervals.Count < 2)
                 throw new BravuraException("A Chord Quality must have at least 2 Intervals");
             if (intervals[0] != Bravura.Intervals.PerfectUnison)
                 throw new BravuraException("A Chord Quality's first Interval must be Perfect Unison.");
         }
+
+        #region -- Equality Methods --
 
         public static bool operator ==(ChordQuality a, ChordQuality b)
         {
@@ -37,5 +42,7 @@ namespace Bravura
 
         public override int GetHashCode()
             => Intervals.Sum(i => i.Semitones);
+
+        #endregion
     }
 }

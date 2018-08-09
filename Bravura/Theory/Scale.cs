@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Bravura.Extensions;
 
-namespace Bravura
+namespace Bravura.Theory
 {
     public struct Scale
     {
@@ -22,22 +23,21 @@ namespace Bravura
             for (var i = 0; i < Mode.Intervals.Count; i++)
             {
                 var note = GetNote(i);
-                var accidental = GetAccidental(i, note.Value);
+                var accidental = GetAccidental(i, note.SemitonesAboveC);
                 Pitches.Add(new Pitch(note, accidental));
             }
         }
 
-        private NoteName GetNote(int index)
+        private Note GetNote(int index)
         {
-            var noteIndex = Mode.NoteIndices[index] + Root.NoteName.Index;
-            if (noteIndex > 6) noteIndex -= 7;
-            return NoteNames.AllNotes.Single(a => a.Index == noteIndex);
+            var noteIndex = (Mode.NoteIndices[index] + Root.Note.Index()).RollingRange(6);
+            return Utilities.GetNoteByIndex(noteIndex);
         }
 
         private Accidental GetAccidental(int index, int noteValue)
         {
-            var pitchValue = Mode.Intervals[index].Semitones + Root.Value;
-            if (pitchValue > 11) pitchValue -= 12;
+            // TODO : figure out how this works and document it
+            var pitchValue = (Mode.Intervals[index].Semitones + Root.SemitonesAboveC).RollingRange(11);
             var accidentalValue = (pitchValue - noteValue);
             switch (accidentalValue)
             {
@@ -54,7 +54,7 @@ namespace Bravura
                     accidentalValue = -2;
                     break;
             }
-            return Accidentals.AllAccidentals.Single(a => a.Value == accidentalValue);
+            return Accidentals.AllAccidentals.Single(a => a.SemitonesAwayFromNatural == accidentalValue);
         }
     }
 }
