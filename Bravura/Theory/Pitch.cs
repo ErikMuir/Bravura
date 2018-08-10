@@ -47,7 +47,7 @@ namespace Bravura.Theory
                             ? Accidentals.Sharp
                             : Accidentals.Natural);
                 default:
-                    throw new BravuraException("An Accidental's SemitonesAwayFromNatural must be between -2 and 2.");
+                    throw new BravuraException("Invalid accidental");
             }
         }
 
@@ -74,7 +74,7 @@ namespace Bravura.Theory
                 case 2:
                     return new Pitch(Note, Accidental);
                 default:
-                    throw new BravuraException("An Accidental's SemitonesAwayFromNatural must be between -2 and 2.");
+                    throw new BravuraException("Invalid accidental");
             }
         }
 
@@ -101,20 +101,32 @@ namespace Bravura.Theory
                             ? Accidentals.Sharp
                             : Accidentals.Natural);
                 default:
-                    throw new BravuraException("An Accidental's SemitonesAwayFromNatural must be between -2 and 2.");
+                    throw new BravuraException("Invalid accidental");
             }
         }
 
-        public Pitch GetPitchByInterval(Interval interval)
+        public Pitch GetPitchByIntervalAbove(Interval interval)
         {
-            // TODO : figure out how this works and document it
-            var noteIndex = (Note.Index() + interval.NoteIndex - 1).RollingRange(6);
+            var noteIndex = (Note.Index() + (interval.NoteIndex - 1)).RollingRange(6);
             var note = Notes.AllNotes[noteIndex];
 
-            var value = SemitonesAboveC + interval.Semitones - note.SemitonesAboveC;
-            if (value < -2) value += 12;
-            else if (value > 2) value -= 12;
-            var accidental = Accidentals.AllAccidentals.Single(a => a.SemitonesAwayFromNatural == value);
+            var semitones = SemitonesAboveC + interval.Semitones - note.SemitonesAboveC;
+            if (semitones < -2) semitones += 12;
+            else if (semitones > 2) semitones -= 12;
+            var accidental = Accidentals.AllAccidentals.Single(a => a.SemitonesAwayFromNatural == semitones);
+
+            return new Pitch(note, accidental);
+        }
+
+        public Pitch GetPitchByIntervalBelow(Interval interval)
+        {
+            var noteIndex = (Note.Index() - (interval.NoteIndex - 1)).RollingRange(6);
+            var note = Notes.AllNotes[noteIndex];
+
+            var semitones = SemitonesAboveC - interval.Semitones - note.SemitonesAboveC;
+            if (semitones < -2) semitones += 12;
+            else if (semitones > 2) semitones -= 12;
+            var accidental = Accidentals.AllAccidentals.Single(a => a.SemitonesAwayFromNatural == semitones);
 
             return new Pitch(note, accidental);
         }

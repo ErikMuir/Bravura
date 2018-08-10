@@ -36,7 +36,6 @@ namespace Bravura.Theory
 
         private Accidental GetAccidental(int index, int noteValue)
         {
-            // TODO : figure out how this works and document it
             var pitchValue = (Mode.Intervals[index].Semitones + Root.SemitonesAboveC).RollingRange(11);
             var accidentalValue = (pitchValue - noteValue);
             switch (accidentalValue)

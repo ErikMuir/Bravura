@@ -16,18 +16,18 @@ namespace Bravura.Theory
 
         public List<Pitch> Notes
             => ChordQuality.Intervals
-                .Select(Root.GetPitchByInterval)
+                .Select(Root.GetPitchByIntervalAbove)
                 .ToList();
 
         public List<string> NoteSymbols
             => ChordQuality.Intervals
-                .Select(Root.GetPitchByInterval)
+                .Select(Root.GetPitchByIntervalAbove)
                 .Select(p => p.ToString())
                 .ToList();
 
         public List<string> AsciiNoteSymbols
             => ChordQuality.Intervals
-                .Select(Root.GetPitchByInterval)
+                .Select(Root.GetPitchByIntervalAbove)
                 .Select(p => p.ToAsciiString())
                 .ToList();
 
