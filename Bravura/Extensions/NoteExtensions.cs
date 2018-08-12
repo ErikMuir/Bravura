@@ -8,7 +8,7 @@
         /// <param name="note"></param>
         /// <returns></returns>
         public static int Index(this Note note)
-            => Notes.MusicalAlphabet.IndexOf(note.Letter);
+            => Theory.MusicalAlphabet.IndexOf(note.Letter);
 
         /// <summary>
         /// Returns the index of the previous note in the musical alphabet.

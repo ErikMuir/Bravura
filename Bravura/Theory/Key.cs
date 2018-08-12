@@ -14,19 +14,19 @@ namespace Bravura
             Mode = keyMode;
 
             ActualMode = Mode == KeyMode.Major
-                ? Modes.Major
-                : Modes.NaturalMinor;
+                ? Theory.Major
+                : Theory.NaturalMinor;
             Scale = new Scale(Root, ActualMode);
 
             var accidentals = new List<Pitch>();
-            foreach (var accidental in Pitches.SignatureAccidentals)
+            foreach (var accidental in Theory.SignatureAccidentals)
             {
                 if (Scale.Pitches.Contains(accidental))
                     accidentals.Add(accidental);
             }
 
             SignatureAccidentals = accidentals;
-            RelativeRoot = Keys.AllKeys
+            RelativeRoot = Theory.AllKeys
                 .Where(k => k.Mode != keyMode)
                 .Where(k => k.SignatureAccidentals.Count == accidentals.Count)
                 .Where(k => k.SignatureAccidentals.Count == 0 ||

@@ -3,47 +3,47 @@ using System.Collections.ObjectModel;
 
 namespace Bravura
 {
-    public static class Pitches
+    public static partial class Theory
     {
-        public static readonly Pitch CDoubleFlat = new Pitch(Notes.C, Accidentals.DoubleFlat);
-        public static readonly Pitch DDoubleFlat = new Pitch(Notes.D, Accidentals.DoubleFlat);
-        public static readonly Pitch EDoubleFlat = new Pitch(Notes.E, Accidentals.DoubleFlat);
-        public static readonly Pitch FDoubleFlat = new Pitch(Notes.F, Accidentals.DoubleFlat);
-        public static readonly Pitch GDoubleFlat = new Pitch(Notes.G, Accidentals.DoubleFlat);
-        public static readonly Pitch ADoubleFlat = new Pitch(Notes.A, Accidentals.DoubleFlat);
-        public static readonly Pitch BDoubleFlat = new Pitch(Notes.B, Accidentals.DoubleFlat);
+        public static readonly Pitch CDoubleFlat = new Pitch(C, DoubleFlat);
+        public static readonly Pitch DDoubleFlat = new Pitch(D, DoubleFlat);
+        public static readonly Pitch EDoubleFlat = new Pitch(E, DoubleFlat);
+        public static readonly Pitch FDoubleFlat = new Pitch(F, DoubleFlat);
+        public static readonly Pitch GDoubleFlat = new Pitch(G, DoubleFlat);
+        public static readonly Pitch ADoubleFlat = new Pitch(A, DoubleFlat);
+        public static readonly Pitch BDoubleFlat = new Pitch(B, DoubleFlat);
 
-        public static readonly Pitch CFlat = new Pitch(Notes.C, Accidentals.Flat);
-        public static readonly Pitch DFlat = new Pitch(Notes.D, Accidentals.Flat);
-        public static readonly Pitch EFlat = new Pitch(Notes.E, Accidentals.Flat);
-        public static readonly Pitch FFlat = new Pitch(Notes.F, Accidentals.Flat);
-        public static readonly Pitch GFlat = new Pitch(Notes.G, Accidentals.Flat);
-        public static readonly Pitch AFlat = new Pitch(Notes.A, Accidentals.Flat);
-        public static readonly Pitch BFlat = new Pitch(Notes.B, Accidentals.Flat);
+        public static readonly Pitch CFlat = new Pitch(C, Flat);
+        public static readonly Pitch DFlat = new Pitch(D, Flat);
+        public static readonly Pitch EFlat = new Pitch(E, Flat);
+        public static readonly Pitch FFlat = new Pitch(F, Flat);
+        public static readonly Pitch GFlat = new Pitch(G, Flat);
+        public static readonly Pitch AFlat = new Pitch(A, Flat);
+        public static readonly Pitch BFlat = new Pitch(B, Flat);
 
-        public static readonly Pitch CNatural = new Pitch(Notes.C, Accidentals.Natural);
-        public static readonly Pitch DNatural = new Pitch(Notes.D, Accidentals.Natural);
-        public static readonly Pitch ENatural = new Pitch(Notes.E, Accidentals.Natural);
-        public static readonly Pitch FNatural = new Pitch(Notes.F, Accidentals.Natural);
-        public static readonly Pitch GNatural = new Pitch(Notes.G, Accidentals.Natural);
-        public static readonly Pitch ANatural = new Pitch(Notes.A, Accidentals.Natural);
-        public static readonly Pitch BNatural = new Pitch(Notes.B, Accidentals.Natural);
+        public static readonly Pitch CNatural = new Pitch(C, Natural);
+        public static readonly Pitch DNatural = new Pitch(D, Natural);
+        public static readonly Pitch ENatural = new Pitch(E, Natural);
+        public static readonly Pitch FNatural = new Pitch(F, Natural);
+        public static readonly Pitch GNatural = new Pitch(G, Natural);
+        public static readonly Pitch ANatural = new Pitch(A, Natural);
+        public static readonly Pitch BNatural = new Pitch(B, Natural);
 
-        public static readonly Pitch CSharp = new Pitch(Notes.C, Accidentals.Sharp);
-        public static readonly Pitch DSharp = new Pitch(Notes.D, Accidentals.Sharp);
-        public static readonly Pitch ESharp = new Pitch(Notes.E, Accidentals.Sharp);
-        public static readonly Pitch FSharp = new Pitch(Notes.F, Accidentals.Sharp);
-        public static readonly Pitch GSharp = new Pitch(Notes.G, Accidentals.Sharp);
-        public static readonly Pitch ASharp = new Pitch(Notes.A, Accidentals.Sharp);
-        public static readonly Pitch BSharp = new Pitch(Notes.B, Accidentals.Sharp);
+        public static readonly Pitch CSharp = new Pitch(C, Sharp);
+        public static readonly Pitch DSharp = new Pitch(D, Sharp);
+        public static readonly Pitch ESharp = new Pitch(E, Sharp);
+        public static readonly Pitch FSharp = new Pitch(F, Sharp);
+        public static readonly Pitch GSharp = new Pitch(G, Sharp);
+        public static readonly Pitch ASharp = new Pitch(A, Sharp);
+        public static readonly Pitch BSharp = new Pitch(B, Sharp);
 
-        public static readonly Pitch CDoubleSharp = new Pitch(Notes.C, Accidentals.DoubleSharp);
-        public static readonly Pitch DDoubleSharp = new Pitch(Notes.D, Accidentals.DoubleSharp);
-        public static readonly Pitch EDoubleSharp = new Pitch(Notes.E, Accidentals.DoubleSharp);
-        public static readonly Pitch FDoubleSharp = new Pitch(Notes.F, Accidentals.DoubleSharp);
-        public static readonly Pitch GDoubleSharp = new Pitch(Notes.G, Accidentals.DoubleSharp);
-        public static readonly Pitch ADoubleSharp = new Pitch(Notes.A, Accidentals.DoubleSharp);
-        public static readonly Pitch BDoubleSharp = new Pitch(Notes.B, Accidentals.DoubleSharp);
+        public static readonly Pitch CDoubleSharp = new Pitch(C, DoubleSharp);
+        public static readonly Pitch DDoubleSharp = new Pitch(D, DoubleSharp);
+        public static readonly Pitch EDoubleSharp = new Pitch(E, DoubleSharp);
+        public static readonly Pitch FDoubleSharp = new Pitch(F, DoubleSharp);
+        public static readonly Pitch GDoubleSharp = new Pitch(G, DoubleSharp);
+        public static readonly Pitch ADoubleSharp = new Pitch(A, DoubleSharp);
+        public static readonly Pitch BDoubleSharp = new Pitch(B, DoubleSharp);
 
         public static readonly ReadOnlyCollection<Pitch> DoubleFlats =
             new List<Pitch>

@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using Bravura.Constants;
+﻿using Bravura.Constants;
 
 namespace Bravura
 {
-    public static class Notes
+    public static partial class Theory
     {
         public static readonly Note C = new Note(NoteLetters.C, (int)NoteValue.C);
         public static readonly Note D = new Note(NoteLetters.D, (int)NoteValue.D);
@@ -13,9 +11,6 @@ namespace Bravura
         public static readonly Note G = new Note(NoteLetters.G, (int)NoteValue.G);
         public static readonly Note A = new Note(NoteLetters.A, (int)NoteValue.A);
         public static readonly Note B = new Note(NoteLetters.B, (int)NoteValue.B);
-
-        public static readonly ReadOnlyCollection<Note> AllNotes =
-            new List<Note> { C, D, E, F, G, A, B, }.AsReadOnly();
 
         public static readonly ReadOnlyOrderedDictionary<char, int> MusicalAlphabet =
             new ReadOnlyOrderedDictionary<char, int>
@@ -30,7 +25,7 @@ namespace Bravura
             };
     }
 
-    public enum NoteValue
+    public enum NoteValue : int
     {
         C = 0,
         D = 2,

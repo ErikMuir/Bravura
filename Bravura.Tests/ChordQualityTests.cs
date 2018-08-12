@@ -12,19 +12,19 @@ namespace Bravura.Tests
 
         private static readonly List<Interval> OneInterval = new List<Interval>
         {
-            Intervals.PerfectUnison,
+            Theory.PerfectUnison,
         };
 
         private static readonly List<Interval> TwoIntervalsGood = new List<Interval>
         {
-            Intervals.PerfectUnison,
-            Intervals.PerfectFifth,
+            Theory.PerfectUnison,
+            Theory.PerfectFifth,
         };
 
         private static readonly List<Interval> TwoIntervalsBad = new List<Interval>
         {
-            Intervals.MajorThird,
-            Intervals.PerfectFifth,
+            Theory.MajorThird,
+            Theory.PerfectFifth,
         };
 
         #endregion 
@@ -71,13 +71,13 @@ namespace Bravura.Tests
         {
             var fakeMajor = new ChordQuality("M", "M", new List<Interval>
             {
-                Intervals.PerfectUnison,
-                Intervals.MajorThird,
-                Intervals.PerfectFifth,
+                Theory.PerfectUnison,
+                Theory.MajorThird,
+                Theory.PerfectFifth,
             });
-            Assert.True(fakeMajor == ChordQualities.Maj);
-            Assert.True(fakeMajor.Equals(ChordQualities.Maj));
-            Assert.Equal(fakeMajor.GetHashCode(), ChordQualities.Maj.GetHashCode());
+            Assert.True(fakeMajor == Theory.Maj);
+            Assert.True(fakeMajor.Equals(Theory.Maj));
+            Assert.Equal(fakeMajor.GetHashCode(), Theory.Maj.GetHashCode());
         }
 
         [Fact]
@@ -85,13 +85,13 @@ namespace Bravura.Tests
         {
             var fakeMinor = new ChordQuality("M", "M", new List<Interval>
             {
-                Intervals.PerfectUnison,
-                Intervals.MinorThird,
-                Intervals.PerfectFifth,
+                Theory.PerfectUnison,
+                Theory.MinorThird,
+                Theory.PerfectFifth,
             });
-            Assert.False(fakeMinor == ChordQualities.Maj);
-            Assert.False(fakeMinor.Equals(ChordQualities.Maj));
-            Assert.NotEqual(fakeMinor.GetHashCode(), ChordQualities.Maj.GetHashCode());
+            Assert.False(fakeMinor == Theory.Maj);
+            Assert.False(fakeMinor.Equals(Theory.Maj));
+            Assert.NotEqual(fakeMinor.GetHashCode(), Theory.Maj.GetHashCode());
         }
     }
 }

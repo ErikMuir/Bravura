@@ -4,7 +4,7 @@ using Bravura.Constants;
 
 namespace Bravura
 {
-    public static class Accidentals
+    public static partial class Theory
     {
         public static readonly Accidental DoubleFlat = new Accidental(
             -2,

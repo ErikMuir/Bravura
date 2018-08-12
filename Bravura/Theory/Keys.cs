@@ -3,39 +3,39 @@ using System.Collections.ObjectModel;
 
 namespace Bravura
 {
-    public static class Keys
+    public static partial class Theory
     {
-        public static Key CMajor = new Key(Pitches.CNatural, KeyMode.Major);
-        public static Key CSharpMajor = new Key(Pitches.CSharp, KeyMode.Major);
-        public static Key DFlatMajor = new Key(Pitches.DFlat, KeyMode.Major);
-        public static Key DMajor = new Key(Pitches.DNatural, KeyMode.Major);
-        public static Key EFlatMajor = new Key(Pitches.EFlat, KeyMode.Major);
-        public static Key EMajor = new Key(Pitches.ENatural, KeyMode.Major);
-        public static Key FMajor = new Key(Pitches.FNatural, KeyMode.Major);
-        public static Key FSharpMajor = new Key(Pitches.FSharp, KeyMode.Major);
-        public static Key GFlatMajor = new Key(Pitches.GFlat, KeyMode.Major);
-        public static Key GMajor = new Key(Pitches.GNatural, KeyMode.Major);
-        public static Key AFlatMajor = new Key(Pitches.AFlat, KeyMode.Major);
-        public static Key AMajor = new Key(Pitches.ANatural, KeyMode.Major);
-        public static Key BFlatMajor = new Key(Pitches.BFlat, KeyMode.Major);
-        public static Key BMajor = new Key(Pitches.BNatural, KeyMode.Major);
-        public static Key CFlatMajor = new Key(Pitches.CFlat, KeyMode.Major);
+        public static Key CMajor = new Key(CNatural, KeyMode.Major);
+        public static Key CSharpMajor = new Key(CSharp, KeyMode.Major);
+        public static Key DFlatMajor = new Key(DFlat, KeyMode.Major);
+        public static Key DMajor = new Key(DNatural, KeyMode.Major);
+        public static Key EFlatMajor = new Key(EFlat, KeyMode.Major);
+        public static Key EMajor = new Key(ENatural, KeyMode.Major);
+        public static Key FMajor = new Key(FNatural, KeyMode.Major);
+        public static Key FSharpMajor = new Key(FSharp, KeyMode.Major);
+        public static Key GFlatMajor = new Key(GFlat, KeyMode.Major);
+        public static Key GMajor = new Key(GNatural, KeyMode.Major);
+        public static Key AFlatMajor = new Key(AFlat, KeyMode.Major);
+        public static Key AMajor = new Key(ANatural, KeyMode.Major);
+        public static Key BFlatMajor = new Key(BFlat, KeyMode.Major);
+        public static Key BMajor = new Key(BNatural, KeyMode.Major);
+        public static Key CFlatMajor = new Key(CFlat, KeyMode.Major);
 
-        public static Key CMinor = new Key(Pitches.CNatural, KeyMode.Minor);
-        public static Key CSharpMinor = new Key(Pitches.CSharp, KeyMode.Minor);
-        public static Key DMinor = new Key(Pitches.DNatural, KeyMode.Minor);
-        public static Key DSharpMinor = new Key(Pitches.DSharp, KeyMode.Minor);
-        public static Key EFlatMinor = new Key(Pitches.EFlat, KeyMode.Minor);
-        public static Key EMinor = new Key(Pitches.ENatural, KeyMode.Minor);
-        public static Key FMinor = new Key(Pitches.FNatural, KeyMode.Minor);
-        public static Key FSharpMinor = new Key(Pitches.FSharp, KeyMode.Minor);
-        public static Key GMinor = new Key(Pitches.GNatural, KeyMode.Minor);
-        public static Key GSharpMinor = new Key(Pitches.GSharp, KeyMode.Minor);
-        public static Key AFlatMinor = new Key(Pitches.AFlat, KeyMode.Minor);
-        public static Key AMinor = new Key(Pitches.ANatural, KeyMode.Minor);
-        public static Key ASharpMinor = new Key(Pitches.ASharp, KeyMode.Minor);
-        public static Key BFlatMinor = new Key(Pitches.BFlat, KeyMode.Minor);
-        public static Key BMinor = new Key(Pitches.BNatural, KeyMode.Minor);
+        public static Key CMinor = new Key(CNatural, KeyMode.Minor);
+        public static Key CSharpMinor = new Key(CSharp, KeyMode.Minor);
+        public static Key DMinor = new Key(DNatural, KeyMode.Minor);
+        public static Key DSharpMinor = new Key(DSharp, KeyMode.Minor);
+        public static Key EFlatMinor = new Key(EFlat, KeyMode.Minor);
+        public static Key EMinor = new Key(ENatural, KeyMode.Minor);
+        public static Key FMinor = new Key(FNatural, KeyMode.Minor);
+        public static Key FSharpMinor = new Key(FSharp, KeyMode.Minor);
+        public static Key GMinor = new Key(GNatural, KeyMode.Minor);
+        public static Key GSharpMinor = new Key(GSharp, KeyMode.Minor);
+        public static Key AFlatMinor = new Key(AFlat, KeyMode.Minor);
+        public static Key AMinor = new Key(ANatural, KeyMode.Minor);
+        public static Key ASharpMinor = new Key(ASharp, KeyMode.Minor);
+        public static Key BFlatMinor = new Key(BFlat, KeyMode.Minor);
+        public static Key BMinor = new Key(BNatural, KeyMode.Minor);
 
         public static ReadOnlyCollection<Key> MajorKeys =
             new List<Key>

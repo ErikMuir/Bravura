@@ -15,13 +15,13 @@ namespace Bravura.Tests
                 new List<int> { 0, 1, 2, 3, 4, 5, 6 },
                 new List<Interval>
                 {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
+                    Theory.PerfectUnison,
+                    Theory.MajorSecond,
+                    Theory.MajorThird,
+                    Theory.PerfectFourth,
+                    Theory.PerfectFifth,
+                    Theory.MajorSixth,
+                    Theory.MajorSeventh,
                 },
             };
             yield return new object[]
@@ -30,13 +30,13 @@ namespace Bravura.Tests
                 new List<int> { 0, 1, 2, 3, 4, 5, 6 },
                 new List<Interval>
                 {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSixth,
-                    Intervals.MinorSeventh,
+                    Theory.PerfectUnison,
+                    Theory.MajorSecond,
+                    Theory.MinorThird,
+                    Theory.PerfectFourth,
+                    Theory.PerfectFifth,
+                    Theory.MinorSixth,
+                    Theory.MinorSeventh,
                 },
             };
         }
@@ -49,13 +49,13 @@ namespace Bravura.Tests
                 new List<int> { 0, 1, 2, 3, 4, 5, 6 },
                 new List<Interval>
                 {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
+                    Theory.PerfectUnison,
+                    Theory.MajorSecond,
+                    Theory.MajorThird,
+                    Theory.PerfectFourth,
+                    Theory.PerfectFifth,
+                    Theory.MajorSixth,
+                    Theory.MajorSeventh,
                 },
             };
             // noteIndices == null
@@ -65,13 +65,13 @@ namespace Bravura.Tests
                 null,
                 new List<Interval>
                 {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
+                    Theory.PerfectUnison,
+                    Theory.MajorSecond,
+                    Theory.MajorThird,
+                    Theory.PerfectFourth,
+                    Theory.PerfectFifth,
+                    Theory.MajorSixth,
+                    Theory.MajorSeventh,
                 },
             };
             // noteIndices.Count < 5
@@ -81,13 +81,13 @@ namespace Bravura.Tests
                 new List<int> { 0, 1, 2, 3 },
                 new List<Interval>
                 {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
+                    Theory.PerfectUnison,
+                    Theory.MajorSecond,
+                    Theory.MajorThird,
+                    Theory.PerfectFourth,
+                    Theory.PerfectFifth,
+                    Theory.MajorSixth,
+                    Theory.MajorSeventh,
                 },
             };
             // noteIndices.Count > 12
@@ -97,13 +97,13 @@ namespace Bravura.Tests
                 new List<int> { 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6 },
                 new List<Interval>
                 {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
+                    Theory.PerfectUnison,
+                    Theory.MajorSecond,
+                    Theory.MajorThird,
+                    Theory.PerfectFourth,
+                    Theory.PerfectFifth,
+                    Theory.MajorSixth,
+                    Theory.MajorSeventh,
                 },
             };
             //  noteIndices < 0
@@ -113,13 +113,13 @@ namespace Bravura.Tests
                 new List<int> { 0, 1, 2, 3, 4, 5, -1 },
                 new List<Interval>
                 {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
+                    Theory.PerfectUnison,
+                    Theory.MajorSecond,
+                    Theory.MajorThird,
+                    Theory.PerfectFourth,
+                    Theory.PerfectFifth,
+                    Theory.MajorSixth,
+                    Theory.MajorSeventh,
                 },
             };
             // noteIndices > 6
@@ -129,13 +129,13 @@ namespace Bravura.Tests
                 new List<int> { 0, 1, 2, 3, 4, 5, 7 },
                 new List<Interval>
                 {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
+                    Theory.PerfectUnison,
+                    Theory.MajorSecond,
+                    Theory.MajorThird,
+                    Theory.PerfectFourth,
+                    Theory.PerfectFifth,
+                    Theory.MajorSixth,
+                    Theory.MajorSeventh,
                 },
             };
             // intervals == null
@@ -145,56 +145,56 @@ namespace Bravura.Tests
                 new List<int> { 0, 1, 2, 3, 4, 5, 6 },
                 null,
             };
-            // intervals.Count < 5
+            // Theory.Count < 5
             yield return new object[]
             {
                 "Major",
                 new List<int> { 0, 1, 2, 3, 4, 5, 6 },
                 new List<Interval>
                 {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
+                    Theory.PerfectUnison,
+                    Theory.MajorSecond,
+                    Theory.MajorThird,
+                    Theory.PerfectFourth,
                 },
             };
-            // intervals.Count > 12
+            // Theory.Count > 12
             yield return new object[]
             {
                 "Major",
                 new List<int> { 0, 1, 2, 3, 4, 5, 6 },
                 new List<Interval>
                 {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
+                    Theory.PerfectUnison,
+                    Theory.MajorSecond,
+                    Theory.MajorThird,
+                    Theory.PerfectFourth,
+                    Theory.PerfectFifth,
+                    Theory.MajorSixth,
+                    Theory.MajorSeventh,
+                    Theory.PerfectUnison,
+                    Theory.MajorSecond,
+                    Theory.MajorThird,
+                    Theory.PerfectFourth,
+                    Theory.PerfectFifth,
+                    Theory.MajorSixth,
+                    Theory.MajorSeventh,
                 },
             };
-            // intervals.Count != noteIndices.Count
+            // Theory.Count != noteIndices.Count
             yield return new object[]
             {
                 "Major",
                 new List<int> { 0, 1, 2, 3, 4 },
                 new List<Interval>
                 {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
+                    Theory.PerfectUnison,
+                    Theory.MajorSecond,
+                    Theory.MajorThird,
+                    Theory.PerfectFourth,
+                    Theory.PerfectFifth,
+                    Theory.MajorSixth,
+                    Theory.MajorSeventh,
                 },
             };
         }

@@ -3,7 +3,7 @@ using Bravura.Constants;
 
 namespace Bravura
 {
-    public static class ChordQualities
+    public static partial class Theory
     {
         #region -- Triads --
 
@@ -12,9 +12,9 @@ namespace Bravura
             ChordQualityAsciiSymbols.Sus2,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.PerfectFifth,
+                    PerfectUnison,
+                    MajorSecond,
+                    PerfectFifth,
             });
 
         public static readonly ChordQuality Dim = new ChordQuality(
@@ -22,9 +22,9 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dim,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.DiminishedFifth,
+                    PerfectUnison,
+                    MinorThird,
+                    DiminishedFifth,
             });
 
         public static readonly ChordQuality Min = new ChordQuality(
@@ -32,9 +32,9 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFifth,
+                    PerfectUnison,
+                    MinorThird,
+                    PerfectFifth,
             });
 
         public static readonly ChordQuality Maj = new ChordQuality(
@@ -42,9 +42,9 @@ namespace Bravura
             ChordQualityAsciiSymbols.Maj,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
             });
 
         public static readonly ChordQuality Aug = new ChordQuality(
@@ -52,9 +52,9 @@ namespace Bravura
             ChordQualityAsciiSymbols.Aug,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.AugmentedFifth,
+                    PerfectUnison,
+                    MajorThird,
+                    AugmentedFifth,
             });
 
         public static readonly ChordQuality Sus4 = new ChordQuality(
@@ -62,9 +62,9 @@ namespace Bravura
             ChordQualityAsciiSymbols.Sus4,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
+                    PerfectUnison,
+                    PerfectFourth,
+                    PerfectFifth,
             });
 
         #endregion
@@ -76,10 +76,10 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dim7,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.DiminishedFifth,
-                    Intervals.DiminishedSeventh
+                    PerfectUnison,
+                    MinorThird,
+                    DiminishedFifth,
+                    DiminishedSeventh
             });
 
         public static readonly ChordQuality Min7Flat5 = new ChordQuality(
@@ -87,10 +87,10 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min7Flat5,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.DiminishedFifth,
-                    Intervals.MinorSeventh
+                    PerfectUnison,
+                    MinorThird,
+                    DiminishedFifth,
+                    MinorSeventh
             });
 
         public static readonly ChordQuality Min7 = new ChordQuality(
@@ -98,10 +98,10 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min7,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh
+                    PerfectUnison,
+                    MinorThird,
+                    PerfectFifth,
+                    MinorSeventh
             });
 
         public static readonly ChordQuality MinMaj7 = new ChordQuality(
@@ -109,10 +109,10 @@ namespace Bravura
             ChordQualityAsciiSymbols.MinMaj7,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSeventh
+                    PerfectUnison,
+                    MinorThird,
+                    PerfectFifth,
+                    MajorSeventh
             });
 
         public static readonly ChordQuality Dom7Flat5 = new ChordQuality(
@@ -120,10 +120,10 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dom7Flat5,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.DiminishedFifth,
-                    Intervals.MinorSeventh
+                    PerfectUnison,
+                    MajorThird,
+                    DiminishedFifth,
+                    MinorSeventh
             });
 
         public static readonly ChordQuality Dom7 = new ChordQuality(
@@ -131,10 +131,10 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dom7,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    MinorSeventh
             });
 
         public static readonly ChordQuality Maj7 = new ChordQuality(
@@ -142,10 +142,10 @@ namespace Bravura
             ChordQualityAsciiSymbols.Maj7,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSeventh
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    MajorSeventh
             });
 
         public static readonly ChordQuality Add9 = new ChordQuality(
@@ -153,10 +153,10 @@ namespace Bravura
             ChordQualityAsciiSymbols.Add9,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSecond
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    MajorSecond
             });
 
         public static readonly ChordQuality Add11 = new ChordQuality(
@@ -164,10 +164,10 @@ namespace Bravura
             ChordQualityAsciiSymbols.Add11,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.PerfectFourth
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    PerfectFourth
             });
 
         public static readonly ChordQuality Dom7Sharp5 = new ChordQuality(
@@ -175,10 +175,10 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dom7Sharp5,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.AugmentedFifth,
-                    Intervals.MinorSeventh
+                    PerfectUnison,
+                    MajorThird,
+                    AugmentedFifth,
+                    MinorSeventh
             });
 
         public static readonly ChordQuality Maj7Sharp5 = new ChordQuality(
@@ -186,10 +186,10 @@ namespace Bravura
             ChordQualityAsciiSymbols.Maj7Sharp5,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.AugmentedFifth,
-                    Intervals.MajorSeventh
+                    PerfectUnison,
+                    MajorThird,
+                    AugmentedFifth,
+                    MajorSeventh
             });
 
         #endregion
@@ -201,11 +201,11 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dim7Flat9,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.DiminishedFifth,
-                    Intervals.DiminishedSeventh,
-                    Intervals.MinorSecond
+                    PerfectUnison,
+                    MinorThird,
+                    DiminishedFifth,
+                    DiminishedSeventh,
+                    MinorSecond
             });
 
         public static readonly ChordQuality Min7Flat5Flat9 = new ChordQuality(
@@ -213,11 +213,11 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min7Flat5Flat9,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.DiminishedFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MinorSecond
+                    PerfectUnison,
+                    MinorThird,
+                    DiminishedFifth,
+                    MinorSeventh,
+                    MinorSecond
             });
 
         public static readonly ChordQuality Min9Flat5 = new ChordQuality(
@@ -225,11 +225,11 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min9Flat5,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.DiminishedFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MajorSecond
+                    PerfectUnison,
+                    MinorThird,
+                    DiminishedFifth,
+                    MinorSeventh,
+                    MajorSecond
             });
 
         public static readonly ChordQuality Min7Flat9 = new ChordQuality(
@@ -237,11 +237,11 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min7Flat9,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MinorSecond
+                    PerfectUnison,
+                    MinorThird,
+                    PerfectFifth,
+                    MinorSeventh,
+                    MinorSecond
             });
 
         public static readonly ChordQuality Min9 = new ChordQuality(
@@ -249,11 +249,11 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min9,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MajorSecond
+                    PerfectUnison,
+                    MinorThird,
+                    PerfectFifth,
+                    MinorSeventh,
+                    MajorSecond
             });
 
         public static readonly ChordQuality MinMaj9 = new ChordQuality(
@@ -261,11 +261,11 @@ namespace Bravura
             ChordQualityAsciiSymbols.MinMaj9,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSeventh,
-                    Intervals.MajorSecond
+                    PerfectUnison,
+                    MinorThird,
+                    PerfectFifth,
+                    MajorSeventh,
+                    MajorSecond
             });
 
         public static readonly ChordQuality Dom7Flat9 = new ChordQuality(
@@ -273,11 +273,11 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dom7Flat9,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MinorSecond
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    MinorSeventh,
+                    MinorSecond
             });
 
         public static readonly ChordQuality Dom9 = new ChordQuality(
@@ -285,11 +285,11 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dom9,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MajorSecond
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    MinorSeventh,
+                    MajorSecond
             });
 
         public static readonly ChordQuality Maj7Sharp9 = new ChordQuality(
@@ -297,11 +297,11 @@ namespace Bravura
             ChordQualityAsciiSymbols.Maj7Sharp9,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSeventh,
-                    Intervals.MinorThird
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    MajorSeventh,
+                    MinorThird
             });
 
         public static readonly ChordQuality Maj9 = new ChordQuality(
@@ -309,11 +309,11 @@ namespace Bravura
             ChordQualityAsciiSymbols.Maj9,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSeventh,
-                    Intervals.MajorSecond
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    MajorSeventh,
+                    MajorSecond
             });
 
         public static readonly ChordQuality Maj9Sharp5 = new ChordQuality(
@@ -321,11 +321,11 @@ namespace Bravura
             ChordQualityAsciiSymbols.Maj9Sharp5,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.AugmentedFifth,
-                    Intervals.MajorSeventh,
-                    Intervals.MajorSecond
+                    PerfectUnison,
+                    MajorThird,
+                    AugmentedFifth,
+                    MajorSeventh,
+                    MajorSecond
             });
 
         #endregion
@@ -337,12 +337,12 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dim7Flat9Flat11,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.DiminishedFifth,
-                    Intervals.DiminishedSeventh,
-                    Intervals.MinorSecond,
-                    Intervals.DiminishedFourth
+                    PerfectUnison,
+                    MinorThird,
+                    DiminishedFifth,
+                    DiminishedSeventh,
+                    MinorSecond,
+                    DiminishedFourth
             });
 
         public static readonly ChordQuality Min7Flat5Flat9Flat11 = new ChordQuality(
@@ -350,12 +350,12 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min7Flat5Flat9Flat11,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.DiminishedFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MinorSecond,
-                    Intervals.DiminishedFourth
+                    PerfectUnison,
+                    MinorThird,
+                    DiminishedFifth,
+                    MinorSeventh,
+                    MinorSecond,
+                    DiminishedFourth
             });
 
         public static readonly ChordQuality Min11Flat5Flat9 = new ChordQuality(
@@ -363,12 +363,12 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min11Flat5Flat9,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.DiminishedFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MinorSecond,
-                    Intervals.PerfectFourth
+                    PerfectUnison,
+                    MinorThird,
+                    DiminishedFifth,
+                    MinorSeventh,
+                    MinorSecond,
+                    PerfectFourth
             });
 
         public static readonly ChordQuality Min11Flat5 = new ChordQuality(
@@ -376,12 +376,12 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min11Flat5,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.DiminishedFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.PerfectFourth
+                    PerfectUnison,
+                    MinorThird,
+                    DiminishedFifth,
+                    MinorSeventh,
+                    MajorSecond,
+                    PerfectFourth
             });
 
         public static readonly ChordQuality Min11Flat9 = new ChordQuality(
@@ -389,12 +389,12 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min11Flat9,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MinorSecond,
-                    Intervals.PerfectFourth
+                    PerfectUnison,
+                    MinorThird,
+                    PerfectFifth,
+                    MinorSeventh,
+                    MinorSecond,
+                    PerfectFourth
             });
 
         public static readonly ChordQuality Min11 = new ChordQuality(
@@ -402,12 +402,12 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min11,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.PerfectFourth
+                    PerfectUnison,
+                    MinorThird,
+                    PerfectFifth,
+                    MinorSeventh,
+                    MajorSecond,
+                    PerfectFourth
             });
 
         public static readonly ChordQuality Min9Sharp11 = new ChordQuality(
@@ -415,12 +415,12 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min9Sharp11,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.AugmentedFourth
+                    PerfectUnison,
+                    MinorThird,
+                    PerfectFifth,
+                    MinorSeventh,
+                    MajorSecond,
+                    AugmentedFourth
             });
 
         public static readonly ChordQuality MinMaj11 = new ChordQuality(
@@ -428,12 +428,12 @@ namespace Bravura
             ChordQualityAsciiSymbols.MinMaj11,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.PerfectFourth
+                    PerfectUnison,
+                    MinorThird,
+                    PerfectFifth,
+                    MajorSeventh,
+                    MajorSecond,
+                    PerfectFourth
             });
 
         public static readonly ChordQuality Dom11Flat9 = new ChordQuality(
@@ -441,12 +441,12 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dom11Flat9,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MinorSecond,
-                    Intervals.PerfectFourth
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    MinorSeventh,
+                    MinorSecond,
+                    PerfectFourth
             });
 
         public static readonly ChordQuality Dom11 = new ChordQuality(
@@ -454,12 +454,12 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dom11,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.PerfectFourth
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    MinorSeventh,
+                    MajorSecond,
+                    PerfectFourth
             });
 
         public static readonly ChordQuality Dom9Sharp11 = new ChordQuality(
@@ -467,12 +467,12 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dom9Sharp11,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.AugmentedFourth
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    MinorSeventh,
+                    MajorSecond,
+                    AugmentedFourth
             });
 
         public static readonly ChordQuality Maj7Sharp9Sharp11 = new ChordQuality(
@@ -480,12 +480,12 @@ namespace Bravura
             ChordQualityAsciiSymbols.Maj7Sharp9Sharp11,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSeventh,
-                    Intervals.AugmentedSecond,
-                    Intervals.AugmentedFourth
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    MajorSeventh,
+                    AugmentedSecond,
+                    AugmentedFourth
             });
 
         public static readonly ChordQuality Maj11 = new ChordQuality(
@@ -493,12 +493,12 @@ namespace Bravura
             ChordQualityAsciiSymbols.Maj11,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.PerfectFourth
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    MajorSeventh,
+                    MajorSecond,
+                    PerfectFourth
             });
 
         public static readonly ChordQuality Maj9Sharp11 = new ChordQuality(
@@ -506,12 +506,12 @@ namespace Bravura
             ChordQualityAsciiSymbols.Maj9Sharp11,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.AugmentedFourth
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    MajorSeventh,
+                    MajorSecond,
+                    AugmentedFourth
             });
 
         public static readonly ChordQuality Maj11Sharp5 = new ChordQuality(
@@ -519,12 +519,12 @@ namespace Bravura
             ChordQualityAsciiSymbols.Maj11Sharp5,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.AugmentedFifth,
-                    Intervals.MajorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.PerfectFourth
+                    PerfectUnison,
+                    MajorThird,
+                    AugmentedFifth,
+                    MajorSeventh,
+                    MajorSecond,
+                    PerfectFourth
             });
 
         public static readonly ChordQuality Maj9Sharp5Sharp11 = new ChordQuality(
@@ -532,12 +532,12 @@ namespace Bravura
             ChordQualityAsciiSymbols.Maj9Sharp5Sharp11,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.AugmentedFifth,
-                    Intervals.MajorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.AugmentedFourth
+                    PerfectUnison,
+                    MajorThird,
+                    AugmentedFifth,
+                    MajorSeventh,
+                    MajorSecond,
+                    AugmentedFourth
             });
 
         #endregion
@@ -549,13 +549,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dim7Flat9Flat11Flat13,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.DiminishedFifth,
-                    Intervals.DiminishedSeventh,
-                    Intervals.MinorSecond,
-                    Intervals.DiminishedFourth,
-                    Intervals.MinorSixth
+                    PerfectUnison,
+                    MinorThird,
+                    DiminishedFifth,
+                    DiminishedSeventh,
+                    MinorSecond,
+                    DiminishedFourth,
+                    MinorSixth
             });
 
         public static readonly ChordQuality Min7Flat5Flat9Flat11Flat13 = new ChordQuality(
@@ -563,13 +563,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min7Flat5Flat9Flat11Flat13,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.DiminishedFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MinorSecond,
-                    Intervals.DiminishedFourth,
-                    Intervals.MinorSixth
+                    PerfectUnison,
+                    MinorThird,
+                    DiminishedFifth,
+                    MinorSeventh,
+                    MinorSecond,
+                    DiminishedFourth,
+                    MinorSixth
             });
 
         public static readonly ChordQuality Min11Flat5Flat9Flat13 = new ChordQuality(
@@ -577,13 +577,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min11Flat5Flat9Flat13,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.DiminishedFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MinorSecond,
-                    Intervals.PerfectFourth,
-                    Intervals.MinorSixth
+                    PerfectUnison,
+                    MinorThird,
+                    DiminishedFifth,
+                    MinorSeventh,
+                    MinorSecond,
+                    PerfectFourth,
+                    MinorSixth
             });
 
         public static readonly ChordQuality Min13Flat5Flat9 = new ChordQuality(
@@ -591,13 +591,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min13Flat5Flat9,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.DiminishedFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MinorSecond,
-                    Intervals.PerfectFourth,
-                    Intervals.MajorSixth
+                    PerfectUnison,
+                    MinorThird,
+                    DiminishedFifth,
+                    MinorSeventh,
+                    MinorSecond,
+                    PerfectFourth,
+                    MajorSixth
             });
 
         public static readonly ChordQuality Min11Flat5Flat13 = new ChordQuality(
@@ -605,13 +605,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min11Flat5Flat13,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.DiminishedFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.PerfectFourth,
-                    Intervals.MinorSixth
+                    PerfectUnison,
+                    MinorThird,
+                    DiminishedFifth,
+                    MinorSeventh,
+                    MajorSecond,
+                    PerfectFourth,
+                    MinorSixth
             });
 
         public static readonly ChordQuality Min13Flat9 = new ChordQuality(
@@ -619,13 +619,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min13Flat9,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MinorSecond,
-                    Intervals.PerfectFourth,
-                    Intervals.MajorSixth
+                    PerfectUnison,
+                    MinorThird,
+                    PerfectFifth,
+                    MinorSeventh,
+                    MinorSecond,
+                    PerfectFourth,
+                    MajorSixth
             });
 
         public static readonly ChordQuality Min11Flat9Flat13 = new ChordQuality(
@@ -633,13 +633,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min11Flat9Flat13,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MinorSecond,
-                    Intervals.PerfectFourth,
-                    Intervals.MinorSixth
+                    PerfectUnison,
+                    MinorThird,
+                    PerfectFifth,
+                    MinorSeventh,
+                    MinorSecond,
+                    PerfectFourth,
+                    MinorSixth
             });
 
         public static readonly ChordQuality Min11Flat13 = new ChordQuality(
@@ -647,13 +647,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min11Flat13,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.PerfectFourth,
-                    Intervals.MinorSixth
+                    PerfectUnison,
+                    MinorThird,
+                    PerfectFifth,
+                    MinorSeventh,
+                    MajorSecond,
+                    PerfectFourth,
+                    MinorSixth
             });
 
         public static readonly ChordQuality Min13 = new ChordQuality(
@@ -661,13 +661,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min13,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.PerfectFourth,
-                    Intervals.MajorSixth
+                    PerfectUnison,
+                    MinorThird,
+                    PerfectFifth,
+                    MinorSeventh,
+                    MajorSecond,
+                    PerfectFourth,
+                    MajorSixth
             });
 
         public static readonly ChordQuality Min13Sharp11 = new ChordQuality(
@@ -675,13 +675,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.Min13Sharp11,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.AugmentedFourth,
-                    Intervals.MajorSixth
+                    PerfectUnison,
+                    MinorThird,
+                    PerfectFifth,
+                    MinorSeventh,
+                    MajorSecond,
+                    AugmentedFourth,
+                    MajorSixth
             });
 
         public static readonly ChordQuality MinMaj11Flat13 = new ChordQuality(
@@ -689,13 +689,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.MinMaj11Flat13,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.PerfectFourth,
-                    Intervals.MinorSixth
+                    PerfectUnison,
+                    MinorThird,
+                    PerfectFifth,
+                    MajorSeventh,
+                    MajorSecond,
+                    PerfectFourth,
+                    MinorSixth
             });
 
         public static readonly ChordQuality MinMaj13 = new ChordQuality(
@@ -703,13 +703,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.MinMaj13,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.PerfectFourth,
-                    Intervals.MajorSixth
+                    PerfectUnison,
+                    MinorThird,
+                    PerfectFifth,
+                    MajorSeventh,
+                    MajorSecond,
+                    PerfectFourth,
+                    MajorSixth
             });
 
         public static readonly ChordQuality Dom11Flat9Flat13 = new ChordQuality(
@@ -717,13 +717,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dom11Flat9Flat13,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MinorSecond,
-                    Intervals.PerfectFourth,
-                    Intervals.MinorSixth
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    MinorSeventh,
+                    MinorSecond,
+                    PerfectFourth,
+                    MinorSixth
             });
 
         public static readonly ChordQuality Dom11Flat13 = new ChordQuality(
@@ -731,13 +731,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dom11Flat13,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.PerfectFourth,
-                    Intervals.MinorSixth
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    MinorSeventh,
+                    MajorSecond,
+                    PerfectFourth,
+                    MinorSixth
             });
 
         public static readonly ChordQuality Dom13 = new ChordQuality(
@@ -745,13 +745,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dom13,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.PerfectFourth,
-                    Intervals.MajorSixth
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    MinorSeventh,
+                    MajorSecond,
+                    PerfectFourth,
+                    MajorSixth
             });
 
         public static readonly ChordQuality Dom13Sharp11 = new ChordQuality(
@@ -759,13 +759,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dom13Sharp11,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.AugmentedFourth,
-                    Intervals.MajorSixth
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    MinorSeventh,
+                    MajorSecond,
+                    AugmentedFourth,
+                    MajorSixth
             });
 
         public static readonly ChordQuality Maj13Sharp9Sharp11 = new ChordQuality(
@@ -773,13 +773,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.Maj13Sharp9Sharp11,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSeventh,
-                    Intervals.AugmentedSecond,
-                    Intervals.AugmentedFourth,
-                    Intervals.MajorSixth
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    MajorSeventh,
+                    AugmentedSecond,
+                    AugmentedFourth,
+                    MajorSixth
             });
 
         public static readonly ChordQuality Maj13 = new ChordQuality(
@@ -787,13 +787,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.Maj13,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.PerfectFourth,
-                    Intervals.MajorSixth
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    MajorSeventh,
+                    MajorSecond,
+                    PerfectFourth,
+                    MajorSixth
             });
 
         public static readonly ChordQuality Maj13Sharp11 = new ChordQuality(
@@ -801,13 +801,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.Maj13Sharp11,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.AugmentedFourth,
-                    Intervals.MajorSixth
+                    PerfectUnison,
+                    MajorThird,
+                    PerfectFifth,
+                    MajorSeventh,
+                    MajorSecond,
+                    AugmentedFourth,
+                    MajorSixth
             });
 
         public static readonly ChordQuality Maj13Sharp5 = new ChordQuality(
@@ -815,13 +815,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.Maj13Sharp5,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.AugmentedFifth,
-                    Intervals.MajorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.PerfectFourth,
-                    Intervals.MajorSixth
+                    PerfectUnison,
+                    MajorThird,
+                    AugmentedFifth,
+                    MajorSeventh,
+                    MajorSecond,
+                    PerfectFourth,
+                    MajorSixth
             });
 
         public static readonly ChordQuality Maj13Sharp5Sharp11 = new ChordQuality(
@@ -829,13 +829,13 @@ namespace Bravura
             ChordQualityAsciiSymbols.Maj13Sharp5Sharp11,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.AugmentedFifth,
-                    Intervals.MajorSeventh,
-                    Intervals.MajorSecond,
-                    Intervals.AugmentedFourth,
-                    Intervals.MajorSixth
+                    PerfectUnison,
+                    MajorThird,
+                    AugmentedFifth,
+                    MajorSeventh,
+                    MajorSecond,
+                    AugmentedFourth,
+                    MajorSixth
             });
 
         #endregion
@@ -847,11 +847,11 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dom7Flat5Flat9,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.DiminishedFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MinorSecond
+                    PerfectUnison,
+                    MajorThird,
+                    DiminishedFifth,
+                    MinorSeventh,
+                    MinorSecond
             });
 
         public static readonly ChordQuality Dom7Flat5Sharp9 = new ChordQuality(
@@ -859,11 +859,11 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dom7Flat5Sharp9,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.DiminishedFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.AugmentedSecond
+                    PerfectUnison,
+                    MajorThird,
+                    DiminishedFifth,
+                    MinorSeventh,
+                    AugmentedSecond
             });
 
         public static readonly ChordQuality Dom7Sharp5Flat9 = new ChordQuality(
@@ -871,11 +871,11 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dom7Sharp5Flat9,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.AugmentedFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.MinorSecond
+                    PerfectUnison,
+                    MajorThird,
+                    AugmentedFifth,
+                    MinorSeventh,
+                    MinorSecond
             });
 
         public static readonly ChordQuality Dom7Sharp5Sharp9 = new ChordQuality(
@@ -883,11 +883,11 @@ namespace Bravura
             ChordQualityAsciiSymbols.Dom7Sharp5Sharp9,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorThird,
-                    Intervals.AugmentedFifth,
-                    Intervals.MinorSeventh,
-                    Intervals.AugmentedSecond
+                    PerfectUnison,
+                    MajorThird,
+                    AugmentedFifth,
+                    MinorSeventh,
+                    AugmentedSecond
             });
 
         #endregion
@@ -899,8 +899,8 @@ namespace Bravura
             ChordQualityAsciiSymbols.Five,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.PerfectFifth,
+                    PerfectUnison,
+                    PerfectFifth,
             });
 
         public static readonly ChordQuality SixNine = new ChordQuality(
@@ -908,10 +908,10 @@ namespace Bravura
             ChordQualityAsciiSymbols.SixNine,
             new List<Interval>
             {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
+                    PerfectUnison,
+                    MajorSecond,
+                    PerfectFifth,
+                    MajorSixth,
             });
 
         #endregion

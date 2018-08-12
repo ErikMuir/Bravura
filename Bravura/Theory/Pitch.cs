@@ -28,24 +28,24 @@ namespace Bravura
                     return new Pitch(
                         Note.LowerNeighbor(),
                         Note.IsLowerNeighborNatural()
-                            ? Accidentals.Flat
-                            : Accidentals.Natural);
+                            ? Theory.Flat
+                            : Theory.Natural);
                 case -1:
                     return Note.IsLowerNeighborNatural()
-                        ? new Pitch(Note.LowerNeighbor(), Accidentals.Natural)
+                        ? new Pitch(Note.LowerNeighbor(), Theory.Natural)
                         : new Pitch(Note, Accidental);
                 case 0:
                     return new Pitch(Note, Accidental);
                 case 1:
                     return Note.IsHigherNeighborNatural()
-                        ? new Pitch(Note.HigherNeighbor(), Accidentals.Natural)
+                        ? new Pitch(Note.HigherNeighbor(), Theory.Natural)
                         : new Pitch(Note, Accidental);
                 case 2:
                     return new Pitch(
                         Note.HigherNeighbor(),
                         Note.IsHigherNeighborNatural()
-                            ? Accidentals.Sharp
-                            : Accidentals.Natural);
+                            ? Theory.Sharp
+                            : Theory.Natural);
                 default:
                     throw new BravuraException("Invalid accidental");
             }
@@ -59,15 +59,15 @@ namespace Bravura
                     return new Pitch(
                         Note.LowerNeighbor(),
                         Note.IsLowerNeighborNatural()
-                            ? Accidentals.Flat
-                            : Accidentals.Natural);
+                            ? Theory.Flat
+                            : Theory.Natural);
                 case -1:
                     return Note.IsLowerNeighborNatural()
-                        ? new Pitch(Note.LowerNeighbor(), Accidentals.Natural)
+                        ? new Pitch(Note.LowerNeighbor(), Theory.Natural)
                         : new Pitch(Note, Accidental);
                 case 0:
                     return Note.IsLowerNeighborNatural()
-                        ? new Pitch(Note.LowerNeighbor(), Accidentals.Sharp)
+                        ? new Pitch(Note.LowerNeighbor(), Theory.Sharp)
                         : new Pitch(Note, Accidental);
                 case 1:
                     return new Pitch(Note, Accidental);
@@ -88,18 +88,18 @@ namespace Bravura
                     return new Pitch(Note, Accidental);
                 case 0:
                     return Note.IsHigherNeighborNatural()
-                        ? new Pitch(Note.HigherNeighbor(), Accidentals.Flat)
+                        ? new Pitch(Note.HigherNeighbor(), Theory.Flat)
                         : new Pitch(Note, Accidental);
                 case 1:
                     return Note.IsHigherNeighborNatural()
-                        ? new Pitch(Note.HigherNeighbor(), Accidentals.Natural)
+                        ? new Pitch(Note.HigherNeighbor(), Theory.Natural)
                         : new Pitch(Note, Accidental);
                 case 2:
                     return new Pitch(
                         Note.HigherNeighbor(),
                         Note.IsHigherNeighborNatural()
-                            ? Accidentals.Sharp
-                            : Accidentals.Natural);
+                            ? Theory.Sharp
+                            : Theory.Natural);
                 default:
                     throw new BravuraException("Invalid accidental");
             }
@@ -108,12 +108,12 @@ namespace Bravura
         public Pitch GetPitchByIntervalAbove(Interval interval)
         {
             var noteIndex = (Note.Index() + (interval.NoteIndex - 1)).RollingRange(6);
-            var note = Notes.AllNotes[noteIndex];
+            var note = Utilities.GetNoteByIndex(noteIndex);
 
             var semitones = SemitonesAboveC + interval.Semitones - note.SemitonesAboveC;
             if (semitones < -2) semitones += 12;
             else if (semitones > 2) semitones -= 12;
-            var accidental = Accidentals.AllAccidentals.Single(a => a.SemitonesAwayFromNatural == semitones);
+            var accidental = Theory.AllAccidentals.Single(a => a.SemitonesAwayFromNatural == semitones);
 
             return new Pitch(note, accidental);
         }
@@ -121,12 +121,12 @@ namespace Bravura
         public Pitch GetPitchByIntervalBelow(Interval interval)
         {
             var noteIndex = (Note.Index() - (interval.NoteIndex - 1)).RollingRange(6);
-            var note = Notes.AllNotes[noteIndex];
+            var note = Utilities.GetNoteByIndex(noteIndex);
 
             var semitones = SemitonesAboveC - interval.Semitones - note.SemitonesAboveC;
             if (semitones < -2) semitones += 12;
             else if (semitones > 2) semitones -= 12;
-            var accidental = Accidentals.AllAccidentals.Single(a => a.SemitonesAwayFromNatural == semitones);
+            var accidental = Theory.AllAccidentals.Single(a => a.SemitonesAwayFromNatural == semitones);
 
             return new Pitch(note, accidental);
         }

@@ -20,7 +20,7 @@ namespace Bravura
                 Intervals = intervals ?? throw new Exception();
                 if (intervals.Count < 2)
                     throw new Exception();
-                if (intervals[0] != Bravura.Intervals.PerfectUnison)
+                if (intervals[0] != Theory.PerfectUnison)
                     throw new Exception();
             }
             catch (Exception)
