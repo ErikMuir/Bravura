@@ -80,5 +80,19 @@ namespace Bravura.Tests
             Assert.True(fakeMajor.Equals(ChordQualities.Maj));
             Assert.Equal(fakeMajor.GetHashCode(), ChordQualities.Maj.GetHashCode());
         }
+
+        [Fact]
+        public void ChordQuality_NonEquality_Test()
+        {
+            var fakeMinor = new ChordQuality("M", "M", new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MinorThird,
+                Intervals.PerfectFifth,
+            });
+            Assert.False(fakeMinor == ChordQualities.Maj);
+            Assert.False(fakeMinor.Equals(ChordQualities.Maj));
+            Assert.NotEqual(fakeMinor.GetHashCode(), ChordQualities.Maj.GetHashCode());
+        }
     }
 }

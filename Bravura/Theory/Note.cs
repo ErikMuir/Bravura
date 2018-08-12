@@ -12,9 +12,11 @@ namespace Bravura.Theory
         {
             Letter = letter;
             SemitonesAboveC = semitonesAboveC;
+
+            KeyValuePair = new KeyValuePair<char, int>(letter, semitonesAboveC);
         }
 
-        public KeyValuePair<char, int> KeyValuePair => new KeyValuePair<char, int>(Letter, SemitonesAboveC);
+        public KeyValuePair<char, int> KeyValuePair { get; }
 
         #region -- Equality Operator Overrides --
 
