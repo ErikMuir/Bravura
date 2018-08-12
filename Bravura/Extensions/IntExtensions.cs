@@ -19,6 +19,10 @@
         /// <param name="high"></param>
         /// <returns></returns>
         public static int RollingRange(this int val, int low, int high)
-            => val < low ? high + 1 - (low - val) : val > high ? low - 1 + val - high : val;
+            => val < low 
+                ? high + 1 - (low - val) 
+                : val > high 
+                    ? low - 1 + val - high 
+                    : val;
     }
 }

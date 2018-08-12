@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Bravura.Theory;
 
 namespace Bravura.Extensions
 {
@@ -12,6 +11,7 @@ namespace Bravura.Extensions
         /// <param name="keyValuePair"></param>
         /// <returns></returns>
         public static Note GetNote(this KeyValuePair<char, int> keyValuePair)
-            => Notes.AllNotes.Single(n => n.Letter == keyValuePair.Key && n.SemitonesAboveC == keyValuePair.Value);
+            => Notes.AllNotes.Single(n => n.Letter == keyValuePair.Key && 
+                                          n.SemitonesAboveC == keyValuePair.Value);
     }
 }

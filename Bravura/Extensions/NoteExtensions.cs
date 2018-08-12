@@ -1,11 +1,9 @@
-﻿using Bravura.Theory;
-
-namespace Bravura.Extensions
+﻿namespace Bravura.Extensions
 {
     public static class NoteExtensions
     {
         /// <summary>
-        /// Returns the index of the Nnte in the musical alphabet.
+        /// Returns the index of the note in the musical alphabet.
         /// </summary>
         /// <param name="note"></param>
         /// <returns></returns>

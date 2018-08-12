@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bravura.Theory
+namespace Bravura
 {
     public struct Accidental
     {
@@ -10,7 +10,12 @@ namespace Bravura.Theory
         public string ActualSymbol { get; }
         public string AsciiSymbol { get; }
 
-        internal Accidental(int semitonesAwayFromNatural, string name, string defaultSymbol, string actualSymbol, string asciiSymbol)
+        internal Accidental(
+            int semitonesAwayFromNatural, 
+            string name, 
+            string defaultSymbol, 
+            string actualSymbol, 
+            string asciiSymbol)
         {
             SemitonesAwayFromNatural = semitonesAwayFromNatural;
             Name = name;

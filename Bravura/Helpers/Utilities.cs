@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Bravura.Extensions;
-using Bravura.Theory;
 
 namespace Bravura
 {
@@ -14,7 +13,10 @@ namespace Bravura
         public static Note GetNoteByIndex(int index)
         {
             index = index.RollingRange(6);
-            return new KeyValuePair<char, int>(Notes.MusicalAlphabet.KeysList[index], Notes.MusicalAlphabet[index]).GetNote();
+            var noteLetter = Notes.MusicalAlphabet.KeysList[index];
+            var semitones = Notes.MusicalAlphabet[index];
+            var keyValuePair = new KeyValuePair<char, int>(noteLetter, semitones);
+            return keyValuePair.GetNote();
         }
     }
 }

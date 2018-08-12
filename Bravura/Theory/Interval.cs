@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Bravura.Theory
+namespace Bravura
 {
     public struct Interval
     {

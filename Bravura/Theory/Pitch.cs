@@ -4,7 +4,7 @@ using System.Linq;
 using Bravura.Exceptions;
 using Bravura.Extensions;
 
-namespace Bravura.Theory
+namespace Bravura
 {
     public struct Pitch
     {

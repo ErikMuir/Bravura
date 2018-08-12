@@ -2,7 +2,7 @@
 using System.Linq;
 using Bravura.Extensions;
 
-namespace Bravura.Theory
+namespace Bravura
 {
     public struct Scale
     {

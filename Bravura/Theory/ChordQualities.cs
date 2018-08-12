@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Bravura.Constants;
-using Bravura.Theory;
 
 namespace Bravura
 {

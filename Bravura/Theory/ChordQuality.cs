@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Bravura.Exceptions;
 
-namespace Bravura.Theory
+namespace Bravura
 {
     public struct ChordQuality
     {
