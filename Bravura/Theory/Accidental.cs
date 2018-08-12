@@ -4,14 +4,14 @@ namespace Bravura
 {
     public struct Accidental
     {
-        public int SemitonesAwayFromNatural { get; }
+        public short SemitonesAwayFromNatural { get; }
         public string Name { get; }
         public string DefaultSymbol { get; }
         public string ActualSymbol { get; }
         public string AsciiSymbol { get; }
 
         internal Accidental(
-            int semitonesAwayFromNatural, 
+            short semitonesAwayFromNatural, 
             string name, 
             string defaultSymbol, 
             string actualSymbol, 

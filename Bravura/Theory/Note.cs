@@ -6,17 +6,17 @@ namespace Bravura
     public struct Note
     {
         public char Letter { get; }
-        public int SemitonesAboveC { get; }
+        public short SemitonesAboveC { get; }
 
-        internal Note(char letter, int semitonesAboveC)
+        internal Note(char letter, short semitonesAboveC)
         {
             Letter = letter;
             SemitonesAboveC = semitonesAboveC;
 
-            KeyValuePair = new KeyValuePair<char, int>(letter, semitonesAboveC);
+            KeyValuePair = new KeyValuePair<char, short>(letter, semitonesAboveC);
         }
 
-        public KeyValuePair<char, int> KeyValuePair { get; }
+        public KeyValuePair<char, short> KeyValuePair { get; }
 
         #region -- Equality Operator Overrides --
 

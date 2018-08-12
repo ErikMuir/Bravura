@@ -17,8 +17,8 @@ namespace Bravura
             Accidental = accidental;
         }
 
-        public int SemitonesAboveC
-            => (Note.SemitonesAboveC + Accidental.SemitonesAwayFromNatural).RollingRange(11);
+        public short SemitonesAboveC
+            => (short) (Note.SemitonesAboveC + Accidental.SemitonesAwayFromNatural).RollingRange(11);
 
         public Pitch Logical()
         {

@@ -4,16 +4,16 @@ namespace Bravura
 {
     public static partial class Theory
     {
-        public static readonly Note C = new Note(NoteLetters.C, (int)NoteValue.C);
-        public static readonly Note D = new Note(NoteLetters.D, (int)NoteValue.D);
-        public static readonly Note E = new Note(NoteLetters.E, (int)NoteValue.E);
-        public static readonly Note F = new Note(NoteLetters.F, (int)NoteValue.F);
-        public static readonly Note G = new Note(NoteLetters.G, (int)NoteValue.G);
-        public static readonly Note A = new Note(NoteLetters.A, (int)NoteValue.A);
-        public static readonly Note B = new Note(NoteLetters.B, (int)NoteValue.B);
+        public static readonly Note C = new Note(NoteLetters.C, NoteValues.C);
+        public static readonly Note D = new Note(NoteLetters.D, NoteValues.D);
+        public static readonly Note E = new Note(NoteLetters.E, NoteValues.E);
+        public static readonly Note F = new Note(NoteLetters.F, NoteValues.F);
+        public static readonly Note G = new Note(NoteLetters.G, NoteValues.G);
+        public static readonly Note A = new Note(NoteLetters.A, NoteValues.A);
+        public static readonly Note B = new Note(NoteLetters.B, NoteValues.B);
 
-        public static readonly ReadOnlyOrderedDictionary<char, int> MusicalAlphabet =
-            new ReadOnlyOrderedDictionary<char, int>
+        public static readonly ReadOnlyOrderedDictionary<char, short> MusicalAlphabet =
+            new ReadOnlyOrderedDictionary<char, short>
             {
                 C.KeyValuePair,
                 D.KeyValuePair,
@@ -23,16 +23,5 @@ namespace Bravura
                 A.KeyValuePair,
                 B.KeyValuePair,
             };
-    }
-
-    public enum NoteValue : int
-    {
-        C = 0,
-        D = 2,
-        E = 4,
-        F = 5,
-        G = 7,
-        A = 9,
-        B = 11,
     }
 }
