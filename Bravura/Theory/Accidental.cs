@@ -6,21 +6,18 @@ namespace Bravura
     {
         public short SemitonesAwayFromNatural { get; }
         public string Name { get; }
-        public string DefaultSymbol { get; }
-        public string ActualSymbol { get; }
+        public string Symbol { get; }
         public string AsciiSymbol { get; }
 
         internal Accidental(
             short semitonesAwayFromNatural, 
             string name, 
-            string defaultSymbol, 
-            string actualSymbol, 
+            string symbol, 
             string asciiSymbol)
         {
             SemitonesAwayFromNatural = semitonesAwayFromNatural;
             Name = name;
-            DefaultSymbol = defaultSymbol;
-            ActualSymbol = actualSymbol;
+            Symbol = symbol;
             AsciiSymbol = asciiSymbol;
         }
 

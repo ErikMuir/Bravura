@@ -183,7 +183,7 @@ namespace Bravura
                 MinorSeventh,
             });
 
-        public static List<Mode> AllModes = 
+        public static List<Mode> Modes = 
             new List<Mode>
             {
                 Major,

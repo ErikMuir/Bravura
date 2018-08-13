@@ -27,7 +27,7 @@ namespace Bravura
         #region -- String Methods --
 
         public override string ToString()
-            => $"{Accidental.DefaultSymbol}{NoteIndex}";
+            => $"{Accidental.Symbol}{NoteIndex}";
 
         public string ToAsciiString()
             => $"{Accidental.AsciiSymbol}{NoteIndex}";

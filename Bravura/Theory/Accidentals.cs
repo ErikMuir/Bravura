@@ -10,20 +10,17 @@ namespace Bravura
             -2,
             AccidentalNames.DoubleFlat,
             AccidentalSymbols.DoubleFlat,
-            AccidentalSymbols.DoubleFlat,
             AccidentalAsciiSymbols.DoubleFlat);
 
         public static readonly Accidental Flat = new Accidental(
             -1,
             AccidentalNames.Flat,
             AccidentalSymbols.Flat,
-            AccidentalSymbols.Flat,
             AccidentalAsciiSymbols.Flat);
 
         public static readonly Accidental Natural = new Accidental(
             0,
             AccidentalNames.Natural,
-            string.Empty,
             AccidentalSymbols.Natural,
             AccidentalAsciiSymbols.Natural);
 
@@ -31,17 +28,15 @@ namespace Bravura
             1,
             AccidentalNames.Sharp,
             AccidentalSymbols.Sharp,
-            AccidentalSymbols.Sharp,
             AccidentalAsciiSymbols.Sharp);
 
         public static readonly Accidental DoubleSharp = new Accidental(
             2,
             AccidentalNames.DoubleSharp,
             AccidentalSymbols.DoubleSharp,
-            AccidentalSymbols.DoubleSharp,
             AccidentalAsciiSymbols.DoubleSharp);
 
-        public static readonly ReadOnlyCollection<Accidental> AllAccidentals =
+        public static readonly ReadOnlyCollection<Accidental> Accidentals =
             new List<Accidental>
             {
                 DoubleFlat,

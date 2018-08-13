@@ -26,7 +26,7 @@ namespace Bravura
             }
 
             SignatureAccidentals = accidentals;
-            RelativeRoot = Theory.AllKeys
+            RelativeRoot = Theory.Keys
                 .Where(k => k.Mode != keyMode)
                 .Where(k => k.SignatureAccidentals.Count == accidentals.Count)
                 .Where(k => k.SignatureAccidentals.Count == 0 ||

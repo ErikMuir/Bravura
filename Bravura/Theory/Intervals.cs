@@ -87,7 +87,7 @@ namespace Bravura
         public static readonly Interval PerfectOctave = new Interval(12, Natural, 8,
             IntervalNames.PerfectOctave, IntervalSymbols.PerfectOctave);
 
-        public static ReadOnlyCollection<Interval> AllIntervals =
+        public static ReadOnlyCollection<Interval> Intervals =
             new List<Interval>
             {
                 PerfectUnison,

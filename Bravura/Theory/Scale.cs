@@ -53,7 +53,7 @@ namespace Bravura
                     accidentalValue = -2;
                     break;
             }
-            return Theory.AllAccidentals.Single(a => a.SemitonesAwayFromNatural == accidentalValue);
+            return Theory.Accidentals.Single(a => a.SemitonesAwayFromNatural == accidentalValue);
         }
     }
 }

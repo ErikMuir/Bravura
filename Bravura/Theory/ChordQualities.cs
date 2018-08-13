@@ -1017,7 +1017,7 @@ namespace Bravura
                     Dom7Sharp5Sharp9
             };
 
-        public static List<ChordQuality> AllChords =
+        public static List<ChordQuality> ChordQualities =
             new List<ChordQuality>
             {
                     Sus2,

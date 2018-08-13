@@ -113,7 +113,7 @@ namespace Bravura
             var semitones = SemitonesAboveC + interval.Semitones - note.SemitonesAboveC;
             if (semitones < -2) semitones += 12;
             else if (semitones > 2) semitones -= 12;
-            var accidental = Theory.AllAccidentals.Single(a => a.SemitonesAwayFromNatural == semitones);
+            var accidental = Theory.Accidentals.Single(a => a.SemitonesAwayFromNatural == semitones);
 
             return new Pitch(note, accidental);
         }
@@ -126,15 +126,15 @@ namespace Bravura
             var semitones = SemitonesAboveC - interval.Semitones - note.SemitonesAboveC;
             if (semitones < -2) semitones += 12;
             else if (semitones > 2) semitones -= 12;
-            var accidental = Theory.AllAccidentals.Single(a => a.SemitonesAwayFromNatural == semitones);
+            var accidental = Theory.Accidentals.Single(a => a.SemitonesAwayFromNatural == semitones);
 
             return new Pitch(note, accidental);
         }
 
         #region -- String Methods --
 
-        public override string ToString()
-            => $"{Note.Letter}{Accidental.DefaultSymbol}";
+        public string ToString(bool showActual = false)
+            => $"{Note.Letter}{(Accidental.SemitonesAwayFromNatural == 0 && !showActual ? "" : Accidental.Symbol)}";
 
         public string ToAsciiString()
             => $"{Note.Letter}{Accidental.AsciiSymbol}";

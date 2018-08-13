@@ -77,7 +77,7 @@ namespace Bravura
                 BMinor,
             }.AsReadOnly();
 
-        public static ReadOnlyCollection<Key> AllKeys =
+        public static ReadOnlyCollection<Key> Keys =
             new List<Key>
             {
                 CMajor,

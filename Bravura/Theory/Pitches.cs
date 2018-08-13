@@ -148,7 +148,7 @@ namespace Bravura
                 BSharp,
             }.AsReadOnly();
 
-        public static readonly ReadOnlyCollection<Pitch> AllPitches =
+        public static readonly ReadOnlyCollection<Pitch> Pitches =
             new List<Pitch>
             {
                 CDoubleFlat,
