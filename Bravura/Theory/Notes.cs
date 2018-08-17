@@ -4,16 +4,27 @@ namespace Bravura
 {
     public static partial class Theory
     {
-        public static readonly Note C = new Note(NoteLetters.C, NoteValues.C);
-        public static readonly Note D = new Note(NoteLetters.D, NoteValues.D);
-        public static readonly Note E = new Note(NoteLetters.E, NoteValues.E);
-        public static readonly Note F = new Note(NoteLetters.F, NoteValues.F);
-        public static readonly Note G = new Note(NoteLetters.G, NoteValues.G);
-        public static readonly Note A = new Note(NoteLetters.A, NoteValues.A);
-        public static readonly Note B = new Note(NoteLetters.B, NoteValues.B);
+        public static Note C { get; private set; }
+        public static Note D { get; private set; }
+        public static Note E { get; private set; }
+        public static Note F { get; private set; }
+        public static Note G { get; private set; }
+        public static Note A { get; private set; }
+        public static Note B { get; private set; }
 
-        public static readonly ReadOnlyOrderedDictionary<char, short> MusicalAlphabet =
-            new ReadOnlyOrderedDictionary<char, short>
+        public static ReadOnlyOrderedDictionary<char, short> MusicalAlphabet { get; private set; }
+
+        private static void SetNotes()
+        {
+            C = new Note(NoteLetters.C, NoteValues.C);
+            D = new Note(NoteLetters.D, NoteValues.D);
+            E = new Note(NoteLetters.E, NoteValues.E);
+            F = new Note(NoteLetters.F, NoteValues.F);
+            G = new Note(NoteLetters.G, NoteValues.G);
+            A = new Note(NoteLetters.A, NoteValues.A);
+            B = new Note(NoteLetters.B, NoteValues.B);
+
+            MusicalAlphabet = new ReadOnlyOrderedDictionary<char, short>
             {
                 C.KeyValuePair,
                 D.KeyValuePair,
@@ -23,5 +34,6 @@ namespace Bravura
                 A.KeyValuePair,
                 B.KeyValuePair,
             };
+        }
     }
 }

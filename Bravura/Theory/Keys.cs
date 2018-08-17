@@ -5,40 +5,77 @@ namespace Bravura
 {
     public static partial class Theory
     {
-        public static Key CMajor = new Key(CNatural, KeyMode.Major);
-        public static Key CSharpMajor = new Key(CSharp, KeyMode.Major);
-        public static Key DFlatMajor = new Key(DFlat, KeyMode.Major);
-        public static Key DMajor = new Key(DNatural, KeyMode.Major);
-        public static Key EFlatMajor = new Key(EFlat, KeyMode.Major);
-        public static Key EMajor = new Key(ENatural, KeyMode.Major);
-        public static Key FMajor = new Key(FNatural, KeyMode.Major);
-        public static Key FSharpMajor = new Key(FSharp, KeyMode.Major);
-        public static Key GFlatMajor = new Key(GFlat, KeyMode.Major);
-        public static Key GMajor = new Key(GNatural, KeyMode.Major);
-        public static Key AFlatMajor = new Key(AFlat, KeyMode.Major);
-        public static Key AMajor = new Key(ANatural, KeyMode.Major);
-        public static Key BFlatMajor = new Key(BFlat, KeyMode.Major);
-        public static Key BMajor = new Key(BNatural, KeyMode.Major);
-        public static Key CFlatMajor = new Key(CFlat, KeyMode.Major);
+        public static Key CMajor { get; private set; }
+        public static Key CSharpMajor { get; private set; }
+        public static Key DFlatMajor { get; private set; }
+        public static Key DMajor { get; private set; }
+        public static Key EFlatMajor { get; private set; }
+        public static Key EMajor { get; private set; }
+        public static Key FMajor { get; private set; }
+        public static Key FSharpMajor { get; private set; }
+        public static Key GFlatMajor { get; private set; }
+        public static Key GMajor { get; private set; }
+        public static Key AFlatMajor { get; private set; }
+        public static Key AMajor { get; private set; }
+        public static Key BFlatMajor { get; private set; }
+        public static Key BMajor { get; private set; }
+        public static Key CFlatMajor { get; private set; }
 
-        public static Key CMinor = new Key(CNatural, KeyMode.Minor);
-        public static Key CSharpMinor = new Key(CSharp, KeyMode.Minor);
-        public static Key DMinor = new Key(DNatural, KeyMode.Minor);
-        public static Key DSharpMinor = new Key(DSharp, KeyMode.Minor);
-        public static Key EFlatMinor = new Key(EFlat, KeyMode.Minor);
-        public static Key EMinor = new Key(ENatural, KeyMode.Minor);
-        public static Key FMinor = new Key(FNatural, KeyMode.Minor);
-        public static Key FSharpMinor = new Key(FSharp, KeyMode.Minor);
-        public static Key GMinor = new Key(GNatural, KeyMode.Minor);
-        public static Key GSharpMinor = new Key(GSharp, KeyMode.Minor);
-        public static Key AFlatMinor = new Key(AFlat, KeyMode.Minor);
-        public static Key AMinor = new Key(ANatural, KeyMode.Minor);
-        public static Key ASharpMinor = new Key(ASharp, KeyMode.Minor);
-        public static Key BFlatMinor = new Key(BFlat, KeyMode.Minor);
-        public static Key BMinor = new Key(BNatural, KeyMode.Minor);
+        public static Key CMinor { get; private set; }
+        public static Key CSharpMinor { get; private set; }
+        public static Key DMinor { get; private set; }
+        public static Key DSharpMinor { get; private set; }
+        public static Key EFlatMinor { get; private set; }
+        public static Key EMinor { get; private set; }
+        public static Key FMinor { get; private set; }
+        public static Key FSharpMinor { get; private set; }
+        public static Key GMinor { get; private set; }
+        public static Key GSharpMinor { get; private set; }
+        public static Key AFlatMinor { get; private set; }
+        public static Key AMinor { get; private set; }
+        public static Key ASharpMinor { get; private set; }
+        public static Key BFlatMinor { get; private set; }
+        public static Key BMinor { get; private set; }
 
-        public static ReadOnlyCollection<Key> MajorKeys =
-            new List<Key>
+        public static ReadOnlyCollection<Key> MajorKeys { get; private set; }
+        public static ReadOnlyCollection<Key> MinorKeys { get; private set; }
+        public static ReadOnlyCollection<Key> Keys { get; private set; }
+
+        private static void SetKeys()
+        {
+            CMajor = new Key(CNatural, KeyMode.Major);
+            CSharpMajor = new Key(CSharp, KeyMode.Major);
+            DFlatMajor = new Key(DFlat, KeyMode.Major);
+            DMajor = new Key(DNatural, KeyMode.Major);
+            EFlatMajor = new Key(EFlat, KeyMode.Major);
+            EMajor = new Key(ENatural, KeyMode.Major);
+            FMajor = new Key(FNatural, KeyMode.Major);
+            FSharpMajor = new Key(FSharp, KeyMode.Major);
+            GFlatMajor = new Key(GFlat, KeyMode.Major);
+            GMajor = new Key(GNatural, KeyMode.Major);
+            AFlatMajor = new Key(AFlat, KeyMode.Major);
+            AMajor = new Key(ANatural, KeyMode.Major);
+            BFlatMajor = new Key(BFlat, KeyMode.Major);
+            BMajor = new Key(BNatural, KeyMode.Major);
+            CFlatMajor = new Key(CFlat, KeyMode.Major);
+
+            CMinor = new Key(CNatural, KeyMode.Minor);
+            CSharpMinor = new Key(CSharp, KeyMode.Minor);
+            DMinor = new Key(DNatural, KeyMode.Minor);
+            DSharpMinor = new Key(DSharp, KeyMode.Minor);
+            EFlatMinor = new Key(EFlat, KeyMode.Minor);
+            EMinor = new Key(ENatural, KeyMode.Minor);
+            FMinor = new Key(FNatural, KeyMode.Minor);
+            FSharpMinor = new Key(FSharp, KeyMode.Minor);
+            GMinor = new Key(GNatural, KeyMode.Minor);
+            GSharpMinor = new Key(GSharp, KeyMode.Minor);
+            AFlatMinor = new Key(AFlat, KeyMode.Minor);
+            AMinor = new Key(ANatural, KeyMode.Minor);
+            ASharpMinor = new Key(ASharp, KeyMode.Minor);
+            BFlatMinor = new Key(BFlat, KeyMode.Minor);
+            BMinor = new Key(BNatural, KeyMode.Minor);
+
+            MajorKeys = new List<Key>
             {
                 CMajor,
                 CSharpMajor,
@@ -57,8 +94,7 @@ namespace Bravura
                 CFlatMajor,
             }.AsReadOnly();
 
-        public static ReadOnlyCollection<Key> MinorKeys =
-            new List<Key>
+            MinorKeys = new List<Key>
             {
                 CMinor,
                 CSharpMinor,
@@ -77,8 +113,7 @@ namespace Bravura
                 BMinor,
             }.AsReadOnly();
 
-        public static ReadOnlyCollection<Key> Keys =
-            new List<Key>
+            Keys = new List<Key>
             {
                 CMajor,
                 CSharpMajor,
@@ -111,5 +146,6 @@ namespace Bravura
                 BFlatMinor,
                 BMinor,
             }.AsReadOnly();
+        }
     }
 }
