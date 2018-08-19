@@ -62,9 +62,11 @@ namespace Bravura
                             ? Theory.Flat
                             : Theory.Natural);
                 case -1:
-                    return Note.IsLowerNeighborNatural()
-                        ? new Pitch(Note.LowerNeighbor(), Theory.Natural)
-                        : new Pitch(Note, Accidental);
+                    return new Pitch(
+                        Note.LowerNeighbor(),
+                        Note.IsLowerNeighborNatural()
+                            ? Theory.Natural
+                            : Theory.Sharp);
                 case 0:
                     return Note.IsLowerNeighborNatural()
                         ? new Pitch(Note.LowerNeighbor(), Theory.Sharp)
@@ -91,9 +93,11 @@ namespace Bravura
                         ? new Pitch(Note.HigherNeighbor(), Theory.Flat)
                         : new Pitch(Note, Accidental);
                 case 1:
-                    return Note.IsHigherNeighborNatural()
-                        ? new Pitch(Note.HigherNeighbor(), Theory.Natural)
-                        : new Pitch(Note, Accidental);
+                    return new Pitch(
+                        Note.HigherNeighbor(),
+                        Note.IsHigherNeighborNatural()
+                            ? Theory.Natural
+                            : Theory.Flat);
                 case 2:
                     return new Pitch(
                         Note.HigherNeighbor(),

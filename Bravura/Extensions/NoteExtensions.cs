@@ -48,7 +48,10 @@
         /// <param name="note"></param>
         /// <returns></returns>
         public static bool IsLowerNeighborNatural(this Note note)
-            => note.SemitonesAboveC - note.LowerNeighbor().SemitonesAboveC == 1;
+        {
+            var semitones = note.SemitonesAboveC - note.LowerNeighbor().SemitonesAboveC;
+            return semitones < 0 || semitones == 1;
+        }
 
         /// <summary>
         /// Returns true if the higher neighbor note in the musical alphabet is a half-step up.
@@ -56,6 +59,9 @@
         /// <param name="note"></param>
         /// <returns></returns>
         public static bool IsHigherNeighborNatural(this Note note)
-            => note.HigherNeighbor().SemitonesAboveC - note.SemitonesAboveC == 1;
+        {
+            var semitones = note.HigherNeighbor().SemitonesAboveC - note.SemitonesAboveC;
+            return semitones < 0 || semitones == 1;
+        }
     }
 }

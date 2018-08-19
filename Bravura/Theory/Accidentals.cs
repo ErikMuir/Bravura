@@ -14,7 +14,7 @@ namespace Bravura
 
         public static ReadOnlyCollection<Accidental> Accidentals { get; private set; }
 
-        private static void SetAccidentals()
+        static partial void SetAccidentals()
         {
             DoubleFlat = new Accidental(
                 -2,

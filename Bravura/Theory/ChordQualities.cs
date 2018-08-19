@@ -124,7 +124,7 @@ namespace Bravura
         #endregion
 
 
-        private static void SetChordQualities()
+        static partial void SetChordQualities()
         {
             #region -- Triads --
 

@@ -41,7 +41,7 @@ namespace Bravura
         public static ReadOnlyCollection<Key> MinorKeys { get; private set; }
         public static ReadOnlyCollection<Key> Keys { get; private set; }
 
-        private static void SetKeys()
+        static partial void SetKeys()
         {
             CMajor = new Key(CNatural, KeyMode.Major);
             CSharpMajor = new Key(CSharp, KeyMode.Major);

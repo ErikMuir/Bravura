@@ -20,7 +20,7 @@ namespace Bravura
         public static Mode Locrian { get; private set; }
         public static List<Mode> Modes { get; private set; }
 
-        private static void SetModes()
+        static partial void SetModes()
         {
             Major = new Mode(
                 ModeNames.Major,

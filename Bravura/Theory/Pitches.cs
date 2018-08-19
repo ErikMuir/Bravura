@@ -5,6 +5,8 @@ namespace Bravura
 {
     public static partial class Theory
     {
+        #region -- Double Flats --
+
         public static Pitch CDoubleFlat { get; private set; }
         public static Pitch DDoubleFlat { get; private set; }
         public static Pitch EDoubleFlat { get; private set; }
@@ -12,6 +14,10 @@ namespace Bravura
         public static Pitch GDoubleFlat { get; private set; }
         public static Pitch ADoubleFlat { get; private set; }
         public static Pitch BDoubleFlat { get; private set; }
+
+        #endregion
+
+        #region -- Flats --
 
         public static Pitch CFlat { get; private set; }
         public static Pitch DFlat { get; private set; }
@@ -21,6 +27,10 @@ namespace Bravura
         public static Pitch AFlat { get; private set; }
         public static Pitch BFlat { get; private set; }
 
+        #endregion
+
+        #region -- Naturals --
+
         public static Pitch CNatural { get; private set; }
         public static Pitch DNatural { get; private set; }
         public static Pitch ENatural { get; private set; }
@@ -28,6 +38,10 @@ namespace Bravura
         public static Pitch GNatural { get; private set; }
         public static Pitch ANatural { get; private set; }
         public static Pitch BNatural { get; private set; }
+
+        #endregion
+
+        #region -- Sharps --
 
         public static Pitch CSharp { get; private set; }
         public static Pitch DSharp { get; private set; }
@@ -37,6 +51,10 @@ namespace Bravura
         public static Pitch ASharp { get; private set; }
         public static Pitch BSharp { get; private set; }
 
+        #endregion
+
+        #region -- Double Sharps --
+
         public static Pitch CDoubleSharp { get; private set; }
         public static Pitch DDoubleSharp { get; private set; }
         public static Pitch EDoubleSharp { get; private set; }
@@ -44,6 +62,10 @@ namespace Bravura
         public static Pitch GDoubleSharp { get; private set; }
         public static Pitch ADoubleSharp { get; private set; }
         public static Pitch BDoubleSharp { get; private set; }
+
+        #endregion
+
+        #region -- Collections --
 
         public static ReadOnlyCollection<Pitch> DoubleFlats { get; private set; }
         public static ReadOnlyCollection<Pitch> Flats { get; private set; }
@@ -55,8 +77,12 @@ namespace Bravura
         public static ReadOnlyCollection<Pitch> SignatureAccidentals { get; private set; }
         public static ReadOnlyCollection<Pitch> Pitches { get; private set; }
 
-        private static void SetPitches()
+        #endregion
+
+        static partial void SetPitches()
         {
+            #region -- Double Flats --
+
             CDoubleFlat = new Pitch(C, DoubleFlat);
             DDoubleFlat = new Pitch(D, DoubleFlat);
             EDoubleFlat = new Pitch(E, DoubleFlat);
@@ -64,6 +90,10 @@ namespace Bravura
             GDoubleFlat = new Pitch(G, DoubleFlat);
             ADoubleFlat = new Pitch(A, DoubleFlat);
             BDoubleFlat = new Pitch(B, DoubleFlat);
+
+            #endregion
+
+            #region -- Flats --
 
             CFlat = new Pitch(C, Flat);
             DFlat = new Pitch(D, Flat);
@@ -73,6 +103,10 @@ namespace Bravura
             AFlat = new Pitch(A, Flat);
             BFlat = new Pitch(B, Flat);
 
+            #endregion
+
+            #region -- Naturals --
+
             CNatural = new Pitch(C, Natural);
             DNatural = new Pitch(D, Natural);
             ENatural = new Pitch(E, Natural);
@@ -80,6 +114,10 @@ namespace Bravura
             GNatural = new Pitch(G, Natural);
             ANatural = new Pitch(A, Natural);
             BNatural = new Pitch(B, Natural);
+
+            #endregion
+
+            #region -- Sharps --
 
             CSharp = new Pitch(C, Sharp);
             DSharp = new Pitch(D, Sharp);
@@ -89,6 +127,10 @@ namespace Bravura
             ASharp = new Pitch(A, Sharp);
             BSharp = new Pitch(B, Sharp);
 
+            #endregion
+
+            #region -- Double Sharps --
+
             CDoubleSharp = new Pitch(C, DoubleSharp);
             DDoubleSharp = new Pitch(D, DoubleSharp);
             EDoubleSharp = new Pitch(E, DoubleSharp);
@@ -96,6 +138,10 @@ namespace Bravura
             GDoubleSharp = new Pitch(G, DoubleSharp);
             ADoubleSharp = new Pitch(A, DoubleSharp);
             BDoubleSharp = new Pitch(B, DoubleSharp);
+
+            #endregion
+
+            #region -- Collections --
 
             DoubleFlats = new List<Pitch>
             {
@@ -230,6 +276,8 @@ namespace Bravura
                 ADoubleSharp,
                 BDoubleSharp,
             }.AsReadOnly();
+
+            #endregion
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Bravura
 
         public static ReadOnlyOrderedDictionary<char, short> MusicalAlphabet { get; private set; }
 
-        private static void SetNotes()
+        static partial void SetNotes()
         {
             C = new Note(NoteLetters.C, NoteValues.C);
             D = new Note(NoteLetters.D, NoteValues.D);

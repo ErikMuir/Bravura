@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Bravura
 {
@@ -25,17 +26,6 @@ namespace Bravura
             }
 
             SignatureAccidentals = accidentals;
-
-            //RelativeRoot = Keys.AllKeys
-            //    .Where(k => k.Mode != keyMode)
-            //    .Where(k => k.SignatureAccidentals.Count == accidentals.Count)
-            //    .Where(k => k.SignatureAccidentals.Count == 0 ||
-            //                k.SignatureAccidentals.First().Accidental == accidentals.First().Accidental)
-            //    .Select(k => k.Root)
-            //    .Single();
-            //RelativeMode = keyMode == KeyMode.Major
-            //    ? KeyMode.Minor
-            //    : KeyMode.Major;
         }
 
         public Mode ActualMode { get; }
@@ -44,9 +34,19 @@ namespace Bravura
 
         public List<Pitch> SignatureAccidentals { get; }
 
-        //public Pitch RelativeRoot { get; }
-
-        //public KeyMode RelativeMode { get; }
+        public Key Relative()
+        {
+            var accidentals = SignatureAccidentals;
+            var keys = Mode == KeyMode.Major ? Theory.MinorKeys : Theory.MajorKeys;
+            var root = keys
+                .Where(k => k.SignatureAccidentals.Count == accidentals.Count)
+                .Where(k => k.SignatureAccidentals.Count == 0 ||
+                            k.SignatureAccidentals.First() == accidentals.First())
+                .Select(k => k.Root)
+                .Single();
+            var mode = Mode == KeyMode.Major ? KeyMode.Minor : KeyMode.Major;
+            return new Key(root, mode);
+        }
     }
 
     public enum KeyMode { Major, Minor, }

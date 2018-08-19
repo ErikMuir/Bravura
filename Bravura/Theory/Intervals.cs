@@ -37,7 +37,7 @@ namespace Bravura
 
         public static ReadOnlyCollection<Interval> Intervals { get; private set; }
 
-        private static void SetIntervals()
+        static partial void SetIntervals()
         {
             PerfectUnison = new Interval(0, Natural, 1, IntervalNames.PerfectUnison, IntervalSymbols.PerfectUnison);
             AugmentedUnison = new Interval(1, Sharp, 1, IntervalNames.AugmentedUnison, IntervalSymbols.AugmentedUnison);
