@@ -1,4 +1,6 @@
-﻿namespace Bravura.Extensions
+﻿using static Bravura.Theory;
+
+namespace Bravura.Extensions
 {
     public static class NoteExtensions
     {
@@ -8,7 +10,7 @@
         /// <param name="note"></param>
         /// <returns></returns>
         public static int Index(this Note note)
-            => Theory.MusicalAlphabet.IndexOf(note.Letter);
+            => MusicalAlphabet.IndexOf(note.Letter);
 
         /// <summary>
         /// Returns the index of the previous note in the musical alphabet.

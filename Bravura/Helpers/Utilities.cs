@@ -2,19 +2,22 @@
 
 namespace Bravura
 {
-    public static class Utilities
+    public static partial class Theory
     {
-        /// <summary>
-        /// Returns the note from the musical alphabet at the given index.
-        /// </summary>
-        /// <param name="index"></param>
-        /// <returns></returns>
-        public static Note GetNoteByIndex(int index)
+        public static class Utilities
         {
-            index = index.RollingRange(6);
-            var noteLetter = Theory.MusicalAlphabet.KeysList[index];
-            var semitones = Theory.MusicalAlphabet[index];
-            return new Note(noteLetter, semitones);
+            /// <summary>
+            /// Returns the note from the musical alphabet at the given index.
+            /// </summary>
+            /// <param name="index"></param>
+            /// <returns></returns>
+            public static Note GetNoteByIndex(int index)
+            {
+                index = index.RollingRange(6);
+                var noteLetter = MusicalAlphabet.KeysList[index];
+                var semitones = MusicalAlphabet[index];
+                return new Note(noteLetter, semitones);
+            }
         }
     }
 }

@@ -4,44 +4,55 @@ using Bravura.Constants;
 
 namespace Bravura
 {
-    public struct Note
-    {
-        public char Letter { get; }
-        public short SemitonesAboveC { get; }
-
-        internal Note(char letter, short semitonesAboveC)
-        {
-            Letter = letter;
-            SemitonesAboveC = semitonesAboveC;
-
-            KeyValuePair = new KeyValuePair<char, short>(letter, semitonesAboveC);
-        }
-
-        public KeyValuePair<char, short> KeyValuePair { get; }
-
-        #region -- Equality Operator Overrides --
-
-        public static bool operator ==(Note a, Note b)
-            => a.SemitonesAboveC == b.SemitonesAboveC;
-
-        public static bool operator !=(Note a, Note b)
-            => !(a == b);
-
-        public override bool Equals(object obj)
-        {
-            if (!(obj is Note)) return false;
-            var note = (Note)obj;
-            return SemitonesAboveC == note.SemitonesAboveC;
-        }
-
-        public override int GetHashCode()
-            => HashCode.Combine(SemitonesAboveC);
-
-        #endregion
-    }
-
     public static partial class Theory
     {
+        public struct Note
+        {
+            #region -- Constructor --
+
+            internal Note(char letter, short semitonesAboveC)
+            {
+                Letter = letter;
+                SemitonesAboveC = semitonesAboveC;
+
+                KeyValuePair = new KeyValuePair<char, short>(letter, semitonesAboveC);
+            }
+
+            #endregion
+
+            #region -- Properties --
+
+            public char Letter { get; }
+            public short SemitonesAboveC { get; }
+            public KeyValuePair<char, short> KeyValuePair { get; }
+
+            #endregion
+
+            #region -- Equality Methods --
+
+            // TODO : Are these even needed? All instances are static.
+
+            public static bool operator ==(Note a, Note b)
+                => a.SemitonesAboveC == b.SemitonesAboveC;
+
+            public static bool operator !=(Note a, Note b)
+                => !(a == b);
+
+            public override bool Equals(object obj)
+            {
+                if (!(obj is Note)) return false;
+                var note = (Note)obj;
+                return SemitonesAboveC == note.SemitonesAboveC;
+            }
+
+            public override int GetHashCode()
+                => HashCode.Combine(SemitonesAboveC);
+
+            #endregion
+        }
+
+        #region Note Singletons --
+
         public static Note C { get; private set; }
         public static Note D { get; private set; }
         public static Note E { get; private set; }
@@ -49,8 +60,9 @@ namespace Bravura
         public static Note G { get; private set; }
         public static Note A { get; private set; }
         public static Note B { get; private set; }
-
         public static ReadOnlyOrderedDictionary<char, short> MusicalAlphabet { get; private set; }
+
+        #endregion 
 
         static partial void SetNotes()
         {

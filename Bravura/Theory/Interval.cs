@@ -5,61 +5,75 @@ using Bravura.Constants;
 
 namespace Bravura
 {
-    public struct Interval
-    {
-        public int Semitones { get; }
-        public Accidental Accidental { get; }
-        public int NoteIndex { get; }
-        public string Name { get; }
-        public string Symbol { get; }
-
-        internal Interval(
-            int semitones,
-            Accidental accidental,
-            int noteIndex,
-            string name,
-            string symbol)
-        {
-            Semitones = semitones;
-            Accidental = accidental;
-            NoteIndex = noteIndex;
-            Name = name;
-            Symbol = symbol;
-        }
-
-        #region -- String Methods --
-
-        public override string ToString()
-            => $"{Accidental.Symbol}{NoteIndex}";
-
-        public string ToAsciiString()
-            => $"{Accidental.AsciiSymbol}{NoteIndex}";
-
-        #endregion
-
-        #region -- Equality Methods --
-
-        public static bool operator ==(Interval a, Interval b)
-            => a.Semitones == b.Semitones;
-
-        public static bool operator !=(Interval a, Interval b)
-            => !(a == b);
-
-        public override bool Equals(object obj)
-        {
-            if (!(obj is Interval)) return false;
-            var interval = (Interval)obj;
-            return Semitones == interval.Semitones;
-        }
-
-        public override int GetHashCode()
-            => HashCode.Combine(Semitones);
-
-        #endregion
-    }
-
     public static partial class Theory
     {
+        public struct Interval
+        {
+            #region -- Constructor --
+
+            internal Interval(
+                int semitones,
+                Accidental accidental,
+                int noteIndex,
+                string name,
+                string symbol)
+            {
+                Semitones = semitones;
+                Accidental = accidental;
+                NoteIndex = noteIndex;
+                Name = name;
+                Symbol = symbol;
+            }
+
+            #endregion
+
+            #region -- Properties --
+
+            public int Semitones { get; }
+            public Accidental Accidental { get; }
+            public int NoteIndex { get; }
+
+            public string Name { get; }
+            public string Symbol { get; }
+
+            #endregion
+
+            #region -- Methods --
+
+            #region -- String Methods --
+
+            public override string ToString()
+                => $"{Accidental.Symbol}{NoteIndex}";
+
+            public string ToAsciiString()
+                => $"{Accidental.AsciiSymbol}{NoteIndex}";
+
+            #endregion
+
+            #region -- Equality Methods --
+
+            public static bool operator ==(Interval a, Interval b)
+                => a.Semitones == b.Semitones;
+
+            public static bool operator !=(Interval a, Interval b)
+                => !(a == b);
+
+            public override bool Equals(object obj)
+            {
+                if (!(obj is Interval)) return false;
+                var interval = (Interval)obj;
+                return Semitones == interval.Semitones;
+            }
+
+            public override int GetHashCode()
+                => HashCode.Combine(Semitones);
+
+            #endregion
+
+            #endregion
+        }
+
+        #region -- Interval Singletons --
 
         public static Interval PerfectUnison { get; private set; }
         public static Interval AugmentedUnison { get; private set; }
@@ -88,8 +102,9 @@ namespace Bravura
         public static Interval AugmentedSeventh { get; private set; }
         public static Interval DiminishedOctave { get; private set; }
         public static Interval PerfectOctave { get; private set; }
-
         public static ReadOnlyCollection<Interval> Intervals { get; private set; }
+
+        #endregion 
 
         static partial void SetIntervals()
         {
