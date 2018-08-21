@@ -8,7 +8,7 @@ namespace Bravura
     {
         public enum KeyMode { Major, Minor, }
 
-        public struct Key
+        public class Key
         {
             #region -- Constructor --
 
@@ -63,7 +63,7 @@ namespace Bravura
             #endregion
         }
 
-        #region -- Key Singletons --
+        #region -- Keys --
 
         #region -- Major Keys --
 

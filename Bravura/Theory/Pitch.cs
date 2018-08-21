@@ -9,7 +9,7 @@ namespace Bravura
 {
     public static partial class Theory
     {
-        public struct Pitch
+        public class Pitch
         {
             #region -- Constructor --
 
@@ -190,7 +190,7 @@ namespace Bravura
             #endregion
         }
 
-        #region -- Pitch Singletons --
+        #region -- Pitches --
 
         #region -- Double Flats --
 

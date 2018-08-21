@@ -7,7 +7,7 @@ namespace Bravura
 {
     public static partial class Theory
     {
-        public struct Interval
+        public class Interval
         {
             #region -- Constructor --
 
@@ -73,7 +73,7 @@ namespace Bravura
             #endregion
         }
 
-        #region -- Interval Singletons --
+        #region -- Intervals --
 
         public static Interval PerfectUnison { get; private set; }
         public static Interval AugmentedUnison { get; private set; }

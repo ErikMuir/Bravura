@@ -6,7 +6,7 @@ namespace Bravura
 {
     public static partial class Theory
     {
-        public struct Scale
+        public class Scale
         {
             #region -- Constructor --
 

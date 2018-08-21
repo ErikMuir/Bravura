@@ -6,7 +6,7 @@ namespace Bravura
 {
     public static partial class Theory
     {
-        public struct Note
+        public class Note
         {
             #region -- Constructor --
 
@@ -51,7 +51,7 @@ namespace Bravura
             #endregion
         }
 
-        #region Note Singletons --
+        #region -- Notes --
 
         public static Note C { get; private set; }
         public static Note D { get; private set; }

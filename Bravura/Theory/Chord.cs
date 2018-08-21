@@ -5,7 +5,7 @@ namespace Bravura
 {
     public static partial class Theory
     {
-        public struct Chord
+        public class Chord
         {
             #region -- Constructor --
 

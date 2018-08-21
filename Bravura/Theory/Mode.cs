@@ -8,7 +8,7 @@ namespace Bravura
 {
     public static partial class Theory
     {
-        public struct Mode
+        public class Mode
         {
             #region -- Constructor --
 
@@ -45,7 +45,7 @@ namespace Bravura
             #endregion 
         }
 
-        #region -- Mode Singletons --
+        #region -- Modes --
 
         public static Mode Major { get; private set; }
         public static Mode NaturalMinor { get; private set; }

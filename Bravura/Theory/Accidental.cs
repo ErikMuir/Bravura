@@ -7,7 +7,7 @@ namespace Bravura
 {
     public static partial class Theory
     {
-        public struct Accidental
+        public class Accidental
         {
             #region -- Constructor --
 
@@ -55,7 +55,7 @@ namespace Bravura
             #endregion
         }
 
-        #region -- Accidental Singletons --
+        #region -- Accidentals --
 
         public static Accidental DoubleFlat { get; private set; }
         public static Accidental Flat { get; private set; }

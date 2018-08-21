@@ -8,7 +8,7 @@ namespace Bravura
 {
     public static partial class Theory
     {
-        public struct ChordQuality
+        public class ChordQuality
         {
             #region -- Constructor --
 
@@ -69,7 +69,7 @@ namespace Bravura
             #endregion
         }
 
-        #region -- Chord Quality Singletons --
+        #region -- Chord Qualities --
 
         #region -- Triads --
 
