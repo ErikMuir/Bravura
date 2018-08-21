@@ -212,7 +212,7 @@ namespace Bravura.Tests
             for (var i = 0; i < noteIndices.Count; i++)
             {
                 Assert.Equal(noteIndices[i], mode.NoteIndices[i]);
-                Assert.Equal(intervals[i], mode.Intervals[i]);
+                Assert.Equal(intervals[i], mode.ModeIntervals[i]);
             }
         }
 

@@ -6,7 +6,7 @@ namespace Bravura
 {
     public static partial class Theory
     {
-        public enum KeyMode { Major, Minor, }
+        public enum KeyMode { Major, Minor }
 
         public class Key
         {
@@ -15,21 +15,21 @@ namespace Bravura
             internal Key(Pitch root, KeyMode keyMode)
             {
                 Root = root;
-                Mode = keyMode;
+                KeyMode = keyMode;
 
-                ActualMode = Mode == KeyMode.Major
+                ActualMode = KeyMode == KeyMode.Major
                     ? Major
                     : NaturalMinor;
                 Scale = new Scale(Root, ActualMode);
 
                 var accidentals = new List<Pitch>();
-                foreach (var accidental in Theory.SignatureAccidentals)
+                foreach (var accidental in SignatureAccidentals)
                 {
-                    if (Scale.Pitches.Contains(accidental))
+                    if (Scale.ScalePitches.Contains(accidental))
                         accidentals.Add(accidental);
                 }
 
-                SignatureAccidentals = accidentals;
+                KeySignatureAccidentals = accidentals;
             }
 
             #endregion
@@ -37,10 +37,10 @@ namespace Bravura
             #region -- Properties --
 
             public Pitch Root { get; }
-            public KeyMode Mode { get; }
+            public KeyMode KeyMode { get; }
             public Mode ActualMode { get; }
             public Scale Scale { get; }
-            public List<Pitch> SignatureAccidentals { get; }
+            public List<Pitch> KeySignatureAccidentals { get; }
 
             #endregion
 
@@ -48,15 +48,15 @@ namespace Bravura
 
             public Key Relative()
             {
-                var accidentals = SignatureAccidentals;
-                var keys = Mode == KeyMode.Major ? MinorKeys : MajorKeys;
+                var accidentals = KeySignatureAccidentals;
+                var keys = KeyMode == KeyMode.Major ? MinorKeys : MajorKeys;
                 var root = keys
-                    .Where(k => k.SignatureAccidentals.Count == accidentals.Count)
-                    .Where(k => k.SignatureAccidentals.Count == 0 ||
-                                k.SignatureAccidentals.First() == accidentals.First())
+                    .Where(k => k.KeySignatureAccidentals.Count == accidentals.Count)
+                    .Where(k => k.KeySignatureAccidentals.Count == 0 ||
+                                k.KeySignatureAccidentals.First() == accidentals.First())
                     .Select(k => k.Root)
                     .Single();
-                var mode = Mode == KeyMode.Major ? KeyMode.Minor : KeyMode.Major;
+                var mode = KeyMode == KeyMode.Major ? KeyMode.Minor : KeyMode.Major;
                 return new Key(root, mode);
             }
 

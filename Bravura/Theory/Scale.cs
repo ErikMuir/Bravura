@@ -14,8 +14,6 @@ namespace Bravura
             {
                 Root = root;
                 Mode = mode;
-                Pitches = new List<Pitch>();
-                SetPitches();
             }
 
             #endregion
@@ -24,21 +22,30 @@ namespace Bravura
 
             public Pitch Root { get; }
             public Mode Mode { get; }
-            public List<Pitch> Pitches { get; }
+            private List<Pitch> _scalePitches;
+            public List<Pitch> ScalePitches
+            {
+                get
+                {
+                    if (_scalePitches != null)
+                        return _scalePitches;
+
+                    _scalePitches = new List<Pitch>();
+
+                    for (var i = 0; i < Mode.ModeIntervals.Count; i++)
+                    {
+                        var note = GetNote(i);
+                        var accidental = GetAccidental(i, note.SemitonesAboveC);
+                        _scalePitches.Add(new Pitch(note, accidental));
+                    }
+
+                    return _scalePitches;
+                }
+            }
 
             #endregion
 
             #region -- Methods --
-
-            private void SetPitches()
-            {
-                for (var i = 0; i < Mode.Intervals.Count; i++)
-                {
-                    var note = GetNote(i);
-                    var accidental = GetAccidental(i, note.SemitonesAboveC);
-                    Pitches.Add(new Pitch(note, accidental));
-                }
-            }
 
             private Note GetNote(int index)
             {
@@ -48,7 +55,7 @@ namespace Bravura
 
             private Accidental GetAccidental(int index, int noteValue)
             {
-                var pitchValue = (Mode.Intervals[index].Semitones + Root.SemitonesAboveC).RollingRange(11);
+                var pitchValue = (Mode.ModeIntervals[index].Semitones + Root.SemitonesAboveC).RollingRange(11);
                 var accidentalValue = (pitchValue - noteValue);
                 switch (accidentalValue)
                 {
@@ -65,7 +72,7 @@ namespace Bravura
                         accidentalValue = -2;
                         break;
                 }
-                return Theory.Accidentals.Single(a => a.SemitonesAwayFromNatural == accidentalValue);
+                return Accidentals.Single(a => a.SemitonesAwayFromNatural == accidentalValue);
             }
 
             #endregion

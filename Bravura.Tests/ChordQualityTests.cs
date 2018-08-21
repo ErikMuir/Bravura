@@ -51,10 +51,10 @@ namespace Bravura.Tests
             var chordQuality = new ChordQuality(symbol, symbol, intervals);
             Assert.IsType<ChordQuality>(chordQuality);
             Assert.Equal(symbol, chordQuality.Symbol);
-            Assert.Equal(intervals.Count, chordQuality.Intervals.Count);
+            Assert.Equal(intervals.Count, chordQuality.ChordQualityIntervals.Count);
             for (var i = 0; i < intervals.Count; i++)
             {
-                Assert.True(intervals[i] == chordQuality.Intervals[i]);
+                Assert.True(intervals[i] == chordQuality.ChordQualityIntervals[i]);
             }
         }
 

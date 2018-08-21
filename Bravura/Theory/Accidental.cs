@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Bravura.Constants;
 
@@ -31,26 +30,6 @@ namespace Bravura
             public string Name { get; }
             public string Symbol { get; }
             public string AsciiSymbol { get; }
-
-            #endregion
-
-            #region -- Equality Methods --
-
-            public static bool operator ==(Accidental a, Accidental b)
-                => a.SemitonesAwayFromNatural == b.SemitonesAwayFromNatural;
-
-            public static bool operator !=(Accidental a, Accidental b)
-                => !(a == b);
-
-            public override bool Equals(object obj)
-            {
-                if (!(obj is Accidental)) return false;
-                var accidental = (Accidental)obj;
-                return SemitonesAwayFromNatural == accidental.SemitonesAwayFromNatural;
-            }
-
-            public override int GetHashCode()
-                => HashCode.Combine(SemitonesAwayFromNatural);
 
             #endregion
         }

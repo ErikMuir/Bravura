@@ -22,7 +22,7 @@ namespace Bravura
                         throw new Exception();
                     if (noteIndices.Any(i => i < 0 || i > 6))
                         throw new Exception();
-                    Intervals = intervals ?? throw new Exception();
+                    ModeIntervals = intervals ?? throw new Exception();
                     if (intervals.Count < 5 || intervals.Count > 12)
                         throw new Exception();
                     if (intervals.Count != noteIndices.Count)
@@ -40,7 +40,7 @@ namespace Bravura
 
             public string Name { get; }
             public List<int> NoteIndices { get; }
-            public List<Interval> Intervals { get; }
+            public List<Interval> ModeIntervals { get; }
 
             #endregion 
         }

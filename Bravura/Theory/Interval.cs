@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Bravura.Constants;
 
@@ -32,7 +31,6 @@ namespace Bravura
             public int Semitones { get; }
             public Accidental Accidental { get; }
             public int NoteIndex { get; }
-
             public string Name { get; }
             public string Symbol { get; }
 
@@ -40,35 +38,11 @@ namespace Bravura
 
             #region -- Methods --
 
-            #region -- String Methods --
-
             public override string ToString()
                 => $"{Accidental.Symbol}{NoteIndex}";
 
             public string ToAsciiString()
                 => $"{Accidental.AsciiSymbol}{NoteIndex}";
-
-            #endregion
-
-            #region -- Equality Methods --
-
-            public static bool operator ==(Interval a, Interval b)
-                => a.Semitones == b.Semitones;
-
-            public static bool operator !=(Interval a, Interval b)
-                => !(a == b);
-
-            public override bool Equals(object obj)
-            {
-                if (!(obj is Interval)) return false;
-                var interval = (Interval)obj;
-                return Semitones == interval.Semitones;
-            }
-
-            public override int GetHashCode()
-                => HashCode.Combine(Semitones);
-
-            #endregion
 
             #endregion
         }
