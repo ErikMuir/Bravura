@@ -6,7 +6,7 @@ using Bravura.Extensions;
 
 namespace Bravura
 {
-    public static partial class Theory
+    public static partial class Tonality
     {
         public class Pitch
         {

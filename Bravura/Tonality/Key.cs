@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Bravura
 {
-    public static partial class Theory
+    public static partial class Tonality
     {
         public enum KeyMode { Major, Minor }
 

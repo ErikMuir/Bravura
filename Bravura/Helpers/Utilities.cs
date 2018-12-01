@@ -2,7 +2,7 @@
 
 namespace Bravura
 {
-    public static partial class Theory
+    public static partial class Tonality
     {
         public static class Utilities
         {

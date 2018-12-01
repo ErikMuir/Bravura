@@ -4,7 +4,7 @@ using Bravura.Constants;
 
 namespace Bravura
 {
-    public static partial class Theory
+    public static partial class Tonality
     {
         public class Accidental
         {

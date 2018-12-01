@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Xunit;
-using static Bravura.Theory;
+using static Bravura.Tonality;
 
 namespace Bravura.Tests
 {
@@ -47,10 +47,9 @@ namespace Bravura.Tests
 
         [Theory]
         [MemberData(nameof(PitchMemberData))]
-        public void Pitch_Tests(Pitch pitch, Pitch expectedLogical)
+        public void Pitch_EnharmonicallyEquals_Tests(Pitch pitch, Pitch expectedLogical)
         {
             var actualLogical = pitch.Logical();
-            Assert.Equal(expectedLogical, actualLogical);
             Assert.True(pitch.EnharmonicallyEquals(actualLogical));
         }
     }

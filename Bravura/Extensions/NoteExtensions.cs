@@ -1,4 +1,4 @@
-﻿using static Bravura.Theory;
+﻿using static Bravura.Tonality;
 
 namespace Bravura.Extensions
 {

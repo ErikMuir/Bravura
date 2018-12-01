@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Bravura.Exceptions;
 using Xunit;
-using static Bravura.Theory;
+using static Bravura.Tonality;
 
 namespace Bravura.Tests
 {
