@@ -8,21 +8,18 @@ namespace Bravura
     {
         public class Scale
         {
-            #region -- Constructor --
-
             public Scale(Pitch root, Mode mode)
             {
                 Root = root;
                 Mode = mode;
             }
 
-            #endregion
-
-            #region -- Properties --
-
             public Pitch Root { get; }
+
             public Mode Mode { get; }
+
             private List<Pitch> _scalePitches;
+
             public List<Pitch> ScalePitches
             {
                 get
@@ -42,10 +39,6 @@ namespace Bravura
                     return _scalePitches;
                 }
             }
-
-            #endregion
-
-            #region -- Methods --
 
             private Note GetNote(int index)
             {
@@ -74,8 +67,6 @@ namespace Bravura
                 }
                 return Accidentals.Single(a => a.SemitonesAwayFromNatural == accidentalValue);
             }
-
-            #endregion
         }
     }
 }

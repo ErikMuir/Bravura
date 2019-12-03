@@ -7,20 +7,16 @@ namespace Bravura
     {
         public class Chord
         {
-            #region -- Constructor --
-
             public Chord(Pitch root, ChordQuality quality)
             {
                 Root = root;
                 ChordQuality = quality;
             }
 
-            #endregion
-
-            #region -- Properties --
-
             public Pitch Root { get; }
+
             public ChordQuality ChordQuality { get; }
+
             public List<Pitch> Notes
                 => ChordQuality.ChordQualityIntervals
                     .Select(Root.GetPitchByIntervalAbove)
@@ -43,8 +39,6 @@ namespace Bravura
                 => ChordQuality.ChordQualityIntervals
                     .Select(i => i.ToAsciiString())
                     .ToList();
-
-            #endregion
         }
     }
 }

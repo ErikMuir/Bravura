@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Bravura.Constants;
 
@@ -6,44 +6,12 @@ namespace Bravura
 {
     public static partial class Tonality
     {
-        public class Accidental
-        {
-            #region -- Constructor --
-
-            internal Accidental(
-                short semitonesAwayFromNatural,
-                string name,
-                string symbol,
-                string asciiSymbol)
-            {
-                SemitonesAwayFromNatural = semitonesAwayFromNatural;
-                Name = name;
-                Symbol = symbol;
-                AsciiSymbol = asciiSymbol;
-            }
-
-            #endregion
-
-            #region -- Properties --
-
-            public short SemitonesAwayFromNatural { get; }
-            public string Name { get; }
-            public string Symbol { get; }
-            public string AsciiSymbol { get; }
-
-            #endregion
-        }
-
-        #region -- Accidentals --
-
         public static Accidental DoubleFlat { get; private set; }
         public static Accidental Flat { get; private set; }
         public static Accidental Natural { get; private set; }
         public static Accidental Sharp { get; private set; }
         public static Accidental DoubleSharp { get; private set; }
         public static ReadOnlyCollection<Accidental> Accidentals { get; private set; }
-
-        #endregion 
 
         static partial void SetAccidentals()
         {

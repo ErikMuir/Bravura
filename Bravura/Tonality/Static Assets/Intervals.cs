@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Bravura.Constants;
 
@@ -6,71 +6,6 @@ namespace Bravura
 {
     public static partial class Tonality
     {
-        public class Interval
-        {
-            #region -- Constructor --
-
-            internal Interval(
-                int semitones,
-                Accidental accidental,
-                int noteIndex,
-                string name,
-                string symbol)
-            {
-                Semitones = semitones;
-                Accidental = accidental;
-                NoteIndex = noteIndex;
-                Name = name;
-                Symbol = symbol;
-            }
-
-            #endregion
-
-            #region -- Properties --
-
-            public int Semitones { get; }
-            public Accidental Accidental { get; }
-            public int NoteIndex { get; }
-            public string Name { get; }
-            public string Symbol { get; }
-
-            #endregion
-
-            #region -- Methods --
-
-            public override string ToString()
-                => $"{Accidental.Symbol}{NoteIndex}";
-
-            public string ToAsciiString()
-                => $"{Accidental.AsciiSymbol}{NoteIndex}";
-
-            //public static bool operator ==(Interval a, Interval b)
-            //{
-            //    if (a == null && b == null) return true;
-            //    if (a == null || b == null) return false;
-            //    return a.NoteIndex == b.NoteIndex && a.Accidental.SemitonesAwayFromNatural == b.Accidental.SemitonesAwayFromNatural;
-            //}
-
-            //public static bool operator !=(Interval a, Interval b)
-            //{
-            //    return !(a == b);
-            //}
-
-            //public override bool Equals(object obj)
-            //{
-            //    if (!(obj is Interval)) return false;
-            //    var interval = (Interval)obj;
-            //    return this.NoteIndex == interval.NoteIndex && this.Accidental.SemitonesAwayFromNatural == interval.Accidental.SemitonesAwayFromNatural;
-            //}
-
-            //public override int GetHashCode()
-            //    => this.NoteIndex + this.Accidental.SemitonesAwayFromNatural;
-
-            #endregion
-        }
-
-        #region -- Intervals --
-
         public static Interval PerfectUnison { get; private set; }
         public static Interval AugmentedUnison { get; private set; }
         public static Interval DiminishedSecond { get; private set; }
@@ -99,8 +34,6 @@ namespace Bravura
         public static Interval DiminishedOctave { get; private set; }
         public static Interval PerfectOctave { get; private set; }
         public static ReadOnlyCollection<Interval> Intervals { get; private set; }
-
-        #endregion 
 
         static partial void SetIntervals()
         {

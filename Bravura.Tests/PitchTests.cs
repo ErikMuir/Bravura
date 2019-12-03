@@ -43,7 +43,7 @@ namespace Bravura.Tests
             yield return new object[] { GDoubleSharp, ANatural };
             yield return new object[] { ADoubleSharp, BNatural };
             yield return new object[] { BDoubleSharp, CSharp };
-        }                                      
+        }
 
         [Theory]
         [MemberData(nameof(PitchMemberData))]
@@ -51,6 +51,8 @@ namespace Bravura.Tests
         {
             var actualLogical = pitch.Logical();
             Assert.True(pitch.EnharmonicallyEquals(actualLogical));
+            Assert.True(pitch.EnharmonicallyEquals(expectedLogical));
+            Assert.True(expectedLogical.EnharmonicallyEquals(actualLogical));
         }
     }
 }

@@ -1,72 +1,10 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace Bravura
 {
     public static partial class Tonality
     {
-        public enum KeyMode { Major, Minor }
-
-        public class Key
-        {
-            #region -- Constructor --
-
-            internal Key(Pitch root, KeyMode keyMode)
-            {
-                Root = root;
-                KeyMode = keyMode;
-
-                ActualMode = KeyMode == KeyMode.Major
-                    ? Major
-                    : NaturalMinor;
-                Scale = new Scale(Root, ActualMode);
-
-                var accidentals = new List<Pitch>();
-                foreach (var accidental in SignatureAccidentals)
-                {
-                    if (Scale.ScalePitches.Contains(accidental))
-                        accidentals.Add(accidental);
-                }
-
-                KeySignatureAccidentals = accidentals;
-            }
-
-            #endregion
-
-            #region -- Properties --
-
-            public Pitch Root { get; }
-            public KeyMode KeyMode { get; }
-            public Mode ActualMode { get; }
-            public Scale Scale { get; }
-            public List<Pitch> KeySignatureAccidentals { get; }
-
-            #endregion
-
-            #region -- Methods --
-
-            public Key Relative()
-            {
-                var accidentals = KeySignatureAccidentals;
-                var keys = KeyMode == KeyMode.Major ? MinorKeys : MajorKeys;
-                var root = keys
-                    .Where(k => k.KeySignatureAccidentals.Count == accidentals.Count)
-                    .Where(k => k.KeySignatureAccidentals.Count == 0 ||
-                                k.KeySignatureAccidentals.First() == accidentals.First())
-                    .Select(k => k.Root)
-                    .Single();
-                var mode = KeyMode == KeyMode.Major ? KeyMode.Minor : KeyMode.Major;
-                return new Key(root, mode);
-            }
-
-            #endregion
-        }
-
-        #region -- Keys --
-
-        #region -- Major Keys --
-
         public static Key CMajor { get; private set; }
         public static Key CSharpMajor { get; private set; }
         public static Key DFlatMajor { get; private set; }
@@ -82,10 +20,6 @@ namespace Bravura
         public static Key BFlatMajor { get; private set; }
         public static Key BMajor { get; private set; }
         public static Key CFlatMajor { get; private set; }
-
-        #endregion
-
-        #region -- Minor Keys --
 
         public static Key CMinor { get; private set; }
         public static Key CSharpMinor { get; private set; }
@@ -103,22 +37,12 @@ namespace Bravura
         public static Key BFlatMinor { get; private set; }
         public static Key BMinor { get; private set; }
 
-        #endregion
-
-        #region -- Collections --
-
         public static ReadOnlyCollection<Key> MajorKeys { get; private set; }
         public static ReadOnlyCollection<Key> MinorKeys { get; private set; }
         public static ReadOnlyCollection<Key> Keys { get; private set; }
 
-        #endregion
-
-        #endregion 
-
         static partial void SetKeys()
         {
-            #region -- Major Keys --
-
             CMajor = new Key(CNatural, KeyMode.Major);
             CSharpMajor = new Key(CSharp, KeyMode.Major);
             DFlatMajor = new Key(DFlat, KeyMode.Major);
@@ -135,10 +59,6 @@ namespace Bravura
             BMajor = new Key(BNatural, KeyMode.Major);
             CFlatMajor = new Key(CFlat, KeyMode.Major);
 
-            #endregion
-
-            #region -- Minor Keys --
-
             CMinor = new Key(CNatural, KeyMode.Minor);
             CSharpMinor = new Key(CSharp, KeyMode.Minor);
             DMinor = new Key(DNatural, KeyMode.Minor);
@@ -154,10 +74,6 @@ namespace Bravura
             ASharpMinor = new Key(ASharp, KeyMode.Minor);
             BFlatMinor = new Key(BFlat, KeyMode.Minor);
             BMinor = new Key(BNatural, KeyMode.Minor);
-
-            #endregion
-
-            #region -- Collections --
 
             MajorKeys = new List<Key>
             {
@@ -230,8 +146,6 @@ namespace Bravura
                 BFlatMinor,
                 BMinor,
             }.AsReadOnly();
-
-            #endregion
         }
     }
 }

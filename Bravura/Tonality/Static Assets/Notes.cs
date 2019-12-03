@@ -1,35 +1,9 @@
-﻿using System.Collections.Generic;
 using Bravura.Constants;
 
 namespace Bravura
 {
     public static partial class Tonality
     {
-        public class Note
-        {
-            #region -- Constructor --
-
-            internal Note(char letter, short semitonesAboveC)
-            {
-                Letter = letter;
-                SemitonesAboveC = semitonesAboveC;
-
-                KeyValuePair = new KeyValuePair<char, short>(letter, semitonesAboveC);
-            }
-
-            #endregion
-
-            #region -- Properties --
-
-            public char Letter { get; }
-            public short SemitonesAboveC { get; }
-            public KeyValuePair<char, short> KeyValuePair { get; }
-
-            #endregion
-        }
-
-        #region -- Notes --
-
         public static Note C { get; private set; }
         public static Note D { get; private set; }
         public static Note E { get; private set; }
@@ -38,8 +12,6 @@ namespace Bravura
         public static Note A { get; private set; }
         public static Note B { get; private set; }
         public static ReadOnlyOrderedDictionary<char, short> MusicalAlphabet { get; private set; }
-
-        #endregion 
 
         static partial void SetNotes()
         {
