@@ -1,19 +1,10 @@
 using Bravura.Constants;
 
-namespace Bravura
+namespace Bravura.Tonality
 {
-    public static partial class Tonality
+    public static class Notes
     {
-        public static Note C { get; private set; }
-        public static Note D { get; private set; }
-        public static Note E { get; private set; }
-        public static Note F { get; private set; }
-        public static Note G { get; private set; }
-        public static Note A { get; private set; }
-        public static Note B { get; private set; }
-        public static ReadOnlyOrderedDictionary<char, short> MusicalAlphabet { get; private set; }
-
-        static partial void SetNotes()
+        static Notes()
         {
             C = new Note(NoteLetters.C, NoteValues.C);
             D = new Note(NoteLetters.D, NoteValues.D);
@@ -34,5 +25,14 @@ namespace Bravura
                 B.KeyValuePair,
             };
         }
+
+        public static readonly Note C;
+        public static readonly Note D;
+        public static readonly Note E;
+        public static readonly Note F;
+        public static readonly Note G;
+        public static readonly Note A;
+        public static readonly Note B;
+        public static readonly ReadOnlyOrderedDictionary<char, short> MusicalAlphabet;
     }
 }

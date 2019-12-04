@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using Bravura.Exceptions;
 using Xunit;
-using static Bravura.Tonality;
 
-namespace Bravura.Tests
+namespace Bravura.Tonality.Tests
 {
     public class ChordQualityTests
     {
@@ -13,19 +12,19 @@ namespace Bravura.Tests
 
         private static readonly List<Interval> OneInterval = new List<Interval>
         {
-            PerfectUnison,
+            Intervals.PerfectUnison,
         };
 
         private static readonly List<Interval> TwoIntervalsGood = new List<Interval>
         {
-            PerfectUnison,
-            PerfectFifth,
+            Intervals.PerfectUnison,
+            Intervals.PerfectFifth,
         };
 
         private static readonly List<Interval> TwoIntervalsBad = new List<Interval>
         {
-            MajorThird,
-            PerfectFifth,
+            Intervals.MajorThird,
+            Intervals.PerfectFifth,
         };
 
         #endregion 
@@ -72,9 +71,9 @@ namespace Bravura.Tests
         //{
         //    var fakeMinor = new ChordQuality("m", "m", new List<Interval>
         //    {
-        //        PerfectUnison,
-        //        MinorThird,
-        //        PerfectFifth,
+        //        Intervals.PerfectUnison,
+        //        Intervals.MinorThird,
+        //        Intervals.PerfectFifth,
         //    });
         //    Assert.True(fakeMinor == Min);
         //    Assert.True(fakeMinor.Equals(Min));
@@ -86,9 +85,9 @@ namespace Bravura.Tests
         //{
         //    var fakeMinor = new ChordQuality("M", "M", new List<Interval>
         //    {
-        //        PerfectUnison,
-        //        MinorThird,
-        //        PerfectFifth,
+        //        Intervals.PerfectUnison,
+        //        Intervals.MinorThird,
+        //        Intervals.PerfectFifth,
         //    });
         //    Assert.False(fakeMinor == Maj);
         //    Assert.False(fakeMinor.Equals(Maj));

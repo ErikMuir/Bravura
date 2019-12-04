@@ -2,71 +2,67 @@
 using System.Linq;
 using Bravura.Extensions;
 
-namespace Bravura
+namespace Bravura.Tonality
 {
-    public static partial class Tonality
+    public class Scale
     {
-        public class Scale
+        private List<Pitch> _scalePitches;
+
+        public Scale(Pitch root, Mode mode)
         {
-            public Scale(Pitch root, Mode mode)
+            Root = root;
+            Mode = mode;
+        }
+
+        public readonly Pitch Root;
+        public readonly Mode Mode;
+
+        public List<Pitch> ScalePitches
+        {
+            get
             {
-                Root = root;
-                Mode = mode;
-            }
-
-            public Pitch Root { get; }
-
-            public Mode Mode { get; }
-
-            private List<Pitch> _scalePitches;
-
-            public List<Pitch> ScalePitches
-            {
-                get
-                {
-                    if (_scalePitches != null)
-                        return _scalePitches;
-
-                    _scalePitches = new List<Pitch>();
-
-                    for (var i = 0; i < Mode.ModeIntervals.Count; i++)
-                    {
-                        var note = GetNote(i);
-                        var accidental = GetAccidental(i, note.SemitonesAboveC);
-                        _scalePitches.Add(new Pitch(note, accidental));
-                    }
-
+                if (_scalePitches != null)
                     return _scalePitches;
-                }
-            }
 
-            private Note GetNote(int index)
-            {
-                var noteIndex = (Mode.NoteIndices[index] + Root.Note.Index()).RollingRange(6);
-                return Utilities.GetNoteByIndex(noteIndex);
-            }
+                _scalePitches = new List<Pitch>();
 
-            private Accidental GetAccidental(int index, int noteValue)
-            {
-                var pitchValue = (Mode.ModeIntervals[index].Semitones + Root.SemitonesAboveC).RollingRange(11);
-                var accidentalValue = (pitchValue - noteValue);
-                switch (accidentalValue)
+                for (var i = 0; i < Mode.ModeIntervals.Count; i++)
                 {
-                    case -11:
-                        accidentalValue = 1;
-                        break;
-                    case -10:
-                        accidentalValue = 2;
-                        break;
-                    case 11:
-                        accidentalValue = -1;
-                        break;
-                    case 10:
-                        accidentalValue = -2;
-                        break;
+                    var note = GetNote(i);
+                    var accidental = GetAccidental(i, note.SemitonesAboveC);
+                    _scalePitches.Add(new Pitch(note, accidental));
                 }
-                return Accidentals.Single(a => a.SemitonesAwayFromNatural == accidentalValue);
+
+                return _scalePitches;
             }
+        }
+
+        private Note GetNote(int index)
+        {
+            var noteIndex = (Mode.NoteIndices[index] + Root.Note.Index()).RollingRange(6);
+            return Note.GetNoteByIndex(noteIndex);
+        }
+
+        private Accidental GetAccidental(int index, int noteValue)
+        {
+            var pitchValue = (Mode.ModeIntervals[index].Semitones + Root.SemitonesAboveC).RollingRange(11);
+            var accidentalValue = (pitchValue - noteValue);
+            switch (accidentalValue)
+            {
+                case -11:
+                    accidentalValue = 1;
+                    break;
+                case -10:
+                    accidentalValue = 2;
+                    break;
+                case 11:
+                    accidentalValue = -1;
+                    break;
+                case 10:
+                    accidentalValue = -2;
+                    break;
+            }
+            return Accidentals.AllAccidentals.Single(a => a.SemitonesAwayFromNatural == accidentalValue);
         }
     }
 }

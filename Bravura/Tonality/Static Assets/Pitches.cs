@@ -1,101 +1,51 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace Bravura
+namespace Bravura.Tonality
 {
-    public static partial class Tonality
+    public static class Pitches
     {
-        public static Pitch CDoubleFlat { get; private set; }
-        public static Pitch DDoubleFlat { get; private set; }
-        public static Pitch EDoubleFlat { get; private set; }
-        public static Pitch FDoubleFlat { get; private set; }
-        public static Pitch GDoubleFlat { get; private set; }
-        public static Pitch ADoubleFlat { get; private set; }
-        public static Pitch BDoubleFlat { get; private set; }
-
-        public static Pitch CFlat { get; private set; }
-        public static Pitch DFlat { get; private set; }
-        public static Pitch EFlat { get; private set; }
-        public static Pitch FFlat { get; private set; }
-        public static Pitch GFlat { get; private set; }
-        public static Pitch AFlat { get; private set; }
-        public static Pitch BFlat { get; private set; }
-
-        public static Pitch CNatural { get; private set; }
-        public static Pitch DNatural { get; private set; }
-        public static Pitch ENatural { get; private set; }
-        public static Pitch FNatural { get; private set; }
-        public static Pitch GNatural { get; private set; }
-        public static Pitch ANatural { get; private set; }
-        public static Pitch BNatural { get; private set; }
-
-        public static Pitch CSharp { get; private set; }
-        public static Pitch DSharp { get; private set; }
-        public static Pitch ESharp { get; private set; }
-        public static Pitch FSharp { get; private set; }
-        public static Pitch GSharp { get; private set; }
-        public static Pitch ASharp { get; private set; }
-        public static Pitch BSharp { get; private set; }
-
-        public static Pitch CDoubleSharp { get; private set; }
-        public static Pitch DDoubleSharp { get; private set; }
-        public static Pitch EDoubleSharp { get; private set; }
-        public static Pitch FDoubleSharp { get; private set; }
-        public static Pitch GDoubleSharp { get; private set; }
-        public static Pitch ADoubleSharp { get; private set; }
-        public static Pitch BDoubleSharp { get; private set; }
-
-        public static ReadOnlyCollection<Pitch> DoubleFlats { get; private set; }
-        public static ReadOnlyCollection<Pitch> Flats { get; private set; }
-        public static ReadOnlyCollection<Pitch> Naturals { get; private set; }
-        public static ReadOnlyCollection<Pitch> Sharps { get; private set; }
-        public static ReadOnlyCollection<Pitch> DoubleSharps { get; private set; }
-        public static ReadOnlyCollection<Pitch> SignatureFlats { get; private set; }
-        public static ReadOnlyCollection<Pitch> SignatureSharps { get; private set; }
-        public static ReadOnlyCollection<Pitch> SignatureAccidentals { get; private set; }
-        public static ReadOnlyCollection<Pitch> Pitches { get; private set; }
-
-        static partial void SetPitches()
+        static Pitches()
         {
-            CDoubleFlat = new Pitch(C, DoubleFlat);
-            DDoubleFlat = new Pitch(D, DoubleFlat);
-            EDoubleFlat = new Pitch(E, DoubleFlat);
-            FDoubleFlat = new Pitch(F, DoubleFlat);
-            GDoubleFlat = new Pitch(G, DoubleFlat);
-            ADoubleFlat = new Pitch(A, DoubleFlat);
-            BDoubleFlat = new Pitch(B, DoubleFlat);
+            CDoubleFlat = new Pitch(Notes.C, Accidentals.DoubleFlat);
+            DDoubleFlat = new Pitch(Notes.D, Accidentals.DoubleFlat);
+            EDoubleFlat = new Pitch(Notes.E, Accidentals.DoubleFlat);
+            FDoubleFlat = new Pitch(Notes.F, Accidentals.DoubleFlat);
+            GDoubleFlat = new Pitch(Notes.G, Accidentals.DoubleFlat);
+            ADoubleFlat = new Pitch(Notes.A, Accidentals.DoubleFlat);
+            BDoubleFlat = new Pitch(Notes.B, Accidentals.DoubleFlat);
 
-            CFlat = new Pitch(C, Flat);
-            DFlat = new Pitch(D, Flat);
-            EFlat = new Pitch(E, Flat);
-            FFlat = new Pitch(F, Flat);
-            GFlat = new Pitch(G, Flat);
-            AFlat = new Pitch(A, Flat);
-            BFlat = new Pitch(B, Flat);
+            CFlat = new Pitch(Notes.C, Accidentals.Flat);
+            DFlat = new Pitch(Notes.D, Accidentals.Flat);
+            EFlat = new Pitch(Notes.E, Accidentals.Flat);
+            FFlat = new Pitch(Notes.F, Accidentals.Flat);
+            GFlat = new Pitch(Notes.G, Accidentals.Flat);
+            AFlat = new Pitch(Notes.A, Accidentals.Flat);
+            BFlat = new Pitch(Notes.B, Accidentals.Flat);
 
-            CNatural = new Pitch(C, Natural);
-            DNatural = new Pitch(D, Natural);
-            ENatural = new Pitch(E, Natural);
-            FNatural = new Pitch(F, Natural);
-            GNatural = new Pitch(G, Natural);
-            ANatural = new Pitch(A, Natural);
-            BNatural = new Pitch(B, Natural);
+            CNatural = new Pitch(Notes.C, Accidentals.Natural);
+            DNatural = new Pitch(Notes.D, Accidentals.Natural);
+            ENatural = new Pitch(Notes.E, Accidentals.Natural);
+            FNatural = new Pitch(Notes.F, Accidentals.Natural);
+            GNatural = new Pitch(Notes.G, Accidentals.Natural);
+            ANatural = new Pitch(Notes.A, Accidentals.Natural);
+            BNatural = new Pitch(Notes.B, Accidentals.Natural);
 
-            CSharp = new Pitch(C, Sharp);
-            DSharp = new Pitch(D, Sharp);
-            ESharp = new Pitch(E, Sharp);
-            FSharp = new Pitch(F, Sharp);
-            GSharp = new Pitch(G, Sharp);
-            ASharp = new Pitch(A, Sharp);
-            BSharp = new Pitch(B, Sharp);
+            CSharp = new Pitch(Notes.C, Accidentals.Sharp);
+            DSharp = new Pitch(Notes.D, Accidentals.Sharp);
+            ESharp = new Pitch(Notes.E, Accidentals.Sharp);
+            FSharp = new Pitch(Notes.F, Accidentals.Sharp);
+            GSharp = new Pitch(Notes.G, Accidentals.Sharp);
+            ASharp = new Pitch(Notes.A, Accidentals.Sharp);
+            BSharp = new Pitch(Notes.B, Accidentals.Sharp);
 
-            CDoubleSharp = new Pitch(C, DoubleSharp);
-            DDoubleSharp = new Pitch(D, DoubleSharp);
-            EDoubleSharp = new Pitch(E, DoubleSharp);
-            FDoubleSharp = new Pitch(F, DoubleSharp);
-            GDoubleSharp = new Pitch(G, DoubleSharp);
-            ADoubleSharp = new Pitch(A, DoubleSharp);
-            BDoubleSharp = new Pitch(B, DoubleSharp);
+            CDoubleSharp = new Pitch(Notes.C, Accidentals.DoubleSharp);
+            DDoubleSharp = new Pitch(Notes.D, Accidentals.DoubleSharp);
+            EDoubleSharp = new Pitch(Notes.E, Accidentals.DoubleSharp);
+            FDoubleSharp = new Pitch(Notes.F, Accidentals.DoubleSharp);
+            GDoubleSharp = new Pitch(Notes.G, Accidentals.DoubleSharp);
+            ADoubleSharp = new Pitch(Notes.A, Accidentals.DoubleSharp);
+            BDoubleSharp = new Pitch(Notes.B, Accidentals.DoubleSharp);
 
             DoubleFlats = new List<Pitch>
             {
@@ -192,7 +142,7 @@ namespace Bravura
                 BSharp,
             }.AsReadOnly();
 
-            Pitches = new List<Pitch>
+            AllPitches = new List<Pitch>
             {
                 CDoubleFlat,
                 DDoubleFlat,
@@ -231,5 +181,55 @@ namespace Bravura
                 BDoubleSharp,
             }.AsReadOnly();
         }
+
+        public static readonly Pitch CDoubleFlat;
+        public static readonly Pitch DDoubleFlat;
+        public static readonly Pitch EDoubleFlat;
+        public static readonly Pitch FDoubleFlat;
+        public static readonly Pitch GDoubleFlat;
+        public static readonly Pitch ADoubleFlat;
+        public static readonly Pitch BDoubleFlat;
+
+        public static readonly Pitch CFlat;
+        public static readonly Pitch DFlat;
+        public static readonly Pitch EFlat;
+        public static readonly Pitch FFlat;
+        public static readonly Pitch GFlat;
+        public static readonly Pitch AFlat;
+        public static readonly Pitch BFlat;
+
+        public static readonly Pitch CNatural;
+        public static readonly Pitch DNatural;
+        public static readonly Pitch ENatural;
+        public static readonly Pitch FNatural;
+        public static readonly Pitch GNatural;
+        public static readonly Pitch ANatural;
+        public static readonly Pitch BNatural;
+
+        public static readonly Pitch CSharp;
+        public static readonly Pitch DSharp;
+        public static readonly Pitch ESharp;
+        public static readonly Pitch FSharp;
+        public static readonly Pitch GSharp;
+        public static readonly Pitch ASharp;
+        public static readonly Pitch BSharp;
+
+        public static readonly Pitch CDoubleSharp;
+        public static readonly Pitch DDoubleSharp;
+        public static readonly Pitch EDoubleSharp;
+        public static readonly Pitch FDoubleSharp;
+        public static readonly Pitch GDoubleSharp;
+        public static readonly Pitch ADoubleSharp;
+        public static readonly Pitch BDoubleSharp;
+
+        public static readonly ReadOnlyCollection<Pitch> DoubleFlats;
+        public static readonly ReadOnlyCollection<Pitch> Flats;
+        public static readonly ReadOnlyCollection<Pitch> Naturals;
+        public static readonly ReadOnlyCollection<Pitch> Sharps;
+        public static readonly ReadOnlyCollection<Pitch> DoubleSharps;
+        public static readonly ReadOnlyCollection<Pitch> SignatureFlats;
+        public static readonly ReadOnlyCollection<Pitch> SignatureSharps;
+        public static readonly ReadOnlyCollection<Pitch> SignatureAccidentals;
+        public static readonly ReadOnlyCollection<Pitch> AllPitches;
     }
 }
