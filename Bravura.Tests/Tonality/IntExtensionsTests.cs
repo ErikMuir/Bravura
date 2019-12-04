@@ -1,4 +1,4 @@
-﻿using Bravura.Extensions;
+﻿using Bravura.Tonality.Extensions;
 using Xunit;
 
 namespace Bravura.Tests

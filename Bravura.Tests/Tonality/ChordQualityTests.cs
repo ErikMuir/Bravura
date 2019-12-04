@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Bravura.Exceptions;
+using Bravura.Tonality.Exceptions;
 using Xunit;
 
 namespace Bravura.Tonality.Tests
@@ -63,7 +63,7 @@ namespace Bravura.Tonality.Tests
         {
             var exception = Record.Exception(() => new ChordQuality(symbol, symbol, intervals));
             Assert.NotNull(exception);
-            Assert.IsType<BravuraException>(exception);
+            Assert.IsType<BravuraTonalityException>(exception);
         }
 
         //[Fact(Skip = "Need to figure out equality overrides")]

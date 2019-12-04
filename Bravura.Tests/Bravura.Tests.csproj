@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bravura\Bravura.csproj" />
+    <ProjectReference Include="..\Bravura.Tonality\Bravura.Tonality.csproj" />
   </ItemGroup>
 
 </Project>

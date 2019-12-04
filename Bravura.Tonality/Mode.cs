@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Bravura.Exceptions;
+using Bravura.Tonality.Exceptions;
 
 namespace Bravura.Tonality
 {
@@ -25,7 +25,7 @@ namespace Bravura.Tonality
             }
             catch (Exception)
             {
-                throw new BravuraException($"{nameof(Mode)} is invalid");
+                throw new BravuraTonalityException($"{nameof(Mode)} is invalid");
             }
         }
 

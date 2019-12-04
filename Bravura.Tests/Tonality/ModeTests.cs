@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Bravura.Exceptions;
+using Bravura.Tonality.Exceptions;
 using Xunit;
 
 namespace Bravura.Tonality.Tests
@@ -221,7 +221,7 @@ namespace Bravura.Tonality.Tests
         {
             var exception = Record.Exception(() => new Mode(name, noteIndices, intervals));
             Assert.NotNull(exception);
-            Assert.IsType<BravuraException>(exception);
+            Assert.IsType<BravuraTonalityException>(exception);
         }
     }
 }

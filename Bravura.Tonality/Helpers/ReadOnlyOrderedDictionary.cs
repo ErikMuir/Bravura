@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.Immutable;
+using System.Collections.ObjectModel;
+//using System.Collections.Immutable;
 using System.Diagnostics.Contracts;
 using System.Linq;
 
-namespace Bravura
+namespace Bravura.Tonality
 {
     /// <inheritdoc />
     /// <summary>
@@ -76,7 +77,7 @@ namespace Bravura
         /// </summary>
         public IEnumerable<TKey> Keys => _fKeys.AsReadOnly();
 
-        public ImmutableList<TKey> KeysList => _fKeys.ToImmutableList();
+        public ReadOnlyCollection<TKey> KeysList => _fKeys.AsReadOnly();
 
         /// <summary>
         /// The values in the dictionary, in order.

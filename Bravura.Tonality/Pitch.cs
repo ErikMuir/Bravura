@@ -1,6 +1,6 @@
 ﻿using System.Linq;
-using Bravura.Exceptions;
-using Bravura.Extensions;
+using Bravura.Tonality.Exceptions;
+using Bravura.Tonality.Extensions;
 
 namespace Bravura.Tonality
 {
@@ -44,7 +44,7 @@ namespace Bravura.Tonality
                             ? Accidentals.Sharp
                             : Accidentals.Natural);
                 default:
-                    throw new BravuraException("Invalid accidental");
+                    throw new BravuraTonalityException("Invalid accidental");
             }
         }
 

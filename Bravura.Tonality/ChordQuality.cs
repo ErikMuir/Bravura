@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Bravura.Exceptions;
+using Bravura.Tonality.Exceptions;
 
 namespace Bravura.Tonality
 {
@@ -20,7 +20,7 @@ namespace Bravura.Tonality
             }
             catch (Exception)
             {
-                throw new BravuraException($"{nameof(ChordQuality)} is invalid");
+                throw new BravuraTonalityException($"{nameof(ChordQuality)} is invalid");
             }
         }
 
