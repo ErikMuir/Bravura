@@ -16,7 +16,7 @@ namespace Bravura.Tonality
         public readonly short SemitonesAboveC;
         public readonly KeyValuePair<char, short> KeyValuePair;
 
-        public int Index() => Notes.MusicalAlphabet.IndexOf(this.Letter);
+        public int Index() => Notes.MusicalAlphabet.IndexOf(Letter);
 
         public int PreviousIndex() => (Index() - 1).RollingRange(6);
 

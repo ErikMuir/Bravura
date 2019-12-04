@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Bravura.Constants;
 
 namespace Bravura.Tonality
 {
@@ -147,28 +146,6 @@ namespace Bravura.Tonality
                         Intervals.MajorSeventh
                 });
 
-            Add9 = new ChordQuality(
-                ChordQualitySymbols.Add9,
-                ChordQualityAsciiSymbols.Add9,
-                new List<Interval>
-                {
-                        Intervals.PerfectUnison,
-                        Intervals.MajorThird,
-                        Intervals.PerfectFifth,
-                        Intervals.MajorSecond
-                });
-
-            Add11 = new ChordQuality(
-                ChordQualitySymbols.Add11,
-                ChordQualityAsciiSymbols.Add11,
-                new List<Interval>
-                {
-                        Intervals.PerfectUnison,
-                        Intervals.MajorThird,
-                        Intervals.PerfectFifth,
-                        Intervals.PerfectFourth
-                });
-
             Dom7Sharp5 = new ChordQuality(
                 ChordQualitySymbols.Dom7Sharp5,
                 ChordQualityAsciiSymbols.Dom7Sharp5,
@@ -270,11 +247,71 @@ namespace Bravura.Tonality
                 ChordQualityAsciiSymbols.Dom7Flat9,
                 new List<Interval>
                 {
+                    Intervals.PerfectUnison,
+                    Intervals.MajorThird,
+                    Intervals.PerfectFifth,
+                    Intervals.MinorSeventh,
+                    Intervals.MinorSecond,
+                });
+
+            Dom7Sharp9 = new ChordQuality(
+                ChordQualitySymbols.Dom7Sharp9,
+                ChordQualityAsciiSymbols.Dom7Sharp9,
+                new List<Interval>
+                {
+                    Intervals.PerfectUnison,
+                    Intervals.MajorThird,
+                    Intervals.PerfectFifth,
+                    Intervals.MinorSeventh,
+                    Intervals.AugmentedSecond,
+                });
+
+            Dom7Flat5Flat9 = new ChordQuality(
+                ChordQualitySymbols.Dom7Flat5Flat9,
+                ChordQualityAsciiSymbols.Dom7Flat5Flat9,
+                new List<Interval>
+                {
+                    Intervals.PerfectUnison,
+                    Intervals.MajorThird,
+                    Intervals.DiminishedFifth,
+                    Intervals.MinorSeventh,
+                    Intervals.MinorSecond,
+                });
+
+            Dom7Flat5Sharp9 = new ChordQuality(
+                ChordQualitySymbols.Dom7Flat5Sharp9,
+                ChordQualityAsciiSymbols.Dom7Flat5Sharp9,
+                new List<Interval>
+                {
                         Intervals.PerfectUnison,
                         Intervals.MajorThird,
-                        Intervals.PerfectFifth,
+                        Intervals.DiminishedFifth,
+                        Intervals.MinorSeventh,
+                        Intervals.AugmentedSecond
+                });
+
+            Dom7Sharp5Flat9 = new ChordQuality(
+                ChordQualitySymbols.Dom7Sharp5Flat9,
+                ChordQualityAsciiSymbols.Dom7Sharp5Flat9,
+                new List<Interval>
+                {
+                        Intervals.PerfectUnison,
+                        Intervals.MajorThird,
+                        Intervals.AugmentedFifth,
                         Intervals.MinorSeventh,
                         Intervals.MinorSecond
+                });
+
+            Dom7Sharp5Sharp9 = new ChordQuality(
+                ChordQualitySymbols.Dom7Sharp5Sharp9,
+                ChordQualityAsciiSymbols.Dom7Sharp5Sharp9,
+                new List<Interval>
+                {
+                        Intervals.PerfectUnison,
+                        Intervals.MajorThird,
+                        Intervals.AugmentedFifth,
+                        Intervals.MinorSeventh,
+                        Intervals.AugmentedSecond
                 });
 
             Dom9 = new ChordQuality(
@@ -832,64 +869,28 @@ namespace Bravura.Tonality
                 });
             #endregion
 
-            #region Altered Chords
-            Dom7Flat5Flat9 = new ChordQuality(
-                ChordQualitySymbols.Dom7Flat5Flat9,
-                ChordQualityAsciiSymbols.Dom7Flat5Flat9,
-                new List<Interval>
-                {
-                        Intervals.PerfectUnison,
-                        Intervals.MajorThird,
-                        Intervals.DiminishedFifth,
-                        Intervals.MinorSeventh,
-                        Intervals.MinorSecond
-                });
-
-            Dom7Flat5Sharp9 = new ChordQuality(
-                ChordQualitySymbols.Dom7Flat5Sharp9,
-                ChordQualityAsciiSymbols.Dom7Flat5Sharp9,
-                new List<Interval>
-                {
-                        Intervals.PerfectUnison,
-                        Intervals.MajorThird,
-                        Intervals.DiminishedFifth,
-                        Intervals.MinorSeventh,
-                        Intervals.AugmentedSecond
-                });
-
-            Dom7Sharp5Flat9 = new ChordQuality(
-                ChordQualitySymbols.Dom7Sharp5Flat9,
-                ChordQualityAsciiSymbols.Dom7Sharp5Flat9,
-                new List<Interval>
-                {
-                        Intervals.PerfectUnison,
-                        Intervals.MajorThird,
-                        Intervals.AugmentedFifth,
-                        Intervals.MinorSeventh,
-                        Intervals.MinorSecond
-                });
-
-            Dom7Sharp5Sharp9 = new ChordQuality(
-                ChordQualitySymbols.Dom7Sharp5Sharp9,
-                ChordQualityAsciiSymbols.Dom7Sharp5Sharp9,
-                new List<Interval>
-                {
-                        Intervals.PerfectUnison,
-                        Intervals.MajorThird,
-                        Intervals.AugmentedFifth,
-                        Intervals.MinorSeventh,
-                        Intervals.AugmentedSecond
-                });
-            #endregion
-
             #region Other Chords
-            Five = new ChordQuality(
-                ChordQualitySymbols.Five,
-                ChordQualityAsciiSymbols.Five,
+
+            Add9 = new ChordQuality(
+                ChordQualitySymbols.Add9,
+                ChordQualityAsciiSymbols.Add9,
                 new List<Interval>
                 {
                         Intervals.PerfectUnison,
+                        Intervals.MajorThird,
                         Intervals.PerfectFifth,
+                        Intervals.MajorSecond
+                });
+
+            Add11 = new ChordQuality(
+                ChordQualitySymbols.Add11,
+                ChordQualityAsciiSymbols.Add11,
+                new List<Interval>
+                {
+                        Intervals.PerfectUnison,
+                        Intervals.MajorThird,
+                        Intervals.PerfectFifth,
+                        Intervals.PerfectFourth
                 });
 
             SixNine = new ChordQuality(
@@ -902,7 +903,25 @@ namespace Bravura.Tonality
                         Intervals.PerfectFifth,
                         Intervals.MajorSixth,
                 });
-            #endregion
+
+            Five = new ChordQuality(
+                ChordQualitySymbols.Five,
+                ChordQualityAsciiSymbols.Five,
+                new List<Interval>
+                {
+                    Intervals.PerfectUnison,
+                    Intervals.PerfectFifth,
+                });
+
+            Tritone = new ChordQuality(
+                ChordQualitySymbols.Tritone,
+                ChordQualityAsciiSymbols.Tritone,
+                new List<Interval>
+                {
+                    Intervals.PerfectUnison,
+                    Intervals.Tritone,
+                });
+            #endregion 
 
             #region Collections
             Triads = new List<ChordQuality>
@@ -912,7 +931,7 @@ namespace Bravura.Tonality
                 Min,
                 Maj,
                 Aug,
-                Sus4
+                Sus4,
             };
 
             SeventhChords = new List<ChordQuality>
@@ -924,10 +943,8 @@ namespace Bravura.Tonality
                 Dom7Flat5,
                 Dom7,
                 Maj7,
-                Add9,
-                Add11,
                 Dom7Sharp5,
-                Maj7Sharp5
+                Maj7Sharp5,
             };
 
             NinthChords = new List<ChordQuality>
@@ -939,10 +956,16 @@ namespace Bravura.Tonality
                 Min9,
                 MinMaj9,
                 Dom7Flat9,
+                Dom7Sharp9,
+                Dom7Flat5Flat9,
+                Dom7Flat5Sharp9,
+                Dom7Sharp5Flat9,
+                Dom7Sharp5Sharp9,
+                Dom7Sharp9,
                 Dom9,
                 Maj7Sharp9,
                 Maj9,
-                Maj9Sharp5
+                Maj9Sharp5,
             };
 
             EleventhChords = new List<ChordQuality>
@@ -962,7 +985,7 @@ namespace Bravura.Tonality
                 Maj11,
                 Maj9Sharp11,
                 Maj11Sharp5,
-                Maj9Sharp5Sharp11
+                Maj9Sharp5Sharp11,
             };
 
             ThirteenthChords = new List<ChordQuality>
@@ -987,15 +1010,7 @@ namespace Bravura.Tonality
                 Maj13,
                 Maj13Sharp11,
                 Maj13Sharp5,
-                Maj13Sharp5Sharp11
-            };
-
-            AlteredChords = new List<ChordQuality>
-            {
-                Dom7Flat5Flat9,
-                Dom7Flat5Sharp9,
-                Dom7Sharp5Flat9,
-                Dom7Sharp5Sharp9
+                Maj13Sharp5Sharp11,
             };
 
             AllChordQualities = new List<ChordQuality>
@@ -1013,8 +1028,6 @@ namespace Bravura.Tonality
                 Dom7Flat5,
                 Dom7,
                 Maj7,
-                Add9,
-                Add11,
                 Dom7Sharp5,
                 Maj7Sharp5,
                 Dim7Flat9,
@@ -1024,6 +1037,11 @@ namespace Bravura.Tonality
                 Min9,
                 MinMaj9,
                 Dom7Flat9,
+                Dom7Sharp9,
+                Dom7Flat5Flat9,
+                Dom7Flat5Sharp9,
+                Dom7Sharp5Flat9,
+                Dom7Sharp5Sharp9,
                 Dom9,
                 Maj7Sharp9,
                 Maj9,
@@ -1065,12 +1083,11 @@ namespace Bravura.Tonality
                 Maj13Sharp11,
                 Maj13Sharp5,
                 Maj13Sharp5Sharp11,
-                Dom7Flat5Flat9,
-                Dom7Flat5Sharp9,
-                Dom7Sharp5Flat9,
-                Dom7Sharp5Sharp9,
-                Five,
+                Add9,
+                Add11,
                 SixNine,
+                Five,
+                Tritone,
             };
             #endregion
         }
@@ -1092,8 +1109,6 @@ namespace Bravura.Tonality
         public static readonly ChordQuality Dom7Flat5;
         public static readonly ChordQuality Dom7;
         public static readonly ChordQuality Maj7;
-        public static readonly ChordQuality Add9;
-        public static readonly ChordQuality Add11;
         public static readonly ChordQuality Dom7Sharp5;
         public static readonly ChordQuality Maj7Sharp5;
         #endregion
@@ -1106,6 +1121,11 @@ namespace Bravura.Tonality
         public static readonly ChordQuality Min9;
         public static readonly ChordQuality MinMaj9;
         public static readonly ChordQuality Dom7Flat9;
+        public static readonly ChordQuality Dom7Sharp9;
+        public static readonly ChordQuality Dom7Flat5Flat9;
+        public static readonly ChordQuality Dom7Flat5Sharp9;
+        public static readonly ChordQuality Dom7Sharp5Flat9;
+        public static readonly ChordQuality Dom7Sharp5Sharp9;
         public static readonly ChordQuality Dom9;
         public static readonly ChordQuality Maj7Sharp9;
         public static readonly ChordQuality Maj9;
@@ -1155,16 +1175,12 @@ namespace Bravura.Tonality
         public static readonly ChordQuality Maj13Sharp5Sharp11;
         #endregion
 
-        #region Altered Chords
-        public static readonly ChordQuality Dom7Flat5Flat9;
-        public static readonly ChordQuality Dom7Flat5Sharp9;
-        public static readonly ChordQuality Dom7Sharp5Flat9;
-        public static readonly ChordQuality Dom7Sharp5Sharp9;
-        #endregion
-
         #region Other Chords
-        public static readonly ChordQuality Five;
+        public static readonly ChordQuality Add9;
+        public static readonly ChordQuality Add11;
         public static readonly ChordQuality SixNine;
+        public static readonly ChordQuality Five;
+        public static readonly ChordQuality Tritone;
         #endregion
 
         #region Collections
@@ -1173,8 +1189,195 @@ namespace Bravura.Tonality
         public static readonly List<ChordQuality> NinthChords;
         public static readonly List<ChordQuality> EleventhChords;
         public static readonly List<ChordQuality> ThirteenthChords;
-        public static readonly List<ChordQuality> AlteredChords;
         public static readonly List<ChordQuality> AllChordQualities;
+        #endregion
+    }
+
+    public static class ChordQualitySymbols
+    {
+        #region Triads
+        public const string Sus2 = "sus2";
+        public const string Dim = "dim";
+        public const string Min = "m";
+        public const string Maj = "";
+        public const string Aug = "aug";
+        public const string Sus4 = "sus4";
+        #endregion
+
+        #region Seventh Chords
+        public const string Dim7 = "dim7";
+        public const string Min7Flat5 = "m7♭5";
+        public const string Min7 = "m7";
+        public const string MinMaj7 = "mMaj7";
+        public const string Dom7Flat5 = "7♭5";
+        public const string Dom7 = "7";
+        public const string Maj7 = "Maj7";
+        public const string Dom7Sharp5 = "7♯5";
+        public const string Maj7Sharp5 = "Maj7♯5";
+        #endregion
+
+        #region Ninth Chords
+        public const string Dim7Flat9 = "7♭9";
+        public const string Min7Flat5Flat9 = "m7♭5♭9";
+        public const string Min9Flat5 = "m9♭5";
+        public const string Min7Flat9 = "m7♭9";
+        public const string Min9 = "m9";
+        public const string MinMaj9 = "mMaj9";
+        public const string Dom7Flat9 = "7♭9";
+        public const string Dom7Sharp9 = "7♯9";
+        public const string Dom7Flat5Flat9 = "7♭5♭9";
+        public const string Dom7Flat5Sharp9 = "7♭5♯9";
+        public const string Dom7Sharp5Flat9 = "7♯5♭9";
+        public const string Dom7Sharp5Sharp9 = "7♯5♯9";
+        public const string Dom9 = "9";
+        public const string Maj7Sharp9 = "Maj7♯9";
+        public const string Maj9 = "Maj9";
+        public const string Maj9Sharp5 = "Maj9♯5";
+        #endregion
+
+        #region Eleventh Chords
+        public const string Dim7Flat9Flat11 = "dim7♭9♭11";
+        public const string Min7Flat5Flat9Flat11 = "m7♭5♭9♭11";
+        public const string Min11Flat5Flat9 = "m11♭5♭9";
+        public const string Min11Flat5 = "m11♭5";
+        public const string Min11Flat9 = "m11♭9";
+        public const string Min11 = "m11";
+        public const string Min9Sharp11 = "m9♯11";
+        public const string MinMaj11 = "mMaj11";
+        public const string Dom11Flat9 = "11♭9";
+        public const string Dom11 = "11";
+        public const string Dom9Sharp11 = "9♯11";
+        public const string Maj7Sharp9Sharp11 = "Maj79#♯11";
+        public const string Maj11 = "Maj11";
+        public const string Maj9Sharp11 = "Maj9♯11";
+        public const string Maj11Sharp5 = "Maj11♯5";
+        public const string Maj9Sharp5Sharp11 = "Maj9♯5♯11";
+        #endregion
+
+        #region Thirteenth Chords
+        public const string Dim7Flat9Flat11Flat13 = "dim7♭9♭11♭13";
+        public const string Min7Flat5Flat9Flat11Flat13 = "m7♭5♭9♭11♭13";
+        public const string Min11Flat5Flat9Flat13 = "m11♭5♭9♭13";
+        public const string Min13Flat5Flat9 = "m13♭5♭9";
+        public const string Min11Flat5Flat13 = "m11♭5♭13";
+        public const string Min13Flat9 = "m13♭9";
+        public const string Min11Flat9Flat13 = "m11♭9♭13";
+        public const string Min11Flat13 = "m11♭13";
+        public const string Min13 = "m13";
+        public const string Min13Sharp11 = "m13♯11";
+        public const string MinMaj11Flat13 = "mMaj11♭13";
+        public const string MinMaj13 = "mMaj13";
+        public const string Dom11Flat9Flat13 = "11♭9♭13";
+        public const string Dom11Flat13 = "11♭13";
+        public const string Dom13 = "13";
+        public const string Dom13Sharp11 = "13♯11";
+        public const string Maj13Sharp9Sharp11 = "Maj13♯9♯11";
+        public const string Maj13 = "Maj13";
+        public const string Maj13Sharp11 = "Maj13♯11";
+        public const string Maj13Sharp5 = "Maj13♯5";
+        public const string Maj13Sharp5Sharp11 = "Maj13♯5♯11";
+        #endregion
+
+        #region Other Chords
+        public const string Add9 = "add9";
+        public const string Add11 = "add11";
+        public const string SixNine = "69";
+        public const string Five = "5";
+        public const string Tritone = "T";
+        #endregion
+    }
+
+    public static class ChordQualityAsciiSymbols
+    {
+        #region Triads
+        public const string Sus2 = "sus2";
+        public const string Dim = "dim";
+        public const string Min = "m";
+        public const string Maj = "";
+        public const string Aug = "aug";
+        public const string Sus4 = "sus4";
+        #endregion
+
+        #region Seventh Chords
+        public const string Dim7 = "dim7";
+        public const string Min7Flat5 = "m7b5";
+        public const string Min7 = "m7";
+        public const string MinMaj7 = "mMaj7";
+        public const string Dom7Flat5 = "7b5";
+        public const string Dom7 = "7";
+        public const string Maj7 = "Maj7";
+        public const string Dom7Sharp5 = "7#5";
+        public const string Maj7Sharp5 = "Maj7#5";
+        #endregion
+
+        #region Ninth Chords
+        public const string Dim7Flat9 = "7b9";
+        public const string Min7Flat5Flat9 = "m7b5b9";
+        public const string Min9Flat5 = "m9b5";
+        public const string Min7Flat9 = "m7b9";
+        public const string Min9 = "m9";
+        public const string MinMaj9 = "mMaj9";
+        public const string Dom7Flat9 = "7b9";
+        public const string Dom7Sharp9 = "7#9";
+        public const string Dom7Flat5Flat9 = "7b5b9";
+        public const string Dom7Flat5Sharp9 = "7b5#9";
+        public const string Dom7Sharp5Flat9 = "7#5b9";
+        public const string Dom7Sharp5Sharp9 = "7#5#9";
+        public const string Dom9 = "9";
+        public const string Maj7Sharp9 = "Maj7#9";
+        public const string Maj9 = "Maj9";
+        public const string Maj9Sharp5 = "Maj9#5";
+        #endregion
+
+        #region Eleventh Chords
+        public const string Dim7Flat9Flat11 = "dim7b9b11";
+        public const string Min7Flat5Flat9Flat11 = "m7b5b9b11";
+        public const string Min11Flat5Flat9 = "m11b5b9";
+        public const string Min11Flat5 = "m11b5";
+        public const string Min11Flat9 = "m11b9";
+        public const string Min11 = "m11";
+        public const string Min9Sharp11 = "m9#11";
+        public const string MinMaj11 = "mMaj11";
+        public const string Dom11Flat9 = "11b9";
+        public const string Dom11 = "11";
+        public const string Dom9Sharp11 = "9#11";
+        public const string Maj7Sharp9Sharp11 = "Maj7#9#11";
+        public const string Maj11 = "Maj11";
+        public const string Maj9Sharp11 = "Maj9#11";
+        public const string Maj11Sharp5 = "Maj11#5";
+        public const string Maj9Sharp5Sharp11 = "Maj9#5#11";
+        #endregion
+
+        #region Thirteenth Chords
+        public const string Dim7Flat9Flat11Flat13 = "dim7b9b11b13";
+        public const string Min7Flat5Flat9Flat11Flat13 = "m7b5b9b11b13";
+        public const string Min11Flat5Flat9Flat13 = "m11b5b9b13";
+        public const string Min13Flat5Flat9 = "m13b5b9";
+        public const string Min11Flat5Flat13 = "m11b5b13";
+        public const string Min13Flat9 = "m13b9";
+        public const string Min11Flat9Flat13 = "m11b9b13";
+        public const string Min11Flat13 = "m11b13";
+        public const string Min13 = "m13";
+        public const string Min13Sharp11 = "m13#11";
+        public const string MinMaj11Flat13 = "mMaj11b13";
+        public const string MinMaj13 = "mMaj13";
+        public const string Dom11Flat9Flat13 = "11b9b13";
+        public const string Dom11Flat13 = "11b13";
+        public const string Dom13 = "13";
+        public const string Dom13Sharp11 = "13#11";
+        public const string Maj13Sharp9Sharp11 = "Maj13#9#11";
+        public const string Maj13 = "Maj13";
+        public const string Maj13Sharp11 = "Maj13#11";
+        public const string Maj13Sharp5 = "Maj13#5";
+        public const string Maj13Sharp5Sharp11 = "Maj13#5#11";
+        #endregion
+
+        #region Other Chords
+        public const string Add9 = "add9";
+        public const string Add11 = "add11";
+        public const string SixNine = "69";
+        public const string Five = "5";
+        public const string Tritone = "T";
         #endregion
     }
 }
