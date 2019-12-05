@@ -12,9 +12,9 @@ namespace Bravura.Tonality
             KeyValuePair = new KeyValuePair<char, short>(letter, semitonesAboveC);
         }
 
-        public readonly char Letter;
-        public readonly short SemitonesAboveC;
-        public readonly KeyValuePair<char, short> KeyValuePair;
+        public char Letter { get; }
+        public short SemitonesAboveC { get; }
+        public KeyValuePair<char, short> KeyValuePair { get; }
 
         public int Index() => Notes.MusicalAlphabet.IndexOf(Letter);
 

@@ -6,36 +6,23 @@ namespace Bravura.Tonality
 {
     public class Scale
     {
-        private List<Pitch> _scalePitches;
-
         public Scale(Pitch root, Mode mode)
         {
             Root = root;
             Mode = mode;
-        }
+            ScalePitches = new List<Pitch>();
 
-        public readonly Pitch Root;
-        public readonly Mode Mode;
-
-        public List<Pitch> ScalePitches
-        {
-            get
+            for (var i = 0; i < Mode.ModeIntervals.Count; i++)
             {
-                if (_scalePitches != null)
-                    return _scalePitches;
-
-                _scalePitches = new List<Pitch>();
-
-                for (var i = 0; i < Mode.ModeIntervals.Count; i++)
-                {
-                    var note = GetNote(i);
-                    var accidental = GetAccidental(i, note.SemitonesAboveC);
-                    _scalePitches.Add(new Pitch(note, accidental));
-                }
-
-                return _scalePitches;
+                var note = GetNote(i);
+                var accidental = GetAccidental(i, note.SemitonesAboveC);
+                ScalePitches.Add(new Pitch(note, accidental));
             }
         }
+
+        public Pitch Root { get; }
+        public Mode Mode { get; }
+        public List<Pitch> ScalePitches { get; }
 
         private Note GetNote(int index)
         {

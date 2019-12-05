@@ -16,11 +16,11 @@
             Symbol = symbol;
         }
 
-        public readonly int Semitones;
-        public readonly Accidental Accidental;
-        public readonly int NoteIndex;
-        public readonly string Name;
-        public readonly string Symbol;
+        public int Semitones { get; }
+        public Accidental Accidental { get; }
+        public int NoteIndex { get; }
+        public string Name { get; }
+        public string Symbol { get; }
 
         public override string ToString()
             => $"{Accidental.Symbol}{NoteIndex}";

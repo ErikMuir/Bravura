@@ -27,11 +27,11 @@ namespace Bravura.Tonality
             KeySignatureAccidentals = accidentals;
         }
 
-        public readonly Pitch Root;
-        public readonly KeyMode KeyMode;
-        public readonly Mode ActualMode;
-        public readonly Scale Scale;
-        public readonly List<Pitch> KeySignatureAccidentals;
+        public Pitch Root { get; }
+        public KeyMode KeyMode { get; }
+        public Mode ActualMode { get; }
+        public Scale Scale { get; }
+        public List<Pitch> KeySignatureAccidentals { get; }
 
         public Key Relative()
         {

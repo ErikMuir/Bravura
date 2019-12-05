@@ -12,8 +12,8 @@ namespace Bravura.Tonality
             Accidental = accidental;
         }
 
-        public readonly Note Note;
-        public readonly Accidental Accidental;
+        public Note Note { get; }
+        public Accidental Accidental { get; }
         public short SemitonesAboveC
             => (short)(Note.SemitonesAboveC + Accidental.SemitonesAwayFromNatural).RollingRange(11);
 

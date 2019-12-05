@@ -29,8 +29,8 @@ namespace Bravura.Tonality
             }
         }
 
-        public readonly string Name;
-        public readonly List<int> NoteIndices;
-        public readonly List<Interval> ModeIntervals;
+        public string Name { get; }
+        public List<int> NoteIndices { get; }
+        public List<Interval> ModeIntervals { get; }
     }
 }

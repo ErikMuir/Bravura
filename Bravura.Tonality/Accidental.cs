@@ -14,9 +14,9 @@
             AsciiSymbol = asciiSymbol;
         }
 
-        public readonly short SemitonesAwayFromNatural;
-        public readonly string Name;
-        public readonly string Symbol;
-        public readonly string AsciiSymbol;
+        public short SemitonesAwayFromNatural { get; }
+        public string Name { get; }
+        public string Symbol { get; }
+        public string AsciiSymbol { get; }
     }
 }
