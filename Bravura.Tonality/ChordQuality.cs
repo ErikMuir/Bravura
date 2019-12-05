@@ -1,26 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Bravura.Tonality.Exceptions;
 
 namespace Bravura.Tonality
 {
     public class ChordQuality
     {
-        public ChordQuality(string symbol, string asciiSymbol, List<Interval> intervals)
+        public ChordQuality(string symbol, string asciiSymbol, List<Interval> chordQualityIntervals)
         {
             try
             {
-                Symbol = symbol ?? throw new Exception();
-                AsciiSymbol = asciiSymbol ?? throw new Exception();
-                ChordQualityIntervals = intervals ?? throw new Exception();
-                if (intervals.Count < 2)
-                    throw new Exception();
-                if (intervals[0] != Intervals.PerfectUnison)
-                    throw new Exception();
+                Symbol = symbol?.Trim() ?? throw new Exception($"{nameof(symbol)} is required.");
+                AsciiSymbol = asciiSymbol?.Trim() ?? throw new Exception($"{nameof(asciiSymbol)} is required.");
+                ChordQualityIntervals = chordQualityIntervals ?? throw new Exception($"{nameof(chordQualityIntervals)} is required.");
+
+                if (chordQualityIntervals.Count < 2)
+                    throw new Exception($"{nameof(chordQualityIntervals)} length cannot be less than 2.");
+                if (chordQualityIntervals[0] != Intervals.PerfectUnison)
+                    throw new Exception($"the first interval in {nameof(chordQualityIntervals)} must be {Intervals.PerfectUnison.Name}.");
+                if (chordQualityIntervals.Count != chordQualityIntervals.Select(x => x.Semitones).Distinct().Count())
+                    throw new Exception($"all {nameof(chordQualityIntervals)} must be unique.");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new BravuraTonalityException($"{nameof(ChordQuality)} is invalid");
+                throw new BravuraTonalityException($"{nameof(ChordQuality)} is invalid: {ex.Message}");
             }
         }
 

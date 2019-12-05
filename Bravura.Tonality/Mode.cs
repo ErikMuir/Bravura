@@ -7,25 +7,24 @@ namespace Bravura.Tonality
 {
     public class Mode
     {
-        public Mode(string name, List<int> noteIndices, List<Interval> intervals)
+        public Mode(string name, List<int> noteIndices, List<Interval> modeIntervals)
         {
             try
             {
-                Name = name ?? throw new Exception();
-                NoteIndices = noteIndices ?? throw new Exception();
-                if (noteIndices.Count < 5 || noteIndices.Count > 12)
-                    throw new Exception();
-                if (noteIndices.Any(i => i < 0 || i > 6))
-                    throw new Exception();
-                ModeIntervals = intervals ?? throw new Exception();
-                if (intervals.Count < 5 || intervals.Count > 12)
-                    throw new Exception();
-                if (intervals.Count != noteIndices.Count)
-                    throw new Exception();
+                Name = name.TrimToNull() ?? throw new Exception($"{nameof(name)} is required.");
+                NoteIndices = noteIndices ?? throw new Exception($"{nameof(noteIndices)} is required.");
+                ModeIntervals = modeIntervals ?? throw new Exception($"{nameof(modeIntervals)} is required.");
+                if (noteIndices.Count != modeIntervals.Count) throw new Exception($"{nameof(noteIndices)} and {nameof(modeIntervals)} must be the same length.");
+                if (noteIndices.Count < 5) throw new Exception($"{nameof(noteIndices)} length cannot be less than 5.");
+                if (noteIndices.Count > 12) throw new Exception($"{nameof(noteIndices)} length cannot be greater than 12.");
+                if (noteIndices.Any(i => i < 0)) throw new Exception($"{nameof(noteIndices)} elements cannot be less than 0.");
+                if (noteIndices.Any(i => i > 6)) throw new Exception($"{nameof(noteIndices)} elements cannot be more than 6.");
+                if (modeIntervals.Count < 5) throw new Exception($"{nameof(modeIntervals)} length cannot be less than 5.");
+                if (modeIntervals.Count > 12) throw new Exception($"{nameof(modeIntervals)} length cannot be greater than 12.");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new BravuraTonalityException($"{nameof(Mode)} is invalid");
+                throw new BravuraTonalityException($"{nameof(Mode)} is invalid: {ex.Message}");
             }
         }
 
