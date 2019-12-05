@@ -11,16 +11,22 @@ namespace Bravura.Tonality
         {
             try
             {
-                Symbol = symbol?.Trim() ?? throw new Exception($"{nameof(symbol)} is required.");
-                AsciiSymbol = asciiSymbol?.Trim() ?? throw new Exception($"{nameof(asciiSymbol)} is required.");
-                ChordQualityIntervals = chordQualityIntervals ?? throw new Exception($"{nameof(chordQualityIntervals)} is required.");
+                Symbol = symbol?.Trim();
+                AsciiSymbol = asciiSymbol?.Trim();
+                ChordQualityIntervals = chordQualityIntervals;
 
-                if (chordQualityIntervals.Count < 2)
-                    throw new Exception($"{nameof(chordQualityIntervals)} length cannot be less than 2.");
-                if (chordQualityIntervals[0] != Intervals.PerfectUnison)
-                    throw new Exception($"the first interval in {nameof(chordQualityIntervals)} must be {Intervals.PerfectUnison.Name}.");
-                if (chordQualityIntervals.Count != chordQualityIntervals.Select(x => x.Semitones).Distinct().Count())
-                    throw new Exception($"all {nameof(chordQualityIntervals)} must be unique.");
+                if (Symbol == null)
+                    throw new Exception($"{nameof(Symbol)} is required.");
+                if (AsciiSymbol == null)
+                    throw new Exception($"{nameof(AsciiSymbol)} is required.");
+                if (ChordQualityIntervals == null)
+                    throw new Exception($"{nameof(ChordQualityIntervals)} is required.");
+                if (ChordQualityIntervals.Count < 2)
+                    throw new Exception($"{nameof(ChordQualityIntervals)} length cannot be less than 2.");
+                if (ChordQualityIntervals[0] != Intervals.PerfectUnison)
+                    throw new Exception($"the first interval in {nameof(ChordQualityIntervals)} must be {Intervals.PerfectUnison.Name}.");
+                if (ChordQualityIntervals.Count != ChordQualityIntervals.Select(x => x.Semitones).Distinct().Count())
+                    throw new Exception($"all {nameof(ChordQualityIntervals)} must be unique.");
             }
             catch (Exception ex)
             {

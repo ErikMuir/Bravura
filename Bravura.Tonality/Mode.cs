@@ -11,17 +11,30 @@ namespace Bravura.Tonality
         {
             try
             {
-                Name = name.TrimToNull() ?? throw new Exception($"{nameof(name)} is required.");
-                NoteIndices = noteIndices ?? throw new Exception($"{nameof(noteIndices)} is required.");
-                ModeIntervals = modeIntervals ?? throw new Exception($"{nameof(modeIntervals)} is required.");
+                Name = name.TrimToNull();
+                NoteIndices = noteIndices;
+                ModeIntervals = modeIntervals;
 
-                if (noteIndices.Count != modeIntervals.Count) throw new Exception($"{nameof(noteIndices)} and {nameof(modeIntervals)} must be the same length.");
-                if (noteIndices.Count < 5) throw new Exception($"{nameof(noteIndices)} length cannot be less than 5.");
-                if (noteIndices.Count > 12) throw new Exception($"{nameof(noteIndices)} length cannot be greater than 12.");
-                if (noteIndices.Any(i => i < 0)) throw new Exception($"{nameof(noteIndices)} elements cannot be less than 0.");
-                if (noteIndices.Any(i => i > 6)) throw new Exception($"{nameof(noteIndices)} elements cannot be more than 6.");
-                if (modeIntervals.Count < 5) throw new Exception($"{nameof(modeIntervals)} length cannot be less than 5.");
-                if (modeIntervals.Count > 12) throw new Exception($"{nameof(modeIntervals)} length cannot be greater than 12.");
+                if (Name == null)
+                    throw new Exception($"{nameof(Name)} is required.");
+                if (NoteIndices == null)
+                    throw new Exception($"{nameof(NoteIndices)} is required.");
+                if (ModeIntervals == null)
+                    throw new Exception($"{nameof(ModeIntervals)} is required.");
+                if (NoteIndices.Count != ModeIntervals.Count)
+                    throw new Exception($"{nameof(NoteIndices)} and {nameof(ModeIntervals)} must be the same length.");
+                if (NoteIndices.Count < 5)
+                    throw new Exception($"{nameof(NoteIndices)} length cannot be less than 5.");
+                if (NoteIndices.Count > 12)
+                    throw new Exception($"{nameof(NoteIndices)} length cannot be greater than 12.");
+                if (NoteIndices.Any(i => i < 0))
+                    throw new Exception($"{nameof(NoteIndices)} elements cannot be less than 0.");
+                if (NoteIndices.Any(i => i > 6))
+                    throw new Exception($"{nameof(NoteIndices)} elements cannot be more than 6.");
+                if (ModeIntervals.Count < 5)
+                    throw new Exception($"{nameof(ModeIntervals)} length cannot be less than 5.");
+                if (ModeIntervals.Count > 12)
+                    throw new Exception($"{nameof(ModeIntervals)} length cannot be greater than 12.");
             }
             catch (Exception ex)
             {
