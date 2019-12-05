@@ -22,11 +22,9 @@
         public string Name { get; }
         public string Symbol { get; }
 
-        public override string ToString()
-            => $"{Accidental.Symbol}{NoteIndex}";
+        public override string ToString() => $"{Accidental.Symbol}{NoteIndex}";
 
-        public string ToAsciiString()
-            => $"{Accidental.AsciiSymbol}{NoteIndex}";
+        public string ToAsciiString() => $"{Accidental.AsciiSymbol}{NoteIndex}";
 
         //public static bool operator ==(Interval a, Interval b)
         //{
