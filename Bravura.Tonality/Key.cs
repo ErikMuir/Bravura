@@ -11,20 +11,13 @@ namespace Bravura.Tonality
         {
             Root = root;
             KeyMode = keyMode;
-
             ActualMode = KeyMode == KeyMode.Major
                 ? Modes.Major
                 : Modes.NaturalMinor;
             Scale = new Scale(Root, ActualMode);
-
-            var signature = new List<Pitch>();
-            foreach (var accidental in Pitches.SignatureAccidentals)
-            {
-                if (Scale.ScalePitches.Any(p => p.ToString() == accidental.ToString()))
-                    signature.Add(accidental);
-            }
-
-            KeySignature = signature;
+            KeySignature = Pitches.SignatureAccidentals
+                .Where(sa => Scale.ScalePitches.Any(sp => sp.ToString() == sa.ToString()))
+                .ToList();
         }
 
         public Pitch Root { get; }
@@ -32,15 +25,14 @@ namespace Bravura.Tonality
         public Mode ActualMode { get; }
         public Scale Scale { get; }
         public List<Pitch> KeySignature { get; }
+        public Key Relative => GetRelative();
 
-        public Key Relative()
+        private Key GetRelative()
         {
-            var accidentals = KeySignature;
             var keys = KeyMode == KeyMode.Major ? Keys.MinorKeys : Keys.MajorKeys;
             var root = keys
-                .Where(k => k.KeySignature.Count == accidentals.Count)
-                .Where(k => k.KeySignature.Count == 0 ||
-                            k.KeySignature.First() == accidentals.First())
+                .Where(k => k.KeySignature.Count == KeySignature.Count)
+                .Where(k => k.KeySignature.FirstOrDefault() == KeySignature.FirstOrDefault())
                 .Select(k => k.Root)
                 .Single();
             var mode = KeyMode == KeyMode.Major ? KeyMode.Minor : KeyMode.Major;
