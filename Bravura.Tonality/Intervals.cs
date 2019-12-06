@@ -67,34 +67,34 @@ namespace Bravura.Tonality
             }.AsReadOnly();
         }
 
-        public static readonly Interval PerfectUnison;
-        public static readonly Interval AugmentedUnison;
-        public static readonly Interval DiminishedSecond;
-        public static readonly Interval MinorSecond;
-        public static readonly Interval MajorSecond;
-        public static readonly Interval AugmentedSecond;
-        public static readonly Interval DiminishedThird;
-        public static readonly Interval MinorThird;
-        public static readonly Interval MajorThird;
-        public static readonly Interval AugmentedThird;
-        public static readonly Interval DiminishedFourth;
-        public static readonly Interval PerfectFourth;
-        public static readonly Interval AugmentedFourth;
-        public static readonly Interval Tritone;
-        public static readonly Interval DiminishedFifth;
-        public static readonly Interval PerfectFifth;
-        public static readonly Interval AugmentedFifth;
-        public static readonly Interval DiminishedSixth;
-        public static readonly Interval MinorSixth;
-        public static readonly Interval MajorSixth;
-        public static readonly Interval AugmentedSixth;
-        public static readonly Interval DiminishedSeventh;
-        public static readonly Interval MinorSeventh;
-        public static readonly Interval MajorSeventh;
-        public static readonly Interval AugmentedSeventh;
-        public static readonly Interval DiminishedOctave;
-        public static readonly Interval PerfectOctave;
-        public static readonly ReadOnlyCollection<Interval> AllIntervals;
+        public static Interval PerfectUnison { get; }
+        public static Interval AugmentedUnison { get; }
+        public static Interval DiminishedSecond { get; }
+        public static Interval MinorSecond { get; }
+        public static Interval MajorSecond { get; }
+        public static Interval AugmentedSecond { get; }
+        public static Interval DiminishedThird { get; }
+        public static Interval MinorThird { get; }
+        public static Interval MajorThird { get; }
+        public static Interval AugmentedThird { get; }
+        public static Interval DiminishedFourth { get; }
+        public static Interval PerfectFourth { get; }
+        public static Interval AugmentedFourth { get; }
+        public static Interval Tritone { get; }
+        public static Interval DiminishedFifth { get; }
+        public static Interval PerfectFifth { get; }
+        public static Interval AugmentedFifth { get; }
+        public static Interval DiminishedSixth { get; }
+        public static Interval MinorSixth { get; }
+        public static Interval MajorSixth { get; }
+        public static Interval AugmentedSixth { get; }
+        public static Interval DiminishedSeventh { get; }
+        public static Interval MinorSeventh { get; }
+        public static Interval MajorSeventh { get; }
+        public static Interval AugmentedSeventh { get; }
+        public static Interval DiminishedOctave { get; }
+        public static Interval PerfectOctave { get; }
+        public static ReadOnlyCollection<Interval> AllIntervals { get; }
     }
 
     public static class IntervalNames

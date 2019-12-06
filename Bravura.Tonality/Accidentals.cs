@@ -38,7 +38,7 @@ namespace Bravura.Tonality
                 AccidentalAsciiSymbols.DoubleSharp);
 
             AllAccidentals = new List<Accidental>
-            { 
+            {
                 DoubleFlat,
                 Flat,
                 Natural,
@@ -47,12 +47,12 @@ namespace Bravura.Tonality
             }.AsReadOnly();
         }
 
-        public static readonly Accidental DoubleFlat;
-        public static readonly Accidental Flat;
-        public static readonly Accidental Natural;
-        public static readonly Accidental Sharp;
-        public static readonly Accidental DoubleSharp;
-        public static readonly ReadOnlyCollection<Accidental> AllAccidentals;
+        public static Accidental DoubleFlat { get; }
+        public static Accidental Flat { get; }
+        public static Accidental Natural { get; }
+        public static Accidental Sharp { get; }
+        public static Accidental DoubleSharp { get; }
+        public static ReadOnlyCollection<Accidental> AllAccidentals { get; }
     }
 
     public static class AccidentalNames

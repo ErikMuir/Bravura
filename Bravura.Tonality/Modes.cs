@@ -202,20 +202,20 @@ namespace Bravura.Tonality
             };
         }
 
-        public static readonly Mode Major;
-        public static readonly Mode NaturalMinor;
-        public static readonly Mode HarmonicMinor;
-        public static readonly Mode MelodicMinor;
-        public static readonly Mode MajorPentatonic;
-        public static readonly Mode MinorPentatonic;
-        public static readonly Mode Ionian;
-        public static readonly Mode Dorian;
-        public static readonly Mode Phrygian;
-        public static readonly Mode Lydian;
-        public static readonly Mode Mixolydian;
-        public static readonly Mode Aeolian;
-        public static readonly Mode Locrian;
-        public static readonly List<Mode> AllModes;
+        public static Mode Major { get; }
+        public static Mode NaturalMinor { get; }
+        public static Mode HarmonicMinor { get; }
+        public static Mode MelodicMinor { get; }
+        public static Mode MajorPentatonic { get; }
+        public static Mode MinorPentatonic { get; }
+        public static Mode Ionian { get; }
+        public static Mode Dorian { get; }
+        public static Mode Phrygian { get; }
+        public static Mode Lydian { get; }
+        public static Mode Mixolydian { get; }
+        public static Mode Aeolian { get; }
+        public static Mode Locrian { get; }
+        public static List<Mode> AllModes { get; }
     }
 
     public static class ModeNames

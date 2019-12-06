@@ -27,14 +27,14 @@ namespace Bravura.Tonality
             };
         }
 
-        public static readonly Note C;
-        public static readonly Note D;
-        public static readonly Note E;
-        public static readonly Note F;
-        public static readonly Note G;
-        public static readonly Note A;
-        public static readonly Note B;
-        public static readonly ReadOnlyOrderedDictionary<char, short> MusicalAlphabet;
+        public static Note C { get; }
+        public static Note D { get; }
+        public static Note E { get; }
+        public static Note F { get; }
+        public static Note G { get; }
+        public static Note A { get; }
+        public static Note B { get; }
+        public static ReadOnlyOrderedDictionary<char, short> MusicalAlphabet { get; }
     }
 
     public static class NoteLetters

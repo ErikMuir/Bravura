@@ -1093,103 +1093,103 @@ namespace Bravura.Tonality
         }
 
         #region Triads
-        public static readonly ChordQuality Sus2;
-        public static readonly ChordQuality Dim;
-        public static readonly ChordQuality Min;
-        public static readonly ChordQuality Maj;
-        public static readonly ChordQuality Aug;
-        public static readonly ChordQuality Sus4;
+        public static ChordQuality Sus2 { get; }
+        public static ChordQuality Dim { get; }
+        public static ChordQuality Min { get; }
+        public static ChordQuality Maj { get; }
+        public static ChordQuality Aug { get; }
+        public static ChordQuality Sus4 { get; }
         #endregion
 
         #region Seventh Chords
-        public static readonly ChordQuality Dim7;
-        public static readonly ChordQuality Min7Flat5;
-        public static readonly ChordQuality Min7;
-        public static readonly ChordQuality MinMaj7;
-        public static readonly ChordQuality Dom7Flat5;
-        public static readonly ChordQuality Dom7;
-        public static readonly ChordQuality Maj7;
-        public static readonly ChordQuality Dom7Sharp5;
-        public static readonly ChordQuality Maj7Sharp5;
+        public static ChordQuality Dim7 { get; }
+        public static ChordQuality Min7Flat5 { get; }
+        public static ChordQuality Min7 { get; }
+        public static ChordQuality MinMaj7 { get; }
+        public static ChordQuality Dom7Flat5 { get; }
+        public static ChordQuality Dom7 { get; }
+        public static ChordQuality Maj7 { get; }
+        public static ChordQuality Dom7Sharp5 { get; }
+        public static ChordQuality Maj7Sharp5 { get; }
         #endregion
 
         #region Ninth Chords
-        public static readonly ChordQuality Dim7Flat9;
-        public static readonly ChordQuality Min7Flat5Flat9;
-        public static readonly ChordQuality Min9Flat5;
-        public static readonly ChordQuality Min7Flat9;
-        public static readonly ChordQuality Min9;
-        public static readonly ChordQuality MinMaj9;
-        public static readonly ChordQuality Dom7Flat9;
-        public static readonly ChordQuality Dom7Sharp9;
-        public static readonly ChordQuality Dom7Flat5Flat9;
-        public static readonly ChordQuality Dom7Flat5Sharp9;
-        public static readonly ChordQuality Dom7Sharp5Flat9;
-        public static readonly ChordQuality Dom7Sharp5Sharp9;
-        public static readonly ChordQuality Dom9;
-        public static readonly ChordQuality Maj7Sharp9;
-        public static readonly ChordQuality Maj9;
-        public static readonly ChordQuality Maj9Sharp5;
+        public static ChordQuality Dim7Flat9 { get; }
+        public static ChordQuality Min7Flat5Flat9 { get; }
+        public static ChordQuality Min9Flat5 { get; }
+        public static ChordQuality Min7Flat9 { get; }
+        public static ChordQuality Min9 { get; }
+        public static ChordQuality MinMaj9 { get; }
+        public static ChordQuality Dom7Flat9 { get; }
+        public static ChordQuality Dom7Sharp9 { get; }
+        public static ChordQuality Dom7Flat5Flat9 { get; }
+        public static ChordQuality Dom7Flat5Sharp9 { get; }
+        public static ChordQuality Dom7Sharp5Flat9 { get; }
+        public static ChordQuality Dom7Sharp5Sharp9 { get; }
+        public static ChordQuality Dom9 { get; }
+        public static ChordQuality Maj7Sharp9 { get; }
+        public static ChordQuality Maj9 { get; }
+        public static ChordQuality Maj9Sharp5 { get; }
         #endregion
 
         #region Eleventh Chords
-        public static readonly ChordQuality Dim7Flat9Flat11;
-        public static readonly ChordQuality Min7Flat5Flat9Flat11;
-        public static readonly ChordQuality Min11Flat5Flat9;
-        public static readonly ChordQuality Min11Flat5;
-        public static readonly ChordQuality Min11Flat9;
-        public static readonly ChordQuality Min11;
-        public static readonly ChordQuality Min9Sharp11;
-        public static readonly ChordQuality MinMaj11;
-        public static readonly ChordQuality Dom11Flat9;
-        public static readonly ChordQuality Dom11;
-        public static readonly ChordQuality Dom9Sharp11;
-        public static readonly ChordQuality Maj7Sharp9Sharp11;
-        public static readonly ChordQuality Maj11;
-        public static readonly ChordQuality Maj9Sharp11;
-        public static readonly ChordQuality Maj11Sharp5;
-        public static readonly ChordQuality Maj9Sharp5Sharp11;
+        public static ChordQuality Dim7Flat9Flat11 { get; }
+        public static ChordQuality Min7Flat5Flat9Flat11 { get; }
+        public static ChordQuality Min11Flat5Flat9 { get; }
+        public static ChordQuality Min11Flat5 { get; }
+        public static ChordQuality Min11Flat9 { get; }
+        public static ChordQuality Min11 { get; }
+        public static ChordQuality Min9Sharp11 { get; }
+        public static ChordQuality MinMaj11 { get; }
+        public static ChordQuality Dom11Flat9 { get; }
+        public static ChordQuality Dom11 { get; }
+        public static ChordQuality Dom9Sharp11 { get; }
+        public static ChordQuality Maj7Sharp9Sharp11 { get; }
+        public static ChordQuality Maj11 { get; }
+        public static ChordQuality Maj9Sharp11 { get; }
+        public static ChordQuality Maj11Sharp5 { get; }
+        public static ChordQuality Maj9Sharp5Sharp11 { get; }
         #endregion
 
         #region Thirteenth Chords
-        public static readonly ChordQuality Dim7Flat9Flat11Flat13;
-        public static readonly ChordQuality Min7Flat5Flat9Flat11Flat13;
-        public static readonly ChordQuality Min11Flat5Flat9Flat13;
-        public static readonly ChordQuality Min13Flat5Flat9;
-        public static readonly ChordQuality Min11Flat5Flat13;
-        public static readonly ChordQuality Min13Flat9;
-        public static readonly ChordQuality Min11Flat9Flat13;
-        public static readonly ChordQuality Min11Flat13;
-        public static readonly ChordQuality Min13;
-        public static readonly ChordQuality Min13Sharp11;
-        public static readonly ChordQuality MinMaj11Flat13;
-        public static readonly ChordQuality MinMaj13;
-        public static readonly ChordQuality Dom11Flat9Flat13;
-        public static readonly ChordQuality Dom11Flat13;
-        public static readonly ChordQuality Dom13;
-        public static readonly ChordQuality Dom13Sharp11;
-        public static readonly ChordQuality Maj13Sharp9Sharp11;
-        public static readonly ChordQuality Maj13;
-        public static readonly ChordQuality Maj13Sharp11;
-        public static readonly ChordQuality Maj13Sharp5;
-        public static readonly ChordQuality Maj13Sharp5Sharp11;
+        public static ChordQuality Dim7Flat9Flat11Flat13 { get; }
+        public static ChordQuality Min7Flat5Flat9Flat11Flat13 { get; }
+        public static ChordQuality Min11Flat5Flat9Flat13 { get; }
+        public static ChordQuality Min13Flat5Flat9 { get; }
+        public static ChordQuality Min11Flat5Flat13 { get; }
+        public static ChordQuality Min13Flat9 { get; }
+        public static ChordQuality Min11Flat9Flat13 { get; }
+        public static ChordQuality Min11Flat13 { get; }
+        public static ChordQuality Min13 { get; }
+        public static ChordQuality Min13Sharp11 { get; }
+        public static ChordQuality MinMaj11Flat13 { get; }
+        public static ChordQuality MinMaj13 { get; }
+        public static ChordQuality Dom11Flat9Flat13 { get; }
+        public static ChordQuality Dom11Flat13 { get; }
+        public static ChordQuality Dom13 { get; }
+        public static ChordQuality Dom13Sharp11 { get; }
+        public static ChordQuality Maj13Sharp9Sharp11 { get; }
+        public static ChordQuality Maj13 { get; }
+        public static ChordQuality Maj13Sharp11 { get; }
+        public static ChordQuality Maj13Sharp5 { get; }
+        public static ChordQuality Maj13Sharp5Sharp11 { get; }
         #endregion
 
         #region Other Chords
-        public static readonly ChordQuality Add9;
-        public static readonly ChordQuality Add11;
-        public static readonly ChordQuality SixNine;
-        public static readonly ChordQuality Five;
-        public static readonly ChordQuality Tritone;
+        public static ChordQuality Add9 { get; }
+        public static ChordQuality Add11 { get; }
+        public static ChordQuality SixNine { get; }
+        public static ChordQuality Five { get; }
+        public static ChordQuality Tritone { get; }
         #endregion
 
         #region Collections
-        public static readonly List<ChordQuality> Triads;
-        public static readonly List<ChordQuality> SeventhChords;
-        public static readonly List<ChordQuality> NinthChords;
-        public static readonly List<ChordQuality> EleventhChords;
-        public static readonly List<ChordQuality> ThirteenthChords;
-        public static readonly List<ChordQuality> AllChordQualities;
+        public static List<ChordQuality> Triads { get; }
+        public static List<ChordQuality> SeventhChords { get; }
+        public static List<ChordQuality> NinthChords { get; }
+        public static List<ChordQuality> EleventhChords { get; }
+        public static List<ChordQuality> ThirteenthChords { get; }
+        public static List<ChordQuality> AllChordQualities { get; }
         #endregion
     }
 

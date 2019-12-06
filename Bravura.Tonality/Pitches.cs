@@ -182,54 +182,54 @@ namespace Bravura.Tonality
             }.AsReadOnly();
         }
 
-        public static readonly Pitch CDoubleFlat;
-        public static readonly Pitch DDoubleFlat;
-        public static readonly Pitch EDoubleFlat;
-        public static readonly Pitch FDoubleFlat;
-        public static readonly Pitch GDoubleFlat;
-        public static readonly Pitch ADoubleFlat;
-        public static readonly Pitch BDoubleFlat;
+        public static Pitch CDoubleFlat { get; }
+        public static Pitch DDoubleFlat { get; }
+        public static Pitch EDoubleFlat { get; }
+        public static Pitch FDoubleFlat { get; }
+        public static Pitch GDoubleFlat { get; }
+        public static Pitch ADoubleFlat { get; }
+        public static Pitch BDoubleFlat { get; }
 
-        public static readonly Pitch CFlat;
-        public static readonly Pitch DFlat;
-        public static readonly Pitch EFlat;
-        public static readonly Pitch FFlat;
-        public static readonly Pitch GFlat;
-        public static readonly Pitch AFlat;
-        public static readonly Pitch BFlat;
+        public static Pitch CFlat { get; }
+        public static Pitch DFlat { get; }
+        public static Pitch EFlat { get; }
+        public static Pitch FFlat { get; }
+        public static Pitch GFlat { get; }
+        public static Pitch AFlat { get; }
+        public static Pitch BFlat { get; }
 
-        public static readonly Pitch CNatural;
-        public static readonly Pitch DNatural;
-        public static readonly Pitch ENatural;
-        public static readonly Pitch FNatural;
-        public static readonly Pitch GNatural;
-        public static readonly Pitch ANatural;
-        public static readonly Pitch BNatural;
+        public static Pitch CNatural { get; }
+        public static Pitch DNatural { get; }
+        public static Pitch ENatural { get; }
+        public static Pitch FNatural { get; }
+        public static Pitch GNatural { get; }
+        public static Pitch ANatural { get; }
+        public static Pitch BNatural { get; }
 
-        public static readonly Pitch CSharp;
-        public static readonly Pitch DSharp;
-        public static readonly Pitch ESharp;
-        public static readonly Pitch FSharp;
-        public static readonly Pitch GSharp;
-        public static readonly Pitch ASharp;
-        public static readonly Pitch BSharp;
+        public static Pitch CSharp { get; }
+        public static Pitch DSharp { get; }
+        public static Pitch ESharp { get; }
+        public static Pitch FSharp { get; }
+        public static Pitch GSharp { get; }
+        public static Pitch ASharp { get; }
+        public static Pitch BSharp { get; }
 
-        public static readonly Pitch CDoubleSharp;
-        public static readonly Pitch DDoubleSharp;
-        public static readonly Pitch EDoubleSharp;
-        public static readonly Pitch FDoubleSharp;
-        public static readonly Pitch GDoubleSharp;
-        public static readonly Pitch ADoubleSharp;
-        public static readonly Pitch BDoubleSharp;
+        public static Pitch CDoubleSharp { get; }
+        public static Pitch DDoubleSharp { get; }
+        public static Pitch EDoubleSharp { get; }
+        public static Pitch FDoubleSharp { get; }
+        public static Pitch GDoubleSharp { get; }
+        public static Pitch ADoubleSharp { get; }
+        public static Pitch BDoubleSharp { get; }
 
-        public static readonly ReadOnlyCollection<Pitch> DoubleFlats;
-        public static readonly ReadOnlyCollection<Pitch> Flats;
-        public static readonly ReadOnlyCollection<Pitch> Naturals;
-        public static readonly ReadOnlyCollection<Pitch> Sharps;
-        public static readonly ReadOnlyCollection<Pitch> DoubleSharps;
-        public static readonly ReadOnlyCollection<Pitch> SignatureFlats;
-        public static readonly ReadOnlyCollection<Pitch> SignatureSharps;
-        public static readonly ReadOnlyCollection<Pitch> SignatureAccidentals;
-        public static readonly ReadOnlyCollection<Pitch> AllPitches;
+        public static ReadOnlyCollection<Pitch> DoubleFlats { get; }
+        public static ReadOnlyCollection<Pitch> Flats { get; }
+        public static ReadOnlyCollection<Pitch> Naturals { get; }
+        public static ReadOnlyCollection<Pitch> Sharps { get; }
+        public static ReadOnlyCollection<Pitch> DoubleSharps { get; }
+        public static ReadOnlyCollection<Pitch> SignatureFlats { get; }
+        public static ReadOnlyCollection<Pitch> SignatureSharps { get; }
+        public static ReadOnlyCollection<Pitch> SignatureAccidentals { get; }
+        public static ReadOnlyCollection<Pitch> AllPitches { get; }
     }
 }

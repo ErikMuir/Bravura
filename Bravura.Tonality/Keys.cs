@@ -112,40 +112,40 @@ namespace Bravura.Tonality
             }.AsReadOnly();
         }
 
-        public static Key CMajor { get; private set; }
-        public static Key CSharpMajor { get; private set; }
-        public static Key DFlatMajor { get; private set; }
-        public static Key DMajor { get; private set; }
-        public static Key EFlatMajor { get; private set; }
-        public static Key EMajor { get; private set; }
-        public static Key FMajor { get; private set; }
-        public static Key FSharpMajor { get; private set; }
-        public static Key GFlatMajor { get; private set; }
-        public static Key GMajor { get; private set; }
-        public static Key AFlatMajor { get; private set; }
-        public static Key AMajor { get; private set; }
-        public static Key BFlatMajor { get; private set; }
-        public static Key BMajor { get; private set; }
-        public static Key CFlatMajor { get; private set; }
+        public static Key CMajor { get; }
+        public static Key CSharpMajor { get; }
+        public static Key DFlatMajor { get; }
+        public static Key DMajor { get; }
+        public static Key EFlatMajor { get; }
+        public static Key EMajor { get; }
+        public static Key FMajor { get; }
+        public static Key FSharpMajor { get; }
+        public static Key GFlatMajor { get; }
+        public static Key GMajor { get; }
+        public static Key AFlatMajor { get; }
+        public static Key AMajor { get; }
+        public static Key BFlatMajor { get; }
+        public static Key BMajor { get; }
+        public static Key CFlatMajor { get; }
 
-        public static Key CMinor { get; private set; }
-        public static Key CSharpMinor { get; private set; }
-        public static Key DMinor { get; private set; }
-        public static Key DSharpMinor { get; private set; }
-        public static Key EFlatMinor { get; private set; }
-        public static Key EMinor { get; private set; }
-        public static Key FMinor { get; private set; }
-        public static Key FSharpMinor { get; private set; }
-        public static Key GMinor { get; private set; }
-        public static Key GSharpMinor { get; private set; }
-        public static Key AFlatMinor { get; private set; }
-        public static Key AMinor { get; private set; }
-        public static Key ASharpMinor { get; private set; }
-        public static Key BFlatMinor { get; private set; }
-        public static Key BMinor { get; private set; }
+        public static Key CMinor { get; }
+        public static Key CSharpMinor { get; }
+        public static Key DMinor { get; }
+        public static Key DSharpMinor { get; }
+        public static Key EFlatMinor { get; }
+        public static Key EMinor { get; }
+        public static Key FMinor { get; }
+        public static Key FSharpMinor { get; }
+        public static Key GMinor { get; }
+        public static Key GSharpMinor { get; }
+        public static Key AFlatMinor { get; }
+        public static Key AMinor { get; }
+        public static Key ASharpMinor { get; }
+        public static Key BFlatMinor { get; }
+        public static Key BMinor { get; }
 
-        public static ReadOnlyCollection<Key> MajorKeys { get; private set; }
-        public static ReadOnlyCollection<Key> MinorKeys { get; private set; }
-        public static ReadOnlyCollection<Key> AllKeys { get; private set; }
+        public static ReadOnlyCollection<Key> MajorKeys { get; }
+        public static ReadOnlyCollection<Key> MinorKeys { get; }
+        public static ReadOnlyCollection<Key> AllKeys { get; }
     }
 }
