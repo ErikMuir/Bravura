@@ -17,30 +17,30 @@ namespace Bravura.Tonality
                 : Modes.NaturalMinor;
             Scale = new Scale(Root, ActualMode);
 
-            var accidentals = new List<Pitch>();
+            var signature = new List<Pitch>();
             foreach (var accidental in Pitches.SignatureAccidentals)
             {
-                if (Scale.ScalePitches.Contains(accidental))
-                    accidentals.Add(accidental);
+                if (Scale.ScalePitches.Any(p => p.ToString() == accidental.ToString()))
+                    signature.Add(accidental);
             }
 
-            KeySignatureAccidentals = accidentals;
+            KeySignature = signature;
         }
 
         public Pitch Root { get; }
         public KeyMode KeyMode { get; }
         public Mode ActualMode { get; }
         public Scale Scale { get; }
-        public List<Pitch> KeySignatureAccidentals { get; }
+        public List<Pitch> KeySignature { get; }
 
         public Key Relative()
         {
-            var accidentals = KeySignatureAccidentals;
+            var accidentals = KeySignature;
             var keys = KeyMode == KeyMode.Major ? Keys.MinorKeys : Keys.MajorKeys;
             var root = keys
-                .Where(k => k.KeySignatureAccidentals.Count == accidentals.Count)
-                .Where(k => k.KeySignatureAccidentals.Count == 0 ||
-                            k.KeySignatureAccidentals.First() == accidentals.First())
+                .Where(k => k.KeySignature.Count == accidentals.Count)
+                .Where(k => k.KeySignature.Count == 0 ||
+                            k.KeySignature.First() == accidentals.First())
                 .Select(k => k.Root)
                 .Single();
             var mode = KeyMode == KeyMode.Major ? KeyMode.Minor : KeyMode.Major;
