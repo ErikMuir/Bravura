@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-
 namespace Bravura.Tonality
 {
     public static class Notes
