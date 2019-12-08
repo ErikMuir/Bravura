@@ -15,25 +15,26 @@ namespace Bravura.Tonality
         public short SemitonesAboveC { get; }
 
         public KeyValuePair<char, short> KeyValuePair => new KeyValuePair<char, short>(Letter, SemitonesAboveC);
-        public int Index() => Notes.MusicalAlphabet.IndexOf(Letter);
 
-        public int PreviousIndex() => (Index() - 1).RollingRange(6);
+        public int Index => Notes.MusicalAlphabet.IndexOf(Letter);
 
-        public int NextIndex() => (Index() + 1).RollingRange(6);
+        public int PreviousIndex => (Index - 1).RollingRange(6);
 
-        public Note LowerNeighbor() => GetNoteByIndex(PreviousIndex());
+        public int NextIndex => (Index + 1).RollingRange(6);
 
-        public Note HigherNeighbor() => GetNoteByIndex(NextIndex());
+        public Note LowerNeighbor => GetNoteByIndex(PreviousIndex);
+
+        public Note HigherNeighbor => GetNoteByIndex(NextIndex);
 
         public bool IsLowerNeighborNatural()
         {
-            var semitones = SemitonesAboveC - LowerNeighbor().SemitonesAboveC;
+            var semitones = SemitonesAboveC - LowerNeighbor.SemitonesAboveC;
             return semitones < 0 || semitones == 1;
         }
 
         public bool IsHigherNeighborNatural()
         {
-            var semitones = HigherNeighbor().SemitonesAboveC - SemitonesAboveC;
+            var semitones = HigherNeighbor.SemitonesAboveC - SemitonesAboveC;
             return semitones < 0 || semitones == 1;
         }
 

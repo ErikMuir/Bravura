@@ -23,23 +23,23 @@ namespace Bravura.Tonality
             {
                 case -2:
                     return new Pitch(
-                        Note.LowerNeighbor(),
+                        Note.LowerNeighbor,
                         Note.IsLowerNeighborNatural()
                             ? Accidentals.Flat
                             : Accidentals.Natural);
                 case -1:
                     return Note.IsLowerNeighborNatural()
-                        ? new Pitch(Note.LowerNeighbor(), Accidentals.Natural)
+                        ? new Pitch(Note.LowerNeighbor, Accidentals.Natural)
                         : new Pitch(Note, Accidental);
                 case 0:
                     return new Pitch(Note, Accidental);
                 case 1:
                     return Note.IsHigherNeighborNatural()
-                        ? new Pitch(Note.HigherNeighbor(), Accidentals.Natural)
+                        ? new Pitch(Note.HigherNeighbor, Accidentals.Natural)
                         : new Pitch(Note, Accidental);
                 case 2:
                     return new Pitch(
-                        Note.HigherNeighbor(),
+                        Note.HigherNeighbor,
                         Note.IsHigherNeighborNatural()
                             ? Accidentals.Sharp
                             : Accidentals.Natural);
@@ -50,7 +50,7 @@ namespace Bravura.Tonality
 
         public Pitch GetPitchByIntervalAbove(Interval interval)
         {
-            var noteIndex = (Note.Index() + (interval.NoteIndex - 1)).RollingRange(6);
+            var noteIndex = (Note.Index + (interval.NoteIndex - 1)).RollingRange(6);
             var note = Note.GetNoteByIndex(noteIndex);
 
             var semitones = SemitonesAboveC + interval.Semitones - note.SemitonesAboveC;
@@ -63,7 +63,7 @@ namespace Bravura.Tonality
 
         public Pitch GetPitchByIntervalBelow(Interval interval)
         {
-            var noteIndex = (Note.Index() - (interval.NoteIndex - 1)).RollingRange(6);
+            var noteIndex = (Note.Index - (interval.NoteIndex - 1)).RollingRange(6);
             var note = Note.GetNoteByIndex(noteIndex);
 
             var semitones = SemitonesAboveC - interval.Semitones - note.SemitonesAboveC;
