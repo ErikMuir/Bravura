@@ -35,31 +35,43 @@ namespace Bravura.Tonality
         }
 
         public string Symbol { get; }
-
         public string AsciiSymbol { get; }
-
         public List<Interval> ChordQualityIntervals { get; }
 
-        //public static bool operator ==(ChordQuality a, ChordQuality b)
-        //{
-        //    if (a == null && b == null) return true;
-        //    if (a == null || b == null) return false;
-        //    if (a.ChordQualityIntervals.Count != b.ChordQualityIntervals.Count) return false;
-        //    return !a.ChordQualityIntervals.Where((t, i) => t != b.ChordQualityIntervals[i]).Any();
-        //}
+        private static bool AreEqual(ChordQuality a, ChordQuality b)
+        {
+            if (a.Symbol != b.Symbol || a.AsciiSymbol != b.AsciiSymbol) return false;
+            if (a.ChordQualityIntervals.Count != b.ChordQualityIntervals.Count) return false;
+            for (var i = 0; i < a.ChordQualityIntervals.Count; i++)
+            {
+                if (a.ChordQualityIntervals[i] != b.ChordQualityIntervals[i]) return false;
+            }
+            return true;
+        }
 
-        //public static bool operator !=(ChordQuality a, ChordQuality b)
-        //    => !(a == b);
+        public static bool operator ==(ChordQuality a, ChordQuality b)
+        {
+            if (a == null && b == null) return true;
+            if (a == null || b == null) return false;
+            return AreEqual(a, b);
+        }
 
-        //public override bool Equals(object obj)
-        //{
-        //    if (!(obj is ChordQuality)) return false;
-        //    var quality = (ChordQuality)obj;
-        //    if (ChordQualityIntervals.Count != quality.ChordQualityIntervals.Count) return false;
-        //    return !ChordQualityIntervals.Where((t, i) => t != quality.ChordQualityIntervals[i]).Any();
-        //}
+        public static bool operator !=(ChordQuality a, ChordQuality b)
+            => !(a == b);
 
-        //public override int GetHashCode()
-        //    => ChordQualityIntervals.Sum(i => i.Semitones);
+        public override bool Equals(object obj)
+        {
+            if (!(obj is ChordQuality)) return false;
+            var quality = (ChordQuality)obj;
+            return AreEqual(this, quality);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Start
+                .Hash(Symbol)
+                .Hash(AsciiSymbol)
+                .Hash(ChordQualityIntervals);
+        }
     }
 }

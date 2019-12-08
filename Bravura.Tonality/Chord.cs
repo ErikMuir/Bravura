@@ -12,7 +12,6 @@ namespace Bravura.Tonality
         }
 
         public Pitch Root { get; }
-
         public ChordQuality ChordQuality { get; }
 
         public List<Pitch> Notes
@@ -37,5 +36,32 @@ namespace Bravura.Tonality
             => ChordQuality.ChordQualityIntervals
                 .Select(i => i.ToAsciiString())
                 .ToList();
+
+        private static bool AreEqual(Chord a, Chord b)
+            => a.Root == b.Root && a.ChordQuality == b.ChordQuality;
+
+        public static bool operator ==(Chord a, Chord b)
+        {
+            if (a == null && b == null) return true;
+            if (a == null || b == null) return false;
+            return AreEqual(a, b);
+        }
+
+        public static bool operator !=(Chord a, Chord b)
+            => !(a == b);
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is Chord)) return false;
+            var key = (Chord)obj;
+            return AreEqual(this, key);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Start
+                .Hash(Root)
+                .Hash(ChordQuality);
+        }
     }
 }

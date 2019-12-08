@@ -45,5 +45,43 @@ namespace Bravura.Tonality
         public string Name { get; }
         public List<int> NoteIndices { get; }
         public List<Interval> ModeIntervals { get; }
+
+        private static bool AreEqual(Mode a, Mode b)
+        {
+            if (a.Name != b.Name) return false;
+            if (a.NoteIndices.Count != b.NoteIndices.Count) return false;
+            if (a.ModeIntervals.Count != b.ModeIntervals.Count) return false;
+            for (var i = 0; i < a.NoteIndices.Count; i++)
+            {
+                if (a.NoteIndices[i] != b.NoteIndices[i]) return false;
+                if (a.ModeIntervals[i] != b.ModeIntervals[i]) return false;
+            }
+            return true;
+        }
+
+        public static bool operator ==(Mode a, Mode b)
+        {
+            if (a == null && b == null) return true;
+            if (a == null || b == null) return false;
+            return AreEqual(a, b);
+        }
+
+        public static bool operator !=(Mode a, Mode b)
+            => !(a == b);
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is Mode)) return false;
+            var mode = (Mode)obj;
+            return AreEqual(this, mode);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Start
+                .Hash(Name)
+                .Hash(NoteIndices)
+                .Hash(ModeIntervals);
+        }
     }
 }
