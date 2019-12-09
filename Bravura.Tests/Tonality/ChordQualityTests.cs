@@ -6,92 +6,81 @@ namespace Bravura.Tonality.Tests
 {
     public class ChordQualityTests
     {
-        #region -- Private Members --
-
-        private static readonly List<Interval> ZeroIntervals = new List<Interval>();
-
-        private static readonly List<Interval> OneInterval = new List<Interval>
+        public static IEnumerable<object[]> InvalidIntervalsData()
         {
-            Intervals.PerfectUnison,
-        };
-
-        private static readonly List<Interval> TwoIntervalsGood = new List<Interval>
-        {
-            Intervals.PerfectUnison,
-            Intervals.PerfectFifth,
-        };
-
-        private static readonly List<Interval> TwoIntervalsBad = new List<Interval>
-        {
-            Intervals.MajorThird,
-            Intervals.PerfectFifth,
-        };
-
-        #endregion 
-
-        #region -- Member Data -- 
-
-        public static IEnumerable<object[]> ChordQualityThrowsData()
-        {
-            yield return new object[] { null, TwoIntervalsGood };
-            yield return new object[] { "", null };
-            yield return new object[] { "", ZeroIntervals };
-            yield return new object[] { "", OneInterval };
-            yield return new object[] { "", TwoIntervalsBad };
+            yield return new object[] { null };
+            yield return new object[] { new List<Interval>() };
+            yield return new object[] { new List<Interval> { Intervals.PerfectUnison } };
+            yield return new object[] { new List<Interval> { Intervals.MajorThird, Intervals.PerfectFifth } };
+            yield return new object[] { new List<Interval> { Intervals.PerfectUnison, Intervals.PerfectUnison } };
         }
-
-        #endregion 
 
         [Fact]
-        public void ChordQuality_Works_Test()
+        public void Constructor_WhenProvidedNullSymbol_Throws()
         {
-            const string symbol = "";
-            var intervals = TwoIntervalsGood;
-            var chordQuality = new ChordQuality(symbol, symbol, intervals);
-            Assert.IsType<ChordQuality>(chordQuality);
-            Assert.Equal(symbol, chordQuality.Symbol);
-            Assert.Equal(intervals.Count, chordQuality.ChordQualityIntervals.Count);
-            for (var i = 0; i < intervals.Count; i++)
-            {
-                Assert.True(intervals[i] == chordQuality.ChordQualityIntervals[i]);
-            }
-        }
-
-        [Theory]
-        [MemberData(nameof(ChordQualityThrowsData))]
-        public void ChordQuality_Throws_Test(string symbol, List<Interval> intervals)
-        {
-            var exception = Record.Exception(() => new ChordQuality(symbol, symbol, intervals));
+            var intervals = new List<Interval> { Intervals.PerfectUnison, Intervals.PerfectFifth };
+            var exception = Record.Exception(() => new ChordQuality(null, "", intervals));
             Assert.NotNull(exception);
             Assert.IsType<BravuraTonalityException>(exception);
         }
 
-        //[Fact(Skip = "Need to figure out equality overrides")]
-        //public void ChordQuality_Equality_Test()
-        //{
-        //    var fakeMinor = new ChordQuality("m", "m", new List<Interval>
-        //    {
-        //        Intervals.PerfectUnison,
-        //        Intervals.MinorThird,
-        //        Intervals.PerfectFifth,
-        //    });
-        //    Assert.True(fakeMinor == Min);
-        //    Assert.True(fakeMinor.Equals(Min));
-        //    Assert.Equal(fakeMinor.GetHashCode(), Min.GetHashCode());
-        //}
+        [Fact]
+        public void Constructor_WhenProvidedNullAsciiSymbol_Throws()
+        {
+            var intervals = new List<Interval> { Intervals.PerfectUnison, Intervals.PerfectFifth };
+            var exception = Record.Exception(() => new ChordQuality("", null, intervals));
+            Assert.NotNull(exception);
+            Assert.IsType<BravuraTonalityException>(exception);
+        }
 
-        //[Fact(Skip = "Need to figure out equality overrides")]
-        //public void ChordQuality_NonEquality_Test()
-        //{
-        //    var fakeMinor = new ChordQuality("M", "M", new List<Interval>
-        //    {
-        //        Intervals.PerfectUnison,
-        //        Intervals.MinorThird,
-        //        Intervals.PerfectFifth,
-        //    });
-        //    Assert.False(fakeMinor == Maj);
-        //    Assert.False(fakeMinor.Equals(Maj));
-        //    Assert.NotEqual(fakeMinor.GetHashCode(), Maj.GetHashCode());
-        //}
+        [Theory]
+        [MemberData(nameof(InvalidIntervalsData))]
+        public void Constructor_WhenProvidedInvalidIntervals_Throws(List<Interval> intervals)
+        {
+            var exception = Record.Exception(() => new ChordQuality("", "", intervals));
+            Assert.NotNull(exception);
+            Assert.IsType<BravuraTonalityException>(exception);
+        }
+
+        [Fact]
+        public void QualityEquals_Test()
+        {
+            var differentMinor = new ChordQuality("-", "-", new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MinorThird,
+                Intervals.PerfectFifth,
+            });
+            Assert.True(differentMinor.QualityEquals(ChordQualities.Min));
+            Assert.False(differentMinor.QualityEquals(ChordQualities.Maj));
+            Assert.False(differentMinor.QualityEquals(null));
+        }
+
+        [Fact]
+        public void Equals_Test()
+        {
+            var minor = new ChordQuality("m", "m", new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MinorThird,
+                Intervals.PerfectFifth,
+            });
+            Assert.True(minor.Equals(ChordQualities.Min));
+            Assert.False(minor.Equals(ChordQualities.Maj));
+            Assert.False(minor.Equals(null));
+        }
+
+        [Fact]
+        public void GetHashCode_Test()
+        {
+            var minor = new ChordQuality("m", "m", new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MinorThird,
+                Intervals.PerfectFifth,
+            });
+            Assert.Equal(minor.GetHashCode(), ChordQualities.Min.GetHashCode());
+            Assert.NotEqual(minor.GetHashCode(), ChordQualities.Maj.GetHashCode());
+        }
     }
 }

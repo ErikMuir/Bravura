@@ -38,40 +38,40 @@ namespace Bravura.Tonality
         public string AsciiSymbol { get; }
         public List<Interval> ChordQualityIntervals { get; }
 
-        private static bool AreEqual(ChordQuality a, ChordQuality b)
+        public bool QualityEquals(ChordQuality quality)
         {
-            if (a.Symbol != b.Symbol || a.AsciiSymbol != b.AsciiSymbol) return false;
-            if (a.ChordQualityIntervals.Count != b.ChordQualityIntervals.Count) return false;
-            for (var i = 0; i < a.ChordQualityIntervals.Count; i++)
+            if (quality == null) return false;
+            if (ChordQualityIntervals.Count != quality.ChordQualityIntervals.Count) return false;
+            for (var i = 0; i < ChordQualityIntervals.Count; i++)
             {
-                if (a.ChordQualityIntervals[i] != b.ChordQualityIntervals[i]) return false;
+                if (ChordQualityIntervals[i] != quality.ChordQualityIntervals[i]) return false;
             }
             return true;
         }
-
-        public static bool operator ==(ChordQuality a, ChordQuality b)
-        {
-            if (a == null && b == null) return true;
-            if (a == null || b == null) return false;
-            return AreEqual(a, b);
-        }
-
-        public static bool operator !=(ChordQuality a, ChordQuality b)
-            => !(a == b);
 
         public override bool Equals(object obj)
         {
             if (!(obj is ChordQuality)) return false;
             var quality = (ChordQuality)obj;
-            return AreEqual(this, quality);
+            if (Symbol != quality.Symbol || AsciiSymbol != quality.AsciiSymbol) return false;
+            if (ChordQualityIntervals.Count != quality.ChordQualityIntervals.Count) return false;
+            for (var i = 0; i < ChordQualityIntervals.Count; i++)
+            {
+                if (ChordQualityIntervals[i] != quality.ChordQualityIntervals[i]) return false;
+            }
+            return true;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Start
+            var hashCode = HashCode.Start
                 .Hash(Symbol)
-                .Hash(AsciiSymbol)
-                .Hash(ChordQualityIntervals);
+                .Hash(AsciiSymbol);
+            ChordQualityIntervals.ForEach(i =>
+            {
+                hashCode = hashCode.Hash(i);
+            });
+            return hashCode;
         }
     }
 }
