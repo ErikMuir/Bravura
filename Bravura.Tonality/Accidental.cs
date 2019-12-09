@@ -1,6 +1,6 @@
 ﻿namespace Bravura.Tonality
 {
-    public class Accidental
+    public struct Accidental
     {
         internal Accidental(
             short semitonesAwayFromNatural,

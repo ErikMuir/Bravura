@@ -3,7 +3,7 @@ using Bravura.Tonality.Extensions;
 
 namespace Bravura.Tonality
 {
-    public class Note
+    public struct Note
     {
         internal Note(char letter, short semitonesAboveC)
         {
