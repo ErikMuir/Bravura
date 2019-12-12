@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using Bravura.Tonality.Exceptions;
 using Bravura.Tonality.Extensions;
