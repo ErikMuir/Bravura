@@ -1,17 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Bravura.Tonality.Exceptions;
 using Bravura.Tonality.Extensions;
 
 namespace Bravura.Tonality
 {
-    public class Scale
+    public class Scale : IEquatable<Scale>
     {
         public Scale(Pitch root, Mode mode)
         {
             Root = root;
             Mode = mode;
-            ScalePitches = new List<Pitch>();
 
+            Validate();
+
+            ScalePitches = new List<Pitch>();
             for (var i = 0; i < Mode.ModeIntervals.Count; i++)
             {
                 var note = GetNote(i);
@@ -23,6 +27,19 @@ namespace Bravura.Tonality
         public Pitch Root { get; }
         public Mode Mode { get; }
         public List<Pitch> ScalePitches { get; }
+
+        private void Validate()
+        {
+            var errors = new List<string>();
+
+            if (Root == null)
+                errors.Add($"{nameof(Root)} is required.");
+            if (Mode == null)
+                errors.Add($"{nameof(Mode)} is required.");
+
+            if (errors.Count > 0)
+                throw new BravuraTonalityException($"{nameof(Scale)} is invalid: {string.Join(" ", errors)}");
+        }
 
         private Note GetNote(int index)
         {
@@ -52,40 +69,37 @@ namespace Bravura.Tonality
             return Accidentals.AllAccidentals.Single(a => a.SemitonesAwayFromNatural == accidentalValue);
         }
 
-        private static bool AreEqual(Scale a, Scale b)
+        public bool EnharmonicallyEquals(Scale other)
+            => other != null
+                && Root.EnharmonicallyEquals(other.Root)
+                && Mode.Equals(other.Mode);
+
+        public bool Equals(Scale other)
         {
-            if (a.Root != b.Root || a.Mode != b.Mode) return false;
-            if (a.ScalePitches.Count != b.ScalePitches.Count) return false;
-            for (var i = 0; i < a.ScalePitches.Count; i++)
+            if (other == null) return false;
+            if (!Root.Equals(other.Root)) return false;
+            if (!Mode.Equals(other.Mode)) return false;
+            if (ScalePitches.Count != other.ScalePitches.Count) return false;
+            for (var i = 0; i < ScalePitches.Count; i++)
             {
-                if (a.ScalePitches[i] != b.ScalePitches[i]) return false;
+                if (!ScalePitches[i].Equals(other.ScalePitches[i])) return false;
             }
             return true;
         }
 
-        public static bool operator ==(Scale a, Scale b)
-        {
-            if (a == null && b == null) return true;
-            if (a == null || b == null) return false;
-            return AreEqual(a, b);
-        }
-
-        public static bool operator !=(Scale a, Scale b)
-            => !(a == b);
-
         public override bool Equals(object obj)
-        {
-            if (!(obj is Scale)) return false;
-            var scale = (Scale)obj;
-            return AreEqual(this, scale);
-        }
+            => (obj is Scale) && Equals((Scale)obj);
 
         public override int GetHashCode()
         {
-            return HashCode.Start
+            var hashCode = HashCode.Start
                 .Hash(Root)
-                .Hash(Mode)
-                .Hash(ScalePitches);
+                .Hash(Mode);
+            for (var i = 0; i < ScalePitches.Count; i++)
+            {
+                hashCode = hashCode.Hash(ScalePitches[i]);
+            }
+            return hashCode;
         }
     }
 }

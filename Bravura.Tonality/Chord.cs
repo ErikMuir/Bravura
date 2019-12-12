@@ -1,15 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Bravura.Tonality.Exceptions;
 
 namespace Bravura.Tonality
 {
-    public class Chord
+    public class Chord : IEquatable<Chord>
     {
         public Chord(Pitch root, ChordQuality quality)
         {
-            Root = root ?? throw new BravuraTonalityException($"{nameof(Root)} is required.");
-            ChordQuality = quality ?? throw new BravuraTonalityException($"{nameof(ChordQuality)} is required."); ;
+            Root = root;
+            ChordQuality = quality;
+
+            Validate();
         }
 
         public Pitch Root { get; }
@@ -38,30 +41,44 @@ namespace Bravura.Tonality
                 .Select(i => i.ToAsciiString())
                 .ToList();
 
-        public List<Pitch> CommonTones(Chord chord)
-            => Pitches.Where(pitch => chord.Pitches.Contains(pitch)).ToList();
-
-        public bool HasSamePitches(Chord chord)
+        private void Validate()
         {
-            if (Pitches.Count != chord.Pitches.Count) return false;
+            var errors = new List<string>();
+
+            if (Root == null)
+                errors.Add($"{nameof(Root)} is required.");
+            if (ChordQuality == null)
+                errors.Add($"{nameof(ChordQuality)} is required.");
+
+            if (errors.Count > 0)
+                throw new BravuraTonalityException($"{nameof(Chord)} is invalid: {string.Join(" ", errors)}");
+        }
+
+        public List<Pitch> CommonTones(Chord other)
+            => Pitches.Where(pitch => other.Pitches.Contains(pitch)).ToList();
+
+        public bool HasSamePitches(Chord other)
+        {
+            if (Pitches.Count != other.Pitches.Count) return false;
             foreach (var pitch in Pitches)
             {
-                if (!chord.Pitches.Contains(pitch)) return false;
+                if (!other.Pitches.Contains(pitch)) return false;
             }
             return true;
         }
 
-        public bool ChordEquals(Chord chord)
-            => Root.EnharmonicallyEquals(chord.Root)
-                && ChordQuality.QualityEquals(chord.ChordQuality);
+        public bool EnharmonicallyEquals(Chord other)
+            => other != null
+                && Root.EnharmonicallyEquals(other.Root)
+                && ChordQuality.EffectivelyEquals(other.ChordQuality);
+
+        public bool Equals(Chord other)
+            => other != null
+                && Root.Equals(other.Root)
+                && ChordQuality.Equals(other.ChordQuality);
 
         public override bool Equals(object obj)
-        {
-            if (!(obj is Chord)) return false;
-            var chord = (Chord)obj;
-            if (Root != chord.Root) return false;
-            return ChordQuality.Equals(chord.ChordQuality);
-        }
+            => (obj is Chord) && Equals((Chord)obj);
 
         public override int GetHashCode()
             => HashCode.Start

@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Bravura.Tonality.Extensions;
 
 namespace Bravura.Tonality
 {
-    public struct Note
+    public struct Note : IEquatable<Note>
     {
         internal Note(char letter, short semitonesAboveC)
         {
@@ -45,5 +46,19 @@ namespace Bravura.Tonality
             var semitones = Notes.MusicalAlphabet[index];
             return new Note(noteLetter, semitones);
         }
+
+        public bool EffectivelyEquals(Note other)
+            => SemitonesAboveC == other.SemitonesAboveC;
+
+        public bool Equals(Note other)
+            => Letter == other.Letter && SemitonesAboveC == other.SemitonesAboveC;
+
+        public override bool Equals(object obj)
+            => (obj is Note) && Equals((Note)obj);
+
+        public override int GetHashCode()
+            => HashCode.Start
+                .Hash(Letter)
+                .Hash(SemitonesAboveC);
     }
 }

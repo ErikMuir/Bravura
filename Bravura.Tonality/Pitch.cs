@@ -1,10 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Bravura.Tonality.Exceptions;
 using Bravura.Tonality.Extensions;
 
 namespace Bravura.Tonality
 {
-    public class Pitch
+    public class Pitch : IEquatable<Pitch>
     {
         internal Pitch(Note note, Accidental accidental)
         {
@@ -74,17 +75,26 @@ namespace Bravura.Tonality
             return new Pitch(note, accidental);
         }
 
-        public bool EnharmonicallyEquals(object obj)
-        {
-            if (!(obj is Pitch)) return false;
-            var pitch = (Pitch)obj;
-            return SemitonesAboveC == pitch.SemitonesAboveC;
-        }
-
         public string ToString(bool showActual = false)
             => $"{Note.Letter}{(Accidental.SemitonesAwayFromNatural == 0 && !showActual ? "" : Accidental.Symbol)}";
 
         public string ToAsciiString()
             => $"{Note.Letter}{Accidental.AsciiSymbol}";
+
+        public bool EnharmonicallyEquals(Pitch other)
+            => SemitonesAboveC == other?.SemitonesAboveC;
+
+        public bool Equals(Pitch other)
+            => other != null
+                && Note.Equals(other.Note)
+                && Accidental.Equals(other.Accidental);
+
+        public override bool Equals(object obj)
+            => (obj is Pitch) && Equals((Pitch)obj);
+
+        public override int GetHashCode()
+            => HashCode.Start
+                .Hash(Note)
+                .Hash(Accidental);
     }
 }
