@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace Bravura.Tonality
 {
-    static class Accidentals
+    public static class Accidentals
     {
         static Accidentals()
         {
