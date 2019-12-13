@@ -47,9 +47,6 @@ namespace Bravura.Tonality
             return new Note(noteLetter, semitones);
         }
 
-        public bool EffectivelyEquals(Note other)
-            => SemitonesAboveC == other.SemitonesAboveC;
-
         public bool Equals(Note other)
             => Letter == other.Letter && SemitonesAboveC == other.SemitonesAboveC;
 
