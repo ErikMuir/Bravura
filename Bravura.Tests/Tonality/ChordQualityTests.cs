@@ -51,9 +51,9 @@ namespace Bravura.Tonality.Tests
                 Intervals.MinorThird,
                 Intervals.PerfectFifth,
             });
-            Assert.True(differentMinor.QualityEquals(ChordQualities.Min));
-            Assert.False(differentMinor.QualityEquals(ChordQualities.Maj));
-            Assert.False(differentMinor.QualityEquals(null));
+            Assert.True(differentMinor.EffectivelyEquals(ChordQualities.Min));
+            Assert.False(differentMinor.EffectivelyEquals(ChordQualities.Maj));
+            Assert.False(differentMinor.EffectivelyEquals(null));
         }
 
         [Fact]

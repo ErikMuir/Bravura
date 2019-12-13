@@ -21,12 +21,13 @@ namespace Bravura.Tonality.Tests
             Assert.IsType<BravuraTonalityException>(exception);
         }
 
-        [Fact(Skip = "TODO: figure out why this isn't working")]
+        [Fact]
         public void CommonTones_Test()
         {
             var cMajor = new Chord(Pitches.CNatural, ChordQualities.Maj);
             var aMinor = new Chord(Pitches.ANatural, ChordQualities.Min);
             var commonTones = cMajor.CommonTones(aMinor);
+            Assert.Equal(2, commonTones.Count);
             Assert.Contains(Pitches.CNatural, commonTones);
             Assert.Contains(Pitches.ENatural, commonTones);
             Assert.DoesNotContain(Pitches.ANatural, commonTones);
