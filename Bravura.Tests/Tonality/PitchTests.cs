@@ -40,6 +40,7 @@ namespace Bravura.Tonality.Tests
         [Fact]
         public void EnharmonicallyEquals_Test()
         {
+            Assert.True(Pitches.CNatural.EnharmonicallyEquals(Pitches.CNatural));
             Assert.True(Pitches.CNatural.EnharmonicallyEquals(Pitches.BSharp));
             Assert.False(Pitches.CNatural.EnharmonicallyEquals(Pitches.BNatural));
             Assert.False(Pitches.CNatural.EnharmonicallyEquals(null as Pitch));
@@ -50,6 +51,7 @@ namespace Bravura.Tonality.Tests
         {
             Assert.True(Pitches.CNatural.Equals(Pitches.CNatural));
             Assert.False(Pitches.CNatural.Equals(Pitches.BSharp));
+            Assert.False(Pitches.CNatural.Equals(Pitches.BNatural));
             Assert.False(Pitches.CNatural.Equals(null as Pitch));
         }
 

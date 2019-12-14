@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using Bravura.Tonality.Exceptions;
 
 namespace Bravura.Tonality
 {

@@ -1,4 +1,4 @@
-namespace Bravura.Tonality
+namespace Bravura.Common
 {
     public static class StringExtensions
     {

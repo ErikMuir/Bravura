@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Bravura.Tonality.Exceptions;
+using Bravura.Common;
 
 namespace Bravura.Tonality
 {

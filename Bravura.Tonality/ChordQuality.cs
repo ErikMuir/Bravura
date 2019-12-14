@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Bravura.Tonality.Exceptions;
+using Bravura.Common;
 
 namespace Bravura.Tonality
 {
@@ -30,12 +30,15 @@ namespace Bravura.Tonality
                 errors.Add($"{nameof(AsciiSymbol)} is required.");
             if (ChordQualityIntervals == null)
                 errors.Add($"{nameof(ChordQualityIntervals)} is required.");
-            if (ChordQualityIntervals.Count < 2)
+            else if (ChordQualityIntervals.Count < 2)
                 errors.Add($"{nameof(ChordQualityIntervals)} length cannot be less than 2.");
-            if (ChordQualityIntervals[0] != Intervals.PerfectUnison)
-                errors.Add($"The first interval in {nameof(ChordQualityIntervals)} must be {Intervals.PerfectUnison.Name}.");
-            if (ChordQualityIntervals.Count != ChordQualityIntervals.Select(x => x.Semitones).Distinct().Count())
-                errors.Add($"All {nameof(ChordQualityIntervals)} must be unique.");
+            else
+            {
+                if (ChordQualityIntervals[0] != Intervals.PerfectUnison)
+                    errors.Add($"The first interval in {nameof(ChordQualityIntervals)} must be {Intervals.PerfectUnison.Name}.");
+                if (ChordQualityIntervals.Count != ChordQualityIntervals.Select(x => x.Semitones).Distinct().Count())
+                    errors.Add($"All {nameof(ChordQualityIntervals)} must be unique.");
+            }
 
             if (errors.Count > 0)
                 throw new BravuraTonalityException($"{nameof(ChordQuality)} is invalid: {string.Join(" ", errors)}");

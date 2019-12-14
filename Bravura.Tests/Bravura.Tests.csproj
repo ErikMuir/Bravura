@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -18,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Bravura.Tonality\Bravura.Tonality.csproj" />
+    <ProjectReference Include="..\Bravura.Common\Bravura.Common.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Bravura.Tonality.Extensions;
+using Bravura.Common;
 
 namespace Bravura.Tonality
 {

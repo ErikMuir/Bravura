@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bravura.Tests", "Bravura.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bravura.Tonality", "Bravura.Tonality\Bravura.Tonality.csproj", "{B27B3E5E-E682-4C0F-AB1C-FE163FC04B86}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bravura.Common", "Bravura.Common\Bravura.Common.csproj", "{6DCB4DA0-49EC-47D7-8A44-106FCB02DE87}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B27B3E5E-E682-4C0F-AB1C-FE163FC04B86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B27B3E5E-E682-4C0F-AB1C-FE163FC04B86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B27B3E5E-E682-4C0F-AB1C-FE163FC04B86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DCB4DA0-49EC-47D7-8A44-106FCB02DE87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DCB4DA0-49EC-47D7-8A44-106FCB02DE87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DCB4DA0-49EC-47D7-8A44-106FCB02DE87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DCB4DA0-49EC-47D7-8A44-106FCB02DE87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
