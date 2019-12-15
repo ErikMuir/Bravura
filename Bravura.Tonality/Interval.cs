@@ -6,7 +6,7 @@ namespace Bravura.Tonality
 {
     public class Interval : IEquatable<Interval>
     {
-        internal Interval(
+        public Interval(
             int semitones,
             Accidental accidental,
             int noteIndex,
@@ -32,8 +32,10 @@ namespace Bravura.Tonality
         {
             var errors = new List<string>();
 
-            if (NoteIndex < 0)
-                errors.Add($"{nameof(NoteIndex)} cannot be less than 0.");
+            if (NoteIndex < 1)
+                errors.Add($"{nameof(NoteIndex)} cannot be less than 1.");
+            if (NoteIndex > 8)
+                errors.Add($"{nameof(NoteIndex)} cannot be more than 8.");
             if (Name == null)
                 errors.Add($"{nameof(Name)} is required.");
             if (Symbol == null)
@@ -53,7 +55,7 @@ namespace Bravura.Tonality
         public bool Equals(Interval other)
             => other != null
                 && Semitones == other.Semitones
-                && !Accidental.Equals(other.Accidental)
+                && Accidental.Equals(other.Accidental)
                 && NoteIndex == other.NoteIndex
                 && Name == other.Name
                 && Symbol == other.Symbol;
