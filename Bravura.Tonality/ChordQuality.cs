@@ -41,7 +41,7 @@ namespace Bravura.Tonality
             }
 
             if (errors.Count > 0)
-                throw new BravuraTonalityException($"{nameof(ChordQuality)} is invalid: {string.Join(" ", errors)}");
+                throw new ChordQualityException(errors);
         }
 
         public bool EffectivelyEquals(ChordQuality other)

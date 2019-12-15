@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Bravura.Common;
 using Xunit;
 
 namespace Bravura.Tonality.Tests
@@ -21,7 +20,7 @@ namespace Bravura.Tonality.Tests
             var intervals = new List<Interval> { Intervals.PerfectUnison, Intervals.PerfectFifth };
             var exception = Record.Exception(() => new ChordQuality(null, "", intervals));
             Assert.NotNull(exception);
-            Assert.IsType<BravuraTonalityException>(exception);
+            Assert.IsType<ChordQualityException>(exception);
         }
 
         [Fact]
@@ -30,7 +29,7 @@ namespace Bravura.Tonality.Tests
             var intervals = new List<Interval> { Intervals.PerfectUnison, Intervals.PerfectFifth };
             var exception = Record.Exception(() => new ChordQuality("", null, intervals));
             Assert.NotNull(exception);
-            Assert.IsType<BravuraTonalityException>(exception);
+            Assert.IsType<ChordQualityException>(exception);
         }
 
         [Theory]
@@ -39,7 +38,7 @@ namespace Bravura.Tonality.Tests
         {
             var exception = Record.Exception(() => new ChordQuality("", "", intervals));
             Assert.NotNull(exception);
-            Assert.IsType<BravuraTonalityException>(exception);
+            Assert.IsType<ChordQualityException>(exception);
         }
 
         [Fact(Skip = "Figure this out")]
