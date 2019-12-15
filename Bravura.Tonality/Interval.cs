@@ -40,7 +40,7 @@ namespace Bravura.Tonality
                 errors.Add($"{nameof(Symbol)} is required.");
 
             if (errors.Count > 0)
-                throw new BravuraTonalityException($"{nameof(Interval)} is invalid: {string.Join(" ", errors)}");
+                throw new IntervalException(errors);
         }
 
         public override string ToString() => $"{Accidental.Symbol}{NoteIndex}";
