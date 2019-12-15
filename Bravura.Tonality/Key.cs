@@ -45,13 +45,8 @@ namespace Bravura.Tonality
 
         private void Validate()
         {
-            var errors = new List<string>();
-
             if (Root == null)
-                errors.Add($"{nameof(Root)} is required.");
-
-            if (errors.Count > 0)
-                throw new BravuraTonalityException($"{nameof(Key)} is invalid: {string.Join(" ", errors)}");
+                throw new KeyException($"{nameof(Root)} is required.");
         }
 
         public bool Equals(Key other)
