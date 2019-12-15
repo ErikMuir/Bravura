@@ -220,7 +220,7 @@ namespace Bravura.Tonality.Tests
         {
             var exception = Record.Exception(() => new Mode(name, noteIndices, intervals));
             Assert.NotNull(exception);
-            Assert.IsType<BravuraTonalityException>(exception);
+            Assert.IsType<ModeException>(exception);
         }
     }
 }

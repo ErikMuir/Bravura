@@ -26,27 +26,36 @@ namespace Bravura.Tonality
 
             if (Name == null)
                 errors.Add($"{nameof(Name)} is required.");
+
+            if (NoteIndices?.Count != ModeIntervals?.Count)
+                errors.Add($"{nameof(NoteIndices)} and {nameof(ModeIntervals)} must be the same length.");
+
             if (NoteIndices == null)
                 errors.Add($"{nameof(NoteIndices)} is required.");
+            else
+            {
+                if (NoteIndices.Count < 5)
+                    errors.Add($"{nameof(NoteIndices)} length cannot be less than 5.");
+                if (NoteIndices.Count > 12)
+                    errors.Add($"{nameof(NoteIndices)} length cannot be greater than 12.");
+                if (NoteIndices.Any(i => i < 0))
+                    errors.Add($"{nameof(NoteIndices)} elements cannot be less than 0.");
+                if (NoteIndices.Any(i => i > 6))
+                    errors.Add($"{nameof(NoteIndices)} elements cannot be more than 6.");
+            }
+
             if (ModeIntervals == null)
                 errors.Add($"{nameof(ModeIntervals)} is required.");
-            if (NoteIndices.Count != ModeIntervals.Count)
-                errors.Add($"{nameof(NoteIndices)} and {nameof(ModeIntervals)} must be the same length.");
-            if (NoteIndices.Count < 5)
-                errors.Add($"{nameof(NoteIndices)} length cannot be less than 5.");
-            if (NoteIndices.Count > 12)
-                errors.Add($"{nameof(NoteIndices)} length cannot be greater than 12.");
-            if (NoteIndices.Any(i => i < 0))
-                errors.Add($"{nameof(NoteIndices)} elements cannot be less than 0.");
-            if (NoteIndices.Any(i => i > 6))
-                errors.Add($"{nameof(NoteIndices)} elements cannot be more than 6.");
-            if (ModeIntervals.Count < 5)
-                errors.Add($"{nameof(ModeIntervals)} length cannot be less than 5.");
-            if (ModeIntervals.Count > 12)
-                errors.Add($"{nameof(ModeIntervals)} length cannot be greater than 12.");
+            else
+            {
+                if (ModeIntervals.Count < 5)
+                    errors.Add($"{nameof(ModeIntervals)} length cannot be less than 5.");
+                if (ModeIntervals.Count > 12)
+                    errors.Add($"{nameof(ModeIntervals)} length cannot be greater than 12.");
+            }
 
             if (errors.Count > 0)
-                throw new BravuraTonalityException($"{nameof(Mode)} is invalid: {string.Join(" ", errors)}");
+                throw new ModeException(errors);
         }
 
         public bool Equals(Mode other)
