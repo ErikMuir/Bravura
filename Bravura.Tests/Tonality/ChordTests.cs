@@ -9,7 +9,7 @@ namespace Bravura.Tonality.Tests
         {
             var exception = Record.Exception(() => new Chord(null, ChordQualities.Maj));
             Assert.NotNull(exception);
-            Assert.IsType<BravuraTonalityException>(exception);
+            Assert.IsType<ChordException>(exception);
         }
 
         [Fact]
@@ -17,7 +17,7 @@ namespace Bravura.Tonality.Tests
         {
             var exception = Record.Exception(() => new Chord(Pitches.CNatural, null));
             Assert.NotNull(exception);
-            Assert.IsType<BravuraTonalityException>(exception);
+            Assert.IsType<ChordException>(exception);
         }
 
         [Fact(Skip = "Figure this out")]
