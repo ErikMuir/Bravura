@@ -4,165 +4,84 @@ namespace Bravura.Common.Tests
 {
     public class IntExtensionsTests
     {
-        [Fact]
-        public void RollingRange_WithLow_WhenWithinRange_ThenReturnsItself()
-        {
-            var val = 3;
-            var low = 1;
-            var high = 7;
-
-            var result = val.RollingRange(low, high);
-
-            Assert.Equal(3, result);
-        }
+        private readonly int _low = 1;
+        private readonly int _high = 3;
 
         [Fact]
-        public void RollingRange_WithLow_WhenAtBottomOfRange_ThenReturnsItself()
+        public void RollingRange_WhenLowIsHigherThanHigh_ThenThrows()
         {
             var val = 1;
-            var low = 1;
-            var high = 7;
 
-            var result = val.RollingRange(low, high);
+            var exception = Record.Exception(() => val.RollingRange(_high, _low));
 
-            Assert.Equal(1, result);
+            Assert.NotNull(exception);
+            Assert.IsType<BravuraException>(exception);
         }
 
         [Fact]
-        public void RollingRange_WithLow_WhenAtTopOfRange_ThenReturnsItself()
+        public void RollingRange_WhenLowIsSameAsHigh_ThenThrows()
         {
-            var val = 7;
-            var low = 1;
-            var high = 7;
+            var val = 1;
 
-            var result = val.RollingRange(low, high);
+            var exception = Record.Exception(() => val.RollingRange(_low, _low));
 
-            Assert.Equal(7, result);
+            Assert.NotNull(exception);
+            Assert.IsType<BravuraException>(exception);
         }
 
-        [Fact]
-        public void RollingRange_WithLow_WhenBelowBottomOfRange_ThenRollsOverTheTop()
+        [Theory]
+        [InlineData(1)]
+        [InlineData(2)]
+        [InlineData(3)]
+        public void RollingRange_WhenValIsWithinRange_ThenReturnsItself(int val)
         {
-            var val = -1;
-            var low = 1;
-            var high = 7;
+            var actualResult = val.RollingRange(_low, _high);
 
-            var result = val.RollingRange(low, high);
-
-            Assert.Equal(6, result);
+            Assert.Equal(val, actualResult);
         }
 
-        [Fact]
-        public void RollingRange_WithLow_WhenAboveTopOfRange_ThenRollsOverTheBottom()
+        [Theory]
+        [InlineData(0, 3)]
+        [InlineData(-1, 2)]
+        [InlineData(-2, 1)]
+        public void RollingRange_WhenValIsBelowRange_ThenRollsOverTheTop(int val, int expectedResult)
         {
-            var val = 9;
-            var low = 1;
-            var high = 7;
+            var actualResult = val.RollingRange(_low, _high);
 
-            var result = val.RollingRange(low, high);
-
-            Assert.Equal(2, result);
+            Assert.Equal(expectedResult, actualResult);
         }
 
-        [Fact(Skip = "Figure this out")]
-        public void RollingRange_WithLow_WhenWayBelowBottomOfRange_ThenRollsOverMultipleTimes()
+        [Theory]
+        [InlineData(4, 1)]
+        [InlineData(5, 2)]
+        [InlineData(6, 3)]
+        public void RollingRange_WhenValIsAboveRange_ThenRollsOverTheBottom(int val, int expectedResult)
         {
-            var val = -8;
-            var low = 1;
-            var high = 7;
+            var actualResult = val.RollingRange(_low, _high);
 
-            var result = val.RollingRange(low, high);
-
-            Assert.Equal(6, result);
+            Assert.Equal(expectedResult, actualResult);
         }
 
-        [Fact(Skip = "Figure this out")]
-        public void RollingRange_WithLow_WhenWayAboveTopOfRange_ThenRollsOverMultipleTimes()
+        [Theory]
+        [InlineData(-3, 3)]
+        [InlineData(-7, 2)]
+        [InlineData(-11, 1)]
+        public void RollingRange_WhenValIsFarBelowRange_ThenRollsOverTheTopMultipleTimes(int val, int expectedResult)
         {
-            var val = 16;
-            var low = 1;
-            var high = 7;
+            var actualResult = val.RollingRange(_low, _high);
 
-            var result = val.RollingRange(low, high);
-
-            Assert.Equal(2, result);
+            Assert.Equal(expectedResult, actualResult);
         }
 
-        [Fact]
-        public void RollingRange_WithoutLow_WhenWithinRange_ThenReturnsItself()
+        [Theory]
+        [InlineData(7, 1)]
+        [InlineData(11, 2)]
+        [InlineData(15, 3)]
+        public void RollingRange_WhenValIsFarAboveRange_ThenRollsOverTheBottom(int val, int expectedResult)
         {
-            var val = 3;
-            var high = 6;
+            var actualResult = val.RollingRange(_low, _high);
 
-            var result = val.RollingRange(high);
-
-            Assert.Equal(3, result);
-        }
-
-        [Fact]
-        public void RollingRange_WithoutLow_WhenZero_ThenReturnsZero()
-        {
-            var val = 0;
-            var high = 6;
-
-            var result = val.RollingRange(high);
-
-            Assert.Equal(0, result);
-        }
-
-        [Fact]
-        public void RollingRange_WithoutLow_WhenAtTopOfRange_ThenReturnsItself()
-        {
-            var val = 6;
-            var high = 6;
-
-            var result = val.RollingRange(high);
-
-            Assert.Equal(6, result);
-        }
-
-        [Fact]
-        public void RollingRange_WithoutLow_WhenBelowZero_ThenRollsOverTheTop()
-        {
-            var val = -2;
-            var high = 6;
-
-            var result = val.RollingRange(high);
-
-            Assert.Equal(5, result);
-        }
-
-        [Fact]
-        public void RollingRange_WithoutLow_WhenAboveTopOfRange_ThenRollsOverTheBottom()
-        {
-            var val = 8;
-            var high = 6;
-
-            var result = val.RollingRange(high);
-
-            Assert.Equal(1, result);
-        }
-
-        [Fact(Skip = "Figure this out")]
-        public void RollingRange_WithoutLow_WhenWayBelowZero_ThenRollsOverMultipleTimes()
-        {
-            var val = -9;
-            var high = 6;
-
-            var result = val.RollingRange(high);
-
-            Assert.Equal(65, result);
-        }
-
-        [Fact(Skip = "Figure this out")]
-        public void RollingRange_WithoutLow_WhenWayAboveTopOfRange_ThenRollsOverMultipleTimes()
-        {
-            var val = 15;
-            var high = 6;
-
-            var result = val.RollingRange(high);
-
-            Assert.Equal(1, result);
+            Assert.Equal(expectedResult, actualResult);
         }
     }
 }

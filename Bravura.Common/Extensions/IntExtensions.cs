@@ -19,10 +19,16 @@ namespace Bravura.Common
         /// <param name="high"></param>
         /// <returns></returns>
         public static int RollingRange(this int val, int low, int high)
-            => val < low
-                ? high + 1 - (low - val)
-                : val > high
-                    ? low - 1 + val - high
-                    : val;
+        {
+            if (low >= high)
+                throw new BravuraException($"{nameof(RollingRange)}: {nameof(low)} must be less than {nameof(high)}");
+
+            if (val >= low && val <= high) return val;
+
+            var rangeLength = (high - low) + 1;
+            var rolloverAdjustment = val > high ? rangeLength * -1 : rangeLength;
+
+            return (val + rolloverAdjustment).RollingRange(low, high);
+        }
     }
 }
