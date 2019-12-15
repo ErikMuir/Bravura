@@ -37,7 +37,7 @@ namespace Bravura.Tonality
                 errors.Add($"{nameof(Mode)} is required.");
 
             if (errors.Count > 0)
-                throw new BravuraTonalityException($"{nameof(Scale)} is invalid: {string.Join(" ", errors)}");
+                throw new ScaleException(errors);
         }
 
         private Note GetNote(int index)
