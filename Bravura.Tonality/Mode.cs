@@ -17,7 +17,7 @@ namespace Bravura.Tonality
         }
 
         public string Name { get; }
-        public List<int> NoteIndices { get; }
+        public List<int> NoteIndices { get; } // explain this. what is this for? is it only used for pentatonics?
         public List<Interval> ModeIntervals { get; }
 
         private void Validate()
@@ -58,11 +58,23 @@ namespace Bravura.Tonality
                 throw new ModeException(errors);
         }
 
-        public bool Equals(Mode other)
+        public bool EffectivelyEquals(Mode other)
         {
             if (other == null) return false;
             if (NoteIndices.Count != other.NoteIndices.Count) return false;
-            if (ModeIntervals.Count != other.ModeIntervals.Count) return false;
+            for (var i = 0; i < NoteIndices.Count; i++)
+            {
+                if (NoteIndices[i] != other.NoteIndices[i]) return false;
+                if (!ModeIntervals[i].Equals(other.ModeIntervals[i])) return false;
+            }
+            return true;
+        }
+
+        public bool Equals(Mode other)
+        {
+            if (other == null) return false;
+            if (Name != other.Name) return false;
+            if (NoteIndices.Count != other.NoteIndices.Count) return false;
             for (var i = 0; i < NoteIndices.Count; i++)
             {
                 if (NoteIndices[i] != other.NoteIndices[i]) return false;
@@ -76,10 +88,16 @@ namespace Bravura.Tonality
 
         public override int GetHashCode()
         {
-            return HashCode.Start
-                .Hash(Name)
-                .Hash(NoteIndices) // do we need to hash each item in the list separately?
-                .Hash(ModeIntervals); // do we need to hash each item in the list separately?
+            var hashCode = HashCode.Start.Hash(Name);
+            for (var i = 0; i < NoteIndices.Count; i++)
+            {
+                hashCode = hashCode.Hash(NoteIndices[i]);
+            }
+            for (var i = 0; i < ModeIntervals.Count; i++)
+            {
+                hashCode = hashCode.Hash(ModeIntervals[i]);
+            }
+            return hashCode;
         }
     }
 }

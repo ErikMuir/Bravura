@@ -5,226 +5,181 @@ namespace Bravura.Tonality.Tests
 {
     public class ModeTests
     {
-        #region -- Member Data --
+        private static readonly List<int> _noteIndices = new List<int> { 0, 1, 2, 3, 4, 5, 6 };
 
-        public static IEnumerable<object[]> ModeWorksData()
+        private static readonly List<Interval> _ionianIntervals = new List<Interval>
         {
-            yield return new object[] {
-                "Major",
-                new List<int> { 0, 1, 2, 3, 4, 5, 6 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
-                },
-            };
-            yield return new object[]
-            {
-                "Natural Minor",
-                new List<int> { 0, 1, 2, 3, 4, 5, 6 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSixth,
-                    Intervals.MinorSeventh,
-                },
-            };
-        }
+            Intervals.PerfectUnison,
+            Intervals.MajorSecond,
+            Intervals.MajorThird,
+            Intervals.PerfectFourth,
+            Intervals.PerfectFifth,
+            Intervals.MajorSixth,
+            Intervals.MajorSeventh,
+        };
 
-        public static IEnumerable<object[]> ModeThrowsData()
-        {
-            // name == null
-            yield return new object[] {
-                null,
-                new List<int> { 0, 1, 2, 3, 4, 5, 6 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
-                },
-            };
-            // noteIndices == null
-            yield return new object[]
-            {
-                "Major",
-                null,
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
-                },
-            };
-            // noteIndices.Count < 5
-            yield return new object[]
-            {
-                "Major",
-                new List<int> { 0, 1, 2, 3 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
-                },
-            };
-            // noteIndices.Count > 12
-            yield return new object[]
-            {
-                "Major",
-                new List<int> { 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
-                },
-            };
-            //  noteIndices < 0
-            yield return new object[]
-            {
-                "Major",
-                new List<int> { 0, 1, 2, 3, 4, 5, -1 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
-                },
-            };
-            // noteIndices > 6
-            yield return new object[]
-            {
-                "Major",
-                new List<int> { 0, 1, 2, 3, 4, 5, 7 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
-                },
-            };
-            // intervals == null
-            yield return new object[]
-            {
-                "Major",
-                new List<int> { 0, 1, 2, 3, 4, 5, 6 },
-                null,
-            };
-            // Count < 5
-            yield return new object[]
-            {
-                "Major",
-                new List<int> { 0, 1, 2, 3, 4, 5, 6 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                },
-            };
-            // Count > 12
-            yield return new object[]
-            {
-                "Major",
-                new List<int> { 0, 1, 2, 3, 4, 5, 6 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
-                },
-            };
-            // Count != noteIndices.Count
-            yield return new object[]
-            {
-                "Major",
-                new List<int> { 0, 1, 2, 3, 4 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
-                },
-            };
-        }
+        private readonly Mode _ionian = new Mode(ModeNames.Ionian, _noteIndices, _ionianIntervals);
 
-        #endregion 
+        private readonly Mode _foobarIonian = new Mode("foobar", _noteIndices, _ionianIntervals);
 
         [Theory]
-        [MemberData(nameof(ModeWorksData))]
-        public void Mode_Works_Test(string name, List<int> noteIndices, List<Interval> intervals)
+        [InlineData(null)]
+        [InlineData("")]
+        [InlineData("   \n \r \t   ")]
+        public void Constructor_WhenNameIsNullOrWhiteSpace_ThenThrows(string name)
         {
-            var mode = new Mode(name, noteIndices, intervals);
-
-            Assert.IsType<Mode>(mode);
-            Assert.Equal(name, mode.Name);
-            for (var i = 0; i < noteIndices.Count; i++)
-            {
-                Assert.Equal(noteIndices[i], mode.NoteIndices[i]);
-                Assert.Equal(intervals[i], mode.ModeIntervals[i]);
-            }
-        }
-
-        [Theory]
-        [MemberData(nameof(ModeThrowsData))]
-        public void Mode_Throws_Test(string name, List<int> noteIndices, List<Interval> intervals)
-        {
-            var exception = Record.Exception(() => new Mode(name, noteIndices, intervals));
+            var exception = Record.Exception(() => new Mode(name, _noteIndices, _ionianIntervals));
 
             Assert.NotNull(exception);
             Assert.IsType<ModeException>(exception);
         }
 
-        // TODO : ModeEquals, ObjectEquals, GetHashCode
+        [Fact]
+        public void Constructor_WhenNoteIndicesAndModeIntervalsAreNotTheSameLength_ThenThrows()
+        {
+            var noteIndices = new List<int> { 0, 1, 2, 3, 4 };
+
+            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, noteIndices, _ionianIntervals));
+
+            Assert.NotNull(exception);
+            Assert.IsType<ModeException>(exception);
+        }
+
+        [Fact]
+        public void Constructor_WhenNoteIndicesIsNull_ThenThrows()
+        {
+            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, null, _ionianIntervals));
+
+            Assert.NotNull(exception);
+            Assert.IsType<ModeException>(exception);
+        }
+
+        [Fact]
+        public void Constructor_WhenNoteIndicesLengthIsLessThanFive_ThenThrows()
+        {
+            var notEnoughNoteIndices = new List<int> { 0, 1, 2, 3 };
+
+            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, notEnoughNoteIndices, _ionianIntervals));
+
+            Assert.NotNull(exception);
+            Assert.IsType<ModeException>(exception);
+        }
+
+        [Fact]
+        public void Constructor_WhenNoteIndicesLengthIsMoreThanTwelve_ThenThrows()
+        {
+            var tooManyNoteIndices = new List<int> { 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6 };
+
+            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, tooManyNoteIndices, _ionianIntervals));
+
+            Assert.NotNull(exception);
+            Assert.IsType<ModeException>(exception);
+        }
+
+        [Fact]
+        public void Constructor_WhenANoteIndexIsLessThanZero_ThenThrows()
+        {
+            var noteIndicesWithLessThanZero = new List<int> { 0, 1, 2, 3, 4, 5, -1 };
+
+            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, noteIndicesWithLessThanZero, _ionianIntervals));
+
+            Assert.NotNull(exception);
+            Assert.IsType<ModeException>(exception);
+        }
+
+        [Fact]
+        public void Constructor_WhenANoteIndexIsGreaterThanSix_ThenThrows()
+        {
+            var noteIndicesWithGreaterThanSix = new List<int> { 0, 1, 2, 3, 4, 5, 7 };
+
+            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, noteIndicesWithGreaterThanSix, _ionianIntervals));
+
+            Assert.NotNull(exception);
+            Assert.IsType<ModeException>(exception);
+        }
+
+        [Fact]
+        public void Constructor_WhenModeIntervalsIsNull_ThenThrows()
+        {
+            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, _noteIndices, null));
+
+            Assert.NotNull(exception);
+            Assert.IsType<ModeException>(exception);
+        }
+
+        [Fact]
+        public void Constructor_WhenModeIntervalsLengthIsLessThanFive_ThenThrows()
+        {
+            var notEnoughModeIntervals = new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MajorSecond,
+                Intervals.MajorThird,
+                Intervals.PerfectFourth,
+            };
+
+            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, _noteIndices, notEnoughModeIntervals));
+
+            Assert.NotNull(exception);
+            Assert.IsType<ModeException>(exception);
+        }
+
+        [Fact]
+        public void Constructor_WhenModeIntervalsLengthIsMoreThanTwelve_ThenThrows()
+        {
+            var tooManyModeIntervals = new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MajorSecond,
+                Intervals.MajorThird,
+                Intervals.PerfectFourth,
+                Intervals.PerfectFifth,
+                Intervals.MajorSixth,
+                Intervals.MajorSeventh,
+                Intervals.PerfectUnison,
+                Intervals.MajorSecond,
+                Intervals.MajorThird,
+                Intervals.PerfectFourth,
+                Intervals.PerfectFifth,
+                Intervals.MajorSixth,
+                Intervals.MajorSeventh,
+            };
+
+            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, _noteIndices, tooManyModeIntervals));
+
+            Assert.NotNull(exception);
+            Assert.IsType<ModeException>(exception);
+        }
+
+        [Fact]
+        public void EffectivelyEquals_Test()
+        {
+            Assert.True(_foobarIonian.EffectivelyEquals(Modes.Ionian));
+            Assert.False(Modes.Ionian.EffectivelyEquals(Modes.Aeolian));
+        }
+
+        [Fact]
+        public void ModeEquals_Test()
+        {
+            Assert.True(_ionian.Equals(Modes.Ionian));
+            Assert.False(_foobarIonian.Equals(Modes.Ionian));
+            Assert.False(Modes.Ionian.Equals(Modes.Aeolian));
+        }
+
+        [Fact]
+        public void ObjectEquals_Test()
+        {
+            Assert.True(Modes.Ionian.Equals((object)_ionian));
+            Assert.False(Modes.Ionian.Equals((object)Modes.Aeolian));
+            Assert.False(Modes.Ionian.Equals((object)null));
+            Assert.False(Modes.Ionian.Equals(new { Foo = "bar" }));
+        }
+
+        [Fact]
+        public void GetHashCode_Test()
+        {
+            Assert.Equal(Modes.Ionian.GetHashCode(), _ionian.GetHashCode());
+            Assert.NotEqual(Modes.Ionian.GetHashCode(), Modes.Aeolian.GetHashCode());
+        }
     }
 }
