@@ -200,11 +200,12 @@ namespace Bravura.Tonality.Tests
 
         #endregion 
 
-        [Theory(Skip = "Figure this out")]
+        [Theory]
         [MemberData(nameof(ModeWorksData))]
         public void Mode_Works_Test(string name, List<int> noteIndices, List<Interval> intervals)
         {
             var mode = new Mode(name, noteIndices, intervals);
+
             Assert.IsType<Mode>(mode);
             Assert.Equal(name, mode.Name);
             for (var i = 0; i < noteIndices.Count; i++)
@@ -214,13 +215,16 @@ namespace Bravura.Tonality.Tests
             }
         }
 
-        [Theory(Skip = "Figure this out")]
+        [Theory]
         [MemberData(nameof(ModeThrowsData))]
         public void Mode_Throws_Test(string name, List<int> noteIndices, List<Interval> intervals)
         {
             var exception = Record.Exception(() => new Mode(name, noteIndices, intervals));
+
             Assert.NotNull(exception);
             Assert.IsType<ModeException>(exception);
         }
+
+        // TODO : ModeEquals, ObjectEquals, GetHashCode
     }
 }

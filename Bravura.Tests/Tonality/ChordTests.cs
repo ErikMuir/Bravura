@@ -4,7 +4,7 @@ namespace Bravura.Tonality.Tests
 {
     public class ChordTests
     {
-        [Fact(Skip = "Figure this out")]
+        [Fact]
         public void Constructor_WhenProvidedNullRoot_Throws()
         {
             var exception = Record.Exception(() => new Chord(null, ChordQualities.Maj));
@@ -20,7 +20,7 @@ namespace Bravura.Tonality.Tests
             Assert.IsType<ChordException>(exception);
         }
 
-        [Fact(Skip = "Figure this out")]
+        [Fact]
         public void CommonTones_Test()
         {
             var cMajor = new Chord(Pitches.CNatural, ChordQualities.Maj);
