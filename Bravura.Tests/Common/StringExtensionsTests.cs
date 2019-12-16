@@ -8,13 +8,9 @@ namespace Bravura.Common.Tests
         [InlineData(null)]
         [InlineData("")]
         [InlineData("   \n \r \t   ")]
-        public void TrimToNull_WhenProvidedNullOrWhiteSpace_ReturnsNull_Test(string val)
+        public void TrimToNull_WhenProvidedNullOrWhiteSpace_ThenReturnsNull(string val)
         {
             Assert.Null(val.TrimToNull());
-
-            Assert.Equal("foo bar", "foo bar".TrimToNull());
-            Assert.Equal("foo bar", "   foo bar".TrimToNull());
-            Assert.Equal("foo bar", "foo bar   ".TrimToNull());
         }
 
         [Theory]
@@ -22,12 +18,35 @@ namespace Bravura.Common.Tests
         [InlineData("     foo bar")]
         [InlineData("foo bar     ")]
         [InlineData("     foo bar     ")]
-        public void TrimToNull_WhenProvidedStringWithNonWhiteSpace_ReturnsTrimmedString_Test(string val)
+        public void TrimToNull_WhenProvidedStringWithNonWhiteSpace_ThenReturnsTrimmedString(string val)
         {
-            var result = val.TrimToNull();
+            Assert.Equal("foo bar", val.TrimToNull());
+        }
 
-            Assert.NotNull(result);
-            Assert.Equal("foo bar", result);
+        [Fact]
+        public void SafeTrim_WhenProvidedNull_ThenReturnsNull()
+        {
+            string val = null;
+
+            Assert.Null(val.SafeTrim());
+        }
+
+        [Fact]
+        public void SafeTrim_WhenProvidedEmptyString_ThenReturnsEmptyString()
+        {
+            var val = "";
+
+            Assert.Equal("", val.SafeTrim());
+        }
+
+        [Theory]
+        [InlineData("foo bar")]
+        [InlineData("     foo bar")]
+        [InlineData("foo bar     ")]
+        [InlineData("     foo bar     ")]
+        public void SafeTrim_WhenProvidedNonNullString_ThenReturnsTrimmedString(string val)
+        {
+            Assert.Equal("foo bar", val.SafeTrim());
         }
     }
 }
