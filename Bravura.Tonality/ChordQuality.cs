@@ -9,8 +9,8 @@ namespace Bravura.Tonality
     {
         public ChordQuality(string symbol, string asciiSymbol, List<Interval> chordQualityIntervals)
         {
-            Symbol = symbol.TrimToNull();
-            AsciiSymbol = asciiSymbol.TrimToNull();
+            Symbol = symbol.SafeTrim();
+            AsciiSymbol = asciiSymbol.SafeTrim();
             ChordQualityIntervals = chordQualityIntervals;
 
             Validate();
