@@ -8,7 +8,7 @@ namespace Bravura.Tonality
 
     public class Key : IEquatable<Key>
     {
-        internal Key(Pitch root, KeyMode keyMode)
+        public Key(Pitch root, KeyMode keyMode)
         {
             Root = root;
             KeyMode = keyMode;
