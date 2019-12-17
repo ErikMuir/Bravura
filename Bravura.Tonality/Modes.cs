@@ -6,183 +6,144 @@ namespace Bravura.Tonality
     {
         static Modes()
         {
-            Major = new Mode(
-                ModeNames.Major,
-                new List<int> { 0, 1, 2, 3, 4, 5, 6 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
-                });
+            Major = new Mode(ModeNames.Major, new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MajorSecond,
+                Intervals.MajorThird,
+                Intervals.PerfectFourth,
+                Intervals.PerfectFifth,
+                Intervals.MajorSixth,
+                Intervals.MajorSeventh,
+            });
 
-            NaturalMinor = new Mode(
-                ModeNames.NaturalMinor,
-                new List<int> { 0, 1, 2, 3, 4, 5, 6 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSixth,
-                    Intervals.MinorSeventh,
-                });
+            NaturalMinor = new Mode(ModeNames.NaturalMinor, new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MajorSecond,
+                Intervals.MinorThird,
+                Intervals.PerfectFourth,
+                Intervals.PerfectFifth,
+                Intervals.MinorSixth,
+                Intervals.MinorSeventh,
+            });
 
-            HarmonicMinor = new Mode(
-                ModeNames.HarmonicMinor,
-                new List<int> { 0, 1, 2, 3, 4, 5, 6 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSixth,
-                    Intervals.MajorSeventh,
-                });
+            HarmonicMinor = new Mode(ModeNames.HarmonicMinor, new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MajorSecond,
+                Intervals.MinorThird,
+                Intervals.PerfectFourth,
+                Intervals.PerfectFifth,
+                Intervals.MinorSixth,
+                Intervals.MajorSeventh,
+            });
 
-            MelodicMinor = new Mode(
-                ModeNames.MelodicMinor,
-                new List<int> { 0, 1, 2, 3, 4, 5, 6 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
-                });
+            MelodicMinor = new Mode(ModeNames.MelodicMinor, new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MajorSecond,
+                Intervals.MinorThird,
+                Intervals.PerfectFourth,
+                Intervals.PerfectFifth,
+                Intervals.MajorSixth,
+                Intervals.MajorSeventh,
+            });
 
-            MajorPentatonic = new Mode(
-                ModeNames.MajorPentatonic,
-                new List<int> { 0, 1, 2, 4, 5 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                });
+            MajorPentatonic = new Mode(ModeNames.MajorPentatonic, new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MajorSecond,
+                Intervals.MajorThird,
+                Intervals.PerfectFifth,
+                Intervals.MajorSixth,
+            });
 
-            MinorPentatonic = new Mode(
-                ModeNames.MinorPentatonic,
-                new List<int> { 0, 2, 3, 4, 6 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSeventh,
-                });
+            MinorPentatonic = new Mode(ModeNames.MinorPentatonic, new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MinorThird,
+                Intervals.PerfectFourth,
+                Intervals.PerfectFifth,
+                Intervals.MinorSeventh,
+            });
 
-            Ionian = new Mode(
-                ModeNames.Ionian,
-                new List<int> { 0, 1, 2, 3, 4, 5, 6 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
-                });
+            Ionian = new Mode(ModeNames.Ionian, new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MajorSecond,
+                Intervals.MajorThird,
+                Intervals.PerfectFourth,
+                Intervals.PerfectFifth,
+                Intervals.MajorSixth,
+                Intervals.MajorSeventh,
+            });
 
-            Dorian = new Mode(
-                ModeNames.Dorian,
-                new List<int> { 0, 1, 2, 3, 4, 5, 6 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MinorSeventh,
-                });
+            Dorian = new Mode(ModeNames.Dorian, new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MajorSecond,
+                Intervals.MinorThird,
+                Intervals.PerfectFourth,
+                Intervals.PerfectFifth,
+                Intervals.MajorSixth,
+                Intervals.MinorSeventh,
+            });
 
-            Phrygian = new Mode(
-                ModeNames.Phrygian,
-                new List<int> { 0, 1, 2, 3, 4, 5, 6 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorSecond,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSixth,
-                    Intervals.MinorSeventh,
-                });
+            Phrygian = new Mode(ModeNames.Phrygian, new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MinorSecond,
+                Intervals.MinorThird,
+                Intervals.PerfectFourth,
+                Intervals.PerfectFifth,
+                Intervals.MinorSixth,
+                Intervals.MinorSeventh,
+            });
 
-            Lydian = new Mode(
-                ModeNames.Lydian,
-                new List<int> { 0, 1, 2, 3, 4, 5, 6 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.AugmentedFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MajorSeventh,
-                });
+            Lydian = new Mode(ModeNames.Lydian, new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MajorSecond,
+                Intervals.MajorThird,
+                Intervals.AugmentedFourth,
+                Intervals.PerfectFifth,
+                Intervals.MajorSixth,
+                Intervals.MajorSeventh,
+            });
 
-            Mixolydian = new Mode(
-                ModeNames.Mixolydian,
-                new List<int> { 0, 1, 2, 3, 4, 5, 6 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MajorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MajorSixth,
-                    Intervals.MinorSeventh,
-                });
+            Mixolydian = new Mode(ModeNames.Mixolydian, new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MajorSecond,
+                Intervals.MajorThird,
+                Intervals.PerfectFourth,
+                Intervals.PerfectFifth,
+                Intervals.MajorSixth,
+                Intervals.MinorSeventh,
+            });
 
-            Aeolian = new Mode(
-                ModeNames.Aeolian,
-                new List<int> { 0, 1, 2, 3, 4, 5, 6 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MajorSecond,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.PerfectFifth,
-                    Intervals.MinorSixth,
-                    Intervals.MinorSeventh,
-                });
+            Aeolian = new Mode(ModeNames.Aeolian, new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MajorSecond,
+                Intervals.MinorThird,
+                Intervals.PerfectFourth,
+                Intervals.PerfectFifth,
+                Intervals.MinorSixth,
+                Intervals.MinorSeventh,
+            });
 
-            Locrian = new Mode(
-                ModeNames.Locrian,
-                new List<int> { 0, 1, 2, 3, 4, 5, 6 },
-                new List<Interval>
-                {
-                    Intervals.PerfectUnison,
-                    Intervals.MinorSecond,
-                    Intervals.MinorThird,
-                    Intervals.PerfectFourth,
-                    Intervals.DiminishedFifth,
-                    Intervals.MinorSixth,
-                    Intervals.MinorSeventh,
-                });
+            Locrian = new Mode(ModeNames.Locrian, new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MinorSecond,
+                Intervals.MinorThird,
+                Intervals.PerfectFourth,
+                Intervals.DiminishedFifth,
+                Intervals.MinorSixth,
+                Intervals.MinorSeventh,
+            });
 
             AllModes = new List<Mode>
             {

@@ -5,8 +5,6 @@ namespace Bravura.Tonality.Tests
 {
     public class ModeTests
     {
-        private static readonly List<int> _noteIndices = new List<int> { 0, 1, 2, 3, 4, 5, 6 };
-
         private static readonly List<Interval> _ionianIntervals = new List<Interval>
         {
             Intervals.PerfectUnison,
@@ -18,9 +16,9 @@ namespace Bravura.Tonality.Tests
             Intervals.MajorSeventh,
         };
 
-        private readonly Mode _ionian = new Mode(ModeNames.Ionian, _noteIndices, _ionianIntervals);
+        private readonly Mode _ionian = new Mode(ModeNames.Ionian, _ionianIntervals);
 
-        private readonly Mode _foobarIonian = new Mode("foobar", _noteIndices, _ionianIntervals);
+        private readonly Mode _foobarIonian = new Mode("foobar", _ionianIntervals);
 
         [Theory]
         [InlineData(null)]
@@ -28,80 +26,80 @@ namespace Bravura.Tonality.Tests
         [InlineData("   \n \r \t   ")]
         public void Constructor_WhenNameIsNullOrWhiteSpace_ThenThrows(string name)
         {
-            var exception = Record.Exception(() => new Mode(name, _noteIndices, _ionianIntervals));
+            var exception = Record.Exception(() => new Mode(name, _ionianIntervals));
 
             Assert.NotNull(exception);
             Assert.IsType<ModeException>(exception);
         }
 
-        [Fact]
-        public void Constructor_WhenNoteIndicesAndModeIntervalsAreNotTheSameLength_ThenThrows()
-        {
-            var noteIndices = new List<int> { 0, 1, 2, 3, 4 };
+        // [Fact]
+        // public void Constructor_WhenNoteIndicesAndModeIntervalsAreNotTheSameLength_ThenThrows()
+        // {
+        //     var noteIndices = new List<int> { 0, 1, 2, 3, 4 };
 
-            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, noteIndices, _ionianIntervals));
+        //     var exception = Record.Exception(() => new Mode(ModeNames.Ionian, noteIndices, _ionianIntervals));
 
-            Assert.NotNull(exception);
-            Assert.IsType<ModeException>(exception);
-        }
+        //     Assert.NotNull(exception);
+        //     Assert.IsType<ModeException>(exception);
+        // }
 
-        [Fact]
-        public void Constructor_WhenNoteIndicesIsNull_ThenThrows()
-        {
-            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, null, _ionianIntervals));
+        // [Fact]
+        // public void Constructor_WhenNoteIndicesIsNull_ThenThrows()
+        // {
+        //     var exception = Record.Exception(() => new Mode(ModeNames.Ionian, null, _ionianIntervals));
 
-            Assert.NotNull(exception);
-            Assert.IsType<ModeException>(exception);
-        }
+        //     Assert.NotNull(exception);
+        //     Assert.IsType<ModeException>(exception);
+        // }
 
-        [Fact]
-        public void Constructor_WhenNoteIndicesLengthIsLessThanFive_ThenThrows()
-        {
-            var notEnoughNoteIndices = new List<int> { 0, 1, 2, 3 };
+        // [Fact]
+        // public void Constructor_WhenNoteIndicesLengthIsLessThanFive_ThenThrows()
+        // {
+        //     var notEnoughNoteIndices = new List<int> { 0, 1, 2, 3 };
 
-            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, notEnoughNoteIndices, _ionianIntervals));
+        //     var exception = Record.Exception(() => new Mode(ModeNames.Ionian, notEnoughNoteIndices, _ionianIntervals));
 
-            Assert.NotNull(exception);
-            Assert.IsType<ModeException>(exception);
-        }
+        //     Assert.NotNull(exception);
+        //     Assert.IsType<ModeException>(exception);
+        // }
 
-        [Fact]
-        public void Constructor_WhenNoteIndicesLengthIsMoreThanTwelve_ThenThrows()
-        {
-            var tooManyNoteIndices = new List<int> { 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6 };
+        // [Fact]
+        // public void Constructor_WhenNoteIndicesLengthIsMoreThanTwelve_ThenThrows()
+        // {
+        //     var tooManyNoteIndices = new List<int> { 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6 };
 
-            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, tooManyNoteIndices, _ionianIntervals));
+        //     var exception = Record.Exception(() => new Mode(ModeNames.Ionian, tooManyNoteIndices, _ionianIntervals));
 
-            Assert.NotNull(exception);
-            Assert.IsType<ModeException>(exception);
-        }
+        //     Assert.NotNull(exception);
+        //     Assert.IsType<ModeException>(exception);
+        // }
 
-        [Fact]
-        public void Constructor_WhenANoteIndexIsLessThanZero_ThenThrows()
-        {
-            var noteIndicesWithLessThanZero = new List<int> { 0, 1, 2, 3, 4, 5, -1 };
+        // [Fact]
+        // public void Constructor_WhenANoteIndexIsLessThanZero_ThenThrows()
+        // {
+        //     var noteIndicesWithLessThanZero = new List<int> { 0, 1, 2, 3, 4, 5, -1 };
 
-            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, noteIndicesWithLessThanZero, _ionianIntervals));
+        //     var exception = Record.Exception(() => new Mode(ModeNames.Ionian, noteIndicesWithLessThanZero, _ionianIntervals));
 
-            Assert.NotNull(exception);
-            Assert.IsType<ModeException>(exception);
-        }
+        //     Assert.NotNull(exception);
+        //     Assert.IsType<ModeException>(exception);
+        // }
 
-        [Fact]
-        public void Constructor_WhenANoteIndexIsGreaterThanSix_ThenThrows()
-        {
-            var noteIndicesWithGreaterThanSix = new List<int> { 0, 1, 2, 3, 4, 5, 7 };
+        // [Fact]
+        // public void Constructor_WhenANoteIndexIsGreaterThanSix_ThenThrows()
+        // {
+        //     var noteIndicesWithGreaterThanSix = new List<int> { 0, 1, 2, 3, 4, 5, 7 };
 
-            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, noteIndicesWithGreaterThanSix, _ionianIntervals));
+        //     var exception = Record.Exception(() => new Mode(ModeNames.Ionian, noteIndicesWithGreaterThanSix, _ionianIntervals));
 
-            Assert.NotNull(exception);
-            Assert.IsType<ModeException>(exception);
-        }
+        //     Assert.NotNull(exception);
+        //     Assert.IsType<ModeException>(exception);
+        // }
 
         [Fact]
         public void Constructor_WhenModeIntervalsIsNull_ThenThrows()
         {
-            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, _noteIndices, null));
+            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, null));
 
             Assert.NotNull(exception);
             Assert.IsType<ModeException>(exception);
@@ -118,7 +116,7 @@ namespace Bravura.Tonality.Tests
                 Intervals.PerfectFourth,
             };
 
-            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, _noteIndices, notEnoughModeIntervals));
+            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, notEnoughModeIntervals));
 
             Assert.NotNull(exception);
             Assert.IsType<ModeException>(exception);
@@ -145,7 +143,7 @@ namespace Bravura.Tonality.Tests
                 Intervals.MajorSeventh,
             };
 
-            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, _noteIndices, tooManyModeIntervals));
+            var exception = Record.Exception(() => new Mode(ModeNames.Ionian, tooManyModeIntervals));
 
             Assert.NotNull(exception);
             Assert.IsType<ModeException>(exception);

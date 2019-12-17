@@ -32,10 +32,10 @@ namespace Bravura.Tonality
         {
             var errors = new List<string>();
 
-            if (NoteIndex < 1)
-                errors.Add($"{nameof(NoteIndex)} cannot be less than 1.");
-            if (NoteIndex > 8)
-                errors.Add($"{nameof(NoteIndex)} cannot be more than 8.");
+            if (NoteIndex < 0)
+                errors.Add($"{nameof(NoteIndex)} cannot be less than 0.");
+            if (NoteIndex > 7)
+                errors.Add($"{nameof(NoteIndex)} cannot be more than 7.");
             if (Name == null)
                 errors.Add($"{nameof(Name)} is required.");
             if (Symbol == null)

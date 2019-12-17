@@ -7,17 +7,17 @@ namespace Bravura.Tonality
 {
     public class Mode : IEquatable<Mode>
     {
-        public Mode(string name, List<int> noteIndices, List<Interval> modeIntervals)
+        public Mode(
+            string name,
+            List<Interval> modeIntervals)
         {
             Name = name.TrimToNull();
-            NoteIndices = noteIndices;
             ModeIntervals = modeIntervals;
 
             Validate();
         }
 
         public string Name { get; }
-        public List<int> NoteIndices { get; } // explain this. what is this for? is it only used for pentatonics?
         public List<Interval> ModeIntervals { get; }
 
         private void Validate()
@@ -26,23 +26,6 @@ namespace Bravura.Tonality
 
             if (Name == null)
                 errors.Add($"{nameof(Name)} is required.");
-
-            if (NoteIndices?.Count != ModeIntervals?.Count)
-                errors.Add($"{nameof(NoteIndices)} and {nameof(ModeIntervals)} must be the same length.");
-
-            if (NoteIndices == null)
-                errors.Add($"{nameof(NoteIndices)} is required.");
-            else
-            {
-                if (NoteIndices.Count < 5)
-                    errors.Add($"{nameof(NoteIndices)} length cannot be less than 5.");
-                if (NoteIndices.Count > 12)
-                    errors.Add($"{nameof(NoteIndices)} length cannot be greater than 12.");
-                if (NoteIndices.Any(i => i < 0))
-                    errors.Add($"{nameof(NoteIndices)} elements cannot be less than 0.");
-                if (NoteIndices.Any(i => i > 6))
-                    errors.Add($"{nameof(NoteIndices)} elements cannot be more than 6.");
-            }
 
             if (ModeIntervals == null)
                 errors.Add($"{nameof(ModeIntervals)} is required.");
@@ -61,10 +44,8 @@ namespace Bravura.Tonality
         public bool EffectivelyEquals(Mode other)
         {
             if (other == null) return false;
-            if (NoteIndices.Count != other.NoteIndices.Count) return false;
-            for (var i = 0; i < NoteIndices.Count; i++)
+            for (var i = 0; i < ModeIntervals.Count; i++)
             {
-                if (NoteIndices[i] != other.NoteIndices[i]) return false;
                 if (!ModeIntervals[i].Equals(other.ModeIntervals[i])) return false;
             }
             return true;
@@ -74,10 +55,8 @@ namespace Bravura.Tonality
         {
             if (other == null) return false;
             if (Name != other.Name) return false;
-            if (NoteIndices.Count != other.NoteIndices.Count) return false;
-            for (var i = 0; i < NoteIndices.Count; i++)
+            for (var i = 0; i < ModeIntervals.Count; i++)
             {
-                if (NoteIndices[i] != other.NoteIndices[i]) return false;
                 if (!ModeIntervals[i].Equals(other.ModeIntervals[i])) return false;
             }
             return true;
@@ -89,10 +68,6 @@ namespace Bravura.Tonality
         public override int GetHashCode()
         {
             var hashCode = HashCode.Start.Hash(Name);
-            for (var i = 0; i < NoteIndices.Count; i++)
-            {
-                hashCode = hashCode.Hash(NoteIndices[i]);
-            }
             for (var i = 0; i < ModeIntervals.Count; i++)
             {
                 hashCode = hashCode.Hash(ModeIntervals[i]);

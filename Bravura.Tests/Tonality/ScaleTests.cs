@@ -30,17 +30,23 @@ namespace Bravura.Tonality.Tests
         [Fact]
         public void Constructor_CorrectlySetsScalePitches()
         {
-            var scale = new Scale(Pitches.CNatural, Modes.Major);
+            var eMajor = new Scale(Pitches.ENatural, Modes.Major);
+            Assert.Equal(7, eMajor.ScalePitches.Count);
+            Assert.Equal(Pitches.ENatural, eMajor.ScalePitches[0]);
+            Assert.Equal(Pitches.FSharp, eMajor.ScalePitches[1]);
+            Assert.Equal(Pitches.GSharp, eMajor.ScalePitches[2]);
+            Assert.Equal(Pitches.ANatural, eMajor.ScalePitches[3]);
+            Assert.Equal(Pitches.BNatural, eMajor.ScalePitches[4]);
+            Assert.Equal(Pitches.CSharp, eMajor.ScalePitches[5]);
+            Assert.Equal(Pitches.DSharp, eMajor.ScalePitches[6]);
 
-            var pitches = scale.ScalePitches;
-            Assert.Equal(7, pitches.Count);
-            Assert.Equal(Pitches.CNatural, pitches[0]);
-            Assert.Equal(Pitches.DNatural, pitches[1]);
-            Assert.Equal(Pitches.ENatural, pitches[2]);
-            Assert.Equal(Pitches.FNatural, pitches[3]);
-            Assert.Equal(Pitches.GNatural, pitches[4]);
-            Assert.Equal(Pitches.ANatural, pitches[5]);
-            Assert.Equal(Pitches.BNatural, pitches[6]);
+            var fSharpMinorPentatonic = new Scale(Pitches.FSharp, Modes.MinorPentatonic);
+            Assert.Equal(5, fSharpMinorPentatonic.ScalePitches.Count);
+            Assert.Equal(Pitches.FSharp, fSharpMinorPentatonic.ScalePitches[0]);
+            Assert.Equal(Pitches.ANatural, fSharpMinorPentatonic.ScalePitches[1]);
+            Assert.Equal(Pitches.BNatural, fSharpMinorPentatonic.ScalePitches[2]);
+            Assert.Equal(Pitches.CSharp, fSharpMinorPentatonic.ScalePitches[3]);
+            Assert.Equal(Pitches.ENatural, fSharpMinorPentatonic.ScalePitches[4]);
         }
 
         [Fact]

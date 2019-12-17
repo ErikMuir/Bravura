@@ -4,10 +4,13 @@ namespace Bravura.Tonality.Tests
 {
     public class IntervalTests
     {
+        private readonly Interval _unison = new Interval(0, Accidentals.Natural, 0, IntervalNames.PerfectUnison, IntervalSymbols.PerfectUnison);
+        private readonly Interval _foobarUnison = new Interval(0, Accidentals.Natural, 0, "foobar", "foobar");
+
         [Fact]
-        public void Constructor_WhenNoteIndexIsLessThanOne_ThenThrows()
+        public void Constructor_WhenNoteIndexIsLessThanZero_ThenThrows()
         {
-            short noteIndex = 0;
+            short noteIndex = -1;
 
             var exception = Record.Exception(() => new Interval(0, Accidentals.Natural, noteIndex, "foobar", "foobar"));
 
@@ -16,9 +19,9 @@ namespace Bravura.Tonality.Tests
         }
 
         [Fact]
-        public void Constructor_WhenNoteIndexIsMoreThanEight_ThenThrows()
+        public void Constructor_WhenNoteIndexIsMoreThanSeven_ThenThrows()
         {
-            short noteIndex = 9;
+            short noteIndex = 8;
 
             var exception = Record.Exception(() => new Interval(0, Accidentals.Natural, noteIndex, "foobar", "foobar"));
 
@@ -32,7 +35,7 @@ namespace Bravura.Tonality.Tests
         [InlineData("   \n \r \t   ")]
         public void Constructor_WhenNameIsNotProvided_ThenThrows(string name)
         {
-            var exception = Record.Exception(() => new Interval(0, Accidentals.Natural, 1, name, "foobar"));
+            var exception = Record.Exception(() => new Interval(0, Accidentals.Natural, 0, name, "foobar"));
 
             Assert.NotNull(exception);
             Assert.IsType<IntervalException>(exception);
@@ -44,7 +47,7 @@ namespace Bravura.Tonality.Tests
         [InlineData("   \n \r \t   ")]
         public void Constructor_WhenSymbolIsNotProvided_ThenThrows(string symbol)
         {
-            var exception = Record.Exception(() => new Interval(0, Accidentals.Natural, 1, "foobar", symbol));
+            var exception = Record.Exception(() => new Interval(0, Accidentals.Natural, 0, "foobar", symbol));
 
             Assert.NotNull(exception);
             Assert.IsType<IntervalException>(exception);
@@ -53,9 +56,7 @@ namespace Bravura.Tonality.Tests
         [Fact]
         public void EffectivelyEquals_Test()
         {
-            var unison = new Interval(0, Accidentals.Natural, 1, "foobar", "foobar");
-
-            Assert.True(Intervals.PerfectUnison.EffectivelyEquals(unison));
+            Assert.True(Intervals.PerfectUnison.EffectivelyEquals(_foobarUnison));
             Assert.True(Intervals.PerfectUnison.EffectivelyEquals(Intervals.DiminishedSecond));
             Assert.True(Intervals.DiminishedSecond.EffectivelyEquals(Intervals.PerfectUnison));
             Assert.False(Intervals.MinorSecond.EffectivelyEquals(Intervals.MajorSecond));
@@ -65,18 +66,14 @@ namespace Bravura.Tonality.Tests
         [Fact]
         public void IntervalEquals_Test()
         {
-            var unison = new Interval(0, Accidentals.Natural, 1, IntervalNames.PerfectUnison, IntervalSymbols.PerfectUnison);
-
-            Assert.True(Intervals.PerfectUnison.Equals(unison));
+            Assert.True(Intervals.PerfectUnison.Equals(_unison));
             Assert.False(Intervals.PerfectUnison.Equals(Intervals.MinorSecond));
         }
 
         [Fact]
         public void ObjectEquals_Test()
         {
-            var unison = new Interval(0, Accidentals.Natural, 1, IntervalNames.PerfectUnison, IntervalSymbols.PerfectUnison);
-
-            Assert.True(Intervals.PerfectUnison.Equals(unison));
+            Assert.True(Intervals.PerfectUnison.Equals(_unison));
             Assert.False(Intervals.PerfectUnison.Equals((object)Intervals.MinorSecond));
             Assert.False(Intervals.PerfectUnison.Equals((object)null));
             Assert.False(Intervals.PerfectUnison.Equals(new { Foo = "bar" }));
@@ -85,9 +82,7 @@ namespace Bravura.Tonality.Tests
         [Fact]
         public void GetHashCode_Test()
         {
-            var unison = new Interval(0, Accidentals.Natural, 1, IntervalNames.PerfectUnison, IntervalSymbols.PerfectUnison);
-
-            Assert.Equal(Intervals.PerfectUnison.GetHashCode(), unison.GetHashCode());
+            Assert.Equal(Intervals.PerfectUnison.GetHashCode(), _unison.GetHashCode());
             Assert.NotEqual(Intervals.PerfectUnison.GetHashCode(), Intervals.MinorSecond.GetHashCode());
         }
     }
