@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Bravura.Tonality
 {
     public static class Notes
@@ -12,7 +14,7 @@ namespace Bravura.Tonality
             A = new Note(NoteLetters.A, NoteValues.A);
             B = new Note(NoteLetters.B, NoteValues.B);
 
-            MusicalAlphabet = new ReadOnlyOrderedDictionary<char, short>
+            var notes = new List<KeyValuePair<char, short>>
             {
                 C.KeyValuePair,
                 D.KeyValuePair,
@@ -21,7 +23,9 @@ namespace Bravura.Tonality
                 G.KeyValuePair,
                 A.KeyValuePair,
                 B.KeyValuePair,
-            };
+            }.AsReadOnly();
+
+            MusicalAlphabet = new ReadOnlyOrderedDictionary<char, short>(notes);
         }
 
         public static Note C { get; }
