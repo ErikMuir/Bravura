@@ -5,15 +5,6 @@ namespace Bravura.Tonality.Tests
     public class KeyTests
     {
         [Fact]
-        public void Constructor_WhenNoPitchProvided_ThenThrows()
-        {
-            var exception = Record.Exception(() => new Key(null, KeyMode.Major));
-
-            Assert.NotNull(exception);
-            Assert.IsType<KeyException>(exception);
-        }
-
-        [Fact]
         public void Constructor_CorrectlySetsActualMode()
         {
             Assert.Equal(Modes.Major, Keys.CMajor.ActualMode);

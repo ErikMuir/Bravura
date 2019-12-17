@@ -8,12 +8,10 @@ namespace Bravura.Tonality
 
     public class Key : IEquatable<Key>
     {
-        public Key(Pitch root, KeyMode keyMode)
+        internal Key(Pitch root, KeyMode keyMode)
         {
             Root = root;
             KeyMode = keyMode;
-
-            Validate();
 
             ActualMode = KeyMode == KeyMode.Major
                 ? Modes.Major
@@ -41,12 +39,6 @@ namespace Bravura.Tonality
                 .Single();
             var mode = KeyMode == KeyMode.Major ? KeyMode.Minor : KeyMode.Major;
             return new Key(root, mode);
-        }
-
-        private void Validate()
-        {
-            if (Root == null)
-                throw new KeyException($"{nameof(Root)} is required.");
         }
 
         public bool Equals(Key other)
