@@ -27,13 +27,13 @@ namespace Bravura.Tonality
 
         public Note NextNote => GetNoteByIndex(NextIndex);
 
-        public bool IsLowerNeighborNatural()
+        public bool IsPreviousNoteOneSemitoneAway()
         {
             var semitones = SemitonesAboveC - PreviousNote.SemitonesAboveC;
             return semitones < 0 || semitones == 1;
         }
 
-        public bool IsHigherNeighborNatural()
+        public bool IsNextNoteOneSemitoneAway()
         {
             var semitones = NextNote.SemitonesAboveC - SemitonesAboveC;
             return semitones < 0 || semitones == 1;

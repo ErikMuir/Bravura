@@ -24,23 +24,23 @@ namespace Bravura.Tonality
                 case -2:
                     return new Pitch(
                         Note.PreviousNote,
-                        Note.IsLowerNeighborNatural()
+                        Note.IsPreviousNoteOneSemitoneAway()
                             ? Accidentals.Flat
                             : Accidentals.Natural);
                 case -1:
-                    return Note.IsLowerNeighborNatural()
+                    return Note.IsPreviousNoteOneSemitoneAway()
                         ? new Pitch(Note.PreviousNote, Accidentals.Natural)
                         : new Pitch(Note, Accidental);
                 case 0:
                     return new Pitch(Note, Accidental);
                 case 1:
-                    return Note.IsHigherNeighborNatural()
+                    return Note.IsNextNoteOneSemitoneAway()
                         ? new Pitch(Note.NextNote, Accidentals.Natural)
                         : new Pitch(Note, Accidental);
                 case 2:
                     return new Pitch(
                         Note.NextNote,
-                        Note.IsHigherNeighborNatural()
+                        Note.IsNextNoteOneSemitoneAway()
                             ? Accidentals.Sharp
                             : Accidentals.Natural);
                 default:

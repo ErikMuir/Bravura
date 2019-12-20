@@ -84,27 +84,27 @@ namespace Bravura.Tonality.Tests
         }
 
         [Fact]
-        public void IsLowerNeighborNatural_Test()
+        public void IsPreviousNoteOneSemitoneAway_Test()
         {
-            Assert.True(Notes.C.IsLowerNeighborNatural());
-            Assert.False(Notes.D.IsLowerNeighborNatural());
-            Assert.False(Notes.E.IsLowerNeighborNatural());
-            Assert.True(Notes.F.IsLowerNeighborNatural());
-            Assert.False(Notes.G.IsLowerNeighborNatural());
-            Assert.False(Notes.A.IsLowerNeighborNatural());
-            Assert.False(Notes.B.IsLowerNeighborNatural());
+            Assert.True(Notes.C.IsPreviousNoteOneSemitoneAway());
+            Assert.False(Notes.D.IsPreviousNoteOneSemitoneAway());
+            Assert.False(Notes.E.IsPreviousNoteOneSemitoneAway());
+            Assert.True(Notes.F.IsPreviousNoteOneSemitoneAway());
+            Assert.False(Notes.G.IsPreviousNoteOneSemitoneAway());
+            Assert.False(Notes.A.IsPreviousNoteOneSemitoneAway());
+            Assert.False(Notes.B.IsPreviousNoteOneSemitoneAway());
         }
 
         [Fact]
-        public void IsHigherNeighborNatural_Test()
+        public void IsNextNoteOneSemitoneAway_Test()
         {
-            Assert.False(Notes.C.IsHigherNeighborNatural());
-            Assert.False(Notes.D.IsHigherNeighborNatural());
-            Assert.True(Notes.E.IsHigherNeighborNatural());
-            Assert.False(Notes.F.IsHigherNeighborNatural());
-            Assert.False(Notes.G.IsHigherNeighborNatural());
-            Assert.False(Notes.A.IsHigherNeighborNatural());
-            Assert.True(Notes.B.IsHigherNeighborNatural());
+            Assert.False(Notes.C.IsNextNoteOneSemitoneAway());
+            Assert.False(Notes.D.IsNextNoteOneSemitoneAway());
+            Assert.True(Notes.E.IsNextNoteOneSemitoneAway());
+            Assert.False(Notes.F.IsNextNoteOneSemitoneAway());
+            Assert.False(Notes.G.IsNextNoteOneSemitoneAway());
+            Assert.False(Notes.A.IsNextNoteOneSemitoneAway());
+            Assert.True(Notes.B.IsNextNoteOneSemitoneAway());
         }
 
         [Fact]
