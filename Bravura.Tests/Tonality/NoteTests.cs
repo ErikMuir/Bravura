@@ -60,27 +60,27 @@ namespace Bravura.Tonality.Tests
         }
 
         [Fact]
-        public void LowerNeighbor_Test()
+        public void PreviousNote_Test()
         {
-            Assert.Equal(Notes.B, Notes.C.LowerNeighbor);
-            Assert.Equal(Notes.C, Notes.D.LowerNeighbor);
-            Assert.Equal(Notes.D, Notes.E.LowerNeighbor);
-            Assert.Equal(Notes.E, Notes.F.LowerNeighbor);
-            Assert.Equal(Notes.F, Notes.G.LowerNeighbor);
-            Assert.Equal(Notes.G, Notes.A.LowerNeighbor);
-            Assert.Equal(Notes.A, Notes.B.LowerNeighbor);
+            Assert.Equal(Notes.B, Notes.C.PreviousNote);
+            Assert.Equal(Notes.C, Notes.D.PreviousNote);
+            Assert.Equal(Notes.D, Notes.E.PreviousNote);
+            Assert.Equal(Notes.E, Notes.F.PreviousNote);
+            Assert.Equal(Notes.F, Notes.G.PreviousNote);
+            Assert.Equal(Notes.G, Notes.A.PreviousNote);
+            Assert.Equal(Notes.A, Notes.B.PreviousNote);
         }
 
         [Fact]
-        public void HigherNeighbor_Test()
+        public void NextNote_Test()
         {
-            Assert.Equal(Notes.D, Notes.C.HigherNeighbor);
-            Assert.Equal(Notes.E, Notes.D.HigherNeighbor);
-            Assert.Equal(Notes.F, Notes.E.HigherNeighbor);
-            Assert.Equal(Notes.G, Notes.F.HigherNeighbor);
-            Assert.Equal(Notes.A, Notes.G.HigherNeighbor);
-            Assert.Equal(Notes.B, Notes.A.HigherNeighbor);
-            Assert.Equal(Notes.C, Notes.B.HigherNeighbor);
+            Assert.Equal(Notes.D, Notes.C.NextNote);
+            Assert.Equal(Notes.E, Notes.D.NextNote);
+            Assert.Equal(Notes.F, Notes.E.NextNote);
+            Assert.Equal(Notes.G, Notes.F.NextNote);
+            Assert.Equal(Notes.A, Notes.G.NextNote);
+            Assert.Equal(Notes.B, Notes.A.NextNote);
+            Assert.Equal(Notes.C, Notes.B.NextNote);
         }
 
         [Fact]

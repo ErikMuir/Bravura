@@ -23,19 +23,19 @@ namespace Bravura.Tonality
 
         public int NextIndex => (Index + 1).RollingRange(6);
 
-        public Note LowerNeighbor => GetNoteByIndex(PreviousIndex);
+        public Note PreviousNote => GetNoteByIndex(PreviousIndex);
 
-        public Note HigherNeighbor => GetNoteByIndex(NextIndex);
+        public Note NextNote => GetNoteByIndex(NextIndex);
 
         public bool IsLowerNeighborNatural()
         {
-            var semitones = SemitonesAboveC - LowerNeighbor.SemitonesAboveC;
+            var semitones = SemitonesAboveC - PreviousNote.SemitonesAboveC;
             return semitones < 0 || semitones == 1;
         }
 
         public bool IsHigherNeighborNatural()
         {
-            var semitones = HigherNeighbor.SemitonesAboveC - SemitonesAboveC;
+            var semitones = NextNote.SemitonesAboveC - SemitonesAboveC;
             return semitones < 0 || semitones == 1;
         }
 
