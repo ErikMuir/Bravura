@@ -15,9 +15,9 @@ It contains several class types which have `internal` constructors, which means 
 It also exposes several class types for which you _can_ create new instances, such as `Interval`, `ChordQuality`, `Chord`, `Mode`, and `Scale`. You'll probably find most intervals, chord qualities, and modes have already been provided for you as `public static readonly` instances, but chords and scales are all you, baby!
 
 ### Note
-The `Note` struct is one of the internal types that can't be instantiated. It consists of a letter and a number. The letter should be obvious, I mean, we're talking about a musical note here. The number represents how many half-steps (semitones) it is above C. Why C? Well, we needed to choose a note as a frame of reference, and since the key of C has no sharps or flats it just seemed like the "natural" choice. ;)
+The [Note](/docs/Note.md) struct is one of the internal types that can't be instantiated. It consists of a letter and a number. The letter should be obvious, I mean, we're talking about a musical note here. The number represents how many half-steps (semitones) it is above C. Why C? Well, we needed to choose a note as a frame of reference, and since the key of C has no sharps or flats it just seemed like the "natural" choice. ;)
 
-_It's important to keep in mind here that a `Note` is only the letter of the alphabet, not an actual pitch. We'll get to `Pitches` a bit later._
+_It's important to keep in mind here that a Note is only the letter of the alphabet, not an actual pitch. We'll get to Pitches a bit later._
 
 **The 7 notes and their semitone values:**
 - C = 0 semitones above C♮
@@ -29,7 +29,7 @@ _It's important to keep in mind here that a `Note` is only the letter of the alp
 - B = 11 semitones above C♮
 
 ### Accidental
-An `Accidental` consists of a name, a number, and a symbol. The number represents how many half-steps (semitones) away from Natural that it will change the Note that it's paired with.
+An [Accidental](/docs/Accidental.md) consists of a name, a number, and a symbol. The number represents how many half-steps (semitones) away from Natural that it will change the Note that it's paired with.
 
 **The 5 accidentals and their semitone values:**
 - Double Flat (♭♭): -2 semitones

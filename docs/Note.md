@@ -10,8 +10,7 @@ public struct Note
 ## Constructors
 | Constructor | Description |
 | --- | --- |
-| Note(Char, Int16) | Initializes a new instance of the `Note` struct. This constructor is `internal` so Bravura consumers cannot initialize new instances. |
-|
+| Note(Char, Int16) | Initializes a new instance of the `Note` struct. This constructor is `internal` so Bravura consumers cannot initialize new instances. * |
 
 ## Fields
 | Field | Type | Description |
@@ -24,7 +23,6 @@ public struct Note
 | NextIndex | Int32 | Gets the index of the next note in `Notes.MusicalAlphabet`. |
 | PreviousNote | Note | Gets the previous note in `Notes.MusicalAlphabet`. |
 | NextNote | Note | Gets the next note in `Notes.MusicalAlphabet`. |
-|
 
 ## Methods
 | Method | Return Type | Description |
@@ -35,4 +33,5 @@ public struct Note
 | Equals(Note) | Boolean | Determines whether the specified `Note` is equal to the current `Note`. |
 | Equals(Object) | Boolean | Determines whether the specified object is equal to the current object. (Inherited from Object) |
 | GetHashCode() | Int32 | Serves as the default hash function. (Inherited from Object) |
-|
+
+\* See the static class [Notes](/docs/Notes.md) for all instances.
