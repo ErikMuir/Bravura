@@ -5,13 +5,6 @@ namespace Bravura.Tonality.Tests
     public class KeyTests
     {
         [Fact]
-        public void Constructor_CorrectlySetsActualMode()
-        {
-            Assert.Equal(Modes.Major, Keys.CMajor.ActualMode);
-            Assert.Equal(Modes.NaturalMinor, Keys.AMinor.ActualMode);
-        }
-
-        [Fact]
         public void Constructor_CorrectlySetsScale()
         {
             var cMajorScale = new Scale(Pitches.CNatural, Modes.Major);

@@ -4,47 +4,44 @@ using System.Linq;
 
 namespace Bravura.Tonality
 {
-    public enum KeyMode { Major, Minor }
-
     public class Key : IEquatable<Key>
     {
-        internal Key(Pitch root, KeyMode keyMode)
+        internal Key(Pitch root, Tonality tonality)
         {
             Root = root;
-            KeyMode = keyMode;
+            Tonality = tonality;
 
-            ActualMode = KeyMode == KeyMode.Major
+            var mode = Tonality == Tonality.Major
                 ? Modes.Major
                 : Modes.NaturalMinor;
-            Scale = new Scale(Root, ActualMode);
+            Scale = new Scale(Root, mode);
             KeySignature = Pitches.SignatureAccidentals
                 .Where(sa => Scale.ScalePitches.Any(sp => sp.ToString() == sa.ToString()))
                 .ToList();
         }
 
         public Pitch Root { get; }
-        public KeyMode KeyMode { get; }
-        public Mode ActualMode { get; }
+        public Tonality Tonality { get; }
         public Scale Scale { get; }
         public List<Pitch> KeySignature { get; }
         public Key Relative => GetRelative();
 
         private Key GetRelative()
         {
-            var keys = KeyMode == KeyMode.Major ? Keys.MinorKeys : Keys.MajorKeys;
+            var keys = Tonality == Tonality.Major ? Keys.MinorKeys : Keys.MajorKeys;
             var root = keys
                 .Where(k => k.KeySignature.Count == KeySignature.Count)
                 .Where(k => k.KeySignature.FirstOrDefault() == KeySignature.FirstOrDefault())
                 .Select(k => k.Root)
                 .Single();
-            var mode = KeyMode == KeyMode.Major ? KeyMode.Minor : KeyMode.Major;
+            var mode = Tonality == Tonality.Major ? Tonality.Minor : Tonality.Major;
             return new Key(root, mode);
         }
 
         public bool Equals(Key other)
             => other != null
                 && Root.Equals(other.Root)
-                && KeyMode == other.KeyMode;
+                && Tonality == other.Tonality;
 
         public override bool Equals(object obj)
             => (obj is Key) && Equals((Key)obj);
@@ -52,6 +49,6 @@ namespace Bravura.Tonality
         public override int GetHashCode()
             => HashCode.Start
                 .Hash(Root)
-                .Hash(KeyMode);
+                .Hash(Tonality);
     }
 }

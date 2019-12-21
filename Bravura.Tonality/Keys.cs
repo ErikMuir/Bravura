@@ -7,37 +7,37 @@ namespace Bravura.Tonality
     {
         static Keys()
         {
-            CMajor = new Key(Pitches.CNatural, KeyMode.Major);
-            CSharpMajor = new Key(Pitches.CSharp, KeyMode.Major);
-            DFlatMajor = new Key(Pitches.DFlat, KeyMode.Major);
-            DMajor = new Key(Pitches.DNatural, KeyMode.Major);
-            EFlatMajor = new Key(Pitches.EFlat, KeyMode.Major);
-            EMajor = new Key(Pitches.ENatural, KeyMode.Major);
-            FMajor = new Key(Pitches.FNatural, KeyMode.Major);
-            FSharpMajor = new Key(Pitches.FSharp, KeyMode.Major);
-            GFlatMajor = new Key(Pitches.GFlat, KeyMode.Major);
-            GMajor = new Key(Pitches.GNatural, KeyMode.Major);
-            AFlatMajor = new Key(Pitches.AFlat, KeyMode.Major);
-            AMajor = new Key(Pitches.ANatural, KeyMode.Major);
-            BFlatMajor = new Key(Pitches.BFlat, KeyMode.Major);
-            BMajor = new Key(Pitches.BNatural, KeyMode.Major);
-            CFlatMajor = new Key(Pitches.CFlat, KeyMode.Major);
+            CMajor = new Key(Pitches.CNatural, Tonality.Major);
+            CSharpMajor = new Key(Pitches.CSharp, Tonality.Major);
+            DFlatMajor = new Key(Pitches.DFlat, Tonality.Major);
+            DMajor = new Key(Pitches.DNatural, Tonality.Major);
+            EFlatMajor = new Key(Pitches.EFlat, Tonality.Major);
+            EMajor = new Key(Pitches.ENatural, Tonality.Major);
+            FMajor = new Key(Pitches.FNatural, Tonality.Major);
+            FSharpMajor = new Key(Pitches.FSharp, Tonality.Major);
+            GFlatMajor = new Key(Pitches.GFlat, Tonality.Major);
+            GMajor = new Key(Pitches.GNatural, Tonality.Major);
+            AFlatMajor = new Key(Pitches.AFlat, Tonality.Major);
+            AMajor = new Key(Pitches.ANatural, Tonality.Major);
+            BFlatMajor = new Key(Pitches.BFlat, Tonality.Major);
+            BMajor = new Key(Pitches.BNatural, Tonality.Major);
+            CFlatMajor = new Key(Pitches.CFlat, Tonality.Major);
 
-            CMinor = new Key(Pitches.CNatural, KeyMode.Minor);
-            CSharpMinor = new Key(Pitches.CSharp, KeyMode.Minor);
-            DMinor = new Key(Pitches.DNatural, KeyMode.Minor);
-            DSharpMinor = new Key(Pitches.DSharp, KeyMode.Minor);
-            EFlatMinor = new Key(Pitches.EFlat, KeyMode.Minor);
-            EMinor = new Key(Pitches.ENatural, KeyMode.Minor);
-            FMinor = new Key(Pitches.FNatural, KeyMode.Minor);
-            FSharpMinor = new Key(Pitches.FSharp, KeyMode.Minor);
-            GMinor = new Key(Pitches.GNatural, KeyMode.Minor);
-            GSharpMinor = new Key(Pitches.GSharp, KeyMode.Minor);
-            AFlatMinor = new Key(Pitches.AFlat, KeyMode.Minor);
-            AMinor = new Key(Pitches.ANatural, KeyMode.Minor);
-            ASharpMinor = new Key(Pitches.ASharp, KeyMode.Minor);
-            BFlatMinor = new Key(Pitches.BFlat, KeyMode.Minor);
-            BMinor = new Key(Pitches.BNatural, KeyMode.Minor);
+            CMinor = new Key(Pitches.CNatural, Tonality.Minor);
+            CSharpMinor = new Key(Pitches.CSharp, Tonality.Minor);
+            DMinor = new Key(Pitches.DNatural, Tonality.Minor);
+            DSharpMinor = new Key(Pitches.DSharp, Tonality.Minor);
+            EFlatMinor = new Key(Pitches.EFlat, Tonality.Minor);
+            EMinor = new Key(Pitches.ENatural, Tonality.Minor);
+            FMinor = new Key(Pitches.FNatural, Tonality.Minor);
+            FSharpMinor = new Key(Pitches.FSharp, Tonality.Minor);
+            GMinor = new Key(Pitches.GNatural, Tonality.Minor);
+            GSharpMinor = new Key(Pitches.GSharp, Tonality.Minor);
+            AFlatMinor = new Key(Pitches.AFlat, Tonality.Minor);
+            AMinor = new Key(Pitches.ANatural, Tonality.Minor);
+            ASharpMinor = new Key(Pitches.ASharp, Tonality.Minor);
+            BFlatMinor = new Key(Pitches.BFlat, Tonality.Minor);
+            BMinor = new Key(Pitches.BNatural, Tonality.Minor);
 
             MajorKeys = new List<Key>
             {
