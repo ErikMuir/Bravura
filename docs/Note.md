@@ -1,6 +1,6 @@
 # Note Struct
 
-Namespace: Bravura.Tonality<br/>
+Namespace: [Bravura.Tonality](./Bravura.Tonality.md)<br/>
 Represents a letter of the musical alphabet.
 
 ```
@@ -21,16 +21,16 @@ public struct Note
 | Index | Int32 | Gets the index of this instance's `Letter` from `Notes.MusicalAlphabet`. |
 | PreviousIndex | Int32 | Gets the index of the previous note in `Notes.MusicalAlphabet`. |
 | NextIndex | Int32 | Gets the index of the next note in `Notes.MusicalAlphabet`. |
-| PreviousNote | Note | Gets the previous note in `Notes.MusicalAlphabet`. |
-| NextNote | Note | Gets the next note in `Notes.MusicalAlphabet`. |
+| PreviousNote | [Note](./) | Gets the previous note in `Notes.MusicalAlphabet`. |
+| NextNote | [Note](./) | Gets the next note in `Notes.MusicalAlphabet`. |
 
 ## Methods
 | Method | Return Type | Description |
 | --- | --- | --- |
 | IsPreviousNoteOneSemitoneAway() | Boolean | Indicates whether the previous note in `Notes.MusicalAlphabet` is only one semitone away. |
 | IsNextNoteOneSemitoneAway() | Boolean | Indicates whether the next note in `Notes.MusicalAlphabet` is only one semitone away. |
-| GetNoteByIndex(Int32) | Note | Gets the note at the specified index of `Notes.MusicalAlphabet` |
-| Equals(Note) | Boolean | Determines whether the specified `Note` is equal to the current `Note`. |
+| GetNoteByIndex(Int32) | [Note](./) | Gets the note at the specified index of `Notes.MusicalAlphabet` |
+| Equals([Note](./)) | Boolean | Determines whether the specified `Note` is equal to the current `Note`. |
 | Equals(Object) | Boolean | Determines whether the specified object is equal to the current object. (Inherited from Object) |
 | GetHashCode() | Int32 | Serves as the default hash function. (Inherited from Object) |
 
