@@ -1,0 +1,1 @@
+# HashCode Struct

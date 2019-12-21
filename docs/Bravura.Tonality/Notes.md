@@ -1,7 +1,7 @@
 # Notes Class
 
 Namespace: [Bravura.Tonality](./Bravura.Tonality.md)<br/>
-Exposes all 7 notes, as well as the musical alphabet.
+Static class that exposes all 7 notes, as well as the musical alphabet.
 
 ```
 public static class Notes

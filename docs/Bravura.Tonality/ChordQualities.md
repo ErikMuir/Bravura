@@ -1,0 +1,1 @@
+# ChordQualities Class

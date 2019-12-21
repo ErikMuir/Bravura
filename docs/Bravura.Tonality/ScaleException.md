@@ -1,0 +1,1 @@
+# ScaleException Class

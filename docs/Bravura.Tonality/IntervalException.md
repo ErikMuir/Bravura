@@ -1,0 +1,1 @@
+# IntervalException Class

@@ -1,0 +1,1 @@
+# ChordQualityException.md
