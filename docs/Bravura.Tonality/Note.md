@@ -1,11 +1,14 @@
 # Note Struct
 
-Namespace: [Bravura.Tonality](./Bravura.Tonality.md)<br/>
-Represents one letter of the musical alphabet.
+Namespace: [Bravura.Tonality](./Bravura.Tonality.md)
+
+### Represents one letter of the musical alphabet.
 
 ```
 public struct Note
 ```
+
+Inheritance: Object -> ValueType -> Note
 
 ## Constructors
 | Constructor | Description |
@@ -34,4 +37,4 @@ public struct Note
 | Equals(Object) | Boolean | Determines whether the specified object is equal to the current object. (Inherited from Object) |
 | GetHashCode() | Int32 | Serves as the default hash function. (Inherited from Object) |
 
-\* See the static class [Notes](/docs/Notes.md) for all instances.
+\* See the static class [Notes](./Notes.md) for all instances.
