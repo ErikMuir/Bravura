@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Bravura.Tonality
+namespace Bravura.Common
 {
     public struct HashCode
     {
