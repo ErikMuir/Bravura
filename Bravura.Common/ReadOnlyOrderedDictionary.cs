@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace Bravura.Tonality
+namespace Bravura.Common
 {
     /// <inheritdoc />
     /// <summary>
