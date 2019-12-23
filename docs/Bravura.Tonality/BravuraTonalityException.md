@@ -4,7 +4,7 @@ Namespace: [Bravura.Tonality](./Bravura.Tonality.md)
 
 ### The base exception class for all Bravura.Tonality exceptions.
 
-```
+```csharp
 public class BravuraTonalityException : Bravura.Common.BravuraException
 ```
 

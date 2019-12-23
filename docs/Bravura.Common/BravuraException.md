@@ -4,7 +4,7 @@ Namespace: [Bravura.Common](./Bravura.Common.md)
 
 ### The base exception class for all Bravura exceptions.
 
-```
+```csharp
 public class BravuraException : System.Exception
 ```
 

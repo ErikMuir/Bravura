@@ -4,7 +4,7 @@ Namespace: [Bravura.Tonality](./Bravura.Tonality.md)
 
 ### The exception that is thrown when trying to instantiate an invalid Interval.
 
-```
+```csharp
 public class IntervalException : Bravura.Tonality.BravuraTonalityException
 ```
 

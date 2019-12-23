@@ -4,7 +4,7 @@ Namespace: [Bravura.Tonality](./Bravura.Tonality.md)
 
 ### Represents one letter of the musical alphabet.
 
-```
+```csharp
 public struct Note
 ```
 

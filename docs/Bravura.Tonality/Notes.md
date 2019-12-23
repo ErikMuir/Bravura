@@ -4,11 +4,11 @@ Namespace: [Bravura.Tonality](./Bravura.Tonality.md)
 
 ### Static class that exposes all 7 notes, as well as the musical alphabet.
 
-```
+```csharp
 public static class Notes
 ```
 
-Inheritance: Object -> Names
+Inheritance: Object -> Notes
 
 ## Properties
 | Property | Type | Description |
