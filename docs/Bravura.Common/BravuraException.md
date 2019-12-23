@@ -8,7 +8,7 @@ Namespace: [Bravura.Common](./Bravura.Common.md)
 public class BravuraException : System.Exception
 ```
 
-Inheritance: Object -> Exception -> [BravuraException](./BravuraException.md)
+Inheritance: Object -> Exception -> BravuraException
 
 Derived: [Bravura.Tonality.BravuraTonalityException](../Bravura.Tonality/BravuraTonalityException.md)
 
