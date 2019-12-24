@@ -2,7 +2,7 @@
 
 A Music Theory Class Library
 
-This project is licensed under the terms of the MIT license.
+[Documentation](./docs/Contents.md)
 
 ### What it supports and what it doesn't
 
@@ -43,3 +43,5 @@ An [Accidental](./docs/Bravura.Tonality/Accidental.md) consists of a name, a num
 - Natural (♮): 0 semitones
 - Sharp (♯): 1 semitones
 - Double Sharp (♯♯): 2 semitones
+
+This project is licensed under the terms of the MIT license.
