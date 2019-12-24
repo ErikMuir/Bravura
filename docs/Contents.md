@@ -1,30 +1,34 @@
-* [Bravura.Common](./Bravura.Common/Bravura.Common.md)
-  * [BravuraException](./Bravura.Common/BravuraException.md)
-  * [HashCode](./Bravura.Common/HashCode.md)
-  * [IntExtension](./Bravura.Common/IntExtensions.md)
-  * [IReadOnlyOrderedDictionary](./Bravura.Common/IReadOnlyOrderedDictionary.md)
-  * [ReadOnlyOrderedDictionary](./Bravura.Common/ReadOnlyOrderedDictionary.md)
-  * [StringExtensions](./Bravura.Common/StringExtensions.md)
-* Bravura.Tonality
-  * Accidental
-  * Accidentals
-  * BravuraTonalityException
-  * Chord
-  * ChordException
-  * ChordQualities
-  * ChordQuality
-  * ChordQualityException
-  * Interval
-  * Intervals
-  * Key
-  * Keys
-  * Mode
-  * ModeException
-  * Modes
-  * Note
-  * Notes
-  * Pitch
-  * Pitches
-  * Scale
-  * ScaleException
-  * Tonality
+# Bravura Documentation
+
+## Table of Contents
+
+- [Bravura.Common](./Bravura.Common/Bravura.Common.md)
+  - [BravuraException](./Bravura.Common/BravuraException.md)
+  - [HashCode](./Bravura.Common/HashCode.md)
+  - [IntExtension](./Bravura.Common/IntExtensions.md)
+  - [IReadOnlyOrderedDictionary](./Bravura.Common/IReadOnlyOrderedDictionary.md)
+  - [ReadOnlyOrderedDictionary](./Bravura.Common/ReadOnlyOrderedDictionary.md)
+  - [StringExtensions](./Bravura.Common/StringExtensions.md)
+- [Bravura.Tonality](./Bravura.Tonality/Bravura.Tonality.md)
+  - [Accidental](./Bravura.Tonality/Accidental.md)
+  - [Accidentals](./Braura.Tonality.Accidentals.md)
+  - [BravuraTonalityException](./Bravura.Tonality/BravuraTonalityException.md)
+  - [Chord](./Bravura.Tonality/Chord.md)
+  - [ChordException](./Bravura.Tonality/ChordException.md)
+  - [ChordQualities](./Bravura.Tonality/ChordQualities.md)
+  - [ChordQuality](./Bravura.Tonality/ChordQuality.md)
+  - [ChordQualityException](./Bravura.Tonality/ChordQualityException.md)
+  - [Interval](./Bravura.Tonality/Interval.md)
+  - [Intervals](./Bravura.Tonality/Intervals.md)
+  - [Key](./Bravura.Tonality/Key.md)
+  - [Keys](./Bravura.Tonality/Keys.md)
+  - [Mode](./Bravura.Tonality/Mode.md)
+  - [ModeException](./Bravura.Tonality/ModeException.md)
+  - [Modes](./Bravura.Tonality/Modes.md)
+  - [Note](./Bravura.Tonality/Note.md)
+  - [Notes](./Bravura.Tonality/Notes.md)
+  - [Pitch](./Bravura.Tonality/Pitch.md)
+  - [Pitches](./Bravura.Tonality/Pitches.md)
+  - [Scale](./Bravura.Tonality/Scale.md)
+  - [ScaleException](./Bravura.Tonality/ScaleException.md)
+  - [Tonality](./Bravura.Tonality/Tonality.md)

@@ -30,3 +30,25 @@ Inheritance: Object -> ValueType -> HashCode
 | Operator | Return Type | Description |
 | --- | --- | --- |
 | implicit operator int([HashCode](./HashCode.md)) | Int32 | Returns the hashed value of the instance. |
+
+## Example
+```csharp
+public class Person
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public List<Person> Children { get; set; } = new List<Person>();
+
+    public override int GetHashCode()
+    {
+        var hashCode = HashCode.Start
+            .Hash(Name)
+            .Hash(Age);
+        foreach (var child in Children)
+        {
+            hashCode.Hash(child);
+        }
+        return hashCode;
+    }
+}
+```
