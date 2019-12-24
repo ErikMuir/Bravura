@@ -2,7 +2,7 @@
 
 A Music Theory Class Library
 
-[Documentation](./docs/Contents.md)
+[Full Documentation](./docs/Contents.md)
 
 ### What it supports and what it doesn't
 
