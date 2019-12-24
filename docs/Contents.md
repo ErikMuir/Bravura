@@ -3,12 +3,14 @@
 ### Table of Contents
 
 - [`Bravura.Common`](./Bravura.Common/Bravura.Common.md)
-  - [`BravuraException`](./Bravura.Common/BravuraException.md)
+  - Exceptions
+    - [`BravuraException`](./Bravura.Common/BravuraException.md)
+  - Extensions
+    - [`IntExtension`](./Bravura.Common/IntExtensions.md)
+    - [`StringExtensions`](./Bravura.Common/StringExtensions.md)
   - [`HashCode`](./Bravura.Common/HashCode.md)
-  - [`IntExtension`](./Bravura.Common/IntExtensions.md)
   - [`IReadOnlyOrderedDictionary`](./Bravura.Common/IReadOnlyOrderedDictionary.md)
   - [`ReadOnlyOrderedDictionary`](./Bravura.Common/ReadOnlyOrderedDictionary.md)
-  - [`StringExtensions`](./Bravura.Common/StringExtensions.md)
 - [`Bravura.Tonality`](./Bravura.Tonality/Bravura.Tonality.md)
   - Exceptions
     - [`BravuraTonalityException`](./Bravura.Tonality/BravuraTonalityException.md)
@@ -17,7 +19,7 @@
     - [`ModeException`](./Bravura.Tonality/ModeException.md)
     - [`ScaleException`](./Bravura.Tonality/ScaleException.md)
   - [`Accidental`](./Bravura.Tonality/Accidental.md)
-  - [`Accidentals`](./Braura.Tonality.Accidentals.md)
+  - [`Accidentals`](./Braura.Tonality/Accidentals.md)
   - [`Chord`](./Bravura.Tonality/Chord.md)
   - [`ChordQualities`](./Bravura.Tonality/ChordQualities.md)
   - [`ChordQuality`](./Bravura.Tonality/ChordQuality.md)
