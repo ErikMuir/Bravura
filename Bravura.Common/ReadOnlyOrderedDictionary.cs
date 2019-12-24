@@ -67,7 +67,7 @@ namespace Bravura.Common
         public TValue this[int index] => _dictionary[_keys[index]];
 
         /// <summary>
-        /// The value under the given key. New entries are added at the end of the order. Updating an existing entry does not change its position.     
+        /// The value under the given key.
         /// </summary>
         public TValue this[TKey key] => _dictionary[key];
 
