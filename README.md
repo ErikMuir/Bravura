@@ -34,7 +34,7 @@ _It's important to keep in mind here that a Note is only the letter of the alpha
 
 ### Accidental
 
-An [Accidental](./docs/Bravura.Tonality/Accidental.md) consists of a name, a number, and a symbol. The number represents how many half-steps (semitones) away from Natural that it will change the Note that it's paired with. New Accidentals, like Notes, cannot be instantiated.
+An [Accidental](./docs/Bravura.Tonality/Accidental.md) consists of a name, a number, and a symbol. The number represents how many half-steps (semitones) away from Natural that it will change the Note that it's paired with. New accidentals, like notes, cannot be instantiated.
 
 **The 5 accidentals and their semitone values:**
 
@@ -43,5 +43,13 @@ An [Accidental](./docs/Bravura.Tonality/Accidental.md) consists of a name, a num
 - Natural (♮): 0 semitones
 - Sharp (♯): 1 semitones
 - Double Sharp (♯♯): 2 semitones
+
+### Pitch
+
+A [Pitch](./docs/Bravura.Tonality/Pitch.md) is the combination of a [Note](./docs/Bravura.Tonality/Note.md) and an [Accidental](./docs/Bravura.Tonality/Accidental.md). Two pitches are considered to be enharmonically equal when their distance (in semitones) above C natural are the same. New pitches cannot be instantiated. All instances are exposed through the static class [Pitches](./docs/Bravura.Tonality/Pitches.md).
+
+### Interval
+
+An [Interval](./docs/Bravura.Tonality/Interval.md) is the distance (in semitones) between two pitches. You can create new instances of intervals, although the all intervals within an octave are exposed through the static class [Intervals](./docs/Bravura.Tonality/Intervals.md).
 
 This project is licensed under the terms of the MIT license.

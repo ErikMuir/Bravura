@@ -17,7 +17,7 @@ The [Bravura.Tonality](./Bravura.Tonality.md) namespace contains fundamental cla
 | [Modes](./Modes.md) | |
 | [Notes](./Notes.md) | Static class that exposes all 7 notes, as well as the musical alphabet. |
 | [Pitch](./Pitch.md) | |
-| [Pitches](./Pitches.md) | |
+| [Pitches](./Pitches.md) | Represents the combination of a [Note](./Note.md) and an [Accidental](./Accidental.md). |
 | [ReadOnlyOrderedDictionary](./ReadOnlyOrderedDictionary.md) | Represents an ordered collection of key/value pairs that are accessible by the key or index. |
 | [Scale](./Scale) | |
 

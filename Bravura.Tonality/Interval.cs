@@ -9,13 +9,13 @@ namespace Bravura.Tonality
         public Interval(
             int semitones,
             Accidental accidental,
-            int noteIndex,
+            int noteIndexCount,
             string name,
             string symbol)
         {
             Semitones = semitones;
             Accidental = accidental;
-            NoteIndex = noteIndex;
+            NoteIndexCount = noteIndexCount;
             Name = name.TrimToNull();
             Symbol = symbol.TrimToNull();
 
@@ -24,7 +24,7 @@ namespace Bravura.Tonality
 
         public int Semitones { get; }
         public Accidental Accidental { get; }
-        public int NoteIndex { get; }
+        public int NoteIndexCount { get; }
         public string Name { get; }
         public string Symbol { get; }
 
@@ -32,10 +32,10 @@ namespace Bravura.Tonality
         {
             var errors = new List<string>();
 
-            if (NoteIndex < 0)
-                errors.Add($"{nameof(NoteIndex)} cannot be less than 0.");
-            if (NoteIndex > 7)
-                errors.Add($"{nameof(NoteIndex)} cannot be more than 7.");
+            if (NoteIndexCount < 0)
+                errors.Add($"{nameof(NoteIndexCount)} cannot be less than 0.");
+            if (NoteIndexCount > 7)
+                errors.Add($"{nameof(NoteIndexCount)} cannot be more than 7.");
             if (Name == null)
                 errors.Add($"{nameof(Name)} is required.");
             if (Symbol == null)
@@ -45,9 +45,9 @@ namespace Bravura.Tonality
                 throw new IntervalException(errors);
         }
 
-        public override string ToString() => $"{Accidental.Symbol}{NoteIndex}";
+        public override string ToString() => $"{Accidental.Symbol}{NoteIndexCount}";
 
-        public string ToAsciiString() => $"{Accidental.AsciiSymbol}{NoteIndex}";
+        public string ToAsciiString() => $"{Accidental.AsciiSymbol}{NoteIndexCount}";
 
         public bool EffectivelyEquals(Interval other)
             => Semitones == other?.Semitones;
@@ -56,7 +56,7 @@ namespace Bravura.Tonality
             => other != null
                 && Semitones == other.Semitones
                 && Accidental.Equals(other.Accidental)
-                && NoteIndex == other.NoteIndex
+                && NoteIndexCount == other.NoteIndexCount
                 && Name == other.Name
                 && Symbol == other.Symbol;
 
@@ -67,7 +67,7 @@ namespace Bravura.Tonality
             => HashCode.Start
                 .Hash(Semitones)
                 .Hash(Accidental)
-                .Hash(NoteIndex)
+                .Hash(NoteIndexCount)
                 .Hash(Name)
                 .Hash(Symbol);
     }

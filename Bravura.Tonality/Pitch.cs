@@ -50,7 +50,7 @@ namespace Bravura.Tonality
 
         public Pitch GetPitchByIntervalAbove(Interval interval)
         {
-            var noteIndex = (Note.Index + interval.NoteIndex).RollingRange(6);
+            var noteIndex = (Note.Index + interval.NoteIndexCount).RollingRange(6);
             var note = Note.GetNoteByIndex(noteIndex);
 
             var semitones = SemitonesAboveC + interval.Semitones - note.SemitonesAboveC;
@@ -63,7 +63,7 @@ namespace Bravura.Tonality
 
         public Pitch GetPitchByIntervalBelow(Interval interval)
         {
-            var noteIndex = (Note.Index - interval.NoteIndex).RollingRange(6);
+            var noteIndex = (Note.Index - interval.NoteIndexCount).RollingRange(6);
             var note = Note.GetNoteByIndex(noteIndex);
 
             var semitones = SemitonesAboveC - interval.Semitones - note.SemitonesAboveC;
