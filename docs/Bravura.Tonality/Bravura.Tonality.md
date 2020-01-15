@@ -5,26 +5,26 @@ The [Bravura.Tonality](./Bravura.Tonality.md) namespace contains fundamental cla
 ## Classes
 | Class | Description |
 | --- | --- |
-| [Accidentals](./Accidentals.md) | |
-| [BravuraTonalityException](./BravuraTonalityException.md) | |
+| [Accidentals](./Accidentals.md) | Static class that exposes each accidental, as well as a read-only list of all accidentals. |
+| [BravuraTonalityException](./BravuraTonalityException.md) | The base exception class for all Bravura.Tonality exceptions. |
 | [Chord](./Chord.md) | |
-| [ChordException](./ChordException.md) | |
+| [ChordException](./ChordException.md) | The exception that is thrown when trying to instantiate an invalid Chord. |
 | [ChordQualities](./ChordQualities.md) | |
 | [ChordQuality](./ChordQuality.md) | |
-| [ChordQualityException](./ChordQualityException.md) | |
+| [ChordQualityException](./ChordQualityException.md) | The exception that is thrown when trying to instantiate an invalid ChordQuality. |
 | [Interval](./Interval.md) | |
-| [IntervalException](./IntervalException.md) | |
+| [IntervalException](./IntervalException.md) | The exception that is thrown when trying to instantiate an invalid Interval. |
 | [Intervals](./Intervals.md) | |
 | [Key](./Key.md) | |
 | [Keys](./Keys.md) | |
 | [Mode](./Mode.md) | |
-| [ModeException](./ModeException.md) | |
+| [ModeException](./ModeException.md) | The exception that is thrown when trying to instantiate an invalid Mode. |
 | [Modes](./Modes.md) | |
 | [Notes](./Notes.md) | Static class that exposes all 7 notes, as well as the musical alphabet. |
 | [Pitch](./Pitch.md) | Represents the combination of a [Note](./Note.md) and an [Accidental](./Accidental.md). |
-| [Pitches](./Pitches.md) | |
+| [Pitches](./Pitches.md) | Static class that exposes each pitch, as well as several read-only lists of pitches grouped by commonalities. |
 | [Scale](./Scale) | |
-| [ScaleException](./ScaleException.md) | |
+| [ScaleException](./ScaleException.md) | The exception that is thrown when trying to instantiate an invalid Scale. |
 
 ## Structs
 | Struct | Description |
