@@ -12,9 +12,9 @@ The [Bravura.Tonality](./Bravura.Tonality.md) namespace contains fundamental cla
 | [ChordQualities](./ChordQualities.md) | |
 | [ChordQuality](./ChordQuality.md) | |
 | [ChordQualityException](./ChordQualityException.md) | The exception that is thrown when trying to instantiate an invalid ChordQuality. |
-| [Interval](./Interval.md) | |
+| [Interval](./Interval.md) | Represents the distance between two pitches. |
 | [IntervalException](./IntervalException.md) | The exception that is thrown when trying to instantiate an invalid Interval. |
-| [Intervals](./Intervals.md) | |
+| [Intervals](./Intervals.md) | Static class that exposes each interval, as well as a read-only list of all intervals. |
 | [Key](./Key.md) | |
 | [Keys](./Keys.md) | |
 | [Mode](./Mode.md) | |
@@ -30,7 +30,6 @@ The [Bravura.Tonality](./Bravura.Tonality.md) namespace contains fundamental cla
 | Struct | Description |
 | --- | --- |
 | [Accidental](./Accidental.md) | Represents an alteration to a note or scale tone by 0, 1, or 2 semitones in either direction. |
-| [HashCode](./HashCode.md) | Calculates the hash code of one or more values. |
 | [Note](./Note.md) | Represents one letter of the musical alphabet. |
 
 ## Enums
