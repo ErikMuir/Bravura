@@ -42,7 +42,7 @@ namespace Bravura.Tonality
 
         private Note GetNote(int index)
         {
-            var noteIndex = (Mode.ModeIntervals[index].NoteIndexCount + Root.Note.Index).RollingRange(6);
+            var noteIndex = (Mode.ModeIntervals[index].Degree + Root.Note.Index).RollingRange(6);
             return Note.GetNoteByIndex(noteIndex);
         }
 

@@ -8,22 +8,22 @@ namespace Bravura.Tonality.Tests
         private readonly Interval _foobarUnison = new Interval(0, Accidentals.Natural, 0, "foobar", "foobar");
 
         [Fact]
-        public void Constructor_WhenNoteIndexCountIsLessThanZero_ThenThrows()
+        public void Constructor_WhenDegreeIsLessThanZero_ThenThrows()
         {
-            short noteIndexCount = -1;
+            short degree = -1;
 
-            var exception = Record.Exception(() => new Interval(0, Accidentals.Natural, noteIndexCount, "foobar", "foobar"));
+            var exception = Record.Exception(() => new Interval(0, Accidentals.Natural, degree, "foobar", "foobar"));
 
             Assert.NotNull(exception);
             Assert.IsType<IntervalException>(exception);
         }
 
         [Fact]
-        public void Constructor_WhenNoteIndexCountIsMoreThanSeven_ThenThrows()
+        public void Constructor_WhenDegreeIsMoreThanSeven_ThenThrows()
         {
-            short noteIndexCount = 8;
+            short degree = 8;
 
-            var exception = Record.Exception(() => new Interval(0, Accidentals.Natural, noteIndexCount, "foobar", "foobar"));
+            var exception = Record.Exception(() => new Interval(0, Accidentals.Natural, degree, "foobar", "foobar"));
 
             Assert.NotNull(exception);
             Assert.IsType<IntervalException>(exception);
