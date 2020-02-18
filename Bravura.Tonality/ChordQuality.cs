@@ -7,18 +7,18 @@ namespace Bravura.Tonality
 {
     public class ChordQuality : IEquatable<ChordQuality>
     {
-        public ChordQuality(string symbol, string asciiSymbol, List<Interval> chordQualityIntervals)
+        public ChordQuality(string symbol, string asciiSymbol, List<Interval> intervals)
         {
             Symbol = symbol.SafeTrim();
             AsciiSymbol = asciiSymbol.SafeTrim();
-            ChordQualityIntervals = chordQualityIntervals;
+            Intervals = intervals;
 
             Validate();
         }
 
         public string Symbol { get; }
         public string AsciiSymbol { get; }
-        public List<Interval> ChordQualityIntervals { get; }
+        public List<Interval> Intervals { get; }
 
         private void Validate()
         {
@@ -28,16 +28,16 @@ namespace Bravura.Tonality
                 errors.Add($"{nameof(Symbol)} is required.");
             if (AsciiSymbol == null)
                 errors.Add($"{nameof(AsciiSymbol)} is required.");
-            if (ChordQualityIntervals == null)
-                errors.Add($"{nameof(ChordQualityIntervals)} is required.");
-            else if (ChordQualityIntervals.Count < 2)
-                errors.Add($"{nameof(ChordQualityIntervals)} length cannot be less than 2.");
+            if (Intervals == null)
+                errors.Add($"{nameof(Intervals)} is required.");
+            else if (Intervals.Count < 2)
+                errors.Add($"{nameof(Intervals)} length cannot be less than 2.");
             else
             {
-                if (ChordQualityIntervals[0] != Intervals.PerfectUnison)
-                    errors.Add($"The first interval in {nameof(ChordQualityIntervals)} must be {Intervals.PerfectUnison.Name}.");
-                if (ChordQualityIntervals.Count != ChordQualityIntervals.Select(x => x.Semitones).Distinct().Count())
-                    errors.Add($"All {nameof(ChordQualityIntervals)} must be unique.");
+                if (Intervals[0] != Bravura.Tonality.Intervals.PerfectUnison)
+                    errors.Add($"The first interval in {nameof(Intervals)} must be {Bravura.Tonality.Intervals.PerfectUnison.Name}.");
+                if (Intervals.Count != Intervals.Select(x => x.Semitones).Distinct().Count())
+                    errors.Add($"All {nameof(Intervals)} must be unique.");
             }
 
             if (errors.Count > 0)
@@ -47,10 +47,10 @@ namespace Bravura.Tonality
         public bool EffectivelyEquals(ChordQuality other)
         {
             if (other == null) return false;
-            if (ChordQualityIntervals.Count != other.ChordQualityIntervals.Count) return false;
-            for (var i = 0; i < ChordQualityIntervals.Count; i++)
+            if (Intervals.Count != other.Intervals.Count) return false;
+            for (var i = 0; i < Intervals.Count; i++)
             {
-                if (!ChordQualityIntervals[i].Equals(other.ChordQualityIntervals[i])) return false;
+                if (!Intervals[i].Equals(other.Intervals[i])) return false;
             }
             return true;
         }
@@ -60,10 +60,10 @@ namespace Bravura.Tonality
             if (other == null) return false;
             if (Symbol != other.Symbol) return false;
             if (AsciiSymbol != other.AsciiSymbol) return false;
-            if (ChordQualityIntervals.Count != other.ChordQualityIntervals.Count) return false;
-            for (var i = 0; i < ChordQualityIntervals.Count; i++)
+            if (Intervals.Count != other.Intervals.Count) return false;
+            for (var i = 0; i < Intervals.Count; i++)
             {
-                if (!ChordQualityIntervals[i].Equals(other.ChordQualityIntervals[i])) return false;
+                if (!Intervals[i].Equals(other.Intervals[i])) return false;
             }
             return true;
         }
@@ -76,9 +76,9 @@ namespace Bravura.Tonality
             var hashCode = HashCode.Start
                 .Hash(Symbol)
                 .Hash(AsciiSymbol);
-            for (var i = 0; i < ChordQualityIntervals.Count; i++)
+            for (var i = 0; i < Intervals.Count; i++)
             {
-                hashCode = hashCode.Hash(ChordQualityIntervals[i]);
+                hashCode = hashCode.Hash(Intervals[i]);
             }
             return hashCode;
         }

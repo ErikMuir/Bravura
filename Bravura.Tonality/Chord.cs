@@ -19,25 +19,25 @@ namespace Bravura.Tonality
         public ChordQuality ChordQuality { get; }
 
         public List<Pitch> Pitches
-            => ChordQuality.ChordQualityIntervals
+            => ChordQuality.Intervals
                 .Select(Root.GetPitchByIntervalAbove)
                 .ToList();
         public List<string> NoteSymbols
-            => ChordQuality.ChordQualityIntervals
+            => ChordQuality.Intervals
                 .Select(Root.GetPitchByIntervalAbove)
                 .Select(p => p.ToString())
                 .ToList();
         public List<string> AsciiNoteSymbols
-            => ChordQuality.ChordQualityIntervals
+            => ChordQuality.Intervals
                 .Select(Root.GetPitchByIntervalAbove)
                 .Select(p => p.ToAsciiString())
                 .ToList();
         public List<string> ChordTones
-            => ChordQuality.ChordQualityIntervals
+            => ChordQuality.Intervals
                 .Select(i => i.ToString())
                 .ToList();
         public List<string> AsciiChordTones
-            => ChordQuality.ChordQualityIntervals
+            => ChordQuality.Intervals
                 .Select(i => i.ToAsciiString())
                 .ToList();
 
