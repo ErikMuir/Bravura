@@ -7,7 +7,7 @@ The [Bravura.Tonality](./Bravura.Tonality.md) namespace contains fundamental cla
 | --- | --- |
 | [Accidentals](./Accidentals.md) | Static class that exposes each accidental, as well as a read-only list of all accidentals. |
 | [BravuraTonalityException](./BravuraTonalityException.md) | The base exception class for all Bravura.Tonality exceptions. |
-| [Chord](./Chord.md) | |
+| [Chord](./Chord.md) | Represents the combination of a [Pitch](./Pitch.md) and a [ChordQuality](./ChordQuality.md). |
 | [ChordException](./ChordException.md) | The exception that is thrown when trying to instantiate an invalid Chord. |
 | [ChordQualities](./ChordQualities.md) | Static class that exposes each chord quality, as well as a read-only list of all chord qualities. |
 | [ChordQuality](./ChordQuality.md) | Represents the quality of a chord and the intervals that it consists of. |
