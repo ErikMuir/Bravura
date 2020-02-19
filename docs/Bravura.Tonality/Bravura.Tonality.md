@@ -15,8 +15,8 @@ The [Bravura.Tonality](./Bravura.Tonality.md) namespace contains fundamental cla
 | [Interval](./Interval.md) | Represents the distance between two pitches. |
 | [IntervalException](./IntervalException.md) | The exception that is thrown when trying to instantiate an invalid Interval. |
 | [Intervals](./Intervals.md) | Static class that exposes each interval, as well as a read-only list of all intervals. |
-| [Key](./Key.md) | |
-| [Keys](./Keys.md) | |
+| [Key](./Key.md) | Represents the combination of a [Pitch](./Pitch.md) and a [Tonality](./Tonality.md). |
+| [Keys](./Keys.md) | Static class that exposes each key, as well as read-only lists of keys. |
 | [Mode](./Mode.md) | |
 | [ModeException](./ModeException.md) | The exception that is thrown when trying to instantiate an invalid Mode. |
 | [Modes](./Modes.md) | |
