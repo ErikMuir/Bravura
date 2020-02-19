@@ -17,7 +17,7 @@ namespace Bravura.Tonality.Tests
         }
 
         [Fact]
-        public void Constructor_WhenProvidedNullChordQuality_Throws()
+        public void Constructor_WhenProvidedNullQuality_Throws()
         {
             var exception = Record.Exception(() => new Chord(Pitches.CNatural, null));
             Assert.NotNull(exception);

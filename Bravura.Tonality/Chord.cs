@@ -10,34 +10,34 @@ namespace Bravura.Tonality
         public Chord(Pitch root, ChordQuality quality)
         {
             Root = root;
-            ChordQuality = quality;
+            Quality = quality;
 
             Validate();
         }
 
         public Pitch Root { get; }
-        public ChordQuality ChordQuality { get; }
+        public ChordQuality Quality { get; }
 
         public List<Pitch> Pitches
-            => ChordQuality.Intervals
+            => Quality.Intervals
                 .Select(Root.GetPitchByIntervalAbove)
                 .ToList();
         public List<string> NoteSymbols
-            => ChordQuality.Intervals
+            => Quality.Intervals
                 .Select(Root.GetPitchByIntervalAbove)
                 .Select(p => p.ToString())
                 .ToList();
         public List<string> AsciiNoteSymbols
-            => ChordQuality.Intervals
+            => Quality.Intervals
                 .Select(Root.GetPitchByIntervalAbove)
                 .Select(p => p.ToAsciiString())
                 .ToList();
         public List<string> ChordTones
-            => ChordQuality.Intervals
+            => Quality.Intervals
                 .Select(i => i.ToString())
                 .ToList();
         public List<string> AsciiChordTones
-            => ChordQuality.Intervals
+            => Quality.Intervals
                 .Select(i => i.ToAsciiString())
                 .ToList();
 
@@ -47,8 +47,8 @@ namespace Bravura.Tonality
 
             if (Root == null)
                 errors.Add($"{nameof(Root)} is required.");
-            if (ChordQuality == null)
-                errors.Add($"{nameof(ChordQuality)} is required.");
+            if (Quality == null)
+                errors.Add($"{nameof(Quality)} is required.");
 
             if (errors.Count > 0)
                 throw new ChordException(errors);
@@ -70,12 +70,12 @@ namespace Bravura.Tonality
         public bool EnharmonicallyEquals(Chord other)
             => other != null
                 && Root.EnharmonicallyEquals(other.Root)
-                && ChordQuality.EffectivelyEquals(other.ChordQuality);
+                && Quality.EffectivelyEquals(other.Quality);
 
         public bool Equals(Chord other)
             => other != null
                 && Root.Equals(other.Root)
-                && ChordQuality.Equals(other.ChordQuality);
+                && Quality.Equals(other.Quality);
 
         public override bool Equals(object obj)
             => (obj is Chord) && Equals((Chord)obj);
@@ -83,6 +83,6 @@ namespace Bravura.Tonality
         public override int GetHashCode()
             => HashCode.Start
                 .Hash(Root)
-                .Hash(ChordQuality);
+                .Hash(Quality);
     }
 }
