@@ -23,13 +23,11 @@ namespace Bravura.Tonality
                 .Select(Root.GetPitchByIntervalAbove)
                 .ToList();
         public List<string> NoteSymbols
-            => Quality.Intervals
-                .Select(Root.GetPitchByIntervalAbove)
+            => Pitches
                 .Select(p => p.ToString())
                 .ToList();
         public List<string> AsciiNoteSymbols
-            => Quality.Intervals
-                .Select(Root.GetPitchByIntervalAbove)
+            => Pitches
                 .Select(p => p.ToAsciiString())
                 .ToList();
         public List<string> ChordTones
