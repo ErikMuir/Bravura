@@ -97,7 +97,7 @@ namespace Bravura.Tonality.Tests
         // }
 
         [Fact]
-        public void Constructor_WhenModeIntervalsIsNull_ThenThrows()
+        public void Constructor_WhenIntervalsIsNull_ThenThrows()
         {
             var exception = Record.Exception(() => new Mode(ModeNames.Ionian, null));
 
@@ -106,7 +106,7 @@ namespace Bravura.Tonality.Tests
         }
 
         [Fact]
-        public void Constructor_WhenModeIntervalsLengthIsLessThanFive_ThenThrows()
+        public void Constructor_WhenIntervalsLengthIsLessThanFive_ThenThrows()
         {
             var notEnoughModeIntervals = new List<Interval>
             {
@@ -123,7 +123,7 @@ namespace Bravura.Tonality.Tests
         }
 
         [Fact]
-        public void Constructor_WhenModeIntervalsLengthIsMoreThanTwelve_ThenThrows()
+        public void Constructor_WhenIntervalsLengthIsMoreThanTwelve_ThenThrows()
         {
             var tooManyModeIntervals = new List<Interval>
             {

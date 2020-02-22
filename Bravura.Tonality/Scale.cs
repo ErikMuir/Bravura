@@ -15,7 +15,7 @@ namespace Bravura.Tonality
             Validate();
 
             ScalePitches = new List<Pitch>();
-            for (var i = 0; i < Mode.ModeIntervals.Count; i++)
+            for (var i = 0; i < Mode.Intervals.Count; i++)
             {
                 var note = GetNote(i);
                 var accidental = GetAccidental(i, note.SemitonesAboveC);
@@ -42,13 +42,13 @@ namespace Bravura.Tonality
 
         private Note GetNote(int index)
         {
-            var noteIndex = (Mode.ModeIntervals[index].Degree + Root.Note.Index).RollingRange(6);
+            var noteIndex = (Mode.Intervals[index].Degree + Root.Note.Index).RollingRange(6);
             return Note.GetNoteByIndex(noteIndex);
         }
 
         private Accidental GetAccidental(int index, int noteValue)
         {
-            var pitchValue = (Mode.ModeIntervals[index].Semitones + Root.SemitonesAboveC).RollingRange(11);
+            var pitchValue = (Mode.Intervals[index].Semitones + Root.SemitonesAboveC).RollingRange(11);
             var accidentalValue = (pitchValue - noteValue);
             switch (accidentalValue)
             {

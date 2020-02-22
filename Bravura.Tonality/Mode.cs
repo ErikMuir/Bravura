@@ -8,16 +8,16 @@ namespace Bravura.Tonality
     {
         public Mode(
             string name,
-            List<Interval> modeIntervals)
+            List<Interval> intervals)
         {
             Name = name.TrimToNull();
-            ModeIntervals = modeIntervals;
+            Intervals = intervals;
 
             Validate();
         }
 
         public string Name { get; }
-        public List<Interval> ModeIntervals { get; }
+        public List<Interval> Intervals { get; }
 
         private void Validate()
         {
@@ -26,14 +26,14 @@ namespace Bravura.Tonality
             if (Name == null)
                 errors.Add($"{nameof(Name)} is required.");
 
-            if (ModeIntervals == null)
-                errors.Add($"{nameof(ModeIntervals)} is required.");
+            if (Intervals == null)
+                errors.Add($"{nameof(Intervals)} is required.");
             else
             {
-                if (ModeIntervals.Count < 5)
-                    errors.Add($"{nameof(ModeIntervals)} length cannot be less than 5.");
-                if (ModeIntervals.Count > 12)
-                    errors.Add($"{nameof(ModeIntervals)} length cannot be greater than 12.");
+                if (Intervals.Count < 5)
+                    errors.Add($"{nameof(Intervals)} length cannot be less than 5.");
+                if (Intervals.Count > 12)
+                    errors.Add($"{nameof(Intervals)} length cannot be greater than 12.");
             }
 
             if (errors.Count > 0)
@@ -43,9 +43,9 @@ namespace Bravura.Tonality
         public bool EffectivelyEquals(Mode other)
         {
             if (other == null) return false;
-            for (var i = 0; i < ModeIntervals.Count; i++)
+            for (var i = 0; i < Intervals.Count; i++)
             {
-                if (!ModeIntervals[i].Equals(other.ModeIntervals[i])) return false;
+                if (!Intervals[i].Equals(other.Intervals[i])) return false;
             }
             return true;
         }
@@ -54,9 +54,9 @@ namespace Bravura.Tonality
         {
             if (other == null) return false;
             if (Name != other.Name) return false;
-            for (var i = 0; i < ModeIntervals.Count; i++)
+            for (var i = 0; i < Intervals.Count; i++)
             {
-                if (!ModeIntervals[i].Equals(other.ModeIntervals[i])) return false;
+                if (!Intervals[i].Equals(other.Intervals[i])) return false;
             }
             return true;
         }
@@ -67,9 +67,9 @@ namespace Bravura.Tonality
         public override int GetHashCode()
         {
             var hashCode = HashCode.Start.Hash(Name);
-            for (var i = 0; i < ModeIntervals.Count; i++)
+            for (var i = 0; i < Intervals.Count; i++)
             {
-                hashCode = hashCode.Hash(ModeIntervals[i]);
+                hashCode = hashCode.Hash(Intervals[i]);
             }
             return hashCode;
         }
