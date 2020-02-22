@@ -50,6 +50,6 @@ A [Pitch](./docs/Bravura.Tonality/Pitch.md) is the combination of a [Note](./doc
 
 ### Interval
 
-An [Interval](./docs/Bravura.Tonality/Interval.md) is the distance (in semitones) between two pitches. You can create new instances of intervals, although the all intervals within an octave are exposed through the static class [Intervals](./docs/Bravura.Tonality/Intervals.md).
+An [Interval](./docs/Bravura.Tonality/Interval.md) is the distance (in semitones) between two pitches. You can create new instances of intervals, although all intervals within an octave are exposed through the static class [Intervals](./docs/Bravura.Tonality/Intervals.md).
 
 This project is licensed under the terms of the MIT license.
