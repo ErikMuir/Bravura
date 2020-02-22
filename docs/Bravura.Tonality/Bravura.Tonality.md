@@ -23,7 +23,7 @@ The [Bravura.Tonality](./Bravura.Tonality.md) namespace contains fundamental cla
 | [Notes](./Notes.md) | Static class that exposes all 7 notes, as well as the musical alphabet. |
 | [Pitch](./Pitch.md) | Represents the combination of a [Note](./Note.md) and an [Accidental](./Accidental.md). |
 | [Pitches](./Pitches.md) | Static class that exposes each pitch, as well as several read-only lists of pitches grouped by commonalities. |
-| [Scale](./Scale) | |
+| [Scale](./Scale) | Represents a musical scale and the root and mode that it consists of. |
 | [ScaleException](./ScaleException.md) | The exception that is thrown when trying to instantiate an invalid Scale. |
 
 ## Structs

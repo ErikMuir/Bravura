@@ -24,7 +24,7 @@ Inheritance: Object -> Mode
 ## Methods
 | Method | Return Type | Description |
 | --- | --- | --- |
-| EffectivelyEquals([Mode](./Mode.md)) | Boolean | Determines whether the specified mode has the same semitones as the current mode. |
+| EffectivelyEquals([Mode](./Mode.md)) | Boolean | Determines whether the specified mode has the same intervals as the current mode. |
 | Equals([Mode](./Mode.md)) | Boolean | Determines whether the specified mode is equal to the current mode. |
 | Equals(Object) | Boolean | Determines whether the specified object is equal to the current object. (Inherited from Object) |
 | GetHashCode() | Int32 | Serves as the default hash function. (Inherited from Object) |
