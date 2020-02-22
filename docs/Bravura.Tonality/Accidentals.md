@@ -19,4 +19,3 @@ Inheritance: Object -> Accidentals
 | Sharp | [Accidental](./Accidental.md) | An accidental that alters a note or scale tone up by one semitone. |
 | DoubleSharp | [Accidental](./Accidental.md) | An accidental that alters a note or scale tone up by two semitones. |
 | AllAccidentals | ReadOnlyCollection\<[Accidental](./Accidental.md)> | A read-only list of all accidentals. |
-|

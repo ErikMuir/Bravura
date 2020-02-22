@@ -31,4 +31,3 @@ Inheritance: Object -> Scale
 | GetHashCode() | Int32 | Serves as the default hash function. (Inherited from Object) |
 
 \* See the static class [Modes](./Modes.md) for all instances.
-

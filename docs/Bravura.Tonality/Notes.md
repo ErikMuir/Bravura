@@ -21,4 +21,3 @@ Inheritance: Object -> Notes
 | A | [Note](./Note.md) | The "A" musical note, which is 9 semitones above C natural. |
 | B | [Note](./Note.md) | The "B" musical note, which is 11 semitones above C natural. |
 | MusicalAlphabet | [ReadOnlyOrderedDictionary<Char, Int16>](../Bravura.Common/ReadOnlyOrderedDictionary.md) | A dictionary that holds all 7 musical notes in the correct order. |
-|
