@@ -17,9 +17,9 @@ The [Bravura.Tonality](./Bravura.Tonality.md) namespace contains fundamental cla
 | [Intervals](./Intervals.md) | Static class that exposes each interval, as well as a read-only list of all intervals. |
 | [Key](./Key.md) | Represents the combination of a [Pitch](./Pitch.md) and a [Tonality](./Tonality.md). |
 | [Keys](./Keys.md) | Static class that exposes each key, as well as read-only lists of keys. |
-| [Mode](./Mode.md) | |
+| [Mode](./Mode.md) | Represents a musical mode and the intervals that it consists of. |
 | [ModeException](./ModeException.md) | The exception that is thrown when trying to instantiate an invalid Mode. |
-| [Modes](./Modes.md) | |
+| [Modes](./Modes.md) | Static class that exposes each mode, as well as a read-only list of all modes. |
 | [Notes](./Notes.md) | Static class that exposes all 7 notes, as well as the musical alphabet. |
 | [Pitch](./Pitch.md) | Represents the combination of a [Note](./Note.md) and an [Accidental](./Accidental.md). |
 | [Pitches](./Pitches.md) | Static class that exposes each pitch, as well as several read-only lists of pitches grouped by commonalities. |
