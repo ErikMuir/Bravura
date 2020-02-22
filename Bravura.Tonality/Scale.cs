@@ -14,18 +14,18 @@ namespace Bravura.Tonality
 
             Validate();
 
-            ScalePitches = new List<Pitch>();
+            Pitches = new List<Pitch>();
             for (var i = 0; i < Mode.Intervals.Count; i++)
             {
                 var note = GetNote(i);
                 var accidental = GetAccidental(i, note.SemitonesAboveC);
-                ScalePitches.Add(new Pitch(note, accidental));
+                Pitches.Add(new Pitch(note, accidental));
             }
         }
 
         public Pitch Root { get; }
         public Mode Mode { get; }
-        public List<Pitch> ScalePitches { get; }
+        public List<Pitch> Pitches { get; }
 
         private void Validate()
         {
@@ -78,10 +78,10 @@ namespace Bravura.Tonality
             if (other == null) return false;
             if (!Root.Equals(other.Root)) return false;
             if (!Mode.Equals(other.Mode)) return false;
-            if (ScalePitches.Count != other.ScalePitches.Count) return false;
-            for (var i = 0; i < ScalePitches.Count; i++)
+            if (Pitches.Count != other.Pitches.Count) return false;
+            for (var i = 0; i < Pitches.Count; i++)
             {
-                if (!ScalePitches[i].Equals(other.ScalePitches[i])) return false;
+                if (!Pitches[i].Equals(other.Pitches[i])) return false;
             }
             return true;
         }
@@ -94,9 +94,9 @@ namespace Bravura.Tonality
             var hashCode = HashCode.Start
                 .Hash(Root)
                 .Hash(Mode);
-            for (var i = 0; i < ScalePitches.Count; i++)
+            for (var i = 0; i < Pitches.Count; i++)
             {
-                hashCode = hashCode.Hash(ScalePitches[i]);
+                hashCode = hashCode.Hash(Pitches[i]);
             }
             return hashCode;
         }

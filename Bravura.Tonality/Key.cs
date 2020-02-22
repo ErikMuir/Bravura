@@ -17,7 +17,7 @@ namespace Bravura.Tonality
                 : Modes.NaturalMinor;
             Scale = new Scale(Root, mode);
             KeySignature = Pitches.SignatureAccidentals
-                .Where(sa => Scale.ScalePitches.Any(sp => sp.ToString() == sa.ToString()))
+                .Where(sa => Scale.Pitches.Any(sp => sp.ToString() == sa.ToString()))
                 .ToList();
         }
 

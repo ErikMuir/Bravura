@@ -28,25 +28,25 @@ namespace Bravura.Tonality.Tests
         }
 
         [Fact]
-        public void Constructor_CorrectlySetsScalePitches()
+        public void Constructor_CorrectlySetsPitches()
         {
             var eMajor = new Scale(Pitches.ENatural, Modes.Major);
-            Assert.Equal(7, eMajor.ScalePitches.Count);
-            Assert.Equal(Pitches.ENatural, eMajor.ScalePitches[0]);
-            Assert.Equal(Pitches.FSharp, eMajor.ScalePitches[1]);
-            Assert.Equal(Pitches.GSharp, eMajor.ScalePitches[2]);
-            Assert.Equal(Pitches.ANatural, eMajor.ScalePitches[3]);
-            Assert.Equal(Pitches.BNatural, eMajor.ScalePitches[4]);
-            Assert.Equal(Pitches.CSharp, eMajor.ScalePitches[5]);
-            Assert.Equal(Pitches.DSharp, eMajor.ScalePitches[6]);
+            Assert.Equal(7, eMajor.Pitches.Count);
+            Assert.Equal(Pitches.ENatural, eMajor.Pitches[0]);
+            Assert.Equal(Pitches.FSharp, eMajor.Pitches[1]);
+            Assert.Equal(Pitches.GSharp, eMajor.Pitches[2]);
+            Assert.Equal(Pitches.ANatural, eMajor.Pitches[3]);
+            Assert.Equal(Pitches.BNatural, eMajor.Pitches[4]);
+            Assert.Equal(Pitches.CSharp, eMajor.Pitches[5]);
+            Assert.Equal(Pitches.DSharp, eMajor.Pitches[6]);
 
             var fSharpMinorPentatonic = new Scale(Pitches.FSharp, Modes.MinorPentatonic);
-            Assert.Equal(5, fSharpMinorPentatonic.ScalePitches.Count);
-            Assert.Equal(Pitches.FSharp, fSharpMinorPentatonic.ScalePitches[0]);
-            Assert.Equal(Pitches.ANatural, fSharpMinorPentatonic.ScalePitches[1]);
-            Assert.Equal(Pitches.BNatural, fSharpMinorPentatonic.ScalePitches[2]);
-            Assert.Equal(Pitches.CSharp, fSharpMinorPentatonic.ScalePitches[3]);
-            Assert.Equal(Pitches.ENatural, fSharpMinorPentatonic.ScalePitches[4]);
+            Assert.Equal(5, fSharpMinorPentatonic.Pitches.Count);
+            Assert.Equal(Pitches.FSharp, fSharpMinorPentatonic.Pitches[0]);
+            Assert.Equal(Pitches.ANatural, fSharpMinorPentatonic.Pitches[1]);
+            Assert.Equal(Pitches.BNatural, fSharpMinorPentatonic.Pitches[2]);
+            Assert.Equal(Pitches.CSharp, fSharpMinorPentatonic.Pitches[3]);
+            Assert.Equal(Pitches.ENatural, fSharpMinorPentatonic.Pitches[4]);
         }
 
         [Fact]
