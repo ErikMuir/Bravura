@@ -82,5 +82,19 @@ namespace Bravura.Tonality
             }
             return hashCode;
         }
+
+        public static bool TryParse(string val, out ChordQuality chordQuality)
+        {
+            chordQuality = null;
+            if (val == null) return false;
+            var trimmedVal = val.Trim();
+            foreach (var quality in ChordQualities.AllChordQualities)
+            {
+                if (quality.Symbol != trimmedVal && quality.AsciiSymbol != trimmedVal) continue;
+                chordQuality = quality;
+                return true;
+            }
+            return false;
+        }
     }
 }

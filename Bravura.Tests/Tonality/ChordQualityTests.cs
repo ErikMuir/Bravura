@@ -98,5 +98,7 @@ namespace Bravura.Tonality.Tests
             Assert.Equal(minor.GetHashCode(), ChordQualities.Min.GetHashCode());
             Assert.NotEqual(minor.GetHashCode(), ChordQualities.Maj.GetHashCode());
         }
+
+        // TODO : TryParse_Test()
     }
 }
