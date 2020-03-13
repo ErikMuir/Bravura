@@ -70,5 +70,7 @@ namespace Bravura.Tonality.Tests
             Assert.Equal(Pitches.CNatural.GetHashCode(), Pitches.CNatural.GetHashCode());
             Assert.NotEqual(Pitches.CNatural.GetHashCode(), Pitches.BSharp.GetHashCode());
         }
+
+        // TODO : TryParse_Test()
     }
 }

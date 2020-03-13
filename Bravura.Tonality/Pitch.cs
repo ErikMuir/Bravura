@@ -95,5 +95,19 @@ namespace Bravura.Tonality
             => HashCode.Start
                 .Hash(Note)
                 .Hash(Accidental);
+
+        public static bool TryParse(string val, out Pitch pitch)
+        {
+            pitch = null;
+            if (val == null) return false;
+            var trimmedVal = val.Trim();
+            foreach (var p in Pitches.AllPitches)
+            {
+                if (p.ToString() != trimmedVal && p.ToAsciiString() != trimmedVal) continue;
+                pitch = p;
+                return true;
+            }
+            return false;
+        }
     }
 }
