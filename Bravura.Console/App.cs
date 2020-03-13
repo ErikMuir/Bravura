@@ -1,15 +1,19 @@
+using System;
 using System.Collections.Generic;
 using System.CommandLine;
 using System.CommandLine.Invocation;
 using System.CommandLine.Parsing;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using MuirDev.ConsoleTools;
+using Bravura.Tonality;
 
 namespace Bravura.Console
 {
     public class App
     {
-        private readonly FluentConsole _console = new FluentConsole();
+        private static readonly FluentConsole _console = new FluentConsole();
 
         private readonly string[] Args;
         private readonly RootCommand RootCommand;
@@ -23,19 +27,19 @@ namespace Bravura.Console
         {
             Args = args;
 
-            ChordQualityCommand = new Command("chord-quality") { new Argument<string>("chordQuality") };
+            ChordQualityCommand = new Command("chord-quality") { new Argument<string>("val") };
             ChordQualityCommand.Handler = CommandHandler.Create<string>(ChordQualityCommandHandler);
 
-            ChordCommand = new Command("chord") { new Argument<string>("chord") };
+            ChordCommand = new Command("chord") { new Argument<string>("val") };
             ChordCommand.Handler = CommandHandler.Create<string>(ChordCommandHandler);
 
-            ModeCommand = new Command("mode") { new Argument<string>("mode") };
+            ModeCommand = new Command("mode") { new Argument<string>("val") };
             ModeCommand.Handler = CommandHandler.Create<string>(ModeCommandHandler);
 
-            ScaleCommand = new Command("scale") { new Argument<string>("scale") };
+            ScaleCommand = new Command("scale") { new Argument<string>("val") };
             ScaleCommand.Handler = CommandHandler.Create<string>(ScaleCommandHandler);
 
-            ChordProgressionCommand = new Command("chord-progression") { new Argument<string>("chordProgression") };
+            ChordProgressionCommand = new Command("chord-progression") { new Argument<string>("val") };
             ChordProgressionCommand.Handler = CommandHandler.Create<string>(ChordProgressionCommandHandler);
 
             RootCommand = new RootCommand("A console app demonstrating the Bravura dotnet music theory library")
@@ -63,29 +67,39 @@ namespace Bravura.Console
             }
         }
 
-        private void ChordQualityCommandHandler(string chordQuality)
+        private static void ChordQualityCommandHandler(string val)
         {
-            _console.WriteLine($"Chord Quality: {chordQuality}");
+            if (!ChordQuality.TryParse(val, out var chordQuality))
+            {
+                _console.Failure($"'{val}' is not a valid chord quality!");
+                return;
+            }
+
+            var degrees = string.Join(" ", chordQuality.Intervals.Select(i => i.ToAsciiString()));
+            var symbols = string.Join(" ", chordQuality.Intervals.Select(i => i.Symbol));
+            _console.Info($"Chord Quality: {chordQuality.AsciiSymbol}");
+            _console.Info($"Degrees: {degrees}");
+            _console.Info($"Symbols: {symbols}");
         }
 
-        private void ChordCommandHandler(string chord)
+        private static void ChordCommandHandler(string val)
         {
-            _console.WriteLine($"Chord: {chord}");
+            throw new NotImplementedException();
         }
 
-        private void ModeCommandHandler(string mode)
+        private static void ModeCommandHandler(string val)
         {
-            _console.WriteLine($"Mode: {mode}");
+            throw new NotImplementedException();
         }
 
-        private void ScaleCommandHandler(string scale)
+        private static void ScaleCommandHandler(string val)
         {
-            _console.WriteLine($"Scale: {scale}");
+            throw new NotImplementedException();
         }
 
-        private void ChordProgressionCommandHandler(string chordProgression)
+        private static void ChordProgressionCommandHandler(string val)
         {
-            _console.WriteLine($"Chord Progression: {chordProgression}");
+            throw new NotImplementedException();
         }
     }
 }
