@@ -17,6 +17,7 @@ namespace Bravura.Console
 
         private readonly string[] Args;
         private readonly RootCommand RootCommand;
+        private readonly Command PitchCommand;
         private readonly Command ChordQualityCommand;
         private readonly Command ChordCommand;
         private readonly Command ModeCommand;
@@ -26,6 +27,9 @@ namespace Bravura.Console
         public App(string[] args)
         {
             Args = args;
+
+            PitchCommand = new Command("pitch") { new Argument<string>("val") };
+            PitchCommand.Handler = CommandHandler.Create<string>(PitchCommandHandler);
 
             ChordQualityCommand = new Command("chord-quality") { new Argument<string>("val") };
             ChordQualityCommand.Handler = CommandHandler.Create<string>(ChordQualityCommandHandler);
@@ -44,6 +48,7 @@ namespace Bravura.Console
 
             RootCommand = new RootCommand("A console app demonstrating the Bravura dotnet music theory library")
             {
+                PitchCommand,
                 ChordQualityCommand,
                 ChordCommand,
                 ModeCommand,
@@ -65,6 +70,19 @@ namespace Bravura.Console
                 _console.Failure("Required command missing").LineFeed();
                 RootCommand.Invoke("-h");
             }
+        }
+
+        private static void PitchCommandHandler(string val)
+        {
+            if (!Pitch.TryParse(val, out var pitch))
+            {
+                _console.Failure($"'{val}' is not a valid pitch!");
+                return;
+            }
+
+            _console.Info($"Pitch: {pitch.ToAsciiString()}");
+            _console.Info($"Semitones Above C Natural: {pitch.SemitonesAboveC}");
+            _console.Info($"Logical: {pitch.Logical().ToAsciiString()}");
         }
 
         private static void ChordQualityCommandHandler(string val)
