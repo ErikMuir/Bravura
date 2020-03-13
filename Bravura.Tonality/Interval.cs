@@ -45,9 +45,9 @@ namespace Bravura.Tonality
                 throw new IntervalException(errors);
         }
 
-        public override string ToString() => $"{Accidental.Symbol}{Degree}";
+        public override string ToString() => $"{Accidental.Symbol}{Degree + 1}";
 
-        public string ToAsciiString() => $"{Accidental.AsciiSymbol}{Degree}";
+        public string ToAsciiString() => $"{Accidental.AsciiSymbol}{Degree + 1}";
 
         public bool EffectivelyEquals(Interval other)
             => Semitones == other?.Semitones;
