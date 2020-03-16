@@ -14,110 +14,36 @@ namespace Bravura.Console
     public class App
     {
         private static readonly FluentConsole _console = new FluentConsole();
-
-        private readonly string[] Args;
-        private readonly RootCommand RootCommand;
-        private readonly Command PitchCommand;
-        private readonly Command ChordQualityCommand;
-        private readonly Command ChordCommand;
-        private readonly Command ModeCommand;
-        private readonly Command ScaleCommand;
-        private readonly Command ChordProgressionCommand;
+        private readonly string[] _args;
+        private readonly RootCommand _rootCommand;
 
         public App(string[] args)
         {
-            Args = args;
-
-            PitchCommand = new Command("pitch") { new Argument<string>("val") };
-            PitchCommand.Handler = CommandHandler.Create<string>(PitchCommandHandler);
-
-            ChordQualityCommand = new Command("chord-quality") { new Argument<string>("val") };
-            ChordQualityCommand.Handler = CommandHandler.Create<string>(ChordQualityCommandHandler);
-
-            ChordCommand = new Command("chord") { new Argument<string>("val") };
-            ChordCommand.Handler = CommandHandler.Create<string>(ChordCommandHandler);
-
-            ModeCommand = new Command("mode") { new Argument<string>("val") };
-            ModeCommand.Handler = CommandHandler.Create<string>(ModeCommandHandler);
-
-            ScaleCommand = new Command("scale") { new Argument<string>("val") };
-            ScaleCommand.Handler = CommandHandler.Create<string>(ScaleCommandHandler);
-
-            ChordProgressionCommand = new Command("chord-progression") { new Argument<string>("val") };
-            ChordProgressionCommand.Handler = CommandHandler.Create<string>(ChordProgressionCommandHandler);
-
-            RootCommand = new RootCommand("A console app demonstrating the Bravura dotnet music theory library")
+            _args = args;
+            _rootCommand = new RootCommand("A console app demonstrating the Bravura dotnet music theory library")
             {
-                PitchCommand,
-                ChordQualityCommand,
-                ChordCommand,
-                ModeCommand,
-                ScaleCommand,
-                ChordProgressionCommand,
+                PitchCommand.Command,
+                ChordQualityCommand.Command,
+                ChordCommand.Command,
+                ModeCommand.Command,
+                ScaleCommand.Command,
+                ChordProgressionCommand.Command,
             };
-            RootCommand.Handler = CommandHandler.Create<Command>(RootCommandHandler);
+            _rootCommand.Handler = CommandHandler.Create<Command>(_rootCommandHandler);
         }
 
         public Task<int> Run()
         {
-            return RootCommand.InvokeAsync(Args);
+            return _rootCommand.InvokeAsync(_args);
         }
 
-        private void RootCommandHandler(Command command)
+        private void _rootCommandHandler(Command command)
         {
             if (command == null)
             {
                 _console.Failure("Required command missing").LineFeed();
-                RootCommand.Invoke("-h");
+                _rootCommand.Invoke("-h");
             }
-        }
-
-        private static void PitchCommandHandler(string val)
-        {
-            if (!Pitch.TryParse(val, out var pitch))
-            {
-                _console.Failure($"'{val}' is not a valid pitch!");
-                return;
-            }
-
-            _console.Info($"Pitch: {pitch.ToAsciiString()}");
-            _console.Info($"Semitones Above C Natural: {pitch.SemitonesAboveC}");
-            _console.Info($"Logical: {pitch.Logical().ToAsciiString()}");
-        }
-
-        private static void ChordQualityCommandHandler(string val)
-        {
-            if (!ChordQuality.TryParse(val, out var chordQuality))
-            {
-                _console.Failure($"'{val}' is not a valid chord quality!");
-                return;
-            }
-
-            var degrees = string.Join(" ", chordQuality.Intervals.Select(i => i.ToAsciiString()));
-            var symbols = string.Join(" ", chordQuality.Intervals.Select(i => i.Symbol));
-            _console.Info($"Chord Quality: {chordQuality.AsciiSymbol}");
-            _console.Info($"Degrees: {degrees}");
-            _console.Info($"Symbols: {symbols}");
-        }
-
-        private static void ChordCommandHandler(string val)
-        {
-            throw new NotImplementedException();
-        }
-
-        private static void ModeCommandHandler(string val)
-        {
-            throw new NotImplementedException();
-        }
-
-        private static void ScaleCommandHandler(string val)
-        {
-            throw new NotImplementedException();
-        }
-
-        private static void ChordProgressionCommandHandler(string val)
-        {
-            throw new NotImplementedException();
         }
     }
 }
