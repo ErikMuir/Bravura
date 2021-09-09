@@ -18,7 +18,7 @@ namespace Bravura.Console
 
         private static void _handler(string val)
         {
-            throw new NotImplementedException();
+            _console.Failure($"That command is not yet implemented!");
         }
     }
 }

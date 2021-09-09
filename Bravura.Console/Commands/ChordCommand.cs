@@ -18,7 +18,18 @@ namespace Bravura.Console
 
         private static void _handler(string val)
         {
-            throw new NotImplementedException();
+            if (!Bravura.Tonality.Chord.TryParse(val, out var chord))
+            {
+                _console.Failure($"'{val}' is not a valid chord!");
+                return;
+            }
+
+            var notes = string.Join(" ", chord.AsciiNoteSymbols);
+            var chordTones = string.Join(" ", chord.AsciiChordTones);
+            _console.Info($"Root: {chord.Root.ToAsciiString()}");
+            _console.Info($"Quality: {chord.Quality.AsciiSymbol}");
+            _console.Info($"Notes: {notes}");
+            _console.Info($"Chord Tones: {chordTones}");
         }
     }
 }
