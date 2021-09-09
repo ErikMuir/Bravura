@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Bravura.Tonality
 {
@@ -145,6 +146,22 @@ namespace Bravura.Tonality
                 Intervals.MinorSeventh,
             });
 
+            Chromatic = new Mode(ModeNames.Chromatic, new List<Interval>
+            {
+                Intervals.PerfectUnison,
+                Intervals.MinorSecond,
+                Intervals.MajorSecond,
+                Intervals.MinorThird,
+                Intervals.MajorThird,
+                Intervals.PerfectFourth,
+                Intervals.Tritone,
+                Intervals.PerfectFifth,
+                Intervals.MinorSixth,
+                Intervals.MajorSixth,
+                Intervals.MinorSeventh,
+                Intervals.MajorSeventh,
+            });
+
             AllModes = new List<Mode>
             {
                 Major,
@@ -160,7 +177,12 @@ namespace Bravura.Tonality
                 Mixolydian,
                 Aeolian,
                 Locrian,
+                Chromatic,
             };
+
+            ModesDict = AllModes
+                .Select((mode) => new { key = mode.Name.ToLower(), value = mode })
+                .ToDictionary(pair => pair.key, pair => pair.value);
         }
 
         public static Mode Major { get; }
@@ -176,8 +198,10 @@ namespace Bravura.Tonality
         public static Mode Mixolydian { get; }
         public static Mode Aeolian { get; }
         public static Mode Locrian { get; }
+        public static Mode Chromatic { get; }
         public static List<Mode> AllModes { get; }
-    }
+        public static Dictionary<string, Mode> ModesDict { get; }
+  }
 
     public static class ModeNames
     {
@@ -194,5 +218,6 @@ namespace Bravura.Tonality
         public const string Mixolydian = "Mixolydian";
         public const string Aeolian = "Aeolian";
         public const string Locrian = "Locrian";
+        public const string Chromatic = "Chromatic";
     }
 }

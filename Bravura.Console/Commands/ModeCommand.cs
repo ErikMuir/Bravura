@@ -1,5 +1,6 @@
 using System.CommandLine;
 using System.CommandLine.Invocation;
+using System.Linq;
 using MuirDev.ConsoleTools;
 using Bravura.Tonality;
 
@@ -18,7 +19,18 @@ namespace Bravura.Console
 
         private static void _handler(string val)
         {
-            _console.Failure($"That command is not yet implemented!");
+            var mode = Bravura.Tonality.Modes.ModesDict[val.ToLower()];
+            if (mode == null)
+            {
+                _console.Failure($"'{val}' is not a known mode!");
+                return;
+            }
+
+            var degrees = string.Join(" ", mode.Intervals.Select(i => i.ToAsciiString()));
+            var symbols = string.Join(" ", mode.Intervals.Select(i => i.Symbol));
+            _console.Info($"Mode: {mode.Name}");
+            _console.Info($"Degrees: {degrees}");
+            _console.Info($"Symbols: {symbols}");
         }
     }
 }
