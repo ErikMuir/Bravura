@@ -19,8 +19,7 @@ namespace Bravura.Console
 
         private static void _handler(string val)
         {
-            var mode = Bravura.Tonality.Modes.ModesDict[val.ToLower()];
-            if (mode == null)
+            if (!Bravura.Tonality.Modes.ModesDict.TryGetValue(val.ToLower(), out var mode))
             {
                 _console.Failure($"'{val}' is not a known mode!");
                 return;

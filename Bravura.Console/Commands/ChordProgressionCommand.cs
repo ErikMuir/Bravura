@@ -11,12 +11,12 @@ namespace Bravura.Console
 
         static ChordProgressionCommand()
         {
-            Command.Handler = CommandHandler.Create<string>(_handler);
+            Command.Handler = CommandHandler.Create<string[]>(_handler);
         }
 
-        public static Command Command = new Command("chord-progression") { new Argument<string>("val") };
+        public static Command Command = new Command("chord-progression") { new Argument<string[]>("chords") };
 
-        private static void _handler(string val)
+        private static void _handler(string[] chords)
         {
             _console.Failure($"That command is not yet implemented!");
         }
