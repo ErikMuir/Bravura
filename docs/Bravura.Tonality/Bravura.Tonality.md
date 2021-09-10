@@ -12,6 +12,7 @@ The [Bravura.Tonality](./Bravura.Tonality.md) namespace contains fundamental cla
 | [ChordQualities](./ChordQualities.md) | Static class that exposes each chord quality, as well as a read-only list of all chord qualities. |
 | [ChordQuality](./ChordQuality.md) | Represents the quality of a chord and the intervals that it consists of. |
 | [ChordQualityException](./ChordQualityException.md) | The exception that is thrown when trying to instantiate an invalid ChordQuality. |
+| [ChromaticScale](./ChromaticScale.md) | Represents a chromatic scale starting from a given root pitch. |
 | [Interval](./Interval.md) | Represents the distance between two pitches. |
 | [IntervalException](./IntervalException.md) | The exception that is thrown when trying to instantiate an invalid Interval. |
 | [Intervals](./Intervals.md) | Static class that exposes each interval, as well as a read-only list of all intervals. |
@@ -35,4 +36,5 @@ The [Bravura.Tonality](./Bravura.Tonality.md) namespace contains fundamental cla
 ## Enums
 | Enum | Description |
 | --- | --- |
+| [EnharmonicPreference](./EnharmonicPreference.md) | Specifies a preference for flat or sharp when expressing pitches enharmonically. |
 | [KeyTonality](./KeyTonality.md) | Specifies the tonality of a Key. |

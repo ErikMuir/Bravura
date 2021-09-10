@@ -27,5 +27,5 @@ Inheritance: Object -> Modes
 | Aeolian | [Mode](./Mode.md) | The mode consisting of scale tones: [1 2 b3 4 5 b6 b7] |
 | Locrian | [Mode](./Mode.md) | The mode consisting of scale tones: [1 b2 b3 4 b5 b6 b7] |
 | Chromatic | [Mode](./Mode.md) | The mode consisting of scale tones: [1 b2 2 b3 3 4 b5 5 b6 6 b7 7] |
-| AllModes | ReadOnlyCollection<[Mode](./Mode.md)> | A read-only collection that holds all 13 modes. |
+| AllModes | ReadOnlyCollection<[Mode](./Mode.md)> | A read-only collection that holds all defined modes. |
 | ModesDict | Dictionary<string, [Mode](./Mode.md)> | A dictionary of all modes keyed by their names |

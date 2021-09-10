@@ -27,6 +27,7 @@ namespace Bravura.Console
                 ChordCommand.Command,
                 ModeCommand.Command,
                 ScaleCommand.Command,
+                ChromaticScaleCommand.Command,
                 ChordProgressionCommand.Command,
             };
             _rootCommand.Handler = CommandHandler.Create<Command>(_rootCommandHandler);

@@ -16,6 +16,8 @@ namespace Bravura.Tonality
         public Accidental Accidental { get; }
         public short SemitonesAboveC
             => (short)(Note.SemitonesAboveC + Accidental.SemitonesAwayFromNatural).RollingRange(11);
+        public bool IsFlat => Accidental.SemitonesAwayFromNatural < 0;
+        public bool IsSharp => Accidental.SemitonesAwayFromNatural > 0;
 
         public Pitch Logical()
         {

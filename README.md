@@ -26,13 +26,13 @@ _It's important to keep in mind here that a Note is only the letter of the alpha
 
 **The 7 notes and their semitone values:**
 
-- C = 0 semitones above C♮
-- D = 2 semitones above C♮
-- E = 4 semitones above C♮
-- F = 5 semitones above C♮
-- G = 7 semitones above C♮
-- A = 9 semitones above C♮
-- B = 11 semitones above C♮
+- C = 0 semitones above C Natural
+- D = 2 semitones above C Natural
+- E = 4 semitones above C Natural
+- F = 5 semitones above C Natural
+- G = 7 semitones above C Natural
+- A = 9 semitones above C Natural
+- B = 11 semitones above C Natural
 
 ### Accidental
 

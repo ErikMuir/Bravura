@@ -29,5 +29,3 @@ Inheritance: Object -> Scale
 | Equals([Scale](./Scale.md)) | Boolean | Determines whether the specified scale is equal to the current scale. |
 | Equals(Object) | Boolean | Determines whether the specified object is equal to the current object. (Inherited from Object) |
 | GetHashCode() | Int32 | Serves as the default hash function. (Inherited from Object) |
-
-\* See the static class [Modes](./Modes.md) for all instances.

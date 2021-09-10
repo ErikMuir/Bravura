@@ -14,13 +14,7 @@ namespace Bravura.Tonality
 
             Validate();
 
-            Pitches = new List<Pitch>();
-            for (var i = 0; i < Mode.Intervals.Count; i++)
-            {
-                var note = GetNote(i);
-                var accidental = GetAccidental(i, note.SemitonesAboveC);
-                Pitches.Add(new Pitch(note, accidental));
-            }
+            Pitches = Mode.Intervals.Select(i => Root.GetPitchByIntervalAbove(i)).ToList();
         }
 
         public Pitch Root { get; }
@@ -38,34 +32,6 @@ namespace Bravura.Tonality
 
             if (errors.Count > 0)
                 throw new ScaleException(errors);
-        }
-
-        private Note GetNote(int index)
-        {
-            var noteIndex = (Mode.Intervals[index].Degree + Root.Note.Index).RollingRange(6);
-            return Note.GetNoteByIndex(noteIndex);
-        }
-
-        private Accidental GetAccidental(int index, int noteValue)
-        {
-            var pitchValue = (Mode.Intervals[index].Semitones + Root.SemitonesAboveC).RollingRange(11);
-            var accidentalValue = (pitchValue - noteValue);
-            switch (accidentalValue)
-            {
-                case -11:
-                    accidentalValue = 1;
-                    break;
-                case -10:
-                    accidentalValue = 2;
-                    break;
-                case 11:
-                    accidentalValue = -1;
-                    break;
-                case 10:
-                    accidentalValue = -2;
-                    break;
-            }
-            return Accidentals.AllAccidentals.Single(a => a.SemitonesAwayFromNatural == accidentalValue);
         }
 
         public bool EnharmonicallyEquals(Scale other)

@@ -21,6 +21,8 @@ Inheritance: Object -> Pitch
 | Note | [Note](./Note.md) | The note. |
 | Accidental | [Accidental](./Accidental.md) | The accidental. |
 | SemitonesAboveC | Int32 | The distance (in semitones) above C natural. |
+| IsFlat | Boolean | Describes whether or not the pitch's accidental is flat or double flat. |
+| IsSharp | Boolean | Describes whether or not the pitch's accidental sharp or double sharp. |
 
 ## Methods
 | Method | Return Type | Description |

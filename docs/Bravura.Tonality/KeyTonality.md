@@ -1,5 +1,7 @@
 # KeyTonality Enum
 
+Namespace: [Bravura.Tonality](./Bravura.Tonality.md)
+
 Specifies the tonality of a [Key](./Key.md).
 
 ## Fields
