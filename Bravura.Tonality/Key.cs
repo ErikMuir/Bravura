@@ -7,12 +7,12 @@ namespace Bravura.Tonality
 {
     public class Key : IEquatable<Key>
     {
-        internal Key(Pitch root, Tonality tonality)
+        internal Key(Pitch root, KeyTonality tonality)
         {
             Root = root;
             Tonality = tonality;
 
-            var mode = Tonality == Tonality.Major
+            var mode = Tonality == KeyTonality.Major
                 ? Modes.Major
                 : Modes.NaturalMinor;
             Scale = new Scale(Root, mode);
@@ -22,20 +22,20 @@ namespace Bravura.Tonality
         }
 
         public Pitch Root { get; }
-        public Tonality Tonality { get; }
+        public KeyTonality Tonality { get; }
         public Scale Scale { get; }
         public List<Pitch> KeySignature { get; }
         public Key Relative => GetRelative();
 
         private Key GetRelative()
         {
-            var keys = Tonality == Tonality.Major ? Keys.MinorKeys : Keys.MajorKeys;
+            var keys = Tonality == KeyTonality.Major ? Keys.MinorKeys : Keys.MajorKeys;
             var root = keys
                 .Where(k => k.KeySignature.Count == KeySignature.Count)
                 .Where(k => k.KeySignature.FirstOrDefault() == KeySignature.FirstOrDefault())
                 .Select(k => k.Root)
                 .Single();
-            var mode = Tonality == Tonality.Major ? Tonality.Minor : Tonality.Major;
+            var mode = Tonality == KeyTonality.Major ? KeyTonality.Minor : KeyTonality.Major;
             return new Key(root, mode);
         }
 

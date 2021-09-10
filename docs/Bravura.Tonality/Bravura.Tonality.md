@@ -15,7 +15,7 @@ The [Bravura.Tonality](./Bravura.Tonality.md) namespace contains fundamental cla
 | [Interval](./Interval.md) | Represents the distance between two pitches. |
 | [IntervalException](./IntervalException.md) | The exception that is thrown when trying to instantiate an invalid Interval. |
 | [Intervals](./Intervals.md) | Static class that exposes each interval, as well as a read-only list of all intervals. |
-| [Key](./Key.md) | Represents the combination of a [Pitch](./Pitch.md) and a [Tonality](./Tonality.md). |
+| [Key](./Key.md) | Represents the combination of a [Pitch](./Pitch.md) and a [KeyTonality](./KeyTonality.md). |
 | [Keys](./Keys.md) | Static class that exposes each key, as well as read-only lists of keys. |
 | [Mode](./Mode.md) | Represents a musical mode and the intervals that it consists of. |
 | [ModeException](./ModeException.md) | The exception that is thrown when trying to instantiate an invalid Mode. |
@@ -35,4 +35,4 @@ The [Bravura.Tonality](./Bravura.Tonality.md) namespace contains fundamental cla
 ## Enums
 | Enum | Description |
 | --- | --- |
-| [Tonality](./Tonality.md) | Specifies the tonality of a Key. |
+| [KeyTonality](./KeyTonality.md) | Specifies the tonality of a Key. |

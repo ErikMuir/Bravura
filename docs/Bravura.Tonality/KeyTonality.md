@@ -1,4 +1,4 @@
-# Tonality Enum
+# KeyTonality Enum
 
 Specifies the tonality of a [Key](./Key.md).
 

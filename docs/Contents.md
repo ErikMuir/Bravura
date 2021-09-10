@@ -34,4 +34,4 @@
   - [`Pitch`](./Bravura.Tonality/Pitch.md)
   - [`Pitches`](./Bravura.Tonality/Pitches.md)
   - [`Scale`](./Bravura.Tonality/Scale.md)
-  - [`Tonality`](./Bravura.Tonality/Tonality.md)
+  - [`KeyTonality`](./Bravura.Tonality/KeyTonality.md)

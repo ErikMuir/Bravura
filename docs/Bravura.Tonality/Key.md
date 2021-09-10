@@ -13,13 +13,13 @@ Inheritance: Object -> Key
 ## Constructors
 | Constructor | Description |
 | --- | --- |
-| Key([Pitch](./Pitch.md), [Tonality](./Tonality.md)) | Initializes a new instance of the [Key](./Key.md) class. * |
+| Key([Pitch](./Pitch.md), [KeyTonality](./KeyTonality.md)) | Initializes a new instance of the [Key](./Key.md) class. * |
 
 ## Fields
 | Field | Type | Description |
 | --- | --- | --- |
 | Root | [Pitch](./Pitch.md) | The tonal center of the key. |
-| Tonality | [Tonality](./Tonality.md) | The tonality of the key. |
+| Tonality | [KeyTonality](./KeyTonality.md) | The tonality of the key. |
 | Scale | [Scale](./Scale.md) | The scale that the key is built around. |
 | KeySignature | List<[Pitch](./Pitch.md)> | The list of accidentals that are found in the key. |
 | Relative | [Key](./Key.md) | The relative key of the opposite tonality. |
