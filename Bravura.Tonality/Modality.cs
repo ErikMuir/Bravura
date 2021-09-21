@@ -1,6 +1,6 @@
 namespace Bravura.Tonality
 {
-    public enum KeyTonality
+    public enum Modality
     {
         Major, 
         Minor,

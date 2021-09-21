@@ -1,8 +1,8 @@
-# KeyTonality Enum
+# Modality Enum
 
 Namespace: [Bravura.Tonality](./Bravura.Tonality.md)
 
-Specifies the tonality of a [Key](./Key.md).
+Specifies the modality of a [Key](./Key.md).
 
 ## Fields
 | Field | Value |

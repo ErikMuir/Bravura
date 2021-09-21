@@ -29,7 +29,7 @@
   - [`Intervals`](./Bravura.Tonality/Intervals.md)
   - [`Key`](./Bravura.Tonality/Key.md)
   - [`Keys`](./Bravura.Tonality/Keys.md)
-  - [`KeyTonality`](./Bravura.Tonality/KeyTonality.md)
+  - [`Modality`](./Bravura.Tonality/Modality.md)
   - [`Mode`](./Bravura.Tonality/Mode.md)
   - [`Modes`](./Bravura.Tonality/Modes.md)
   - [`Note`](./Bravura.Tonality/Note.md)

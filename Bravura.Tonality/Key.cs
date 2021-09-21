@@ -7,12 +7,12 @@ namespace Bravura.Tonality
 {
     public class Key : IEquatable<Key>
     {
-        internal Key(Pitch root, KeyTonality tonality)
+        internal Key(Pitch root, Modality modality)
         {
             Root = root;
-            Tonality = tonality;
+            Modality = modality;
 
-            var mode = Tonality == KeyTonality.Major
+            var mode = Modality == Modality.Major
                 ? Modes.Major
                 : Modes.NaturalMinor;
             Scale = new Scale(Root, mode);
@@ -22,27 +22,27 @@ namespace Bravura.Tonality
         }
 
         public Pitch Root { get; }
-        public KeyTonality Tonality { get; }
+        public Modality Modality { get; }
         public Scale Scale { get; }
         public List<Pitch> KeySignature { get; }
         public Key Relative => GetRelative();
 
         private Key GetRelative()
         {
-            var keys = Tonality == KeyTonality.Major ? Keys.MinorKeys : Keys.MajorKeys;
+            var keys = Modality == Modality.Major ? Keys.MinorKeys : Keys.MajorKeys;
             var root = keys
                 .Where(k => k.KeySignature.Count == KeySignature.Count)
                 .Where(k => k.KeySignature.FirstOrDefault() == KeySignature.FirstOrDefault())
                 .Select(k => k.Root)
                 .Single();
-            var mode = Tonality == KeyTonality.Major ? KeyTonality.Minor : KeyTonality.Major;
-            return new Key(root, mode);
+            var modality = Modality == Modality.Major ? Modality.Minor : Modality.Major;
+            return new Key(root, modality);
         }
 
         public bool Equals(Key other)
             => other != null
                 && Root.Equals(other.Root)
-                && Tonality == other.Tonality;
+                && Modality == other.Modality;
 
         public override bool Equals(object obj)
             => (obj is Key) && Equals((Key)obj);
@@ -50,6 +50,6 @@ namespace Bravura.Tonality
         public override int GetHashCode()
             => HashCode.Start
                 .Hash(Root)
-                .Hash(Tonality);
+                .Hash(Modality);
     }
 }

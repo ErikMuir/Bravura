@@ -7,37 +7,37 @@ namespace Bravura.Tonality
     {
         static Keys()
         {
-            CMajor = new Key(Pitches.CNatural, KeyTonality.Major);
-            CSharpMajor = new Key(Pitches.CSharp, KeyTonality.Major);
-            DFlatMajor = new Key(Pitches.DFlat, KeyTonality.Major);
-            DMajor = new Key(Pitches.DNatural, KeyTonality.Major);
-            EFlatMajor = new Key(Pitches.EFlat, KeyTonality.Major);
-            EMajor = new Key(Pitches.ENatural, KeyTonality.Major);
-            FMajor = new Key(Pitches.FNatural, KeyTonality.Major);
-            FSharpMajor = new Key(Pitches.FSharp, KeyTonality.Major);
-            GFlatMajor = new Key(Pitches.GFlat, KeyTonality.Major);
-            GMajor = new Key(Pitches.GNatural, KeyTonality.Major);
-            AFlatMajor = new Key(Pitches.AFlat, KeyTonality.Major);
-            AMajor = new Key(Pitches.ANatural, KeyTonality.Major);
-            BFlatMajor = new Key(Pitches.BFlat, KeyTonality.Major);
-            BMajor = new Key(Pitches.BNatural, KeyTonality.Major);
-            CFlatMajor = new Key(Pitches.CFlat, KeyTonality.Major);
+            CMajor = new Key(Pitches.CNatural, Modality.Major);
+            CSharpMajor = new Key(Pitches.CSharp, Modality.Major);
+            DFlatMajor = new Key(Pitches.DFlat, Modality.Major);
+            DMajor = new Key(Pitches.DNatural, Modality.Major);
+            EFlatMajor = new Key(Pitches.EFlat, Modality.Major);
+            EMajor = new Key(Pitches.ENatural, Modality.Major);
+            FMajor = new Key(Pitches.FNatural, Modality.Major);
+            FSharpMajor = new Key(Pitches.FSharp, Modality.Major);
+            GFlatMajor = new Key(Pitches.GFlat, Modality.Major);
+            GMajor = new Key(Pitches.GNatural, Modality.Major);
+            AFlatMajor = new Key(Pitches.AFlat, Modality.Major);
+            AMajor = new Key(Pitches.ANatural, Modality.Major);
+            BFlatMajor = new Key(Pitches.BFlat, Modality.Major);
+            BMajor = new Key(Pitches.BNatural, Modality.Major);
+            CFlatMajor = new Key(Pitches.CFlat, Modality.Major);
 
-            CMinor = new Key(Pitches.CNatural, KeyTonality.Minor);
-            CSharpMinor = new Key(Pitches.CSharp, KeyTonality.Minor);
-            DMinor = new Key(Pitches.DNatural, KeyTonality.Minor);
-            DSharpMinor = new Key(Pitches.DSharp, KeyTonality.Minor);
-            EFlatMinor = new Key(Pitches.EFlat, KeyTonality.Minor);
-            EMinor = new Key(Pitches.ENatural, KeyTonality.Minor);
-            FMinor = new Key(Pitches.FNatural, KeyTonality.Minor);
-            FSharpMinor = new Key(Pitches.FSharp, KeyTonality.Minor);
-            GMinor = new Key(Pitches.GNatural, KeyTonality.Minor);
-            GSharpMinor = new Key(Pitches.GSharp, KeyTonality.Minor);
-            AFlatMinor = new Key(Pitches.AFlat, KeyTonality.Minor);
-            AMinor = new Key(Pitches.ANatural, KeyTonality.Minor);
-            ASharpMinor = new Key(Pitches.ASharp, KeyTonality.Minor);
-            BFlatMinor = new Key(Pitches.BFlat, KeyTonality.Minor);
-            BMinor = new Key(Pitches.BNatural, KeyTonality.Minor);
+            CMinor = new Key(Pitches.CNatural, Modality.Minor);
+            CSharpMinor = new Key(Pitches.CSharp, Modality.Minor);
+            DMinor = new Key(Pitches.DNatural, Modality.Minor);
+            DSharpMinor = new Key(Pitches.DSharp, Modality.Minor);
+            EFlatMinor = new Key(Pitches.EFlat, Modality.Minor);
+            EMinor = new Key(Pitches.ENatural, Modality.Minor);
+            FMinor = new Key(Pitches.FNatural, Modality.Minor);
+            FSharpMinor = new Key(Pitches.FSharp, Modality.Minor);
+            GMinor = new Key(Pitches.GNatural, Modality.Minor);
+            GSharpMinor = new Key(Pitches.GSharp, Modality.Minor);
+            AFlatMinor = new Key(Pitches.AFlat, Modality.Minor);
+            AMinor = new Key(Pitches.ANatural, Modality.Minor);
+            ASharpMinor = new Key(Pitches.ASharp, Modality.Minor);
+            BFlatMinor = new Key(Pitches.BFlat, Modality.Minor);
+            BMinor = new Key(Pitches.BNatural, Modality.Minor);
 
             MajorKeys = new List<Key>
             {
