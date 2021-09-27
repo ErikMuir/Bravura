@@ -73,7 +73,7 @@ namespace Bravura.Tonality
 
         public override int GetHashCode()
         {
-            var hashCode = HashCode.Start
+            var hashCode = Bravura.Common.HashCode.Start
                 .Hash(Symbol)
                 .Hash(AsciiSymbol);
             for (var i = 0; i < Intervals.Count; i++)

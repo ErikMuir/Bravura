@@ -32,7 +32,7 @@ namespace Bravura.Tonality
             => (obj is Accidental) && Equals((Accidental)obj);
 
         public override int GetHashCode()
-            => HashCode.Start
+            => Bravura.Common.HashCode.Start
                 .Hash(SemitonesAwayFromNatural)
                 .Hash(Name)
                 .Hash(Symbol)

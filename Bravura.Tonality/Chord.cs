@@ -79,7 +79,7 @@ namespace Bravura.Tonality
             => (obj is Chord) && Equals((Chord)obj);
 
         public override int GetHashCode()
-            => HashCode.Start
+            => Bravura.Common.HashCode.Start
                 .Hash(Root)
                 .Hash(Quality);
 

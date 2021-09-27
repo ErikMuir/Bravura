@@ -54,7 +54,7 @@ namespace Bravura.Tonality
             => (obj is Note) && Equals((Note)obj);
 
         public override int GetHashCode()
-            => HashCode.Start
+            => Bravura.Common.HashCode.Start
                 .Hash(Letter)
                 .Hash(SemitonesAboveC);
     }

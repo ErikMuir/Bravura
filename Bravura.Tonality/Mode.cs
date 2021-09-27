@@ -66,7 +66,7 @@ namespace Bravura.Tonality
 
         public override int GetHashCode()
         {
-            var hashCode = HashCode.Start.Hash(Name);
+            var hashCode = Bravura.Common.HashCode.Start.Hash(Name);
             for (var i = 0; i < Intervals.Count; i++)
             {
                 hashCode = hashCode.Hash(Intervals[i]);

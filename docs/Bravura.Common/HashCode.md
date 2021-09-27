@@ -41,7 +41,7 @@ public class Person
 
     public override int GetHashCode()
     {
-        var hashCode = HashCode.Start
+        var hashCode = Bravura.Common.HashCode.Start
             .Hash(Name)
             .Hash(Age);
         foreach (var child in Children)

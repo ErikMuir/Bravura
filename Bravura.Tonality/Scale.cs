@@ -57,7 +57,7 @@ namespace Bravura.Tonality
 
         public override int GetHashCode()
         {
-            var hashCode = HashCode.Start
+            var hashCode = Bravura.Common.HashCode.Start
                 .Hash(Root)
                 .Hash(Mode);
             for (var i = 0; i < Pitches.Count; i++)

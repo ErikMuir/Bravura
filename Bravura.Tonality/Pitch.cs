@@ -94,7 +94,7 @@ namespace Bravura.Tonality
             => (obj is Pitch) && Equals((Pitch)obj);
 
         public override int GetHashCode()
-            => HashCode.Start
+            => Bravura.Common.HashCode.Start
                 .Hash(Note)
                 .Hash(Accidental);
 

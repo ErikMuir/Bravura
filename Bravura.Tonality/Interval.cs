@@ -64,7 +64,7 @@ namespace Bravura.Tonality
             => (obj is Interval) && Equals((Interval)obj);
 
         public override int GetHashCode()
-            => HashCode.Start
+            => Bravura.Common.HashCode.Start
                 .Hash(Semitones)
                 .Hash(Accidental)
                 .Hash(Degree)
