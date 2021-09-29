@@ -1,19 +1,10 @@
-using System;
 using System.Linq;
 using Bravura.Common;
 
 namespace Bravura.Tonality
 {
-    public class Pitch : IEquatable<Pitch>
+    public record Pitch(Note Note, Accidental Accidental)
     {
-        internal Pitch(Note note, Accidental accidental)
-        {
-            Note = note;
-            Accidental = accidental;
-        }
-
-        public Note Note { get; }
-        public Accidental Accidental { get; }
         public short SemitonesAboveC
             => (short)(Note.SemitonesAboveC + Accidental.SemitonesAwayFromNatural).RollingRange(11);
         public bool IsFlat => Accidental.SemitonesAwayFromNatural < 0;
@@ -84,19 +75,6 @@ namespace Bravura.Tonality
 
         public bool EnharmonicallyEquals(Pitch other)
             => SemitonesAboveC == other?.SemitonesAboveC;
-
-        public bool Equals(Pitch other)
-            => other != null
-                && Note.Equals(other.Note)
-                && Accidental.Equals(other.Accidental);
-
-        public override bool Equals(object obj)
-            => (obj is Pitch) && Equals((Pitch)obj);
-
-        public override int GetHashCode()
-            => Bravura.Common.HashCode.Start
-                .Hash(Note)
-                .Hash(Accidental);
 
         public static bool TryParse(string val, out Pitch pitch)
         {
