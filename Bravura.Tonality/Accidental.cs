@@ -1,11 +1,13 @@
-using System;
-using Bravura.Common;
-
 namespace Bravura.Tonality
 {
-    public struct Accidental : IEquatable<Accidental>
+    public readonly struct Accidental
     {
-        internal Accidental(
+        public short SemitonesAwayFromNatural { get; init; }
+        public string Name { get; init; }
+        public string Symbol { get; init; }
+        public string AsciiSymbol { get; init; }
+
+        public Accidental(
             short semitonesAwayFromNatural,
             string name,
             string symbol,
@@ -17,25 +19,8 @@ namespace Bravura.Tonality
             AsciiSymbol = asciiSymbol;
         }
 
-        public short SemitonesAwayFromNatural { get; }
-        public string Name { get; }
-        public string Symbol { get; }
-        public string AsciiSymbol { get; }
+        public override string ToString() => Symbol;
 
-        public bool Equals(Accidental other)
-            => SemitonesAwayFromNatural == other.SemitonesAwayFromNatural
-                && Name == other.Name
-                && Symbol == other.Symbol
-                && AsciiSymbol == other.AsciiSymbol;
-
-        public override bool Equals(object obj)
-            => (obj is Accidental) && Equals((Accidental)obj);
-
-        public override int GetHashCode()
-            => Bravura.Common.HashCode.Start
-                .Hash(SemitonesAwayFromNatural)
-                .Hash(Name)
-                .Hash(Symbol)
-                .Hash(AsciiSymbol);
+        public string ToAsciiString() => AsciiSymbol;
     }
 }

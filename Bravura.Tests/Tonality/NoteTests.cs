@@ -118,28 +118,5 @@ namespace Bravura.Tonality.Tests
             Assert.Equal(Notes.A, Note.GetNoteByIndex(5));
             Assert.Equal(Notes.B, Note.GetNoteByIndex(6));
         }
-
-        [Fact]
-        public void NoteEquals_Test()
-        {
-            Assert.True(Notes.C.Equals(Notes.C));
-            Assert.False(Notes.C.Equals(Notes.D));
-        }
-
-        [Fact]
-        public void ObjectEquals_Test()
-        {
-            Assert.True(Notes.C.Equals((object)Notes.C));
-            Assert.False(Notes.C.Equals((object)Notes.D));
-            Assert.False(Notes.C.Equals((object)null));
-            Assert.False(Notes.C.Equals(new { Foo = "bar" }));
-        }
-
-        [Fact]
-        public void GetHashCode_Test()
-        {
-            Assert.Equal(Notes.C.GetHashCode(), Notes.C.GetHashCode());
-            Assert.NotEqual(Notes.C.GetHashCode(), Notes.D.GetHashCode());
-        }
     }
 }

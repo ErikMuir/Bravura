@@ -1,19 +1,18 @@
-using System;
 using System.Collections.Generic;
 using Bravura.Common;
 
 namespace Bravura.Tonality
 {
-    public struct Note : IEquatable<Note>
+    public readonly struct Note
     {
-        internal Note(char letter, short semitonesAboveC)
+        public char Letter { get; init; }
+        public short SemitonesAboveC { get; init; }
+
+        public Note(char letter, short semitonesAboveC)
         {
             Letter = letter;
             SemitonesAboveC = semitonesAboveC;
         }
-
-        public char Letter { get; }
-        public short SemitonesAboveC { get; }
 
         public KeyValuePair<char, short> KeyValuePair => new KeyValuePair<char, short>(Letter, SemitonesAboveC);
 
@@ -47,15 +46,6 @@ namespace Bravura.Tonality
             return new Note(noteLetter, semitones);
         }
 
-        public bool Equals(Note other)
-            => Letter == other.Letter && SemitonesAboveC == other.SemitonesAboveC;
-
-        public override bool Equals(object obj)
-            => (obj is Note) && Equals((Note)obj);
-
-        public override int GetHashCode()
-            => Bravura.Common.HashCode.Start
-                .Hash(Letter)
-                .Hash(SemitonesAboveC);
+        public override string ToString() => $"{ Letter }";
     }
 }
