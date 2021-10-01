@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 
 namespace Bravura.Common
 {
+    [Obsolete]
     public struct HashCode
     {
         private readonly int _value;

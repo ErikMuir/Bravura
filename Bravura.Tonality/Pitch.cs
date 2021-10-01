@@ -27,7 +27,7 @@ namespace Bravura.Tonality
                 Note.IsNextNoteOneSemitoneAway()
                     ? Accidentals.Sharp
                     : Accidentals.Natural),
-            _ => throw new BravuraTonalityException("Invalid accidental"),
+            _ => this,
         };
 
         public Pitch GetPitchByIntervalAbove(Interval interval)
