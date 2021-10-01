@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Bravura.Common;
 
 namespace Bravura.Tonality
 {
@@ -26,9 +25,9 @@ namespace Bravura.Tonality
             var errors = new List<string>();
 
             if (Root == null)
-                errors.Add($"{nameof(Root)} is required.");
+                errors.Add($"{ nameof(Root) } is required.");
             if (Mode == null)
-                errors.Add($"{nameof(Mode)} is required.");
+                errors.Add($"{ nameof(Mode) } is required.");
 
             if (errors.Count > 0)
                 throw new ScaleException(errors);

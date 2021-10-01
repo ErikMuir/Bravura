@@ -4,13 +4,13 @@ namespace Bravura.Tonality.Tests
 {
     public class IntervalTests
     {
-        private readonly Interval _unison = new Interval(0, Accidentals.Natural, 0, IntervalNames.PerfectUnison, IntervalSymbols.PerfectUnison);
-        private readonly Interval _foobarUnison = new Interval(0, Accidentals.Natural, 0, "foobar", "foobar");
+        private readonly Interval _unison = new Interval(0, Accidentals.Natural, 1, IntervalNames.PerfectUnison, IntervalSymbols.PerfectUnison);
+        private readonly Interval _foobarUnison = new Interval(0, Accidentals.Natural, 1, "foobar", "foobar");
 
         [Fact]
         public void Constructor_WhenDegreeIsLessThanZero_ThenThrows()
         {
-            short degree = -1;
+            short degree = 0;
 
             var exception = Record.Exception(() => new Interval(0, Accidentals.Natural, degree, "foobar", "foobar"));
 
@@ -21,7 +21,7 @@ namespace Bravura.Tonality.Tests
         [Fact]
         public void Constructor_WhenDegreeIsMoreThanSeven_ThenThrows()
         {
-            short degree = 8;
+            short degree = 9;
 
             var exception = Record.Exception(() => new Interval(0, Accidentals.Natural, degree, "foobar", "foobar"));
 

@@ -32,7 +32,7 @@ namespace Bravura.Tonality
 
         public Pitch GetPitchByIntervalAbove(Interval interval)
         {
-            var noteIndex = (Note.Index + interval.Degree).RollingRange(6);
+            var noteIndex = (Note.Index + (interval.Degree - 1)).RollingRange(6);
             var note = Note.GetNoteByIndex(noteIndex);
 
             var semitones = SemitonesAboveC + interval.Semitones - note.SemitonesAboveC;
@@ -45,7 +45,7 @@ namespace Bravura.Tonality
 
         public Pitch GetPitchByIntervalBelow(Interval interval)
         {
-            var noteIndex = (Note.Index - interval.Degree).RollingRange(6);
+            var noteIndex = (Note.Index - (interval.Degree - 1)).RollingRange(6);
             var note = Note.GetNoteByIndex(noteIndex);
 
             var semitones = SemitonesAboveC - interval.Semitones - note.SemitonesAboveC;
@@ -58,9 +58,9 @@ namespace Bravura.Tonality
 
         public override string ToString() => ToString(false);
 
-        public string ToString(bool showActual = false) => $"{Note.Letter}{(Accidental.SemitonesAwayFromNatural == 0 && !showActual ? "" : Accidental.Symbol)}";
+        public string ToString(bool showActual = false) => $"{ Note.Letter }{ (Accidental.SemitonesAwayFromNatural == 0 && !showActual ? "" : Accidental.Symbol) }";
 
-        public string ToAsciiString() => $"{Note.Letter}{Accidental.AsciiSymbol}";
+        public string ToAsciiString() => $"{ Note.Letter }{ Accidental.AsciiSymbol }";
 
         public bool EnharmonicallyEquals(Pitch other) => SemitonesAboveC == other?.SemitonesAboveC;
 

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Bravura.Common;
 
 namespace Bravura.Tonality
 {
@@ -44,9 +43,9 @@ namespace Bravura.Tonality
             var errors = new List<string>();
 
             if (Root == null)
-                errors.Add($"{nameof(Root)} is required.");
+                errors.Add($"{ nameof(Root) } is required.");
             if (Quality == null)
-                errors.Add($"{nameof(Quality)} is required.");
+                errors.Add($"{ nameof(Quality) } is required.");
 
             if (errors.Count > 0)
                 throw new ChordException(errors);

@@ -25,19 +25,19 @@ namespace Bravura.Tonality
             var errors = new List<string>();
 
             if (Symbol == null)
-                errors.Add($"{nameof(Symbol)} is required.");
+                errors.Add($"{ nameof(Symbol) } is required.");
             if (AsciiSymbol == null)
-                errors.Add($"{nameof(AsciiSymbol)} is required.");
+                errors.Add($"{ nameof(AsciiSymbol) } is required.");
             if (Intervals == null)
-                errors.Add($"{nameof(Intervals)} is required.");
+                errors.Add($"{ nameof(Intervals) } is required.");
             else if (Intervals.Count < 2)
-                errors.Add($"{nameof(Intervals)} length cannot be less than 2.");
+                errors.Add($"{ nameof(Intervals) } length cannot be less than 2.");
             else
             {
                 if (Intervals[0] != Bravura.Tonality.Intervals.PerfectUnison)
-                    errors.Add($"The first interval in {nameof(Intervals)} must be {Bravura.Tonality.Intervals.PerfectUnison.Name}.");
+                    errors.Add($"The first interval in { nameof(Intervals) } must be { Bravura.Tonality.Intervals.PerfectUnison.Name }.");
                 if (Intervals.Count != Intervals.Select(x => x.Semitones).Distinct().Count())
-                    errors.Add($"All {nameof(Intervals)} must be unique.");
+                    errors.Add($"All { nameof(Intervals) } must be unique.");
             }
 
             if (errors.Count > 0)

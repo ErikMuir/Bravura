@@ -30,7 +30,7 @@ namespace Bravura.Tonality
             var errors = new List<string>();
 
             if (Root == null)
-                errors.Add($"{nameof(Root)} is required.");
+                errors.Add($"{ nameof(Root) } is required.");
 
             if (errors.Count > 0)
                 throw new ScaleException(errors);

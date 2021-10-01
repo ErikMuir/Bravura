@@ -24,16 +24,16 @@ namespace Bravura.Tonality
             var errors = new List<string>();
 
             if (Name == null)
-                errors.Add($"{nameof(Name)} is required.");
+                errors.Add($"{ nameof(Name) } is required.");
 
             if (Intervals == null)
-                errors.Add($"{nameof(Intervals)} is required.");
+                errors.Add($"{ nameof(Intervals) } is required.");
             else
             {
                 if (Intervals.Count < 5)
-                    errors.Add($"{nameof(Intervals)} length cannot be less than 5.");
+                    errors.Add($"{ nameof(Intervals) } length cannot be less than 5.");
                 if (Intervals.Count > 12)
-                    errors.Add($"{nameof(Intervals)} length cannot be greater than 12.");
+                    errors.Add($"{ nameof(Intervals) } length cannot be greater than 12.");
             }
 
             if (errors.Count > 0)
