@@ -6,7 +6,7 @@ namespace Bravura.Tonality.Tests
     {
         private readonly Chord _cMajor = new Chord(Pitches.CNatural, ChordQualities.Maj);
         private readonly Chord _aMinor = new Chord(Pitches.ANatural, ChordQualities.Min);
-        private readonly Chord _anotherCMajor = new Chord(Pitches.CNatural, ChordQualities.Maj);
+        private readonly Chord _cSharpMin7 = new Chord(Pitches.CSharp, ChordQualities.Min7);
 
         [Fact]
         public void CommonTones_Test()
@@ -22,7 +22,9 @@ namespace Bravura.Tonality.Tests
         [Fact]
         public void HasSamePitches_Test()
         {
-            Assert.True(_cMajor.HasSamePitches(_anotherCMajor));
+            var eSus4 = new Chord(Pitches.ENatural, ChordQualities.Sus4);
+            var aSus2 = new Chord(Pitches.ANatural, ChordQualities.Sus2);
+            Assert.True(eSus4.HasSamePitches(aSus2));
             Assert.False(_cMajor.HasSamePitches(_aMinor));
         }
 
@@ -36,12 +38,35 @@ namespace Bravura.Tonality.Tests
         }
 
         [Fact]
+        public void ToString_Override_Test()
+        {
+            Assert.Equal("C♯m7", _cSharpMin7.ToString());
+        }
+
+        [Fact]
+        public void ToAsciiString_Test()
+        {
+            Assert.Equal("C#m7", _cSharpMin7.ToAsciiString());
+        }
+
+        [Fact]
+        public void ToStringWithPitches_Test()
+        {
+            Assert.Equal("C♯m7 { C♯ E G♯ B }", _cSharpMin7.ToStringWithPitches());
+        }
+
+        [Fact]
+        public void ToAsciiStringWithPitches_Test()
+        {
+            Assert.Equal("C#m7 { C# E G# B }", _cSharpMin7.ToAsciiStringWithPitches());
+        }
+
+        [Fact]
         public void TryParse_WhenValid_Test()
         {
-            var result = Chord.TryParse("C#m9", out var chord);
+            var result = Chord.TryParse("C#m7", out var chord);
             Assert.True(result);
-            Assert.Equal(Pitches.CSharp, chord.Root);
-            Assert.Equal(ChordQualities.Min9, chord.Quality);
+            Assert.Equal(_cSharpMin7, chord);
         }
 
         [Fact]

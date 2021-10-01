@@ -18,8 +18,6 @@ namespace Bravura.Tonality
 
         public List<Pitch> CommonTones(Chord other) => Pitches.Where(pitch => other.Pitches.Contains(pitch)).ToList();
 
-        public bool EnharmonicallyEquals(Chord other) => other != null && Root.EnharmonicallyEquals(other.Root) && Quality.EffectivelyEquals(other.Quality);
-
         public bool HasSamePitches(Chord other)
         {
             if (Pitches.Count != other.Pitches.Count) return false;
@@ -30,9 +28,12 @@ namespace Bravura.Tonality
             return true;
         }
 
-        public override string ToString() => $"{ Root }{ Quality }";
+        public bool EnharmonicallyEquals(Chord other) => other != null && Root.EnharmonicallyEquals(other.Root) && Quality.EffectivelyEquals(other.Quality);
 
-        public string ToAsciiString() => $"{ Root.ToAsciiString() }{ Quality.ToString() }";
+        public override string ToString() => $"{ Root }{ Quality }";
+        public string ToAsciiString() => $"{ Root.ToAsciiString() }{ Quality.ToAsciiString() }";
+        public string ToStringWithPitches() => $"{ Root }{ Quality } {{ { string.Join(" ", Pitches.Select(p => p.ToString())) } }}";
+        public string ToAsciiStringWithPitches() => $"{ Root.ToAsciiString() }{ Quality.ToAsciiString() } {{ { string.Join(" ", Pitches.Select(p => p.ToAsciiString())) } }}";
 
         public static bool TryParse(string val, out Chord chord)
         {
