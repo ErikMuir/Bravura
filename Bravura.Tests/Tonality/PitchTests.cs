@@ -16,11 +16,11 @@ namespace Bravura.Tonality.Tests
         [Fact]
         public void Logical_Test()
         {
-            Assert.Equal(Pitches.CNatural, Pitches.CNatural.Logical());
-            Assert.Equal(Pitches.CNatural, Pitches.BSharp.Logical());
-            Assert.Equal(Pitches.CNatural, Pitches.DDoubleFlat.Logical());
-            Assert.Equal(Pitches.CSharp, Pitches.CSharp.Logical());
-            Assert.Equal(Pitches.DFlat, Pitches.DFlat.Logical());
+            Assert.Equal(Pitches.CNatural, Pitches.CNatural.Logical);
+            Assert.Equal(Pitches.CNatural, Pitches.BSharp.Logical);
+            Assert.Equal(Pitches.CNatural, Pitches.DDoubleFlat.Logical);
+            Assert.Equal(Pitches.CSharp, Pitches.CSharp.Logical);
+            Assert.Equal(Pitches.DFlat, Pitches.DFlat.Logical);
         }
 
         [Fact]

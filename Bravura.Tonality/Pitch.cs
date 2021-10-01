@@ -5,41 +5,30 @@ namespace Bravura.Tonality
 {
     public record Pitch(Note Note, Accidental Accidental)
     {
-        public short SemitonesAboveC
-            => (short)(Note.SemitonesAboveC + Accidental.SemitonesAwayFromNatural).RollingRange(11);
+        public short SemitonesAboveC => (short)(Note.SemitonesAboveC + Accidental.SemitonesAwayFromNatural).RollingRange(11);
         public bool IsFlat => Accidental.SemitonesAwayFromNatural < 0;
         public bool IsSharp => Accidental.SemitonesAwayFromNatural > 0;
-
-        public Pitch Logical()
+        public Pitch Logical => Accidental.SemitonesAwayFromNatural switch
         {
-            switch (Accidental.SemitonesAwayFromNatural)
-            {
-                case -2:
-                    return new Pitch(
-                        Note.PreviousNote,
-                        Note.IsPreviousNoteOneSemitoneAway()
-                            ? Accidentals.Flat
-                            : Accidentals.Natural);
-                case -1:
-                    return Note.IsPreviousNoteOneSemitoneAway()
-                        ? new Pitch(Note.PreviousNote, Accidentals.Natural)
-                        : new Pitch(Note, Accidental);
-                case 0:
-                    return new Pitch(Note, Accidental);
-                case 1:
-                    return Note.IsNextNoteOneSemitoneAway()
-                        ? new Pitch(Note.NextNote, Accidentals.Natural)
-                        : new Pitch(Note, Accidental);
-                case 2:
-                    return new Pitch(
-                        Note.NextNote,
-                        Note.IsNextNoteOneSemitoneAway()
-                            ? Accidentals.Sharp
-                            : Accidentals.Natural);
-                default:
-                    throw new BravuraTonalityException("Invalid accidental");
-            }
-        }
+            -2 => new Pitch(
+                Note.PreviousNote,
+                Note.IsPreviousNoteOneSemitoneAway()
+                    ? Accidentals.Flat
+                    : Accidentals.Natural),
+            -1 => Note.IsPreviousNoteOneSemitoneAway()
+                ? new Pitch(Note.PreviousNote, Accidentals.Natural)
+                : new Pitch(Note, Accidental),
+            0 => new Pitch(Note, Accidental),
+            1 => Note.IsNextNoteOneSemitoneAway()
+                ? new Pitch(Note.NextNote, Accidentals.Natural)
+                : new Pitch(Note, Accidental),
+            2 => new Pitch(
+                Note.NextNote,
+                Note.IsNextNoteOneSemitoneAway()
+                    ? Accidentals.Sharp
+                    : Accidentals.Natural),
+            _ => throw new BravuraTonalityException("Invalid accidental"),
+        };
 
         public Pitch GetPitchByIntervalAbove(Interval interval)
         {
@@ -67,14 +56,13 @@ namespace Bravura.Tonality
             return new Pitch(note, accidental);
         }
 
-        public string ToString(bool showActual = false)
-            => $"{Note.Letter}{(Accidental.SemitonesAwayFromNatural == 0 && !showActual ? "" : Accidental.Symbol)}";
+        public override string ToString() => ToString(false);
 
-        public string ToAsciiString()
-            => $"{Note.Letter}{Accidental.AsciiSymbol}";
+        public string ToString(bool showActual = false) => $"{Note.Letter}{(Accidental.SemitonesAwayFromNatural == 0 && !showActual ? "" : Accidental.Symbol)}";
 
-        public bool EnharmonicallyEquals(Pitch other)
-            => SemitonesAboveC == other?.SemitonesAboveC;
+        public string ToAsciiString() => $"{Note.Letter}{Accidental.AsciiSymbol}";
+
+        public bool EnharmonicallyEquals(Pitch other) => SemitonesAboveC == other?.SemitonesAboveC;
 
         public static bool TryParse(string val, out Pitch pitch)
         {

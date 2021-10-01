@@ -50,7 +50,7 @@ namespace Bravura.Tonality
 
         private Pitch PreferredPitch(Pitch pitch)
         {
-            var logicalPitch = pitch.Equals(Root) ? pitch : pitch.Logical();
+            var logicalPitch = pitch.Equals(Root) ? pitch : pitch.Logical;
             switch (Pref)
             {
                 case EnharmonicPreference.Flat:

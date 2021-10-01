@@ -26,7 +26,7 @@ namespace Bravura.Console
 
             _console.Info($"Pitch: {pitch.ToAsciiString()}");
             _console.Info($"Semitones Above C Natural: {pitch.SemitonesAboveC}");
-            _console.Info($"Logical: {pitch.Logical().ToAsciiString()}");
+            _console.Info($"Logical: {pitch.Logical.ToAsciiString()}");
         }
     }
 }
