@@ -5,7 +5,7 @@ namespace Bravura.Tonality.Tests
     public class KeyTests
     {
         [Fact]
-        public void Constructor_CorrectlySetsScale()
+        public void Scale_Test()
         {
             var cMajorScale = new Scale(Pitches.CNatural, Modes.Major);
             Assert.Equal(cMajorScale, Keys.CMajor.Scale);
@@ -15,7 +15,7 @@ namespace Bravura.Tonality.Tests
         }
 
         [Fact]
-        public void Constructor_CorrectlySetsKeySignature()
+        public void KeySignature_Test()
         {
             var cMajorKeySignature = Keys.CMajor.KeySignature;
             Assert.Empty(cMajorKeySignature);
@@ -39,33 +39,10 @@ namespace Bravura.Tonality.Tests
         }
 
         [Fact]
-        public void Relative_ReturnsRelativeKey()
+        public void Relative_Test()
         {
             Assert.Equal(Keys.AMinor, Keys.CMajor.Relative);
             Assert.Equal(Keys.CMajor, Keys.AMinor.Relative);
-        }
-
-        [Fact]
-        public void KeyEquals_Test()
-        {
-            Assert.True(Keys.CMajor.Equals(Keys.CMajor));
-            Assert.False(Keys.CMajor.Equals(Keys.AMinor));
-        }
-
-        [Fact]
-        public void ObjectEquals_Test()
-        {
-            Assert.True(Keys.CMajor.Equals((object)Keys.CMajor));
-            Assert.False(Keys.CMajor.Equals((object)Keys.AMinor));
-            Assert.False(Keys.CMajor.Equals((object)null));
-            Assert.False(Keys.CMajor.Equals(new { Foo = "bar" }));
-        }
-
-        [Fact]
-        public void GetHashCode_Test()
-        {
-            Assert.Equal(Keys.CMajor.GetHashCode(), Keys.CMajor.GetHashCode());
-            Assert.NotEqual(Keys.CMajor.GetHashCode(), Keys.AMinor.GetHashCode());
         }
     }
 }

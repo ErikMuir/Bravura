@@ -1,30 +1,19 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Bravura.Tonality
 {
-    public class Key : IEquatable<Key>
+    public record Key(Pitch Root, Modality Modality)
     {
-        internal Key(Pitch root, Modality modality)
-        {
-            Root = root;
-            Modality = modality;
+        public Scale Scale => new Scale(Root, ImpliedMode);
 
-            var mode = Modality == Modality.Major
-                ? Modes.Major
-                : Modes.NaturalMinor;
-            Scale = new Scale(Root, mode);
-            KeySignature = Pitches.SignatureAccidentals
-                .Where(sa => Scale.Pitches.Any(sp => sp.ToString() == sa.ToString()))
-                .ToList();
-        }
+        public List<Pitch> KeySignature => Pitches.SignatureAccidentals
+            .Where(sa => Scale.Pitches.Any(sp => sp.ToString() == sa.ToString()))
+            .ToList();
 
-        public Pitch Root { get; }
-        public Modality Modality { get; }
-        public Scale Scale { get; }
-        public List<Pitch> KeySignature { get; }
         public Key Relative => GetRelative();
+
+        private Mode ImpliedMode => Modality == Modality.Major ? Modes.Major : Modes.NaturalMinor;
 
         private Key GetRelative()
         {
@@ -37,18 +26,5 @@ namespace Bravura.Tonality
             var modality = Modality == Modality.Major ? Modality.Minor : Modality.Major;
             return new Key(root, modality);
         }
-
-        public bool Equals(Key other)
-            => other != null
-                && Root.Equals(other.Root)
-                && Modality == other.Modality;
-
-        public override bool Equals(object obj)
-            => (obj is Key) && Equals((Key)obj);
-
-        public override int GetHashCode()
-            => Bravura.Common.HashCode.Start
-                .Hash(Root)
-                .Hash(Modality);
     }
 }
