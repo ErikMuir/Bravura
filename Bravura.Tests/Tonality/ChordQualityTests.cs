@@ -6,47 +6,6 @@ namespace Bravura.Tonality.Tests
     public class ChordQualityTests
     {
         [Fact]
-        public void Constructor_WhenProvidedNullSymbol_Throws()
-        {
-            var intervals = new List<Interval> { Intervals.PerfectUnison, Intervals.PerfectFifth };
-
-            var exception = Record.Exception(() => new ChordQuality(null, "", intervals));
-
-            Assert.NotNull(exception);
-            Assert.IsType<ChordQualityException>(exception);
-        }
-
-        [Fact]
-        public void Constructor_WhenProvidedNullAsciiSymbol_Throws()
-        {
-            var intervals = new List<Interval> { Intervals.PerfectUnison, Intervals.PerfectFifth };
-
-            var exception = Record.Exception(() => new ChordQuality("", null, intervals));
-
-            Assert.NotNull(exception);
-            Assert.IsType<ChordQualityException>(exception);
-        }
-
-        public static IEnumerable<object[]> InvalidIntervalsData()
-        {
-            yield return new object[] { null };
-            yield return new object[] { new List<Interval>() };
-            yield return new object[] { new List<Interval> { Intervals.PerfectUnison } };
-            yield return new object[] { new List<Interval> { Intervals.MajorThird, Intervals.PerfectFifth } };
-            yield return new object[] { new List<Interval> { Intervals.PerfectUnison, Intervals.PerfectUnison } };
-        }
-
-        [Theory]
-        [MemberData(nameof(InvalidIntervalsData))]
-        public void Constructor_WhenProvidedInvalidIntervals_Throws(List<Interval> intervals)
-        {
-            var exception = Record.Exception(() => new ChordQuality("", "", intervals));
-
-            Assert.NotNull(exception);
-            Assert.IsType<ChordQualityException>(exception);
-        }
-
-        [Fact]
         public void EffectivelyEquals_Test()
         {
             var differentMinor = new ChordQuality("-", "-", new List<Interval>
@@ -62,43 +21,51 @@ namespace Bravura.Tonality.Tests
         }
 
         [Fact]
-        public void ChordQualityEquals_Test()
+        public void ToString_Override_Test()
         {
-            var minor = new ChordQuality("m", "m", new List<Interval>
-            {
-                Intervals.PerfectUnison,
-                Intervals.MinorThird,
-                Intervals.PerfectFifth,
-            });
-
-            Assert.True(minor.Equals(ChordQualities.Min));
-            Assert.False(minor.Equals(ChordQualities.Maj));
-            Assert.False(minor.Equals(null as ChordQuality));
+            Assert.Equal("7♯9", ChordQualities.Dom7Sharp9.ToString());
         }
 
         [Fact]
-        public void ObjectEquals_Test()
+        public void ToAsciiString_Test()
         {
-            Assert.True(ChordQualities.Maj.Equals((object)ChordQualities.Maj));
-            Assert.False(ChordQualities.Maj.Equals((object)ChordQualities.Min));
-            Assert.False(ChordQualities.Maj.Equals((object)null));
-            Assert.False(ChordQualities.Maj.Equals(new { Foo = "bar" }));
+            Assert.Equal("7#9", ChordQualities.Dom7Sharp9.ToAsciiString());
         }
 
         [Fact]
-        public void GetHashCode_Test()
+        public void ToStringWithIntervals_Test()
         {
-            var minor = new ChordQuality("m", "m", new List<Interval>
-            {
-                Intervals.PerfectUnison,
-                Intervals.MinorThird,
-                Intervals.PerfectFifth,
-            });
-
-            Assert.Equal(minor.GetHashCode(), ChordQualities.Min.GetHashCode());
-            Assert.NotEqual(minor.GetHashCode(), ChordQualities.Maj.GetHashCode());
+            Assert.Equal("m7♭5 { ♮1 ♭3 ♭5 ♭7 }", ChordQualities.Min7Flat5.ToStringWithIntervals());
         }
 
-        // TODO : TryParse_Test()
+        [Fact]
+        public void ToAsciiStringWithIntervals_Test()
+        {
+            Assert.Equal("m7b5 { 1 b3 b5 b7 }", ChordQualities.Min7Flat5.ToAsciiStringWithIntervals());
+        }
+
+        [Fact]
+        public void TryParse_WhenValid_Test()
+        {
+            var result = ChordQuality.TryParse("Maj7", out var quality);
+            Assert.True(result);
+            Assert.Equal(ChordQualities.Maj7, quality);
+        }
+
+        [Fact]
+        public void TryParse_WhenInvalid_Test()
+        {
+            var result = ChordQuality.TryParse("foobar", out var quality);
+            Assert.False(result);
+            Assert.Null(quality);
+        }
+
+        [Fact]
+        public void TryParse_WhenNull_Test()
+        {
+            var result = ChordQuality.TryParse(null, out var quality);
+            Assert.False(result);
+            Assert.Null(quality);
+        }
     }
 }

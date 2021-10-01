@@ -9,22 +9,6 @@ namespace Bravura.Tonality.Tests
         private readonly Chord _anotherCMajor = new Chord(Pitches.CNatural, ChordQualities.Maj);
 
         [Fact]
-        public void Constructor_WhenProvidedNullRoot_Throws()
-        {
-            var exception = Record.Exception(() => new Chord(null, ChordQualities.Maj));
-            Assert.NotNull(exception);
-            Assert.IsType<ChordException>(exception);
-        }
-
-        [Fact]
-        public void Constructor_WhenProvidedNullQuality_Throws()
-        {
-            var exception = Record.Exception(() => new Chord(Pitches.CNatural, null));
-            Assert.NotNull(exception);
-            Assert.IsType<ChordException>(exception);
-        }
-
-        [Fact]
         public void CommonTones_Test()
         {
             var commonTones = _cMajor.CommonTones(_aMinor);
@@ -52,29 +36,28 @@ namespace Bravura.Tonality.Tests
         }
 
         [Fact]
-        public void ChordEquals_Test()
+        public void TryParse_WhenValid_Test()
         {
-            Assert.True(_cMajor.Equals(_anotherCMajor));
-            Assert.False(_cMajor.Equals(_aMinor));
-            Assert.False(_cMajor.Equals((Chord)null));
+            var result = Chord.TryParse("C#m9", out var chord);
+            Assert.True(result);
+            Assert.Equal(Pitches.CSharp, chord.Root);
+            Assert.Equal(ChordQualities.Min9, chord.Quality);
         }
 
         [Fact]
-        public void ObjectEquals_Test()
+        public void TryParse_WhenInvalid_Test()
         {
-            Assert.True(_cMajor.Equals((object)_anotherCMajor));
-            Assert.False(_cMajor.Equals((object)_aMinor));
-            Assert.False(_cMajor.Equals((object)null));
-            Assert.False(_cMajor.Equals(new { Foo = "bar" }));
+            var result = Chord.TryParse("foobar", out var chord);
+            Assert.False(result);
+            Assert.Null(chord);
         }
 
         [Fact]
-        public void GetHashCode_Test()
+        public void TryParse_WhenNull_Test()
         {
-            Assert.Equal(_cMajor.GetHashCode(), _anotherCMajor.GetHashCode());
-            Assert.NotEqual(_cMajor.GetHashCode(), _aMinor.GetHashCode());
+            var result = Chord.TryParse(null, out var chord);
+            Assert.False(result);
+            Assert.Null(chord);
         }
-
-        // TODO : TryParse_Test()
     }
 }
