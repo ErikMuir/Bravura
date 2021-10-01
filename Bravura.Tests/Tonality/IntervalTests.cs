@@ -4,62 +4,12 @@ namespace Bravura.Tonality.Tests
 {
     public class IntervalTests
     {
-        private readonly Interval _unison = new Interval(0, Accidentals.Natural, 1, IntervalNames.PerfectUnison, IntervalSymbols.PerfectUnison);
-        private readonly Interval _foobarUnison = new Interval(0, Accidentals.Natural, 1, "foobar", "foobar");
-
-        [Fact]
-        public void Constructor_WhenDegreeIsLessThanZero_ThenThrows()
-        {
-            short degree = 0;
-
-            var exception = Record.Exception(() => new Interval(0, Accidentals.Natural, degree, "foobar", "foobar"));
-
-            Assert.NotNull(exception);
-            Assert.IsType<IntervalException>(exception);
-        }
-
-        [Fact]
-        public void Constructor_WhenDegreeIsMoreThanSeven_ThenThrows()
-        {
-            short degree = 9;
-
-            var exception = Record.Exception(() => new Interval(0, Accidentals.Natural, degree, "foobar", "foobar"));
-
-            Assert.NotNull(exception);
-            Assert.IsType<IntervalException>(exception);
-        }
-
-        [Theory]
-        [InlineData(null)]
-        [InlineData("")]
-        [InlineData("   \n \r \t   ")]
-        public void Constructor_WhenNameIsNotProvided_ThenThrows(string name)
-        {
-            var exception = Record.Exception(() => new Interval(0, Accidentals.Natural, 0, name, "foobar"));
-
-            Assert.NotNull(exception);
-            Assert.IsType<IntervalException>(exception);
-        }
-
-        [Theory]
-        [InlineData(null)]
-        [InlineData("")]
-        [InlineData("   \n \r \t   ")]
-        public void Constructor_WhenSymbolIsNotProvided_ThenThrows(string symbol)
-        {
-            var exception = Record.Exception(() => new Interval(0, Accidentals.Natural, 0, "foobar", symbol));
-
-            Assert.NotNull(exception);
-            Assert.IsType<IntervalException>(exception);
-        }
-
-        // TODO : ToString_Test()
-        // TODO : ToAsciiString_Test()
+        private readonly Interval _customUnison = new Interval(0, Accidentals.Natural, 1, "foobar", "foobar");
 
         [Fact]
         public void EffectivelyEquals_Test()
         {
-            Assert.True(Intervals.PerfectUnison.EffectivelyEquals(_foobarUnison));
+            Assert.True(Intervals.PerfectUnison.EffectivelyEquals(_customUnison));
             Assert.True(Intervals.PerfectUnison.EffectivelyEquals(Intervals.DiminishedSecond));
             Assert.True(Intervals.DiminishedSecond.EffectivelyEquals(Intervals.PerfectUnison));
             Assert.False(Intervals.MinorSecond.EffectivelyEquals(Intervals.MajorSecond));
@@ -67,26 +17,19 @@ namespace Bravura.Tonality.Tests
         }
 
         [Fact]
-        public void IntervalEquals_Test()
+        public void ToString_Override_Test()
         {
-            Assert.True(Intervals.PerfectUnison.Equals(_unison));
-            Assert.False(Intervals.PerfectUnison.Equals(Intervals.MinorSecond));
+            Assert.Equal("♭3", Intervals.MinorThird.ToString());
+            Assert.Equal("♮3", Intervals.MajorThird.ToString());
+            Assert.Equal("♯5", Intervals.AugmentedFifth.ToString());
         }
 
         [Fact]
-        public void ObjectEquals_Test()
+        public void ToAsciiString_Test()
         {
-            Assert.True(Intervals.PerfectUnison.Equals(_unison));
-            Assert.False(Intervals.PerfectUnison.Equals((object)Intervals.MinorSecond));
-            Assert.False(Intervals.PerfectUnison.Equals((object)null));
-            Assert.False(Intervals.PerfectUnison.Equals(new { Foo = "bar" }));
-        }
-
-        [Fact]
-        public void GetHashCode_Test()
-        {
-            Assert.Equal(Intervals.PerfectUnison.GetHashCode(), _unison.GetHashCode());
-            Assert.NotEqual(Intervals.PerfectUnison.GetHashCode(), Intervals.MinorSecond.GetHashCode());
+            Assert.Equal("b3", Intervals.MinorThird.ToAsciiString());
+            Assert.Equal("3", Intervals.MajorThird.ToAsciiString());
+            Assert.Equal("#5", Intervals.AugmentedFifth.ToAsciiString());
         }
     }
 }
