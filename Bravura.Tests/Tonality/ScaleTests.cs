@@ -4,79 +4,60 @@ namespace Bravura.Tonality.Tests
 {
     public class ScaleTests
     {
+        private readonly Scale _cSharpMinor = new Scale(Pitches.CSharp, Modes.NaturalMinor);
+        private readonly Scale _fSharpMinorPentatonic = new Scale(Pitches.FSharp, Modes.MinorPentatonic);
+        private readonly Scale _dFlatMinor = new Scale(Pitches.DFlat, Modes.NaturalMinor);
         private readonly Scale _cMajor = new Scale(Pitches.CNatural, Modes.Major);
-        private readonly Scale _bSharpMajor = new Scale(Pitches.BSharp, Modes.Major);
-        private readonly Scale _cMinor = new Scale(Pitches.CNatural, Modes.NaturalMinor);
-
 
         [Fact]
-        public void Constructor_WhenRootIsNull_ThenThrows()
+        public void Pitches_Test()
         {
-            var exception = Record.Exception(() => new Scale(null, Modes.Ionian));
+            Assert.Equal(7, _cSharpMinor.Pitches.Count);
+            Assert.Equal(Pitches.CSharp, _cSharpMinor.Pitches[0]);
+            Assert.Equal(Pitches.DSharp, _cSharpMinor.Pitches[1]);
+            Assert.Equal(Pitches.ENatural, _cSharpMinor.Pitches[2]);
+            Assert.Equal(Pitches.FSharp, _cSharpMinor.Pitches[3]);
+            Assert.Equal(Pitches.GSharp, _cSharpMinor.Pitches[4]);
+            Assert.Equal(Pitches.ANatural, _cSharpMinor.Pitches[5]);
+            Assert.Equal(Pitches.BNatural, _cSharpMinor.Pitches[6]);
 
-            Assert.NotNull(exception);
-            Assert.IsType<ScaleException>(exception);
-        }
-
-        [Fact]
-        public void Constructor_WhenModeIsNull_ThenThrows()
-        {
-            var exception = Record.Exception(() => new Scale(Pitches.CNatural, null));
-
-            Assert.NotNull(exception);
-            Assert.IsType<ScaleException>(exception);
-        }
-
-        [Fact]
-        public void Constructor_CorrectlySetsPitches()
-        {
-            var eMajor = new Scale(Pitches.ENatural, Modes.Major);
-            Assert.Equal(7, eMajor.Pitches.Count);
-            Assert.Equal(Pitches.ENatural, eMajor.Pitches[0]);
-            Assert.Equal(Pitches.FSharp, eMajor.Pitches[1]);
-            Assert.Equal(Pitches.GSharp, eMajor.Pitches[2]);
-            Assert.Equal(Pitches.ANatural, eMajor.Pitches[3]);
-            Assert.Equal(Pitches.BNatural, eMajor.Pitches[4]);
-            Assert.Equal(Pitches.CSharp, eMajor.Pitches[5]);
-            Assert.Equal(Pitches.DSharp, eMajor.Pitches[6]);
-
-            var fSharpMinorPentatonic = new Scale(Pitches.FSharp, Modes.MinorPentatonic);
-            Assert.Equal(5, fSharpMinorPentatonic.Pitches.Count);
-            Assert.Equal(Pitches.FSharp, fSharpMinorPentatonic.Pitches[0]);
-            Assert.Equal(Pitches.ANatural, fSharpMinorPentatonic.Pitches[1]);
-            Assert.Equal(Pitches.BNatural, fSharpMinorPentatonic.Pitches[2]);
-            Assert.Equal(Pitches.CSharp, fSharpMinorPentatonic.Pitches[3]);
-            Assert.Equal(Pitches.ENatural, fSharpMinorPentatonic.Pitches[4]);
+            Assert.Equal(5, _fSharpMinorPentatonic.Pitches.Count);
+            Assert.Equal(Pitches.FSharp, _fSharpMinorPentatonic.Pitches[0]);
+            Assert.Equal(Pitches.ANatural, _fSharpMinorPentatonic.Pitches[1]);
+            Assert.Equal(Pitches.BNatural, _fSharpMinorPentatonic.Pitches[2]);
+            Assert.Equal(Pitches.CSharp, _fSharpMinorPentatonic.Pitches[3]);
+            Assert.Equal(Pitches.ENatural, _fSharpMinorPentatonic.Pitches[4]);
         }
 
         [Fact]
         public void EnharmonicallyEquals_Test()
         {
-            Assert.True(_cMajor.EnharmonicallyEquals(_bSharpMajor));
-            Assert.False(_cMajor.EnharmonicallyEquals(_cMinor));
+            Assert.True(_cSharpMinor.EnharmonicallyEquals(_dFlatMinor));
+            Assert.False(_cSharpMinor.EnharmonicallyEquals(_cMajor));
         }
 
         [Fact]
-        public void ScaleEquals_Test()
+        public void ToString_Override_Test()
         {
-            Assert.True(_cMajor.Equals(_cMajor));
-            Assert.False(_cMajor.Equals(_bSharpMajor));
+            Assert.Equal("C♯ Natural Minor", _cSharpMinor.ToString());
         }
 
         [Fact]
-        public void ObjectEquals_Test()
+        public void ToAsciiString_Test()
         {
-            Assert.True(_cMajor.Equals((object)_cMajor));
-            Assert.False(_cMajor.Equals((object)_bSharpMajor));
-            Assert.False(_cMajor.Equals((object)null));
-            Assert.False(_cMajor.Equals(new { Foo = "bar" }));
+            Assert.Equal("C# Natural Minor", _cSharpMinor.ToAsciiString());
         }
 
         [Fact]
-        public void GetHashCode_Test()
+        public void ToStringWithPitches_Test()
         {
-            Assert.Equal(_cMajor.GetHashCode(), _cMajor.GetHashCode());
-            Assert.NotEqual(_cMajor.GetHashCode(), _bSharpMajor.GetHashCode());
+            Assert.Equal("C♯ Natural Minor { C♯ D♯ E F♯ G♯ A B }", _cSharpMinor.ToStringWithPitches());
+        }
+
+        [Fact]
+        public void ToAsciiStringWithPitches_Test()
+        {
+            Assert.Equal("C# Natural Minor { C# D# E F# G# A B }", _cSharpMinor.ToAsciiStringWithPitches());
         }
     }
 }
