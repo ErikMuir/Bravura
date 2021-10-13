@@ -5,7 +5,7 @@ Namespace: [Bravura.Tonality](./Bravura.Tonality.md)
 ### Represents a musical scale and the root and mode that it consists of.
 
 ```csharp
-public class Scale
+public record Scale
 ```
 
 Inheritance: Object -> Scale
@@ -13,7 +13,7 @@ Inheritance: Object -> Scale
 ## Constructors
 | Constructor | Description |
 | --- | --- |
-| Scale([Pitch](./Pitch.md), [Mode](./Mode.md)) | Initializes a new instance of the [Scale](./Scale.md) class. |
+| Scale([Pitch](./Pitch.md), [Mode](./Mode.md)) | Initializes a new instance of the [Scale](./Scale.md) record. |
 
 ## Fields
 | Field | Type | Description |
@@ -26,6 +26,7 @@ Inheritance: Object -> Scale
 | Method | Return Type | Description |
 | --- | --- | --- |
 | EnharmonicallyEquals([Scale](./Scale.md)) | Boolean | Determines whether the specified scale's root is enharmonically equal to the current scale, and the specified mode effectively equals the current scale. |
-| Equals([Scale](./Scale.md)) | Boolean | Determines whether the specified scale is equal to the current scale. |
-| Equals(Object) | Boolean | Determines whether the specified object is equal to the current object. (Inherited from Object) |
-| GetHashCode() | Int32 | Serves as the default hash function. (Inherited from Object) |
+| ToString() | String | Returns the string representation of the scale. |
+| ToAsciiString() | String | Returns the ASCII string representation of the scale. |
+| ToStringWithPitches() | String | Returns the string representation of the scale including its pitches. |
+| ToAsciiStringWithPitches() | String | Returns the ASCII string representation of the scale including its pitches. |

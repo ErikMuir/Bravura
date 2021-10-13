@@ -2,6 +2,8 @@
 
 Namespace: [Bravura.Common](./Bravura.Common.md)
 
+_**NOTE:** This class is marked obsolete._
+
 ### Calculates the hash code of one or more values.
 
 ```csharp

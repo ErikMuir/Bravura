@@ -5,7 +5,7 @@ Namespace: [Bravura.Tonality](./Bravura.Tonality.md)
 ### Represents the quality of a chord and the intervals that it consists of.
 
 ```csharp
-public class ChordQuality
+public record ChordQuality
 ```
 
 Inheritance: Object -> ChordQuality
@@ -13,7 +13,7 @@ Inheritance: Object -> ChordQuality
 ## Constructors
 | Constructor | Description |
 | --- | --- |
-| ChordQuality(String, String, List<[Interval](./Interval.md)>) | Initializes a new instance of the [ChordQuality](./ChordQuality.md) class. * |
+| ChordQuality(String, String, List<[Interval](./Interval.md)>) | Initializes a new instance of the [ChordQuality](./ChordQuality.md) record. * |
 
 ## Fields
 | Field | Type | Description |
@@ -26,8 +26,10 @@ Inheritance: Object -> ChordQuality
 | Method | Return Type | Description |
 | --- | --- | --- |
 | EffectivelyEquals([ChordQuality](./ChordQuality.md)) | Boolean | Determines whether the specified chord quality has the same semitones as the current chord quality. |
-| Equals([ChordQuality](./ChordQuality.md)) | Boolean | Determines whether the specified chord quality is equal to the current chord quality. |
-| Equals(Object) | Boolean | Determines whether the specified object is equal to the current object. (Inherited from Object) |
-| GetHashCode() | Int32 | Serves as the default hash function. (Inherited from Object) |
+| ToString() | String | Returns the string representation of the chord quality. |
+| ToAsciiString() | String | Returns the ASCII string representation of the chord quality. |
+| ToStringWithIntervals() | String | Returns the string representation of the chord quality, including its intervals. |
+| ToAsciiStringWithIntervals() | String | Returns the ASCII string representation of the chord quality, including its intervals. |
+| TryParse(String, [ChordQuality](./ChordQuality.md)) | Boolean | Converts the string representation of a chord quality to an instance of a [ChordQuality](./ChordQuality.md). A return value indicates whether the conversion succeeded.
 
 \* See the static class [ChordQualities](./ChordQualities.md) for all instances.

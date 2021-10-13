@@ -13,7 +13,7 @@ The [Bravura.Common](./Bravura.Common.md) namespace contains classes, etc. that 
 ## Structs
 | Struct | Description |
 | --- | --- |
-| [HashCode](./HashCode.md) | Calculates the hash code of one or more values. |
+| [HashCode](./HashCode.md) | [Obsolete] Calculates the hash code of one or more values. |
 
 ## Interfaces
 | Interface | Description |

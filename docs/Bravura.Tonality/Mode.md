@@ -5,7 +5,7 @@ Namespace: [Bravura.Tonality](./Bravura.Tonality.md)
 ### Represents a musical mode and the intervals that it consists of.
 
 ```csharp
-public class Mode
+public record Mode
 ```
 
 Inheritance: Object -> Mode
@@ -13,7 +13,7 @@ Inheritance: Object -> Mode
 ## Constructors
 | Constructor | Description |
 | --- | --- |
-| Mode(String, List<[Interval](./Interval.md)>) | Initializes a new instance of the [Mode](./Mode.md) class. * |
+| Mode(String, List<[Interval](./Interval.md)>) | Initializes a new instance of the [Mode](./Mode.md) record. * |
 
 ## Fields
 | Field | Type | Description |
@@ -25,8 +25,8 @@ Inheritance: Object -> Mode
 | Method | Return Type | Description |
 | --- | --- | --- |
 | EffectivelyEquals([Mode](./Mode.md)) | Boolean | Determines whether the specified mode has the same intervals as the current mode. |
-| Equals([Mode](./Mode.md)) | Boolean | Determines whether the specified mode is equal to the current mode. |
-| Equals(Object) | Boolean | Determines whether the specified object is equal to the current object. (Inherited from Object) |
-| GetHashCode() | Int32 | Serves as the default hash function. (Inherited from Object) |
+| ToString() | String | Returns the name of the mode. |
+| ToStringWithIntervals() | String | Returns the string representation of the mode, including its intervals. |
+| ToAsciiStringWithIntervals() | String | Returns the ASCII string representation of the mode, including its intervals. |
 
 \* See the static class [Modes](./Modes.md) for all instances.

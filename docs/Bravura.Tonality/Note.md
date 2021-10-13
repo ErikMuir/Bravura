@@ -33,8 +33,6 @@ Inheritance: Object -> ValueType -> Note
 | IsPreviousNoteOneSemitoneAway() | Boolean | Indicates whether the previous note in `Notes.MusicalAlphabet` is only one semitone away. |
 | IsNextNoteOneSemitoneAway() | Boolean | Indicates whether the next note in `Notes.MusicalAlphabet` is only one semitone away. |
 | GetNoteByIndex(Int32) | [Note](./Note.md) | Gets the note at the specified index of `Notes.MusicalAlphabet` |
-| Equals([Note](./Note.md)) | Boolean | Determines whether the specified note is equal to the current note. |
-| Equals(Object) | Boolean | Determines whether the specified object is equal to the current object. (Inherited from Object) |
-| GetHashCode() | Int32 | Serves as the default hash function. (Inherited from Object) |
+| ToString() | String | Returns the note letter. |
 
 \* See the static class [Notes](./Notes.md) for all instances.

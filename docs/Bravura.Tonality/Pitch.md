@@ -5,7 +5,7 @@ Namespace: [Bravura.Tonality](./Bravura.Tonality.md)
 ### Represents the combination of a Note and an Accidental.
 
 ```csharp
-public class Pitch
+public record Pitch
 ```
 
 Inheritance: Object -> Pitch
@@ -13,7 +13,7 @@ Inheritance: Object -> Pitch
 ## Constructors
 | Constructor | Description |
 | --- | --- |
-| Pitch([Note](./Note.md), [Accidental](./Accidental.md)) | Initializes a new instance of the [Pitch](./Pitch.md) class. |
+| Pitch([Note](./Note.md), [Accidental](./Accidental.md)) | Initializes a new instance of the [Pitch](./Pitch.md) record. |
 
 ## Properties
 | Property | Type | Description |
@@ -23,18 +23,17 @@ Inheritance: Object -> Pitch
 | SemitonesAboveC | Int32 | The distance (in semitones) above C natural. |
 | IsFlat | Boolean | Describes whether or not the pitch's accidental is flat or double flat. |
 | IsSharp | Boolean | Describes whether or not the pitch's accidental sharp or double sharp. |
+| Logical | [Pitch](./Pitch.md) | The enharmonically equal pitch whose accidental is closest to natural if one exists, otherwise returns itself. |
 
 ## Methods
 | Method | Return Type | Description |
 | --- | --- | --- |
-| Logical() | [Pitch](./Pitch.md) | The enharmonically equal pitch whose accidental is closest to natural if one exists, otherwise returns itself. |
 | GetPitchByIntervalAbove([Interval](./Interval.md)) | [Pitch](./Pitch.md) | The pitch found when moving up by the specified interval. |
 | GetPitchByIntervalBelow([Interval](./Interval.md)) | [Pitch](./Pitch.md) | The pitch found when moving down by the specified interval. |
 | ToString() | String | Returns the string representation of the pitch. |
+| ToString(Boolean) | String | Returns the string representation of the pitch, optionally including the natural symbol for natural pitches. |
 | ToAsciiString() | String | Returns the ASCII string representation of the pitch. |
 | EnharmonicallyEquals([Pitch](./Pitch.md)) | Boolean | Indicates whether the specified pitch is enharmonically equal to the current pitch. (Two pitches are considered to be enharmonically equal when their distance (in semitones) above C natural are the same.) |
-| Equals([Pitch](./Pitch.md)) | Boolean | Determines whether the specified pitch is equal to the current pitch. |
-| Equals(Object) | Boolean | Determines whether the specified object is equal to the current object. (Inherited from Object) |
-| GetHashCode() | Int32 | Serves as the default hash function. (Inherited from Object) |
+| TryParse(String, [Pitch](./Pitch.md)) | Boolean | Converts the string representation of a pitch to an instance of a [Pitch](./Pitch.md). A return value indicates whether the conversion succeeded. |
 
 \* See the static class [Pitches](./Pitches.md) for all instances.
