@@ -7,14 +7,14 @@ namespace Bravura.Console
 {
     public static class PitchCommand
     {
-        private static readonly FluentConsole _console = new FluentConsole();
+        private static readonly FluentConsole _console = new();
 
         static PitchCommand()
         {
             Command.Handler = CommandHandler.Create<string>(_handler);
         }
 
-        public static Command Command = new Command("pitch") { new Argument<string>("val") };
+        public static Command Command = new("pitch") { new Argument<string>("val") };
 
         private static void _handler(string val)
         {
@@ -24,9 +24,10 @@ namespace Bravura.Console
                 return;
             }
 
-            _console.Info($"Pitch: {pitch.ToAsciiString()}");
-            _console.Info($"Semitones Above C Natural: {pitch.SemitonesAboveC}");
-            _console.Info($"Logical: {pitch.Logical.ToAsciiString()}");
+            _console
+                .Info($"Pitch: {pitch.ToAsciiString()}")
+                .Info($"Semitones Above C Natural: {pitch.SemitonesAboveC}")
+                .Info($"Logical: {pitch.Logical.ToAsciiString()}");
         }
     }
 }

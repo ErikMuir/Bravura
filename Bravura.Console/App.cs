@@ -13,7 +13,7 @@ namespace Bravura.Console
 {
     public class App
     {
-        private static readonly FluentConsole _console = new FluentConsole();
+        private static readonly FluentConsole _console = new();
         private readonly string[] _args;
         private readonly RootCommand _rootCommand;
 

@@ -8,28 +8,29 @@ namespace Bravura.Console
 {
     public static class ChromaticScaleCommand
     {
-        private static readonly FluentConsole _console = new FluentConsole();
+        private static readonly FluentConsole _console = new();
 
         static ChromaticScaleCommand()
         {
             Command.Handler = CommandHandler.Create<string>(_handler);
         }
 
-        public static Command Command = new Command("chromatic-scale") { new Argument<string>("root") };
+        public static Command Command = new("chromatic-scale") { new Argument<string>("root") };
 
         private static void _handler(string root)
         {
-            if (!Bravura.Tonality.Pitch.TryParse(root, out var parsedRoot))
+            if (!Pitch.TryParse(root, out var parsedRoot))
             {
                 _console.Failure($"'{root}' is not a valid pitch!");
                 return;
             }
 
-            var scale = new ChromaticScale(parsedRoot);
+            ChromaticScale scale = new(parsedRoot);
 
-            var pitches = string.Join(" ", scale.Pitches.Select(p => p.ToAsciiString()));
-            _console.Info($"Root: {scale.Root.ToAsciiString()}");
-            _console.Info($"Pitches: {pitches}");
+            string pitches = string.Join(" ", scale.Pitches.Select(p => p.ToAsciiString()));
+            _console
+                .Info($"Root: {scale.Root.ToAsciiString()}")
+                .Info($"Pitches: {pitches}");
         }
     }
 }
