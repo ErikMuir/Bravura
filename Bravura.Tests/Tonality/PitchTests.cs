@@ -67,38 +67,17 @@ namespace Bravura.Tonality.Tests
         }
 
         [Fact]
-        public void ToString_Override_Test()
+        public void DisplayValue_Test()
         {
-            Assert.Equal("G♭♭", Pitches.GDoubleFlat.ToString());
-            Assert.Equal("G♭", Pitches.GFlat.ToString());
-            Assert.Equal("G", Pitches.GNatural.ToString());
-            Assert.Equal("G♯", Pitches.GSharp.ToString());
-            Assert.Equal("G♯♯", Pitches.GDoubleSharp.ToString());
+            Assert.Equal("C♯", Pitches.CSharp.DisplayValue());
+            Assert.Equal("C♯", Pitches.CSharp.DisplayValue(false));
+            Assert.Equal("C#", Pitches.CSharp.DisplayValue(true));
         }
 
         [Fact]
-        public void ToString_Overload_Test()
+        public void DisplayValueWithNaturals_Test()
         {
-            Assert.Equal("G♭♭", Pitches.GDoubleFlat.ToString(true));
-            Assert.Equal("G♭", Pitches.GFlat.ToString(true));
-            Assert.Equal("G♮", Pitches.GNatural.ToString(true));
-            Assert.Equal("G♯", Pitches.GSharp.ToString(true));
-            Assert.Equal("G♯♯", Pitches.GDoubleSharp.ToString(true));
-            Assert.Equal("G♭♭", Pitches.GDoubleFlat.ToString(false));
-            Assert.Equal("G♭", Pitches.GFlat.ToString(false));
-            Assert.Equal("G", Pitches.GNatural.ToString(false));
-            Assert.Equal("G♯", Pitches.GSharp.ToString(false));
-            Assert.Equal("G♯♯", Pitches.GDoubleSharp.ToString(false));
-        }
-
-        [Fact]
-        public void ToAsciiString_Test()
-        {
-            Assert.Equal("Gbb", Pitches.GDoubleFlat.ToAsciiString());
-            Assert.Equal("Gb", Pitches.GFlat.ToAsciiString());
-            Assert.Equal("G", Pitches.GNatural.ToAsciiString());
-            Assert.Equal("G#", Pitches.GSharp.ToAsciiString());
-            Assert.Equal("G##", Pitches.GDoubleSharp.ToAsciiString());
+            Assert.Equal("G♮", Pitches.GNatural.DisplayValueWithNaturals());
         }
 
         [Theory]

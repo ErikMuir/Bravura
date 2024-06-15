@@ -25,12 +25,10 @@ namespace Bravura.Console
                 return;
             }
 
-            string degrees = string.Join(" ", chordQuality.Intervals.Select(i => i.ToAsciiString()));
-            string symbols = string.Join(" ", chordQuality.Intervals.Select(i => i.Symbol));
             _console
-                .Info($"Chord Quality: {chordQuality.AsciiSymbol}")
-                .Info($"Degrees: {degrees}")
-                .Info($"Symbols: {symbols}");
+                .Info($"Chord Quality: {chordQuality.ToAsciiString()}")
+                .Info($"Degrees: {string.Join(" ", chordQuality.Intervals.Select(i => i.ToAsciiString()))}")
+                .Info($"Symbols: {string.Join(" ", chordQuality.Intervals.Select(i => i.Symbol))}");
         }
     }
 }

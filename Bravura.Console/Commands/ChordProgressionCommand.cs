@@ -20,7 +20,6 @@ namespace Bravura.Console
 
         private static void _handler(string[] chords)
         {
-            // _console.Failure($"That command is not yet implemented!");
             List<Chord> progression = new();
             foreach (string val in chords)
             {

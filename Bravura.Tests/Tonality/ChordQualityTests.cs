@@ -21,27 +21,19 @@ namespace Bravura.Tonality.Tests
         }
 
         [Fact]
-        public void ToString_Override_Test()
+        public void DisplayValue_Test()
         {
-            Assert.Equal("7♯9", ChordQualities.Dom7Sharp9.ToString());
+            Assert.Equal("7♯9", ChordQualities.Dom7Sharp9.DisplayValue());
+            Assert.Equal("7♯9", ChordQualities.Dom7Sharp9.DisplayValue(false));
+            Assert.Equal("7#9", ChordQualities.Dom7Sharp9.DisplayValue(true));
         }
 
         [Fact]
-        public void ToAsciiString_Test()
+        public void DisplayValueWithIntervals_Test()
         {
-            Assert.Equal("7#9", ChordQualities.Dom7Sharp9.ToAsciiString());
-        }
-
-        [Fact]
-        public void ToStringWithIntervals_Test()
-        {
-            Assert.Equal("m7♭5 { ♮1 ♭3 ♭5 ♭7 }", ChordQualities.Min7Flat5.ToStringWithIntervals());
-        }
-
-        [Fact]
-        public void ToAsciiStringWithIntervals_Test()
-        {
-            Assert.Equal("m7b5 { 1 b3 b5 b7 }", ChordQualities.Min7Flat5.ToAsciiStringWithIntervals());
+            Assert.Equal("m7♭5 { ♮1 ♭3 ♭5 ♭7 }", ChordQualities.Min7Flat5.DisplayValueWithIntervals());
+            Assert.Equal("m7♭5 { ♮1 ♭3 ♭5 ♭7 }", ChordQualities.Min7Flat5.DisplayValueWithIntervals(false));
+            Assert.Equal("m7b5 { 1 b3 b5 b7 }", ChordQualities.Min7Flat5.DisplayValueWithIntervals(true));
         }
 
         [Fact]

@@ -6,6 +6,6 @@ namespace Bravura.Common
             => string.IsNullOrWhiteSpace(val) ? null : val.Trim();
 
         public static string SafeTrim(this string val)
-            => val == null ? null : val.Trim();
+            => val?.Trim();
     }
 }

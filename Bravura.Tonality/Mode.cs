@@ -1,22 +1,20 @@
 using System.Collections.Generic;
-using System.Linq;
 
-namespace Bravura.Tonality
+namespace Bravura.Tonality;
+
+public record Mode(string Name, List<Interval> Intervals) : IBaseTonality
 {
-    public record Mode(string Name, List<Interval> Intervals)
+    public bool EffectivelyEquals(Mode other)
     {
-        public bool EffectivelyEquals(Mode other)
+        if (other == null) return false;
+        for (var i = 0; i < Intervals.Count; i++)
         {
-            if (other == null) return false;
-            for (var i = 0; i < Intervals.Count; i++)
-            {
-                if (!Intervals[i].Equals(other.Intervals[i])) return false;
-            }
-            return true;
+            if (!Intervals[i].Equals(other.Intervals[i])) return false;
         }
-
-        public override string ToString() => Name;
-        public string ToStringWithIntervals() => $"{ Name } {{ { string.Join(" ", Intervals.Select(i => i.ToString())) } }}";
-        public string ToAsciiStringWithIntervals() => $"{ Name } {{ { string.Join(" ", Intervals.Select(i => i.ToAsciiString())) } }}";
+        return true;
     }
+
+    public string DisplayValue(bool onlyAscii = false) => Name;
+
+    public string DisplayValueWithIntervals(bool onlyAscii = false) => $"{DisplayValue(onlyAscii)} {{ {Intervals.DisplayValue(onlyAscii)} }}";
 }

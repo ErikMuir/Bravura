@@ -24,13 +24,11 @@ namespace Bravura.Console
                 return;
             }
 
-            string notes = string.Join(" ", chord.AsciiNoteSymbols);
-            string chordTones = string.Join(" ", chord.AsciiChordTones);
             _console
                 .Info($"Root: {chord.Root.ToAsciiString()}")
-                .Info($"Quality: {chord.Quality.AsciiSymbol}")
-                .Info($"Notes: {notes}")
-                .Info($"Chord Tones: {chordTones}");
+                .Info($"Quality: {chord.Quality.ToAsciiString()}")
+                .Info($"Notes: {string.Join(" ", chord.AsciiNoteSymbols)}")
+                .Info($"Chord Tones: {string.Join(" ", chord.AsciiChordTones)}");
         }
     }
 }

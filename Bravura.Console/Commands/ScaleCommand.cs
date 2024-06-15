@@ -39,11 +39,10 @@ namespace Bravura.Console
 
             Scale scale = new(parsedRoot, parsedMode);
 
-            string pitches = string.Join(" ", scale.Pitches.Select(p => p.ToAsciiString()));
             _console
                 .Info($"Root: {scale.Root.ToAsciiString()}")
-                .Info($"Mode: {scale.Mode.Name}")
-                .Info($"Pitches: {pitches}");
+                .Info($"Mode: {scale.Mode.ToAsciiString()}")
+                .Info($"Pitches: {string.Join(" ", scale.Pitches.Select(p => p.ToAsciiString()))}");
         }
     }
 }

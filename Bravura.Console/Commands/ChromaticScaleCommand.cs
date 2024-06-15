@@ -27,10 +27,9 @@ namespace Bravura.Console
 
             ChromaticScale scale = new(parsedRoot);
 
-            string pitches = string.Join(" ", scale.Pitches.Select(p => p.ToAsciiString()));
             _console
                 .Info($"Root: {scale.Root.ToAsciiString()}")
-                .Info($"Pitches: {pitches}");
+                .Info($"Pitches: {string.Join(" ", scale.Pitches.Select(p => p.ToAsciiString()))}");
         }
     }
 }

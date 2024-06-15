@@ -37,27 +37,19 @@ namespace Bravura.Tonality.Tests
         }
 
         [Fact]
-        public void ToString_Override_Test()
+        public void DisplayValue_Test()
         {
-            Assert.Equal("C♯ Natural Minor", _cSharpMinor.ToString());
+            Assert.Equal("C♯ Natural Minor", _cSharpMinor.DisplayValue());
+            Assert.Equal("C♯ Natural Minor", _cSharpMinor.DisplayValue(false));
+            Assert.Equal("C# Natural Minor", _cSharpMinor.DisplayValue(true));
         }
 
         [Fact]
-        public void ToAsciiString_Test()
+        public void DisplayValueWithPitches_Test()
         {
-            Assert.Equal("C# Natural Minor", _cSharpMinor.ToAsciiString());
-        }
-
-        [Fact]
-        public void ToStringWithPitches_Test()
-        {
-            Assert.Equal("C♯ Natural Minor { C♯ D♯ E F♯ G♯ A B }", _cSharpMinor.ToStringWithPitches());
-        }
-
-        [Fact]
-        public void ToAsciiStringWithPitches_Test()
-        {
-            Assert.Equal("C# Natural Minor { C# D# E F# G# A B }", _cSharpMinor.ToAsciiStringWithPitches());
+            Assert.Equal("C♯ Natural Minor { C♯ D♯ E F♯ G♯ A B }", _cSharpMinor.DisplayValueWithPitches());
+            Assert.Equal("C♯ Natural Minor { C♯ D♯ E F♯ G♯ A B }", _cSharpMinor.DisplayValueWithPitches(false));
+            Assert.Equal("C# Natural Minor { C# D# E F# G# A B }", _cSharpMinor.DisplayValueWithPitches(true));
         }
     }
 }

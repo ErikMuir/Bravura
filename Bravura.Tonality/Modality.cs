@@ -1,8 +1,7 @@
-namespace Bravura.Tonality
+namespace Bravura.Tonality;
+
+public enum Modality
 {
-    public enum Modality
-    {
-        Major, 
-        Minor,
-    }
+    Major,
+    Minor,
 }

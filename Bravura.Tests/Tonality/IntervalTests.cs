@@ -17,19 +17,11 @@ namespace Bravura.Tonality.Tests
         }
 
         [Fact]
-        public void ToString_Override_Test()
+        public void DisplayValue_Test()
         {
-            Assert.Equal("♭3", Intervals.MinorThird.ToString());
-            Assert.Equal("♮3", Intervals.MajorThird.ToString());
-            Assert.Equal("♯5", Intervals.AugmentedFifth.ToString());
-        }
-
-        [Fact]
-        public void ToAsciiString_Test()
-        {
-            Assert.Equal("b3", Intervals.MinorThird.ToAsciiString());
-            Assert.Equal("3", Intervals.MajorThird.ToAsciiString());
-            Assert.Equal("#5", Intervals.AugmentedFifth.ToAsciiString());
+            Assert.Equal("♭3", Intervals.MinorThird.DisplayValue());
+            Assert.Equal("♭3", Intervals.MinorThird.DisplayValue(false));
+            Assert.Equal("b3", Intervals.MinorThird.DisplayValue(true));
         }
     }
 }

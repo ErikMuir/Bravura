@@ -25,12 +25,10 @@ namespace Bravura.Console
                 return;
             }
 
-            string degrees = string.Join(" ", mode.Intervals.Select(i => i.ToAsciiString()));
-            string symbols = string.Join(" ", mode.Intervals.Select(i => i.Symbol));
             _console
-                .Info($"Mode: {mode.Name}")
-                .Info($"Degrees: {degrees}")
-                .Info($"Symbols: {symbols}");
+                .Info($"Mode: {mode}")
+                .Info($"Degrees: {string.Join(" ", mode.Intervals.Select(i => i.ToAsciiString()))}")
+                .Info($"Symbols: {string.Join(" ", mode.Intervals.Select(i => i.Symbol))}");
         }
     }
 }

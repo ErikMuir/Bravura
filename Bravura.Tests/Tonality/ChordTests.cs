@@ -38,27 +38,19 @@ namespace Bravura.Tonality.Tests
         }
 
         [Fact]
-        public void ToString_Override_Test()
+        public void DisplayValue_Test()
         {
-            Assert.Equal("C♯m7", _cSharpMin7.ToString());
+            Assert.Equal("C♯m7", _cSharpMin7.DisplayValue());
+            Assert.Equal("C♯m7", _cSharpMin7.DisplayValue(false));
+            Assert.Equal("C#m7", _cSharpMin7.DisplayValue(true));
         }
 
         [Fact]
-        public void ToAsciiString_Test()
+        public void DisplayValueWithPitches_Test()
         {
-            Assert.Equal("C#m7", _cSharpMin7.ToAsciiString());
-        }
-
-        [Fact]
-        public void ToStringWithPitches_Test()
-        {
-            Assert.Equal("C♯m7 { C♯ E G♯ B }", _cSharpMin7.ToStringWithPitches());
-        }
-
-        [Fact]
-        public void ToAsciiStringWithPitches_Test()
-        {
-            Assert.Equal("C#m7 { C# E G# B }", _cSharpMin7.ToAsciiStringWithPitches());
+            Assert.Equal("C♯m7 { C♯ E G♯ B }", _cSharpMin7.DisplayValueWithPitches());
+            Assert.Equal("C♯m7 { C♯ E G♯ B }", _cSharpMin7.DisplayValueWithPitches(false));
+            Assert.Equal("C#m7 { C# E G# B }", _cSharpMin7.DisplayValueWithPitches(true));
         }
 
         [Fact]
