@@ -54,11 +54,11 @@ namespace Bravura.Console
                     return;
                 case 1:
                     Key key = keys[0];
-                    _console.Info($"Key: {key.Root.ToAsciiString()} {key.Modality}");
+                    _console.Info($"Key: {key.Root.DisplayValue(true)} {key.Modality}");
                     return;
                 default:
                     _console.Info("Possible Keys:");
-                    keys.ForEach(key => _console.Info($"{key.Root.ToAsciiString()} {key.Modality}"));
+                    keys.ForEach(key => _console.Info($"{key.Root.DisplayValue(true)} {key.Modality}"));
                     return;
             }
         }

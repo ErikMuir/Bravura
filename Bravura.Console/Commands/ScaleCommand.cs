@@ -40,9 +40,9 @@ namespace Bravura.Console
             Scale scale = new(parsedRoot, parsedMode);
 
             _console
-                .Info($"Root: {scale.Root.ToAsciiString()}")
-                .Info($"Mode: {scale.Mode.ToAsciiString()}")
-                .Info($"Pitches: {string.Join(" ", scale.Pitches.Select(p => p.ToAsciiString()))}");
+                .Info($"Root: {scale.Root.DisplayValue(true)}")
+                .Info($"Mode: {scale.Mode.DisplayValue(true)}")
+                .Info($"Pitches: {string.Join(" ", scale.Pitches.Select(p => p.DisplayValue(true)))}");
         }
     }
 }

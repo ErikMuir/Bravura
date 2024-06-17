@@ -27,8 +27,8 @@ namespace Bravura.Console
 
             _console
                 .Info($"Mode: {mode}")
-                .Info($"Degrees: {string.Join(" ", mode.Intervals.Select(i => i.ToAsciiString()))}")
-                .Info($"Symbols: {string.Join(" ", mode.Intervals.Select(i => i.Symbol))}");
+                .Info($"Degrees: {string.Join(" ", mode.Intervals.Select(i => i.DisplayValue(true)))}")
+                .Info($"Symbols: {string.Join(" ", mode.Intervals.Select(i => i.DisplayValue(true)))}");
         }
     }
 }

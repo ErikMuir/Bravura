@@ -25,10 +25,10 @@ namespace Bravura.Console
             }
 
             _console
-                .Info($"Root: {chord.Root.ToAsciiString()}")
-                .Info($"Quality: {chord.Quality.ToAsciiString()}")
-                .Info($"Notes: {string.Join(" ", chord.AsciiNoteSymbols)}")
-                .Info($"Chord Tones: {string.Join(" ", chord.AsciiChordTones)}");
+                .Info($"Root: {chord.Root.DisplayValue(true)}")
+                .Info($"Quality: {chord.Quality.DisplayValue(true)}")
+                .Info($"Notes: {string.Join(" ", chord.Pitches.DisplayValue(true))}")
+                .Info($"Chord Tones: {string.Join(" ", chord.Quality.Intervals.DisplayValue(true))}");
         }
     }
 }

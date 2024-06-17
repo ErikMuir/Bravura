@@ -28,8 +28,8 @@ namespace Bravura.Console
             ChromaticScale scale = new(parsedRoot);
 
             _console
-                .Info($"Root: {scale.Root.ToAsciiString()}")
-                .Info($"Pitches: {string.Join(" ", scale.Pitches.Select(p => p.ToAsciiString()))}");
+                .Info($"Root: {scale.Root.DisplayValue(true)}")
+                .Info($"Pitches: {string.Join(" ", scale.Pitches.Select(p => p.DisplayValue(true)))}");
         }
     }
 }

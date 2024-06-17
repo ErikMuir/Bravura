@@ -26,9 +26,9 @@ namespace Bravura.Console
             }
 
             _console
-                .Info($"Chord Quality: {chordQuality.ToAsciiString()}")
-                .Info($"Degrees: {string.Join(" ", chordQuality.Intervals.Select(i => i.ToAsciiString()))}")
-                .Info($"Symbols: {string.Join(" ", chordQuality.Intervals.Select(i => i.Symbol))}");
+                .Info($"Chord Quality: {chordQuality.DisplayValue(true)}")
+                .Info($"Degrees: {string.Join(" ", chordQuality.Intervals.Select(i => i.DisplayValue(true)))}")
+                .Info($"Symbols: {string.Join(" ", chordQuality.Intervals.Select(i => i.DisplayValue(true)))}");
         }
     }
 }
