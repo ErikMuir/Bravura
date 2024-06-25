@@ -5,10 +5,11 @@ Namespace: [Bravura.Tonality](./Bravura.Tonality.md)
 ### Represents the distance between two pitches.
 
 ```csharp
-public record Interval
+public record Interval : IBaseTonality
 ```
 
 Inheritance: Object -> Interval
+Implements: [IBaseTonality](./IBaseTonality.md)
 
 ## Constructors
 | Constructor | Description |
@@ -28,7 +29,7 @@ Inheritance: Object -> Interval
 | Method | Return Type | Description |
 | --- | --- | --- |
 | EffectivelyEquals([Interval](./Interval.md)) | Boolean | Determines whether the specified interval has the same semitones as the current interval. |
-| ToString() | String | Returns the string representation of the interval. |
-| ToAsciiString() | String | Returns the ASCII string representation of the interval. |
+| DisplayValue(Boolean) | String | Returns the string representation of the interval, optionally limited to only ASCII characters. |
+| TryParse(String, out [Interval](./Interval.md)) | Boolean | Converts the string representation of an interval to an instance of an [Interval](./Interval.md). A return value indicates whether the conversion succeeded. |
 
 \* See the static class [Intervals](./Intervals.md) for all instances.

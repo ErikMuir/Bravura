@@ -5,10 +5,11 @@ Namespace: [Bravura.Tonality](./Bravura.Tonality.md)
 ### Represents the combination of a Note and an Accidental.
 
 ```csharp
-public record Pitch
+public record Pitch : IBaseTonality
 ```
 
 Inheritance: Object -> Pitch
+Implements: [IBaseTonality](./IBaseTonality.md)
 
 ## Constructors
 | Constructor | Description |
@@ -28,12 +29,10 @@ Inheritance: Object -> Pitch
 ## Methods
 | Method | Return Type | Description |
 | --- | --- | --- |
-| GetPitchByIntervalAbove([Interval](./Interval.md)) | [Pitch](./Pitch.md) | The pitch found when moving up by the specified interval. |
-| GetPitchByIntervalBelow([Interval](./Interval.md)) | [Pitch](./Pitch.md) | The pitch found when moving down by the specified interval. |
-| ToString() | String | Returns the string representation of the pitch. |
-| ToString(Boolean) | String | Returns the string representation of the pitch, optionally including the natural symbol for natural pitches. |
-| ToAsciiString() | String | Returns the ASCII string representation of the pitch. |
+| Transpose([Direction](./Direction.md), [Interval](./Interval.md)) | [Pitch](./Pitch.md) | Returns the pitch transposed by the provided interval in the provided direction. |
+| DisplayValue(Boolean) | String | Returns the string representation of the pitch, optionally limited to only ASCII characters. |
+| DisplayValueWithNaturals() | String | Returns the string representation of the pitch including the natural symbol. |
 | EnharmonicallyEquals([Pitch](./Pitch.md)) | Boolean | Indicates whether the specified pitch is enharmonically equal to the current pitch. (Two pitches are considered to be enharmonically equal when their distance (in semitones) above C natural are the same.) |
-| TryParse(String, [Pitch](./Pitch.md)) | Boolean | Converts the string representation of a pitch to an instance of a [Pitch](./Pitch.md). A return value indicates whether the conversion succeeded. |
+| TryParse(String, out [Pitch](./Pitch.md)) | Boolean | Converts the string representation of a pitch to an instance of a [Pitch](./Pitch.md). A return value indicates whether the conversion succeeded. |
 
 \* See the static class [Pitches](./Pitches.md) for all instances.

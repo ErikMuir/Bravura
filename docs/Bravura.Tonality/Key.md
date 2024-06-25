@@ -24,4 +24,9 @@ Inheritance: Object -> Key
 | KeySignature | List<[Pitch](./Pitch.md)> | The list of accidentals that are found in the key. |
 | Relative | [Key](./Key.md) | The relative key of the opposite modality. |
 
+## Methods
+| Method | Return Type | Description |
+| --- | --- | --- |
+| Transpose([Direction](./Direction.md), [Interval](./Interval.md)) | [Key](./Key.md) | Returns the key transposed by the provided interval in the provided direction. |
+
 \* See the static class [Keys](./Keys.md) for all instances.

@@ -5,10 +5,11 @@ Namespace: [Bravura.Tonality](./Bravura.Tonality.md)
 ### Represents the quality of a chord and the intervals that it consists of.
 
 ```csharp
-public record ChordQuality
+public record ChordQuality : IBaseTonality
 ```
 
 Inheritance: Object -> ChordQuality
+Implements: [IBaseTonality](./IBaseTonality.md)
 
 ## Constructors
 | Constructor | Description |
@@ -26,10 +27,8 @@ Inheritance: Object -> ChordQuality
 | Method | Return Type | Description |
 | --- | --- | --- |
 | EffectivelyEquals([ChordQuality](./ChordQuality.md)) | Boolean | Determines whether the specified chord quality has the same semitones as the current chord quality. |
-| ToString() | String | Returns the string representation of the chord quality. |
-| ToAsciiString() | String | Returns the ASCII string representation of the chord quality. |
-| ToStringWithIntervals() | String | Returns the string representation of the chord quality, including its intervals. |
-| ToAsciiStringWithIntervals() | String | Returns the ASCII string representation of the chord quality, including its intervals. |
-| TryParse(String, [ChordQuality](./ChordQuality.md)) | Boolean | Converts the string representation of a chord quality to an instance of a [ChordQuality](./ChordQuality.md). A return value indicates whether the conversion succeeded.
+| DisplayValue(Boolean) | String | Returns the string representation of the chord quality, optionally limited to only ASCII characters. |
+| DisplayValueWithIntervals(Boolean) | String | Returns the string representation of the chord quality including its intervals, optionally limited to only ASCII characters. |
+| TryParse(String, out [ChordQuality](./ChordQuality.md)) | Boolean | Converts the string representation of a chord quality to an instance of a [ChordQuality](./ChordQuality.md). A return value indicates whether the conversion succeeded. |
 
 \* See the static class [ChordQualities](./ChordQualities.md) for all instances.

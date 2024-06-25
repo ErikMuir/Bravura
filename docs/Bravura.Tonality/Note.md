@@ -5,10 +5,11 @@ Namespace: [Bravura.Tonality](./Bravura.Tonality.md)
 ### Represents one letter of the musical alphabet.
 
 ```csharp
-public struct Note
+public struct Note : IBaseTonality
 ```
 
 Inheritance: Object -> ValueType -> Note
+Implements: [IBaseTonality](./IBaseTonality.md)
 
 ## Constructors
 | Constructor | Description |
@@ -33,6 +34,6 @@ Inheritance: Object -> ValueType -> Note
 | IsPreviousNoteOneSemitoneAway() | Boolean | Indicates whether the previous note in `Notes.MusicalAlphabet` is only one semitone away. |
 | IsNextNoteOneSemitoneAway() | Boolean | Indicates whether the next note in `Notes.MusicalAlphabet` is only one semitone away. |
 | GetNoteByIndex(Int32) | [Note](./Note.md) | Gets the note at the specified index of `Notes.MusicalAlphabet` |
-| ToString() | String | Returns the note letter. |
+| DisplayValue(Boolean) | String | Returns the note letter, optionally limited to only ASCII characters. |
 
 \* See the static class [Notes](./Notes.md) for all instances.

@@ -5,10 +5,11 @@ Namespace: [Bravura.Tonality](./Bravura.Tonality.md)
 ### Represents an alteration to a note or scale tone by 0, 1, or 2 semitones in either direction.
 
 ```csharp
-public struct Accidental
+public struct Accidental : IBaseTonality
 ```
 
 Inheritance: Object -> ValueType -> Accidental
+Implements: [IBaseTonality](./IBaseTonality.md)
 
 ## Constructors
 | Constructor | Description |
@@ -26,8 +27,6 @@ Inheritance: Object -> ValueType -> Accidental
 ## Methods
 | Method | Return Type | Description |
 | --- | --- | --- |
-| Equals([Accidental](./Accidental.md)) | Boolean | Determines whether the specified accidental is equal to the current accidental. |
-| Equals(Object) | Boolean | Determines whether the specified object is equal to the current object. (Inherited from Object) |
-| GetHashCode() | Int32 | Serves as the default hash function. (Inherited from Object) |
+| DisplayValue(Boolean) | String | Returns the Accidental's display value as a string. Optionally limited to only ASCII characters. |
 
 \* See the static class [Accidentals](./Accidentals.md) for all instances.

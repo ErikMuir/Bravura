@@ -5,10 +5,11 @@ Namespace: [Bravura.Tonality](./Bravura.Tonality.md)
 ### Represents a musical mode and the intervals that it consists of.
 
 ```csharp
-public record Mode
+public record Mode : IBaseTonality
 ```
 
 Inheritance: Object -> Mode
+Implements: [IBaseTonality](./IBaseTonality.md)
 
 ## Constructors
 | Constructor | Description |
@@ -25,8 +26,7 @@ Inheritance: Object -> Mode
 | Method | Return Type | Description |
 | --- | --- | --- |
 | EffectivelyEquals([Mode](./Mode.md)) | Boolean | Determines whether the specified mode has the same intervals as the current mode. |
-| ToString() | String | Returns the name of the mode. |
-| ToStringWithIntervals() | String | Returns the string representation of the mode, including its intervals. |
-| ToAsciiStringWithIntervals() | String | Returns the ASCII string representation of the mode, including its intervals. |
+| DisplayValue(Boolean) | String | Returns the name of the mode, optionally limited to only ASCII characters. |
+| DisplayValueWithIntervals(Boolean) | String | Returns the string representation of the mode including its intervals, optionally limited to only ASCII characters. |
 
 \* See the static class [Modes](./Modes.md) for all instances.
