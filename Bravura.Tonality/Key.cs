@@ -13,6 +13,12 @@ public record Key(Pitch Root, Modality Modality)
 
     public Key Relative => GetRelative();
 
+    public Key Transpose(Direction direction, Interval interval)
+    {
+        var newRoot = Root.Transpose(direction, interval);
+        return new Key(newRoot, Modality);
+    }
+
     private Mode ImpliedMode => Modality == Modality.Major ? Modes.Major : Modes.NaturalMinor;
 
     private Key GetRelative()

@@ -7,12 +7,6 @@ using Bravura.Tonality;
 
 namespace Bravura.Console;
 
-public enum Direction
-{
-    Up,
-    Down,
-}
-
 public static class TransposeCommand
 {
     private static readonly FluentConsole _console = new();
@@ -36,7 +30,8 @@ public static class TransposeCommand
             _console.Failure($"Unrecognized interval: {interval}''");
             return;
         }
-        List<Chord> progression = new();
+
+        List<Chord> originalProgression = new();
         foreach (string val in chords)
         {
             if (!Chord.TryParse(val, out Chord chord))
@@ -44,15 +39,11 @@ public static class TransposeCommand
                 _console.Failure($"Unrecognized chord: '{val}'");
                 return;
             }
-            progression.Add(chord);
+            originalProgression.Add(chord);
         }
-        var transposedProgression = progression.Select(chord =>
-        {
-            var newRoot = direction == Direction.Down
-                ? chord.Root.GetPitchByIntervalBelow(parsedInterval)
-                : chord.Root.GetPitchByIntervalBelow(parsedInterval);
-            return new Chord(newRoot, chord.Quality);
-        });
+
+        var transposedProgression = originalProgression.Select(chord => chord.Transpose(direction, parsedInterval));
+
         _console.Info(string.Join(" ", transposedProgression.Select(c => c.DisplayValue(true))));
     }
 }

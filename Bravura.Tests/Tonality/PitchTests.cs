@@ -44,17 +44,12 @@ namespace Bravura.Tonality.Tests
         }
 
         [Fact]
-        public void GetPitchByIntervalAbove_Test()
+        public void Transpose_Test()
         {
-            Assert.Equal(Pitches.CNatural, Pitches.CNatural.GetPitchByIntervalAbove(Intervals.PerfectUnison));
-            Assert.Equal(Pitches.GNatural, Pitches.CNatural.GetPitchByIntervalAbove(Intervals.PerfectFifth));
-        }
-
-        [Fact]
-        public void GetPitchByIntervalBelow_Test()
-        {
-            Assert.Equal(Pitches.CNatural, Pitches.CNatural.GetPitchByIntervalBelow(Intervals.PerfectUnison));
-            Assert.Equal(Pitches.FNatural, Pitches.CNatural.GetPitchByIntervalBelow(Intervals.PerfectFifth));
+            Assert.Equal(Pitches.CNatural, Pitches.CNatural.Transpose(Direction.Up, Intervals.PerfectUnison));
+            Assert.Equal(Pitches.GNatural, Pitches.CNatural.Transpose(Direction.Up, Intervals.PerfectFifth));
+            Assert.Equal(Pitches.CNatural, Pitches.CNatural.Transpose(Direction.Down, Intervals.PerfectUnison));
+            Assert.Equal(Pitches.FNatural, Pitches.CNatural.Transpose(Direction.Down, Intervals.PerfectFifth));
         }
 
         [Fact]

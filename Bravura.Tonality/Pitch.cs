@@ -30,25 +30,16 @@ public record Pitch(Note Note, Accidental Accidental) : IBaseTonality
         _ => this,
     };
 
-    public Pitch GetPitchByIntervalAbove(Interval interval)
+    public Pitch Transpose(Direction direction, Interval interval)
     {
-        var noteIndex = (Note.Index + (interval.Degree - 1)).RollingRange(6);
+        var noteIndex = direction == Direction.Up
+            ? (Note.Index + (interval.Degree - 1)).RollingRange(6)
+            : (Note.Index - (interval.Degree - 1)).RollingRange(6);
         var note = Note.GetNoteByIndex(noteIndex);
 
-        var semitones = SemitonesAboveC + interval.Semitones - note.SemitonesAboveC;
-        if (semitones < -2) semitones += 12;
-        else if (semitones > 2) semitones -= 12;
-        var accidental = Accidentals.AllAccidentals.Single(a => a.SemitonesAwayFromNatural == semitones);
-
-        return new Pitch(note, accidental);
-    }
-
-    public Pitch GetPitchByIntervalBelow(Interval interval)
-    {
-        var noteIndex = (Note.Index - (interval.Degree - 1)).RollingRange(6);
-        var note = Note.GetNoteByIndex(noteIndex);
-
-        var semitones = SemitonesAboveC - interval.Semitones - note.SemitonesAboveC;
+        var semitones = direction == Direction.Up
+            ? SemitonesAboveC + interval.Semitones - note.SemitonesAboveC
+            : SemitonesAboveC - interval.Semitones - note.SemitonesAboveC;
         if (semitones < -2) semitones += 12;
         else if (semitones > 2) semitones -= 12;
         var accidental = Accidentals.AllAccidentals.Single(a => a.SemitonesAwayFromNatural == semitones);

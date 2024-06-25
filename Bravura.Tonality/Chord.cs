@@ -6,7 +6,7 @@ namespace Bravura.Tonality;
 
 public record Chord(Pitch Root, ChordQuality Quality) : IBaseTonality
 {
-    public List<Pitch> Pitches => Quality.Intervals.Select(Root.GetPitchByIntervalAbove).ToList();
+    public List<Pitch> Pitches => Quality.Intervals.Select(i => Root.Transpose(Direction.Up, i)).ToList();
 
     public List<Pitch> CommonTones(Chord other) => Pitches.Where(other.Pitches.Contains).ToList();
 
@@ -25,6 +25,12 @@ public record Chord(Pitch Root, ChordQuality Quality) : IBaseTonality
     public string DisplayValue(bool onlyAscii = false) => $"{Root.DisplayValue(onlyAscii)}{Quality.DisplayValue(onlyAscii)}";
 
     public string DisplayValueWithPitches(bool onlyAscii = false) => $"{DisplayValue(onlyAscii)} {{ {Pitches.DisplayValue(onlyAscii)} }}";
+
+    public Chord Transpose(Direction direction, Interval interval)
+    {
+        var newRoot = Root.Transpose(direction, interval);
+        return new Chord(newRoot, Quality);
+    }
 
     public static bool TryParse(string val, out Chord chord)
     {
