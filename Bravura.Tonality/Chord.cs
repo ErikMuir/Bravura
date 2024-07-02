@@ -8,6 +8,20 @@ public record Chord(Pitch Root, ChordQuality Quality) : IBaseTonality
 {
     public List<Pitch> Pitches => Quality.Intervals.Select(i => Root.Transpose(Direction.Up, i)).ToList();
 
+    public bool IsMajor => Quality.IsMajor;
+
+    public bool IsMinor => Quality.IsMinor;
+
+    public bool IsDiminished => Quality.IsDiminished;
+
+    public bool IsAugmented => Quality.IsAugmented;
+
+    public bool IsDominant => Quality.IsDominant;
+
+    public bool IsAltered => Quality.IsAltered;
+
+    public bool IsSuspended => Quality.IsSuspended;
+
     public List<Pitch> CommonTones(Chord other) => Pitches.Where(other.Pitches.Contains).ToList();
 
     public bool HasSamePitches(Chord other)
@@ -22,6 +36,8 @@ public record Chord(Pitch Root, ChordQuality Quality) : IBaseTonality
 
     public bool EnharmonicallyEquals(Chord other) => other != null && Root.EnharmonicallyEquals(other.Root) && Quality.EffectivelyEquals(other.Quality);
 
+    public bool Contains(Interval interval) => Quality.Contains(interval);
+    
     public string DisplayValue(bool onlyAscii = false) => $"{Root.DisplayValue(onlyAscii)}{Quality.DisplayValue(onlyAscii)}";
 
     public string DisplayValueWithPitches(bool onlyAscii = false) => $"{DisplayValue(onlyAscii)} {{ {Pitches.DisplayValue(onlyAscii)} }}";
