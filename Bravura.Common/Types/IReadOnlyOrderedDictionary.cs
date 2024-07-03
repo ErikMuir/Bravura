@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Bravura.Common;
+namespace Bravura.Common.Types;
 
 /// <inheritdoc />
 /// <summary>

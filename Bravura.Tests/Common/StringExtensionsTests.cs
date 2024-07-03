@@ -1,6 +1,7 @@
+using Bravura.Common.Extensions;
 using Xunit;
 
-namespace Bravura.Common.Tests;
+namespace Bravura.Tests.Common;
 
 public class StringExtensionsTests
 {

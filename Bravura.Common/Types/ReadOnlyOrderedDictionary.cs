@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace Bravura.Common;
+namespace Bravura.Common.Types;
 
 /// <inheritdoc />
 /// <summary>

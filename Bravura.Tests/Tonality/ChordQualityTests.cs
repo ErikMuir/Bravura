@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using Bravura.Tonality;
 using Xunit;
 
-namespace Bravura.Tonality.Tests;
+namespace Bravura.Tests.Tonality;
 
 public class ChordQualityTests
 {

@@ -4,7 +4,7 @@ using System.CommandLine.NamingConventionBinder;
 using MuirDev.ConsoleTools;
 using Bravura.Tonality;
 
-namespace Bravura.Console;
+namespace Bravura.Console.Commands;
 
 public static class ChordQualityCommand
 {

@@ -1,13 +1,14 @@
+using Bravura.Tonality;
 using Xunit;
 
-namespace Bravura.Tonality.Tests;
+namespace Bravura.Tests.Tonality;
 
 public class ScaleTests
 {
-    private readonly Scale _cSharpMinor = new Scale(Pitches.CSharp, Modes.NaturalMinor);
-    private readonly Scale _fSharpMinorPentatonic = new Scale(Pitches.FSharp, Modes.MinorPentatonic);
-    private readonly Scale _dFlatMinor = new Scale(Pitches.DFlat, Modes.NaturalMinor);
-    private readonly Scale _cMajor = new Scale(Pitches.CNatural, Modes.Major);
+    private static readonly Scale _cSharpMinor = new Scale(Pitches.CSharp, Modes.NaturalMinor);
+    private static readonly Scale _fSharpMinorPentatonic = new Scale(Pitches.FSharp, Modes.MinorPentatonic);
+    private static readonly Scale _dFlatMinor = new Scale(Pitches.DFlat, Modes.NaturalMinor);
+    private static readonly Scale _cMajor = new Scale(Pitches.CNatural, Modes.Major);
 
     [Fact]
     public void Pitches_Test()

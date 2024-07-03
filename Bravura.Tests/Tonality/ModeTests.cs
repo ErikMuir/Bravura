@@ -1,10 +1,11 @@
+using Bravura.Tonality;
 using Xunit;
 
-namespace Bravura.Tonality.Tests;
+namespace Bravura.Tests.Tonality;
 
 public class ModeTests
 {
-    private readonly Mode _customAeolian = new Mode("foobar", Modes.Aeolian.Intervals);
+    private static readonly Mode _customAeolian = new Mode("foobar", Modes.Aeolian.Intervals);
 
     [Fact]
     public void EffectivelyEquals_Test()

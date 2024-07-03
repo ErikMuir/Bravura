@@ -1,4 +1,4 @@
-namespace Bravura.Common;
+namespace Bravura.Common.Extensions;
 
 public static class StringExtensions
 {

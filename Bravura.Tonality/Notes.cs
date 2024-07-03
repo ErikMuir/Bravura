@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Bravura.Common;
+using Bravura.Common.Types;
 
 namespace Bravura.Tonality;
 

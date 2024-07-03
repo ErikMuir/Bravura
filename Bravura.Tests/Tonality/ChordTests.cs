@@ -1,18 +1,19 @@
+using Bravura.Tonality;
 using Xunit;
 
-namespace Bravura.Tonality.Tests;
+namespace Bravura.Tests.Tonality;
 
 public class ChordTests
 {
-    private readonly Chord _cMajor = new(Pitches.CNatural, ChordQualities.Maj);
-    private readonly Chord _aMinor = new(Pitches.ANatural, ChordQualities.Min);
-    private readonly Chord _cSharpMin7 = new(Pitches.CSharp, ChordQualities.Min7);
-    private readonly Chord _cMaj9 = new(Pitches.CNatural, ChordQualities.Maj9);
-    private readonly Chord _cDim7 = new(Pitches.CNatural, ChordQualities.Dim7);
-    private readonly Chord _cAug = new(Pitches.CNatural, ChordQualities.Aug);
-    private readonly Chord _cDom13 = new(Pitches.CNatural, ChordQualities.Dom13);
-    private readonly Chord _cDom7Sharp9 = new(Pitches.CNatural, ChordQualities.Dom7Sharp9);
-    private readonly Chord _cSus4 = new(Pitches.CNatural, ChordQualities.Sus4);
+    private static readonly Chord _cMajor = new(Pitches.CNatural, ChordQualities.Maj);
+    private static readonly Chord _aMinor = new(Pitches.ANatural, ChordQualities.Min);
+    private static readonly Chord _cSharpMin7 = new(Pitches.CSharp, ChordQualities.Min7);
+    private static readonly Chord _cMaj9 = new(Pitches.CNatural, ChordQualities.Maj9);
+    private static readonly Chord _cDim7 = new(Pitches.CNatural, ChordQualities.Dim7);
+    private static readonly Chord _cAug = new(Pitches.CNatural, ChordQualities.Aug);
+    private static readonly Chord _cDom13 = new(Pitches.CNatural, ChordQualities.Dom13);
+    private static readonly Chord _cDom7Sharp9 = new(Pitches.CNatural, ChordQualities.Dom7Sharp9);
+    private static readonly Chord _cSus4 = new(Pitches.CNatural, ChordQualities.Sus4);
 
     [Fact]
     public void CommonTones_Test()

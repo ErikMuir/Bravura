@@ -1,10 +1,11 @@
+using Bravura.Tonality;
 using Xunit;
 
-namespace Bravura.Tonality.Tests;
+namespace Bravura.Tests.Tonality;
 
 public class IntervalTests
 {
-    private readonly Interval _customUnison = new Interval(0, Accidentals.Natural, 1, "foobar", "foobar");
+    private static readonly Interval _customUnison = new Interval(0, Accidentals.Natural, 1, "foobar", "foobar");
 
     [Fact]
     public void EffectivelyEquals_Test()

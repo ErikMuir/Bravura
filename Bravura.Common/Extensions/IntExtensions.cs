@@ -1,4 +1,6 @@
-namespace Bravura.Common;
+using Bravura.Common.Exceptions;
+
+namespace Bravura.Common.Extensions;
 
 public static class IntExtensions
 {
