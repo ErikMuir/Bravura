@@ -4,31 +4,30 @@ using System.Linq;
 using MuirDev.ConsoleTools;
 using Bravura.Tonality;
 
-namespace Bravura.Console
+namespace Bravura.Console;
+
+public static class ModeCommand
 {
-    public static class ModeCommand
+    private static readonly FluentConsole _console = new();
+
+    static ModeCommand()
     {
-        private static readonly FluentConsole _console = new();
+        Command.Handler = CommandHandler.Create<string>(_handler);
+    }
 
-        static ModeCommand()
+    public static Command Command = new("mode") { new Argument<string>("val") };
+
+    private static void _handler(string val)
+    {
+        if (!Modes.ModesDict.TryGetValue(val.ToLower(), out var mode))
         {
-            Command.Handler = CommandHandler.Create<string>(_handler);
+            _console.Failure($"'{val}' is not a known mode!");
+            return;
         }
 
-        public static Command Command = new("mode") { new Argument<string>("val") };
-
-        private static void _handler(string val)
-        {
-            if (!Modes.ModesDict.TryGetValue(val.ToLower(), out var mode))
-            {
-                _console.Failure($"'{val}' is not a known mode!");
-                return;
-            }
-
-            _console
-                .Info($"Mode: {mode}")
-                .Info($"Degrees: {string.Join(" ", mode.Intervals.Select(i => i.DisplayValue(true)))}")
-                .Info($"Symbols: {string.Join(" ", mode.Intervals.Select(i => i.DisplayValue(true)))}");
-        }
+        _console
+            .Info($"Mode: {mode}")
+            .Info($"Degrees: {string.Join(" ", mode.Intervals.Select(i => i.DisplayValue(true)))}")
+            .Info($"Symbols: {string.Join(" ", mode.Intervals.Select(i => i.DisplayValue(true)))}");
     }
 }

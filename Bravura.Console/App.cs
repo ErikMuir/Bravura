@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 using MuirDev.ConsoleTools;
 using Bravura.Tonality;
 
-namespace Bravura.Console
-{
-    public class App
-    {
-        private static readonly FluentConsole _console = new();
-        private readonly string[] _args;
-        private readonly RootCommand _rootCommand;
+namespace Bravura.Console;
 
-        public App(string[] args)
-        {
-            _args = args;
-            _rootCommand = new RootCommand("A console app demonstrating the Bravura dotnet music theory library")
+public class App
+{
+    private static readonly FluentConsole _console = new();
+    private readonly string[] _args;
+    private readonly RootCommand _rootCommand;
+
+    public App(string[] args)
+    {
+        _args = args;
+        _rootCommand = new RootCommand("A console app demonstrating the Bravura dotnet music theory library")
             {
                 PitchCommand.Command,
                 ChordQualityCommand.Command,
@@ -31,21 +31,20 @@ namespace Bravura.Console
                 ChordProgressionCommand.Command,
                 TransposeCommand.Command,
             };
-            _rootCommand.Handler = CommandHandler.Create<Command>(_rootCommandHandler);
-        }
+        _rootCommand.Handler = CommandHandler.Create<Command>(_rootCommandHandler);
+    }
 
-        public Task<int> Run()
-        {
-            return _rootCommand.InvokeAsync(_args);
-        }
+    public Task<int> Run()
+    {
+        return _rootCommand.InvokeAsync(_args);
+    }
 
-        private void _rootCommandHandler(Command command)
+    private void _rootCommandHandler(Command command)
+    {
+        if (command == null)
         {
-            if (command == null)
-            {
-                _console.Failure("Required command missing").LineFeed();
-                _rootCommand.Invoke("-h");
-            }
+            _console.Failure("Required command missing").LineFeed();
+            _rootCommand.Invoke("-h");
         }
     }
 }

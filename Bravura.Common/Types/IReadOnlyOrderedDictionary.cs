@@ -1,28 +1,27 @@
 using System.Collections.Generic;
 
-namespace Bravura.Common
+namespace Bravura.Common;
+
+/// <inheritdoc />
+/// <summary>
+/// Represents an ordered collection of key/value pairs that are accessible by the key or index.
+/// </summary>
+/// <typeparam name="TKey">The type of keys</typeparam>
+/// <typeparam name="TValue">The type of values</typeparam>
+public interface IReadOnlyOrderedDictionary<TKey, TValue> : IReadOnlyDictionary<TKey, TValue>
 {
-    /// <inheritdoc />
     /// <summary>
-    /// Represents an ordered collection of key/value pairs that are accessible by the key or index.
+    /// The value of the element at the given index.
     /// </summary>
-    /// <typeparam name="TKey">The type of keys</typeparam>
-    /// <typeparam name="TValue">The type of values</typeparam>
-    public interface IReadOnlyOrderedDictionary<TKey, TValue> : IReadOnlyDictionary<TKey, TValue>
-    {
-        /// <summary>
-        /// The value of the element at the given index.
-        /// </summary>
-        TValue this[int index] { get; }
+    TValue this[int index] { get; }
 
-        /// <summary>
-        /// The value of the element with the given key.
-        /// </summary>
-        new TValue this[TKey key] { get; }
+    /// <summary>
+    /// The value of the element with the given key.
+    /// </summary>
+    new TValue this[TKey key] { get; }
 
-        /// <summary>
-        /// Find the position of an element by key. Returns -1 if the dictionary does not contain an element with the given key.
-        /// </summary>
-        int IndexOf(TKey key);
-    }
+    /// <summary>
+    /// Find the position of an element by key. Returns -1 if the dictionary does not contain an element with the given key.
+    /// </summary>
+    int IndexOf(TKey key);
 }
