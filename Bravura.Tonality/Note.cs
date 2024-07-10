@@ -41,4 +41,6 @@ public readonly struct Note(char letter, short semitonesAboveC) : IBaseTonality
     }
 
     public string DisplayValue(bool onlyAscii = false) => $"{Letter}";
+
+    public override string ToString() => DisplayValue(true);
 }

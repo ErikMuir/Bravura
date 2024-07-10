@@ -35,6 +35,24 @@ public static class Intervals
         DiminishedOctave = new Interval(11, Accidentals.Flat, 8, IntervalNames.DiminishedOctave, IntervalSymbols.DiminishedOctave);
         PerfectOctave = new Interval(12, Accidentals.Natural, 8, IntervalNames.PerfectOctave, IntervalSymbols.PerfectOctave);
 
+        Diatonic = new List<Interval>
+            {
+                PerfectUnison,
+                MinorSecond,
+                MajorSecond,
+                MinorThird,
+                MajorThird,
+                PerfectFourth,
+                AugmentedFourth,
+                DiminishedFifth,
+                PerfectFifth,
+                MinorSixth,
+                MajorSixth,
+                DiminishedSeventh,
+                MinorSeventh,
+                MajorSeventh,
+            }.AsReadOnly();
+
         AllIntervals = new List<Interval>
             {
                 PerfectUnison,
@@ -94,6 +112,7 @@ public static class Intervals
     public static Interval AugmentedSeventh { get; }
     public static Interval DiminishedOctave { get; }
     public static Interval PerfectOctave { get; }
+    public static ReadOnlyCollection<Interval> Diatonic { get; }
     public static ReadOnlyCollection<Interval> AllIntervals { get; }
 }
 

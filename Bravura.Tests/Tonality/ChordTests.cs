@@ -60,12 +60,14 @@ public class ChordTests
         Assert.Equal("C#m7 { C# E G# B }", _cSharpMin7.DisplayValueWithPitches(true));
     }
 
-    [Fact]
-    public void TryParse_WhenValid_Test()
+    [Theory]
+    [InlineData("C♯m7")]
+    [InlineData("C#m7")]
+    public void TryParse_WhenValid_Test(string value)
     {
-        var result = Chord.TryParse("C#m7", out var chord);
+        var result = Chord.TryParse(value, out var chord);
         Assert.True(result);
-        Assert.Equal(_cSharpMin7, chord);
+        Assert.True(chord.EnharmonicallyEquals(_cSharpMin7));
     }
 
     [Fact]
@@ -138,5 +140,13 @@ public class ChordTests
     {
         Assert.True(_cMaj9.Contains(Intervals.MajorThird));
         Assert.False(_cMaj9.Contains(Intervals.MinorThird));
+    }
+
+    [Fact]
+    public void PotentialKeys_Test()
+    {
+        Assert.Contains(Keys.CMajor, _cMajor.PotentialKeys);
+        Assert.Contains(Keys.FMajor, _cMajor.PotentialKeys);
+        Assert.Contains(Keys.GMajor, _cMajor.PotentialKeys);
     }
 }

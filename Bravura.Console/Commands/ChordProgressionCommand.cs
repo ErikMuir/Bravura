@@ -31,7 +31,11 @@ public static class ChordProgressionCommand
             progression.Add(chord);
         }
 
-        List<Pitch> pitches = progression.Select(c => c.Pitches).SelectMany(p => p).Distinct().ToList();
+        List<Pitch> pitches = progression
+            .Select(c => c.Pitches)
+            .SelectMany(p => p)
+            .DistinctBy(pitches => pitches.DisplayValue(true))
+            .ToList();
 
         List<Key> keys = Keys.AllKeys
             .Where(key =>

@@ -67,4 +67,6 @@ public record Pitch(Note Note, Accidental Accidental) : IBaseTonality
         }
         return false;
     }
+
+    public override string ToString() => DisplayValue(true);
 }

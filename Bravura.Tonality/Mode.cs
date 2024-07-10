@@ -17,4 +17,6 @@ public record Mode(string Name, List<Interval> Intervals) : IBaseTonality
     public string DisplayValue(bool onlyAscii = false) => Name;
 
     public string DisplayValueWithIntervals(bool onlyAscii = false) => $"{DisplayValue(onlyAscii)} {{ {Intervals.DisplayValue(onlyAscii)} }}";
+
+    public override string ToString() => DisplayValue(true);
 }

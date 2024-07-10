@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MuirDev.ConsoleTools;
 using Bravura.Tonality;
+using Bravura.Console.Commands;
 
 namespace Bravura.Console;
 
@@ -30,6 +31,8 @@ public class App
                 ChromaticScaleCommand.Command,
                 ChordProgressionCommand.Command,
                 TransposeCommand.Command,
+                AnalyzedChordCommand.Command,
+                ChordalRelationshipCommand.Command,
             };
         _rootCommand.Handler = CommandHandler.Create<Command>(_rootCommandHandler);
     }

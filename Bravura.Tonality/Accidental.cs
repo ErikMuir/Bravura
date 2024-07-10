@@ -12,4 +12,6 @@ public readonly struct Accidental(
     public string AsciiSymbol { get; init; } = asciiSymbol;
 
     public string DisplayValue(bool onlyAscii = false) => onlyAscii ? AsciiSymbol : Symbol;
+
+    public override string ToString() => DisplayValue(true);
 }

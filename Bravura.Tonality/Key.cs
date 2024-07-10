@@ -1,9 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Bravura.Tonality;
 
-public record Key(Pitch Root, Modality Modality)
+public record Key(Pitch Root, Modality Modality) : IBaseTonality
 {
     public Scale Scale => new(Root, ImpliedMode);
 
@@ -32,4 +33,24 @@ public record Key(Pitch Root, Modality Modality)
         var modality = Modality == Modality.Major ? Modality.Minor : Modality.Major;
         return new Key(root, modality);
     }
+
+    public static bool TryParse(string val, out Key key)
+    {
+        val = $"{val}"
+            .Replace("Major", "", StringComparison.InvariantCultureIgnoreCase)
+            .Replace("Maj", "", StringComparison.InvariantCultureIgnoreCase)
+            .Replace("Minor", "m", StringComparison.InvariantCultureIgnoreCase)
+            .Replace("min", "m", StringComparison.InvariantCultureIgnoreCase);
+        var modality = val.EndsWith('m') ? Modality.Minor : Modality.Major;
+
+        val = val.Replace("m", "");
+        var success = Pitch.TryParse(val, out var root);
+
+        key = success ? new Key(root, modality) : null;
+        return success;
+    }
+
+    public string DisplayValue(bool onlyAscii = false) => $"{Root.DisplayValue(onlyAscii)} {Modality}";
+
+    public override string ToString() => DisplayValue(true);
 }

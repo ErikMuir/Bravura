@@ -63,4 +63,6 @@ public record ChordQuality(string Symbol, string AsciiSymbol, List<Interval> Int
         }
         return false;
     }
+
+    public override string ToString() => DisplayValue(true);
 }

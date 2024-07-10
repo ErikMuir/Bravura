@@ -18,4 +18,6 @@ public record Scale(Pitch Root, Mode Mode) : IBaseTonality
         var newRoot = Root.Transpose(direction, interval);
         return new Scale(newRoot, Mode);
     }
+
+    public override string ToString() => DisplayValue(true);
 }

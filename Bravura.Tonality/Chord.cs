@@ -4,9 +4,23 @@ using System.Linq;
 
 namespace Bravura.Tonality;
 
-public record Chord(Pitch Root, ChordQuality Quality) : IBaseTonality
+public class Chord : IBaseTonality
 {
-    public List<Pitch> Pitches => Quality.Intervals.Select(i => Root.Transpose(Direction.Up, i)).ToList();
+    public Chord(Pitch root, ChordQuality quality)
+    {
+        Root = root;
+        Quality = quality;
+        Pitches = Quality.Intervals.Select(i => Root.Transpose(Direction.Up, i)).ToList();
+        PotentialKeys = Keys.AllKeys.Where(key => !Pitches.Except(key.Scale.Pitches).Any()).ToList();
+    }
+
+    public Pitch Root { get; }
+
+    public ChordQuality Quality { get; }
+
+    public List<Pitch> Pitches { get; }
+
+    public List<Key> PotentialKeys { get; }
 
     public bool IsMajor => Quality.IsMajor;
 
@@ -37,16 +51,16 @@ public record Chord(Pitch Root, ChordQuality Quality) : IBaseTonality
     public bool EnharmonicallyEquals(Chord other) => other != null && Root.EnharmonicallyEquals(other.Root) && Quality.EffectivelyEquals(other.Quality);
 
     public bool Contains(Interval interval) => Quality.Contains(interval);
-    
-    public string DisplayValue(bool onlyAscii = false) => $"{Root.DisplayValue(onlyAscii)}{Quality.DisplayValue(onlyAscii)}";
-
-    public string DisplayValueWithPitches(bool onlyAscii = false) => $"{DisplayValue(onlyAscii)} {{ {Pitches.DisplayValue(onlyAscii)} }}";
 
     public Chord Transpose(Direction direction, Interval interval)
     {
         var newRoot = Root.Transpose(direction, interval);
         return new Chord(newRoot, Quality);
     }
+    
+    public string DisplayValue(bool onlyAscii = false) => $"{Root.DisplayValue(onlyAscii)}{Quality.DisplayValue(onlyAscii)}";
+
+    public string DisplayValueWithPitches(bool onlyAscii = false) => $"{DisplayValue(onlyAscii)} {{ {Pitches.DisplayValue(onlyAscii)} }}";
 
     public static bool TryParse(string val, out Chord chord)
     {
@@ -69,4 +83,6 @@ public record Chord(Pitch Root, ChordQuality Quality) : IBaseTonality
         chord = new Chord(root, quality);
         return true;
     }
+
+    public override string ToString() => DisplayValue(true);
 }

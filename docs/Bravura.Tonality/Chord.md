@@ -22,6 +22,7 @@ Implements: [IBaseTonality](./IBaseTonality.md)
 | Root | [Pitch](./Pitch.md) | The root pitch of the chord. |
 | Quality | [ChordQuality](./ChordQuality.md) | The quality of the chord. |
 | Pitches | List<[Pitch](./Pitch.md)> | The list of pitches that make up the chord. |
+| PotentialKeys | List<[Key](./Key.md)> | The list of keys that this chord fits into diatonically. |
 | IsMajor | Boolean | Indicates whether the chord is major. |
 | IsMinor | Boolean | Indicates whether the chord is minor. |
 | IsDiminished | Boolean | Indicates whether the chord is diminished. |
