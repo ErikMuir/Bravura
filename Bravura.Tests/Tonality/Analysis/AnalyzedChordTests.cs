@@ -34,6 +34,16 @@ public class AnalyzedChordTests
     ];
 
     [Fact]
+    public void IsDiatonic_Tests()
+    {
+        var actual1 = new AnalyzedChord(TestData[0].Chord, TestData[0].Key);
+        Assert.True(actual1.IsDiatonic);
+
+        var actual2 = new AnalyzedChord(TestData[1].Chord, TestData[1].Key);
+        Assert.False(actual2.IsDiatonic);
+    }
+
+    [Fact]
     public void Interval_Tests()
     {
         TestData.ForEach(data =>

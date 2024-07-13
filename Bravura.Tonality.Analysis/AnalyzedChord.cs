@@ -25,6 +25,8 @@ public class AnalyzedChord : IBaseTonality
 
     public Key Key { get; }
 
+    public bool IsDiatonic => Chord.Pitches.All(Key.Scale.Pitches.Contains);
+
     public Interval Interval { get; }
 
     public string RomanNumeralAnalysis(bool onlyAscii = false)
