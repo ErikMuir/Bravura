@@ -1,5 +1,5 @@
-using Bravura.Common.Extensions;
 using Xunit;
+using Bravura.Common.Extensions;
 
 namespace Bravura.Tests.Common;
 

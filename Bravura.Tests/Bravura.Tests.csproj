@@ -16,9 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bravura.Tonality\Bravura.Tonality.csproj" />
-    <ProjectReference Include="..\Bravura.Tonality.Analysis\Bravura.Tonality.Analysis.csproj" />
-    <ProjectReference Include="..\Bravura.Common\Bravura.Common.csproj" />
+    <ProjectReference Include="..\Bravura\Bravura.csproj" />
   </ItemGroup>
 
 </Project>

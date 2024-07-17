@@ -17,44 +17,44 @@ public class ChordalRelationshipTests
         var analysis = relationship.Analysis;
         Assert.Equal(8, analysis.Keys.Count);
 
-        var gMajorKey = analysis.GetValueOrDefault(Keys.GMajor);
-        Assert.NotEmpty(gMajorKey);
-        Assert.Equal("I", gMajorKey[0].RomanNumeralAnalysis());
-        Assert.Equal("IV", gMajorKey[1].RomanNumeralAnalysis());
+        var gMajorAnalysis = analysis.GetValueOrDefault(Keys.GMajor)?.AnalyzedChords;
+        Assert.NotEmpty(gMajorAnalysis);
+        Assert.Equal("I", gMajorAnalysis[0].RomanNumeralAnalysis());
+        Assert.Equal("IV", gMajorAnalysis[1].RomanNumeralAnalysis());
 
-        var eMinorKey = analysis.GetValueOrDefault(Keys.EMinor);
-        Assert.NotEmpty(eMinorKey);
-        Assert.Equal("♭III", eMinorKey[0].RomanNumeralAnalysis());
-        Assert.Equal("♭VI", eMinorKey[1].RomanNumeralAnalysis());
+        var eMinorAnalysis = analysis.GetValueOrDefault(Keys.EMinor)?.AnalyzedChords;
+        Assert.NotEmpty(eMinorAnalysis);
+        Assert.Equal("♭III", eMinorAnalysis[0].RomanNumeralAnalysis());
+        Assert.Equal("♭VI", eMinorAnalysis[1].RomanNumeralAnalysis());
 
-        var cMajorKey = analysis.GetValueOrDefault(Keys.CMajor);
-        Assert.NotEmpty(cMajorKey);
-        Assert.Equal("V", cMajorKey[0].RomanNumeralAnalysis());
-        Assert.Equal("I", cMajorKey[1].RomanNumeralAnalysis());
+        var cMajorAnalysis = analysis.GetValueOrDefault(Keys.CMajor)?.AnalyzedChords;
+        Assert.NotEmpty(cMajorAnalysis);
+        Assert.Equal("V", cMajorAnalysis[0].RomanNumeralAnalysis());
+        Assert.Equal("I", cMajorAnalysis[1].RomanNumeralAnalysis());
 
-        var aMinorKey = analysis.GetValueOrDefault(Keys.AMinor);
-        Assert.NotEmpty(aMinorKey);
-        Assert.Equal("♭VII", aMinorKey[0].RomanNumeralAnalysis());
-        Assert.Equal("♭III", aMinorKey[1].RomanNumeralAnalysis());
+        var aMinorAnalysis = analysis.GetValueOrDefault(Keys.AMinor)?.AnalyzedChords;
+        Assert.NotEmpty(aMinorAnalysis);
+        Assert.Equal("♭VII", aMinorAnalysis[0].RomanNumeralAnalysis());
+        Assert.Equal("♭III", aMinorAnalysis[1].RomanNumeralAnalysis());
 
-        var dMajorKey = analysis.GetValueOrDefault(Keys.DMajor);
-        Assert.NotEmpty(dMajorKey);
-        Assert.Equal("IV", dMajorKey[0].RomanNumeralAnalysis());
-        Assert.Equal("♭VII", dMajorKey[1].RomanNumeralAnalysis());
+        var dMajorAnalysis = analysis.GetValueOrDefault(Keys.DMajor)?.AnalyzedChords;
+        Assert.NotEmpty(dMajorAnalysis);
+        Assert.Equal("IV", dMajorAnalysis[0].RomanNumeralAnalysis());
+        Assert.Equal("♭VII", dMajorAnalysis[1].RomanNumeralAnalysis());
 
-        var bMinorKey = analysis.GetValueOrDefault(Keys.BMinor);
-        Assert.NotEmpty(bMinorKey);
-        Assert.Equal("♭VI", bMinorKey[0].RomanNumeralAnalysis());
-        Assert.Equal("♭II", bMinorKey[1].RomanNumeralAnalysis());
+        var bMinorAnalysis = analysis.GetValueOrDefault(Keys.BMinor)?.AnalyzedChords;
+        Assert.NotEmpty(bMinorAnalysis);
+        Assert.Equal("♭VI", bMinorAnalysis[0].RomanNumeralAnalysis());
+        Assert.Equal("♭II", bMinorAnalysis[1].RomanNumeralAnalysis());
 
-        var fMajorKey = analysis.GetValueOrDefault(Keys.FMajor);
-        Assert.NotEmpty(fMajorKey);
-        Assert.Equal("II", fMajorKey[0].RomanNumeralAnalysis());
-        Assert.Equal("V", fMajorKey[1].RomanNumeralAnalysis());
+        var fMajorAnalysis = analysis.GetValueOrDefault(Keys.FMajor)?.AnalyzedChords;
+        Assert.NotEmpty(fMajorAnalysis);
+        Assert.Equal("II", fMajorAnalysis[0].RomanNumeralAnalysis());
+        Assert.Equal("V", fMajorAnalysis[1].RomanNumeralAnalysis());
 
-        var dMinorKey = analysis.GetValueOrDefault(Keys.DMinor);
-        Assert.NotEmpty(dMinorKey);
-        Assert.Equal("IV", dMinorKey[0].RomanNumeralAnalysis());
-        Assert.Equal("♭VII", dMinorKey[1].RomanNumeralAnalysis());
+        var dMinorAnalysis = analysis.GetValueOrDefault(Keys.DMinor)?.AnalyzedChords;
+        Assert.NotEmpty(dMinorAnalysis);
+        Assert.Equal("IV", dMinorAnalysis[0].RomanNumeralAnalysis());
+        Assert.Equal("♭VII", dMinorAnalysis[1].RomanNumeralAnalysis());
     }
 }
