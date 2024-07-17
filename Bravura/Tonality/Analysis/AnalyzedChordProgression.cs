@@ -29,16 +29,14 @@ public class AnalyzedChordProgression
             .Select(kvp => kvp.Key)
             .ToList();
 
-        // improve logic for BestKeys:
-        // - prefer ii-V
-        // - prefer V-I
-        // - prefer V-i
-        // - prefer first chord
+        // TODO : implement Analysis
     }
 
     public List<Chord> Progression { get; }
 
     public List<ChordalRelationship> Relationships { get; }
+
+    public List<ChordProgressionAnalysis> Analysis { get; }
 
     public Dictionary<Key, int> KeyCounts { get; }
 

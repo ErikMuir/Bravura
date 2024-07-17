@@ -1,4 +1,3 @@
-using System;
 using Bravura.Tonality;
 using Bravura.Tonality.Analysis;
 using Xunit;

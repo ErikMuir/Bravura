@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Bravura.Tonality;
 using Bravura.Tonality.Analysis;
 using Xunit;
@@ -56,5 +57,29 @@ public class ChordalRelationshipTests
         Assert.NotEmpty(dMinorAnalysis);
         Assert.Equal("IV", dMinorAnalysis[0].RomanNumeralAnalysis());
         Assert.Equal("♭VII", dMinorAnalysis[1].RomanNumeralAnalysis());
+    }
+
+    [Fact]
+    public void BestKeys_Multiple_Test()
+    {
+        var gMajorChord = new Chord(Pitches.GNatural, ChordQualities.Maj);
+        var cMajorChord = new Chord(Pitches.CNatural, ChordQualities.Maj);
+        var relationship = new ChordalRelationship(gMajorChord, cMajorChord);
+
+        Assert.Equal(4, relationship.BestKeys.Count);
+        Assert.Contains(Keys.GMajor, relationship.BestKeys);
+        Assert.Contains(Keys.CMajor, relationship.BestKeys);
+        Assert.Contains(Keys.EMinor, relationship.BestKeys);
+        Assert.Contains(Keys.AMinor, relationship.BestKeys);
+    }
+
+    [Fact]
+    public void BestKeys_Single_Test()
+    {
+        var aDom7 = new Chord(Pitches.ANatural, ChordQualities.Dom7);
+        var dMin7 = new Chord(Pitches.DNatural, ChordQualities.Min7);
+        var relationship = new ChordalRelationship(aDom7, dMin7);
+        Assert.Single(relationship.BestKeys);
+        Assert.Equal(Keys.DMinor, relationship.BestKeys.Single());
     }
 }
