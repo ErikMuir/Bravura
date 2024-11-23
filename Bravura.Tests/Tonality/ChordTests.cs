@@ -55,9 +55,9 @@ public class ChordTests
     [Fact]
     public void DisplayValueWithPitches_Test()
     {
-        Assert.Equal("C♯m7 { C♯ E G♯ B }", _cSharpMin7.DisplayValueWithPitches());
-        Assert.Equal("C♯m7 { C♯ E G♯ B }", _cSharpMin7.DisplayValueWithPitches(false));
-        Assert.Equal("C#m7 { C# E G# B }", _cSharpMin7.DisplayValueWithPitches(true));
+        Assert.Equal("C♯m7: C♯ E G♯ B", _cSharpMin7.DisplayValueWithPitches());
+        Assert.Equal("C♯m7: C♯ E G♯ B", _cSharpMin7.DisplayValueWithPitches(false));
+        Assert.Equal("C#m7: C# E G# B", _cSharpMin7.DisplayValueWithPitches(true));
     }
 
     [Theory]

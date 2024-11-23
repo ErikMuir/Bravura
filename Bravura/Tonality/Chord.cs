@@ -60,7 +60,7 @@ public class Chord : IBaseTonality
     
     public string DisplayValue(bool onlyAscii = false) => $"{Root.DisplayValue(onlyAscii)}{Quality.DisplayValue(onlyAscii)}";
 
-    public string DisplayValueWithPitches(bool onlyAscii = false) => $"{DisplayValue(onlyAscii)} {{ {Pitches.DisplayValue(onlyAscii)} }}";
+    public string DisplayValueWithPitches(bool onlyAscii = false) => $"{DisplayValue(onlyAscii)}: {Pitches.DisplayValue(onlyAscii)}";
 
     public static bool TryParse(string val, out Chord chord)
     {

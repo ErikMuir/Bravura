@@ -1238,7 +1238,7 @@ public static class ChordQualityAsciiSymbols
     #endregion
 
     #region Ninth Chords
-    public const string Dim7Flat9 = "7b9";
+    public const string Dim7Flat9 = "dim7b9";
     public const string Min7Flat5Flat9 = "m7b5b9";
     public const string Min9Flat5 = "m9b5";
     public const string Min7Flat9 = "m7b9";

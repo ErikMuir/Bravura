@@ -66,11 +66,9 @@ public class ChordalRelationshipTests
         var cMajorChord = new Chord(Pitches.CNatural, ChordQualities.Maj);
         var relationship = new ChordalRelationship(gMajorChord, cMajorChord);
 
-        Assert.Equal(4, relationship.BestKeys.Count);
+        Assert.Equal(2, relationship.BestKeys.Count);
         Assert.Contains(Keys.GMajor, relationship.BestKeys);
         Assert.Contains(Keys.CMajor, relationship.BestKeys);
-        Assert.Contains(Keys.EMinor, relationship.BestKeys);
-        Assert.Contains(Keys.AMinor, relationship.BestKeys);
     }
 
     [Fact]

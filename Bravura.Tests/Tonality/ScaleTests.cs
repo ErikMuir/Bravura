@@ -48,8 +48,8 @@ public class ScaleTests
     [Fact]
     public void DisplayValueWithPitches_Test()
     {
-        Assert.Equal("C♯ Natural Minor { C♯ D♯ E F♯ G♯ A B }", _cSharpMinor.DisplayValueWithPitches());
-        Assert.Equal("C♯ Natural Minor { C♯ D♯ E F♯ G♯ A B }", _cSharpMinor.DisplayValueWithPitches(false));
-        Assert.Equal("C# Natural Minor { C# D# E F# G# A B }", _cSharpMinor.DisplayValueWithPitches(true));
+        Assert.Equal("C♯ Natural Minor: C♯ D♯ E F♯ G♯ A B", _cSharpMinor.DisplayValueWithPitches());
+        Assert.Equal("C♯ Natural Minor: C♯ D♯ E F♯ G♯ A B", _cSharpMinor.DisplayValueWithPitches(false));
+        Assert.Equal("C# Natural Minor: C# D# E F# G# A B", _cSharpMinor.DisplayValueWithPitches(true));
     }
 }

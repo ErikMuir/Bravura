@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.CommandLine;
 using System.CommandLine.NamingConventionBinder;
 using System.Linq;
+using System.Text.Json;
 using MuirDev.ConsoleTools;
 using Bravura.Tonality;
+using Bravura.Tonality.Analysis;
 
 namespace Bravura.Console.Commands;
 
@@ -20,7 +23,13 @@ public static class ChordProgressionCommand
 
     private static void _handler(string[] chords)
     {
-        List<Chord> progression = new();
+        if (chords.Length == 0)
+        {
+            _console.Failure("You must provide at least one chord!");
+            return;
+        }
+
+        var parsedChords = new List<Chord>();
         foreach (string val in chords)
         {
             if (!Chord.TryParse(val, out Chord chord))
@@ -28,42 +37,43 @@ public static class ChordProgressionCommand
                 _console.Failure($"'{val}' is not a valid chord!");
                 return;
             }
-            progression.Add(chord);
+            parsedChords.Add(chord);
         }
+        var progression = new ChordProgression(parsedChords);
 
-        List<Pitch> pitches = progression
-            .Select(c => c.Pitches)
-            .SelectMany(p => p)
-            .DistinctBy(pitches => pitches.DisplayValue(true))
-            .ToList();
+        List<TableRow> rows = [GetHeaderRow(progression)];
+        rows.AddRange(progression.Analysis.Select(analysis => GetAnalysisRow(analysis)));
 
-        List<Key> keys = Keys.AllKeys
-            .Where(key =>
-            {
-                foreach (Pitch pitch in pitches)
-                {
-                    if (!key.Scale.Pitches.Contains(pitch))
-                    {
-                        return false;
-                    }
-                }
-                return true;
-            })
-            .ToList();
-
-        switch (keys.Count)
+        var table = new Table(rows, new TableConfig
         {
-            case 0:
-                _console.Failure("Currently only supports diatonic chord progressions!");
-                return;
-            case 1:
-                Key key = keys[0];
-                _console.Info($"Key: {key.Root.DisplayValue(true)} {key.Modality}");
-                return;
-            default:
-                _console.Info("Possible Keys:");
-                keys.ForEach(key => _console.Info($"{key.Root.DisplayValue(true)} {key.Modality}"));
-                return;
-        }
+            TableBorder = true,
+            ColumnBorder = true,
+            HasColumnLabels = true,
+            HasRowLabels = true,
+            BorderColor = ConsoleColor.DarkGray,
+        });
+        table.Display();
+    }
+
+    private static TableRow GetHeaderRow(ChordProgression prog)
+    {
+        var headerRowCells = new List<TableCell>();
+
+        headerRowCells.Add(new("Key"));
+        headerRowCells.AddRange(prog.Chords.Select(chord => new TableCell(chord.DisplayValue(true))));
+        headerRowCells.Add(new("Weight"));
+
+        return new TableRow(headerRowCells);
+    }
+
+    private static TableRow GetAnalysisRow(ChordProgressionAnalysis analysis)
+    {
+        var analysisRowCells = new List<TableCell>();
+
+        analysisRowCells.Add(new(analysis.AnalyzedChords.First().Key.DisplayValue(true)));
+        analysisRowCells.AddRange(analysis.AnalyzedChords.Select(analyzedChord => new TableCell(analyzedChord.DisplayValue(true))));
+        analysisRowCells.Add(new("todo"));
+
+        return new TableRow(analysisRowCells);
     }
 }

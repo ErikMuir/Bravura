@@ -48,7 +48,7 @@ public record ChordQuality(string Symbol, string AsciiSymbol, List<Interval> Int
 
     public string DisplayValue(bool onlyAscii = false) => onlyAscii ? AsciiSymbol : Symbol;
 
-    public string DisplayValueWithIntervals(bool onlyAscii = false) => $"{DisplayValue(onlyAscii)} {{ {Intervals.DisplayValue(onlyAscii)} }}";
+    public string DisplayValueWithIntervals(bool onlyAscii = false) => $"{DisplayValue(onlyAscii)}: {Intervals.DisplayValue(onlyAscii)}";
 
     public static bool TryParse(string val, out ChordQuality chordQuality)
     {

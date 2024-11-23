@@ -89,9 +89,9 @@ public class ChordQualityTests
     [Fact]
     public void DisplayValueWithIntervals_Test()
     {
-        Assert.Equal("m7♭5 { ♮1 ♭3 ♭5 ♭7 }", ChordQualities.Min7Flat5.DisplayValueWithIntervals());
-        Assert.Equal("m7♭5 { ♮1 ♭3 ♭5 ♭7 }", ChordQualities.Min7Flat5.DisplayValueWithIntervals(false));
-        Assert.Equal("m7b5 { 1 b3 b5 b7 }", ChordQualities.Min7Flat5.DisplayValueWithIntervals(true));
+        Assert.Equal("m7♭5: ♮1 ♭3 ♭5 ♭7", ChordQualities.Min7Flat5.DisplayValueWithIntervals());
+        Assert.Equal("m7♭5: ♮1 ♭3 ♭5 ♭7", ChordQualities.Min7Flat5.DisplayValueWithIntervals(false));
+        Assert.Equal("m7b5: 1 b3 b5 b7", ChordQualities.Min7Flat5.DisplayValueWithIntervals(true));
     }
 
     [Fact]

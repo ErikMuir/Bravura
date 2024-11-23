@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.CommandLine;
 using System.CommandLine.NamingConventionBinder;
+using System.Linq;
 using MuirDev.ConsoleTools;
 using Bravura.Tonality;
 using Bravura.Tonality.Analysis;
@@ -45,17 +46,19 @@ public static class ChordalRelationshipCommand
                 new(""),
                 new(chordalRelationship.Chord1.DisplayValue(true)),
                 new(chordalRelationship.Chord2.DisplayValue(true)),
+                new("Weight")
             ]));
-        foreach (var keyValuePair in chordalRelationship.Analysis)
+        foreach (var keyValuePair in chordalRelationship.Analysis.OrderByDescending(a => a.Value.Weight))
         {
             rows.Add(new(
                 [
                     new(keyValuePair.Key.DisplayValue(true)),
-                    new(keyValuePair.Value[0].DisplayValue(true)),
-                    new(keyValuePair.Value[1].DisplayValue(true)),
+                    new(keyValuePair.Value.AnalyzedChords[0].DisplayValue(true)),
+                    new(keyValuePair.Value.AnalyzedChords[1].DisplayValue(true)),
+                    new(keyValuePair.Value.Weight.ToString()),
                 ]));
         }
-        var table = new Table(3, new TableConfig
+        var table = new Table(rows, new TableConfig
         {
             TableBorder = true,
             ColumnBorder = true,
@@ -63,7 +66,6 @@ public static class ChordalRelationshipCommand
             HasRowLabels = true,
             BorderColor = ConsoleColor.DarkGray,
         });
-        table.SetRows(rows);
         table.Display();
     }
 }

@@ -11,7 +11,7 @@ public record Scale(Pitch Root, Mode Mode) : IBaseTonality
 
     public string DisplayValue(bool onlyAscii = false) => $"{Root.DisplayValue(onlyAscii)} {Mode.DisplayValue(onlyAscii)}";
 
-    public string DisplayValueWithPitches(bool onlyAscii = false) => $"{DisplayValue(onlyAscii)} {{ {Pitches.DisplayValue(onlyAscii)} }}";
+    public string DisplayValueWithPitches(bool onlyAscii = false) => $"{DisplayValue(onlyAscii)}: {Pitches.DisplayValue(onlyAscii)}";
 
     public Scale Transpose(Direction direction, Interval interval)
     {

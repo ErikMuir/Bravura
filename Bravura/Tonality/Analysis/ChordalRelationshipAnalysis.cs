@@ -9,36 +9,43 @@ public class ChordalRelationshipAnalysis
     {
         Key = key;
         AnalyzedChords = analyzedChords;
-        Weight = 0;
 
+        // for each chord
         foreach (var analyzedChord in AnalyzedChords)
         {
             // add one for each diatonic pitch
-            Weight += analyzedChord.Chord.Pitches.Count(Key.Scale.Pitches.Contains);
+            AppliedWeight.Apply(analyzedChord.Chord.Pitches.Count(Key.Scale.Pitches.Contains));
 
-            // add another if the root is diatonic
-            if (Key.Scale.Pitches.Contains(analyzedChord.Chord.Root))
-                Weight++;
+            // don't forget about major sevenths in harmonic and melodic minor keys, especially when it's the 5 chord
+            var majorSeventh = Key.Root.Transpose(Direction.Up, Intervals.MajorSeventh);
+            var fiveChordBonus = analyzedChord.Interval == Intervals.PerfectFifth ? 1 : 0;
+            AppliedWeight.ApplyIf(1 + fiveChordBonus, Key.Modality == Modality.Minor && analyzedChord.Chord.Pitches.Contains(majorSeventh));
+
+            // add another if the chord's root is diatonic
+            AppliedWeight.ApplyIf(Key.Scale.Pitches.Contains(analyzedChord.Chord.Root));
+
+            // add another if the chord's root is the same as the key's root
+            AppliedWeight.ApplyIf(analyzedChord.Chord.Root == Key.Root);
         }
 
-        // ii-V
-        if (AnalyzedChords[0].Interval == Intervals.MajorSecond &&
-            AnalyzedChords[0].Chord.IsMinor &&
-            AnalyzedChords[1].Interval == Intervals.PerfectFifth &&
-            AnalyzedChords[1].Chord.IsMajor)
+        // for each pair of chords
+        foreach (var pairIndex in Enumerable.Range(0, AnalyzedChords.Count - 1))
         {
-            Weight += 3;
-        }
+            // ii-V
+            var isTwoFive = AnalyzedChords[pairIndex].Interval == Intervals.MajorSecond &&
+                AnalyzedChords[pairIndex].Chord.IsMinor &&
+                AnalyzedChords[pairIndex + 1].Interval == Intervals.PerfectFifth &&
+                AnalyzedChords[pairIndex + 1].Chord.IsMajor;
+            AppliedWeight.ApplyIf(3, isTwoFive);
 
-        // V7-(I/i)
-        if (AnalyzedChords[0].Interval == Intervals.PerfectFifth &&
-            AnalyzedChords[0].Chord.IsMajor &&
-            AnalyzedChords[0].Chord.IsDominant &&
-            AnalyzedChords[1].Interval == Intervals.PerfectUnison &&
-            (AnalyzedChords[1].Chord.IsMajor || AnalyzedChords[1].Chord.IsMinor) &&
-            !AnalyzedChords[1].Chord.IsDominant)
-        {
-            Weight += 3;
+            // V7-(I/i)
+            var isFiveOne = AnalyzedChords[pairIndex].Interval == Intervals.PerfectFifth &&
+                AnalyzedChords[pairIndex].Chord.IsMajor &&
+                AnalyzedChords[pairIndex].Chord.IsDominant &&
+                AnalyzedChords[pairIndex + 1].Interval == Intervals.PerfectUnison &&
+                (AnalyzedChords[pairIndex + 1].Chord.IsMajor || AnalyzedChords[pairIndex + 1].Chord.IsMinor) &&
+                !AnalyzedChords[pairIndex + 1].Chord.IsDominant;
+            AppliedWeight.ApplyIf(3, isFiveOne);
         }
     }
 
@@ -46,5 +53,7 @@ public class ChordalRelationshipAnalysis
 
     public List<AnalyzedChord> AnalyzedChords { get; set; }
 
-    public int Weight { get; set; }
+    private readonly AppliedWeight AppliedWeight = new();
+
+    public int Weight => AppliedWeight.Weight;
 }

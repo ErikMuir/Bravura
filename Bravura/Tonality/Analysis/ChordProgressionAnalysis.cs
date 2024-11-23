@@ -1,11 +1,13 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace Bravura.Tonality.Analysis;
 
-public class ChordProgressionAnalysis
+public class ChordProgressionAnalysis(IEnumerable<AnalyzedChord> analyzedChords)
 {
-    public ChordProgressionAnalysis(List<ChordalRelationship> relationships)
-    {
-        Relationships = relationships;
-    }
+    private readonly AppliedWeight AppliedWeight = new();
 
-    public List<ChordalRelationship> Relationships { get; set; }
+    public List<AnalyzedChord> AnalyzedChords { get; set; } = analyzedChords.ToList();
+
+    public int Weight => AppliedWeight.Weight;
 }
