@@ -32,7 +32,6 @@ public class App
                 ChordProgressionCommand.Command,
                 TransposeCommand.Command,
                 AnalyzedChordCommand.Command,
-                ChordalRelationshipCommand.Command,
             };
         _rootCommand.Handler = CommandHandler.Create<Command>(_rootCommandHandler);
     }

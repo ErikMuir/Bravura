@@ -25,11 +25,11 @@ public class ChordProgressionAnalyzer
                 var keys = new List<Key>();
                 if (i > 0)
                 {
-                    keys.AddRange(Relationships[i - 1].BestKeys);
+                    keys.AddRange(Relationships[i - 1].PotentialKeys);
                 }
                 if (i < ChordCount - 1)
                 {
-                    keys.AddRange(Relationships[i].BestKeys);
+                    keys.AddRange(Relationships[i].PotentialKeys);
                 }
                 return new Indexable<Key>(keys.DistinctBy(k => k.DisplayValue(true)));
             })
@@ -73,8 +73,6 @@ public class ChordProgressionAnalyzer
     public readonly List<ChordProgressionAnalysis> Analysis = [];
 
     private int ChordCount => Progression.Count;
-
-    private Chord CurrentChord => Progression[ChordIndex];
 
     private int ChordIndex { get; set; }
 

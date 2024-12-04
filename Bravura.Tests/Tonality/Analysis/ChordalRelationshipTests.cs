@@ -62,13 +62,13 @@ public class ChordalRelationshipTests
     [Fact]
     public void BestKeys_Multiple_Test()
     {
+        var aMinorChord = new Chord(Pitches.ANatural, ChordQualities.Min);
         var gMajorChord = new Chord(Pitches.GNatural, ChordQualities.Maj);
-        var cMajorChord = new Chord(Pitches.CNatural, ChordQualities.Maj);
-        var relationship = new ChordalRelationship(gMajorChord, cMajorChord);
+        var relationship = new ChordalRelationship(aMinorChord, gMajorChord);
 
         Assert.Equal(2, relationship.BestKeys.Count);
+        Assert.Contains(Keys.AMinor, relationship.BestKeys);
         Assert.Contains(Keys.GMajor, relationship.BestKeys);
-        Assert.Contains(Keys.CMajor, relationship.BestKeys);
     }
 
     [Fact]

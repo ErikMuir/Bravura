@@ -9,11 +9,11 @@ public class ChordalRelationship : IBaseTonality
     {
         Chord1 = chord1;
         Chord2 = chord2;
-        Analysis = Chord1.PotentialKeys
-            .AppendDistinct(Chord2.PotentialKeys)
-            .Select(key => new KeyValuePair<Key, ChordalRelationshipAnalysis>(
+        PotentialKeys = Chord1.PotentialKeys.AppendDistinct(Chord2.PotentialKeys).ToList();
+        Analysis = PotentialKeys
+            .Select(key => new KeyValuePair<Key, ChordProgressionAnalysis>(
                 key,
-                new ChordalRelationshipAnalysis(key, [new(Chord1, key), new(Chord2, key)])))
+                new ChordProgressionAnalysis([new(Chord1, key), new(Chord2, key)])))
             .ToDictionary();
         BestKeys = Analysis
             .Where(kvp => kvp.Value.Weight == MaxWeight)
@@ -25,9 +25,11 @@ public class ChordalRelationship : IBaseTonality
 
     public Chord Chord2 { get; }
 
-    public Dictionary<Key, ChordalRelationshipAnalysis> Analysis { get; }
+    public Dictionary<Key, ChordProgressionAnalysis> Analysis { get; }
 
     public int MaxWeight => Analysis.Select(kvp => kvp.Value.Weight).Max();
+
+    public List<Key> PotentialKeys { get; }
 
     public List<Key> BestKeys { get; }
 
