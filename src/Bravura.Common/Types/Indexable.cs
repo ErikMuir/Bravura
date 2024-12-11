@@ -1,25 +1,37 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Bravura.Common.Types;
 
-public class Indexable<T>(IEnumerable<T> objects) : IEnumerable<T>
+public class Indexable<T>
 {
-    private readonly List<T> _objects = objects?.ToList() ?? [];
+    public Indexable(IEnumerable<T> objects, int startingIndex = 0)
+    {
+        Objects = objects.ToList();
+        Index = startingIndex;
+    }
 
-    public int Count => _objects.Count;
+    public List<T> Objects { get; }
 
-    public int Index { get; private set; } = 0;
+    private int _index;
+    public int Index
+    {
+        get => _index;
+        private set
+        {
+            if (value < 0 || value >= Count)
+                throw new IndexOutOfRangeException();
+            _index = value;
+        }
+    }
 
-    public T Current => _objects.ElementAt(Index);
+    public int Count => Objects.Count;
 
-    public bool IsLast => Index == _objects.Count - 1;
+    public T Current => Objects.ElementAt(Index);
 
     public void MoveNext()
     {
-        if (IsLast) throw new IndexOutOfRangeException();
         Index++;
     }
 
@@ -30,22 +42,12 @@ public class Indexable<T>(IEnumerable<T> objects) : IEnumerable<T>
 
     public void MoveNextOrReset()
     {
-        if (IsLast) Reset();
+        if (Index == Count - 1) Reset();
         else MoveNext();
     }
 
-    // public string DisplayValue(bool onlyAscii = false)
-    // {
-    //     return ((IEnumerable<IBaseTonality>)_objects).DisplayValue(onlyAscii);
-    // }
-
-    public IEnumerator<T> GetEnumerator()
+    public void JumpTo(int index)
     {
-        return ((IEnumerable<T>)_objects).GetEnumerator();
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return ((IEnumerable)_objects).GetEnumerator();
+        Index = index;
     }
 }

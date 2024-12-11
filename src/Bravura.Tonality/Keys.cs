@@ -5,146 +5,107 @@ namespace Bravura.Tonality;
 
 public static class Keys
 {
-    static Keys()
+    public static readonly Key CMajor = new(Pitches.CNatural, Modality.Major);
+    public static readonly Key CSharpMajor = new(Pitches.CSharp, Modality.Major);
+    public static readonly Key DFlatMajor = new(Pitches.DFlat, Modality.Major);
+    public static readonly Key DMajor = new(Pitches.DNatural, Modality.Major);
+    public static readonly Key EFlatMajor = new(Pitches.EFlat, Modality.Major);
+    public static readonly Key EMajor = new(Pitches.ENatural, Modality.Major);
+    public static readonly Key FMajor = new(Pitches.FNatural, Modality.Major);
+    public static readonly Key FSharpMajor = new(Pitches.FSharp, Modality.Major);
+    public static readonly Key GFlatMajor = new(Pitches.GFlat, Modality.Major);
+    public static readonly Key GMajor = new(Pitches.GNatural, Modality.Major);
+    public static readonly Key AFlatMajor = new(Pitches.AFlat, Modality.Major);
+    public static readonly Key AMajor = new(Pitches.ANatural, Modality.Major);
+    public static readonly Key BFlatMajor = new(Pitches.BFlat, Modality.Major);
+    public static readonly Key BMajor = new(Pitches.BNatural, Modality.Major);
+    public static readonly Key CFlatMajor = new(Pitches.CFlat, Modality.Major);
+
+    public static readonly Key CMinor = new(Pitches.CNatural, Modality.Minor);
+    public static readonly Key CSharpMinor = new(Pitches.CSharp, Modality.Minor);
+    public static readonly Key DMinor = new(Pitches.DNatural, Modality.Minor);
+    public static readonly Key DSharpMinor = new(Pitches.DSharp, Modality.Minor);
+    public static readonly Key EFlatMinor = new(Pitches.EFlat, Modality.Minor);
+    public static readonly Key EMinor = new(Pitches.ENatural, Modality.Minor);
+    public static readonly Key FMinor = new(Pitches.FNatural, Modality.Minor);
+    public static readonly Key FSharpMinor = new(Pitches.FSharp, Modality.Minor);
+    public static readonly Key GMinor = new(Pitches.GNatural, Modality.Minor);
+    public static readonly Key GSharpMinor = new(Pitches.GSharp, Modality.Minor);
+    public static readonly Key AFlatMinor = new(Pitches.AFlat, Modality.Minor);
+    public static readonly Key AMinor = new(Pitches.ANatural, Modality.Minor);
+    public static readonly Key ASharpMinor = new(Pitches.ASharp, Modality.Minor);
+    public static readonly Key BFlatMinor = new(Pitches.BFlat, Modality.Minor);
+    public static readonly Key BMinor = new(Pitches.BNatural, Modality.Minor);
+
+    public static readonly ReadOnlyCollection<Key> MajorKeys = new List<Key>
     {
-        CMajor = new Key(Pitches.CNatural, Modality.Major);
-        CSharpMajor = new Key(Pitches.CSharp, Modality.Major);
-        DFlatMajor = new Key(Pitches.DFlat, Modality.Major);
-        DMajor = new Key(Pitches.DNatural, Modality.Major);
-        EFlatMajor = new Key(Pitches.EFlat, Modality.Major);
-        EMajor = new Key(Pitches.ENatural, Modality.Major);
-        FMajor = new Key(Pitches.FNatural, Modality.Major);
-        FSharpMajor = new Key(Pitches.FSharp, Modality.Major);
-        GFlatMajor = new Key(Pitches.GFlat, Modality.Major);
-        GMajor = new Key(Pitches.GNatural, Modality.Major);
-        AFlatMajor = new Key(Pitches.AFlat, Modality.Major);
-        AMajor = new Key(Pitches.ANatural, Modality.Major);
-        BFlatMajor = new Key(Pitches.BFlat, Modality.Major);
-        BMajor = new Key(Pitches.BNatural, Modality.Major);
-        CFlatMajor = new Key(Pitches.CFlat, Modality.Major);
+        CMajor,
+        CSharpMajor,
+        DFlatMajor,
+        DMajor,
+        EFlatMajor,
+        EMajor,
+        FMajor,
+        FSharpMajor,
+        GFlatMajor,
+        GMajor,
+        AFlatMajor,
+        AMajor,
+        BFlatMajor,
+        BMajor,
+        CFlatMajor,
+    }.AsReadOnly();
 
-        CMinor = new Key(Pitches.CNatural, Modality.Minor);
-        CSharpMinor = new Key(Pitches.CSharp, Modality.Minor);
-        DMinor = new Key(Pitches.DNatural, Modality.Minor);
-        DSharpMinor = new Key(Pitches.DSharp, Modality.Minor);
-        EFlatMinor = new Key(Pitches.EFlat, Modality.Minor);
-        EMinor = new Key(Pitches.ENatural, Modality.Minor);
-        FMinor = new Key(Pitches.FNatural, Modality.Minor);
-        FSharpMinor = new Key(Pitches.FSharp, Modality.Minor);
-        GMinor = new Key(Pitches.GNatural, Modality.Minor);
-        GSharpMinor = new Key(Pitches.GSharp, Modality.Minor);
-        AFlatMinor = new Key(Pitches.AFlat, Modality.Minor);
-        AMinor = new Key(Pitches.ANatural, Modality.Minor);
-        ASharpMinor = new Key(Pitches.ASharp, Modality.Minor);
-        BFlatMinor = new Key(Pitches.BFlat, Modality.Minor);
-        BMinor = new Key(Pitches.BNatural, Modality.Minor);
+    public static readonly ReadOnlyCollection<Key> MinorKeys = new List<Key>
+    {
+        CMinor,
+        CSharpMinor,
+        DMinor,
+        DSharpMinor,
+        EFlatMinor,
+        EMinor,
+        FMinor,
+        FSharpMinor,
+        GMinor,
+        GSharpMinor,
+        AFlatMinor,
+        AMinor,
+        ASharpMinor,
+        BFlatMinor,
+        BMinor,
+    }.AsReadOnly();
 
-        MajorKeys = new List<Key>
-            {
-                CMajor,
-                CSharpMajor,
-                DFlatMajor,
-                DMajor,
-                EFlatMajor,
-                EMajor,
-                FMajor,
-                FSharpMajor,
-                GFlatMajor,
-                GMajor,
-                AFlatMajor,
-                AMajor,
-                BFlatMajor,
-                BMajor,
-                CFlatMajor,
-            }.AsReadOnly();
-
-        MinorKeys = new List<Key>
-            {
-                CMinor,
-                CSharpMinor,
-                DMinor,
-                DSharpMinor,
-                EFlatMinor,
-                EMinor,
-                FMinor,
-                FSharpMinor,
-                GMinor,
-                GSharpMinor,
-                AFlatMinor,
-                AMinor,
-                ASharpMinor,
-                BFlatMinor,
-                BMinor,
-            }.AsReadOnly();
-
-        AllKeys = new List<Key>
-            {
-                CMajor,
-                CSharpMajor,
-                DFlatMajor,
-                DMajor,
-                EFlatMajor,
-                EMajor,
-                FMajor,
-                FSharpMajor,
-                GFlatMajor,
-                GMajor,
-                AFlatMajor,
-                AMajor,
-                BFlatMajor,
-                BMajor,
-                CFlatMajor,
-                CMinor,
-                CSharpMinor,
-                DMinor,
-                DSharpMinor,
-                EFlatMinor,
-                EMinor,
-                FMinor,
-                FSharpMinor,
-                GMinor,
-                GSharpMinor,
-                AFlatMinor,
-                AMinor,
-                ASharpMinor,
-                BFlatMinor,
-                BMinor,
-            }.AsReadOnly();
-    }
-
-    public static Key CMajor { get; }
-    public static Key CSharpMajor { get; }
-    public static Key DFlatMajor { get; }
-    public static Key DMajor { get; }
-    public static Key EFlatMajor { get; }
-    public static Key EMajor { get; }
-    public static Key FMajor { get; }
-    public static Key FSharpMajor { get; }
-    public static Key GFlatMajor { get; }
-    public static Key GMajor { get; }
-    public static Key AFlatMajor { get; }
-    public static Key AMajor { get; }
-    public static Key BFlatMajor { get; }
-    public static Key BMajor { get; }
-    public static Key CFlatMajor { get; }
-
-    public static Key CMinor { get; }
-    public static Key CSharpMinor { get; }
-    public static Key DMinor { get; }
-    public static Key DSharpMinor { get; }
-    public static Key EFlatMinor { get; }
-    public static Key EMinor { get; }
-    public static Key FMinor { get; }
-    public static Key FSharpMinor { get; }
-    public static Key GMinor { get; }
-    public static Key GSharpMinor { get; }
-    public static Key AFlatMinor { get; }
-    public static Key AMinor { get; }
-    public static Key ASharpMinor { get; }
-    public static Key BFlatMinor { get; }
-    public static Key BMinor { get; }
-
-    public static ReadOnlyCollection<Key> MajorKeys { get; }
-    public static ReadOnlyCollection<Key> MinorKeys { get; }
-    public static ReadOnlyCollection<Key> AllKeys { get; }
+    public static readonly ReadOnlyCollection<Key> AllKeys = new List<Key>
+    {
+        CMajor,
+        CSharpMajor,
+        DFlatMajor,
+        DMajor,
+        EFlatMajor,
+        EMajor,
+        FMajor,
+        FSharpMajor,
+        GFlatMajor,
+        GMajor,
+        AFlatMajor,
+        AMajor,
+        BFlatMajor,
+        BMajor,
+        CFlatMajor,
+        CMinor,
+        CSharpMinor,
+        DMinor,
+        DSharpMinor,
+        EFlatMinor,
+        EMinor,
+        FMinor,
+        FSharpMinor,
+        GMinor,
+        GSharpMinor,
+        AFlatMinor,
+        AMinor,
+        ASharpMinor,
+        BFlatMinor,
+        BMinor,
+    }.AsReadOnly();
 }

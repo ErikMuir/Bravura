@@ -22,7 +22,7 @@ public static class ChordCommand
         _console
             .Info($"Root: {chord.Root.ToString().ToAscii()}")
             .Info($"Quality: {chord.Quality.ToString().ToAscii()}")
-            .Info($"Notes: {chord.Pitches.ToString().ToAscii()}")
-            .Info($"Chord Tones: {chord.Quality.Intervals.ToString().ToAscii()}");
+            .Info($"Notes: {chord.Pitches.ToJoinedString().ToAscii()}")
+            .Info($"Chord Tones: {chord.Quality.Intervals.ToJoinedString().ToAscii()}");
     }
 }

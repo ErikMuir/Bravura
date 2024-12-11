@@ -21,7 +21,6 @@ public static class ModeCommand
 
         _console
             .Info($"Mode: {mode}")
-            .Info($"Degrees: {mode.Intervals.Select(i => i.ToString().ToAscii())}")
-            .Info($"Symbols: {mode.Intervals.Select(i => i.ToString().ToAscii())}");
+            .Info($"Degrees: {mode.Intervals.ToJoinedString().ToAscii()}");
     }
 }

@@ -17,9 +17,9 @@ public class AsciiConverterTests
     }
 
     [Fact]
-    public void ToAscii_WhenProvidedAUnicodeNaturalSymbol_ThenConvertsToAsciiUnderscore()
+    public void ToAscii_WhenProvidedAUnicodeNaturalSymbol_ThenRemovesIt()
     {
-        Assert.Equal("_", "♮".ToAscii());
+        Assert.Equal("", "♮".ToAscii());
     }
 
     [Fact]
@@ -37,6 +37,6 @@ public class AsciiConverterTests
     [Fact]
     public void FromAscii_WhenProvidedAnAsciiUnderscore_ThenConvertsToUnicodeNaturalSymbol()
     {
-        Assert.Equal("♮", "_".FromAscii());
+        Assert.Equal("♮", "_".FromAscii("_"));
     }
 }

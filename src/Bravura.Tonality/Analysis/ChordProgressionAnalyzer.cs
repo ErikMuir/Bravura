@@ -51,7 +51,7 @@ public class ChordProgressionAnalyzer
             if (existingAnalysis is null)
                 Analysis.Add(new ChordProgressionAnalysis(analyzedChords));
 
-            if (!keys.IsLast)
+            if (keys.Index < keys.Count - 1)
                 keys.MoveNext();
             else if (ChordIndex == 0)
                 break;

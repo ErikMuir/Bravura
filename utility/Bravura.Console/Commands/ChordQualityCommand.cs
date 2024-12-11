@@ -21,7 +21,6 @@ public static class ChordQualityCommand
 
         _console
             .Info($"Chord Quality: {chordQuality.ToString().ToAscii()}")
-            .Info($"Degrees: {chordQuality.Intervals.Select(i => i.ToString().ToAscii())}")
-            .Info($"Symbols: {chordQuality.Intervals.Select(i => i.ToString().ToAscii())}");
+            .Info($"Degrees: {chordQuality.Intervals.Select(i => $"{i.Degree}").ToJoinedString().ToAscii()}");
     }
 }

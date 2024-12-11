@@ -4,6 +4,8 @@ namespace Bravura.Common.Tests;
 
 public class StringHelpersTests
 {
+    #region IsNullOrWhiteSpace
+
     [Theory]
     [InlineData(null)]
     [InlineData("")]
@@ -13,12 +15,19 @@ public class StringHelpersTests
         Assert.True(val.IsNullOrWhiteSpace());
     }
 
-    [Fact]
-    public void IsNullOrWhiteSpace_WhenProvidedANonWhiteSpaceString_ThenReturnsFalse()
+    [Theory]
+    [InlineData("foo bar")]
+    [InlineData("     foo bar")]
+    [InlineData("foo bar     ")]
+    [InlineData("     foo bar     ")]
+    public void IsNullOrWhiteSpace_WhenProvidedANonEmptyValue_ThenReturnsFalse(string val)
     {
-        var val = "foobar";
         Assert.False(val.IsNullOrWhiteSpace());
     }
+
+    #endregion
+
+    #region TrimToNull
 
     [Theory]
     [InlineData(null)]
@@ -39,19 +48,22 @@ public class StringHelpersTests
         Assert.Equal("foo bar", val.TrimToNull());
     }
 
+    #endregion
+
+    #region SafeTrim
+
     [Fact]
     public void SafeTrim_WhenProvidedNull_ThenReturnsNull()
     {
         string val = null;
-
+        // ReSharper disable once ExpressionIsAlwaysNull
         Assert.Null(val.SafeTrim());
     }
 
     [Fact]
     public void SafeTrim_WhenProvidedEmptyString_ThenReturnsEmptyString()
     {
-        var val = "";
-
+        const string val = "";
         Assert.Equal("", val.SafeTrim());
     }
 
@@ -64,4 +76,6 @@ public class StringHelpersTests
     {
         Assert.Equal("foo bar", val.SafeTrim());
     }
+
+    #endregion
 }

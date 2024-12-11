@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace Bravura.Tonality.Tests;
 
 public class ChordQualityTests
@@ -64,12 +62,11 @@ public class ChordQualityTests
     [Fact]
     public void EffectivelyEquals_Test()
     {
-        var differentMinor = new ChordQuality("-", "-", new List<Interval>
-            {
-                Intervals.PerfectUnison,
-                Intervals.MinorThird,
-                Intervals.PerfectFifth,
-            });
+        var differentMinor = new ChordQuality("-", [
+            Intervals.PerfectUnison,
+            Intervals.MinorThird,
+            Intervals.PerfectFifth,
+        ]);
 
         Assert.True(differentMinor.EffectivelyEquals(ChordQualities.Min));
         Assert.False(differentMinor.EffectivelyEquals(ChordQualities.Maj));

@@ -26,7 +26,7 @@ public static class ChordProgressionCommand
         var parsedChords = new List<Chord>();
         foreach (string val in chords)
         {
-            if (!Chord.TryParse(val, out Chord chord))
+            if (!Chord.TryParse(val, out var chord))
             {
                 _console.Failure($"'{val}' is not a valid chord!");
                 return;
@@ -59,22 +59,22 @@ public static class ChordProgressionCommand
 
     private static TableRow GetHeaderRow(ChordProgression prog, bool all)
     {
-        var headerRowCells = new List<TableCell>();
-
-        headerRowCells.Add(new("Key"));
-        headerRowCells.AddRange(prog.Chords.Select(chord => new TableCell(chord.ToString().ToAscii())));
-        if (all) headerRowCells.Add(new("Weight", _weightColumn));
+        List<TableCell> headerRowCells = [
+            new TableCell("Key"),
+            ..prog.Chords.Select(chord => new TableCell(chord.ToString().ToAscii())),
+        ];
+        if (all) headerRowCells.Add(new TableCell("Weight", _weightColumn));
 
         return new TableRow(headerRowCells);
     }
 
     private static TableRow GetAnalysisRow(ChordProgressionAnalysis analysis, bool all)
     {
-        var analysisRowCells = new List<TableCell>();
-
-        analysisRowCells.Add(new(analysis.AnalyzedChords.First().Key.ToString().ToAscii()));
-        analysisRowCells.AddRange(analysis.AnalyzedChords.Select(analyzedChord => new TableCell(analyzedChord.ToString().ToAscii())));
-        if (all) analysisRowCells.Add(new($"{analysis.Weight}", _weightColumn));
+        List<TableCell> analysisRowCells = [
+            new TableCell(analysis.AnalyzedChords.First().Key.ToString().ToAscii()),
+            ..analysis.AnalyzedChords.Select(analyzedChord => new TableCell(analyzedChord.ToString().ToAscii())),
+        ];
+        if (all) analysisRowCells.Add(new TableCell($"{analysis.Weight}", _weightColumn));
 
         return new TableRow(analysisRowCells);
     }

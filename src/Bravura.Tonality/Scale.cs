@@ -12,7 +12,7 @@ public record Scale(Pitch Root, Mode Mode) : ITonality
     public Scale Transpose(Direction direction, Interval interval)
     {
         var newRoot = Root.Transpose(direction, interval);
-        return new Scale(newRoot, Mode);
+        return this with { Root = newRoot };
     }
 
     public override string ToString() => $"{Root} {Mode}";

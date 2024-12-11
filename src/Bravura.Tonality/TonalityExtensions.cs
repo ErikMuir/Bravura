@@ -5,6 +5,6 @@ namespace Bravura.Tonality;
 
 public static class TonalityExtensions
 {
-    public static string JoinToString<T>(this IEnumerable<T> source, string delimiter = " ") where T : ITonality
+    public static string ToJoinedString<T>(this IEnumerable<T> source, string delimiter = " ")
         => string.Join(delimiter, source.Select(x => x.ToString()));
 }

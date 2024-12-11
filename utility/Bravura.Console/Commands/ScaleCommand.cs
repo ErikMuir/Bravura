@@ -33,6 +33,6 @@ public static class ScaleCommand
         _console
             .Info($"Root: {scale.Root.ToString().ToAscii()}")
             .Info($"Mode: {scale.Mode.ToString().ToAscii()}")
-            .Info($"Pitches: {scale.Pitches.Select(p => p.ToString().ToAscii())}");
+            .Info($"Pitches: {scale.Pitches.ToJoinedString().ToAscii()}");
     }
 }

@@ -1,3 +1,4 @@
+// ReSharper disable InconsistentNaming
 namespace Bravura.Tonality;
 
 public enum RomanNumerals
