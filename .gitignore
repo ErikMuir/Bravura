@@ -19,6 +19,7 @@ bld/
 # JetBrains Rider
 .idea/
 *.sln.iml
+*.sln.*
 
 # NuGet Packages
 *.nupkg

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Bravura.Tonality.Analysis;
 
-namespace Bravura.Tonality.Tests;
+namespace Bravura.Tonality.Tests.Analysis;
 
 public class AnalyzedChordTestData
 {
@@ -13,16 +13,16 @@ public class AnalyzedChordTestData
 
 public class AnalyzedChordTests
 {
-    private static readonly List<AnalyzedChordTestData> TestData =
+    private static readonly List<AnalyzedChordTestData> _testData =
     [
-        new()
+        new AnalyzedChordTestData
         {
             Chord = new Chord(Pitches.GNatural, ChordQualities.Maj7),
             Key = Keys.DMajor,
             ExpectedInterval = Intervals.PerfectFourth,
             ExpectedRomanNumeralAnalysis = "IVMaj7",
         },
-        new()
+        new AnalyzedChordTestData
         {
             Chord = new Chord(Pitches.BFlat, ChordQualities.Min7),
             Key = Keys.AMajor,
@@ -34,17 +34,17 @@ public class AnalyzedChordTests
     [Fact]
     public void IsDiatonic_Tests()
     {
-        var actual1 = new AnalyzedChord(TestData[0].Chord, TestData[0].Key);
+        var actual1 = new AnalyzedChord(_testData[0].Chord, _testData[0].Key);
         Assert.True(actual1.IsDiatonic);
 
-        var actual2 = new AnalyzedChord(TestData[1].Chord, TestData[1].Key);
+        var actual2 = new AnalyzedChord(_testData[1].Chord, _testData[1].Key);
         Assert.False(actual2.IsDiatonic);
     }
 
     [Fact]
     public void Interval_Tests()
     {
-        TestData.ForEach(data =>
+        _testData.ForEach(data =>
         {
             var actual = new AnalyzedChord(data.Chord, data.Key);
             Assert.Equal(data.ExpectedInterval, actual.Interval);
@@ -54,10 +54,10 @@ public class AnalyzedChordTests
     [Fact]
     public void RomanNumeralAnalysis_Tests()
     {
-        TestData.ForEach(data =>
+        _testData.ForEach(data =>
         {
             var actual = new AnalyzedChord(data.Chord, data.Key);
-            Assert.Equal(data.ExpectedRomanNumeralAnalysis, actual.RomanNumeralAnalysis());
+            Assert.Equal(data.ExpectedRomanNumeralAnalysis, actual.RomanNumeralAnalysis);
         });
     }
 }

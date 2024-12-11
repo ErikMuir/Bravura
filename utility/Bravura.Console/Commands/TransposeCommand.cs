@@ -9,7 +9,7 @@ public static class TransposeCommand
         Command.Handler = CommandHandler.Create<Direction, string, string[]>(_handler);
     }
 
-    public static Command Command = new("transpose")
+    public static readonly Command Command = new("transpose")
     {
         new Argument<Direction>("direction", "The direction to transpose (up or down)."),
         new Argument<string>("interval", "The interval in which to transpose."),
@@ -37,6 +37,6 @@ public static class TransposeCommand
 
         var transposedProgression = originalProgression.Select(chord => chord.Transpose(direction, parsedInterval));
 
-        _console.Info(transposedProgression.ToString().ToAscii());
+        _console.Info(transposedProgression.ToJoinedString().ToAscii());
     }
 }

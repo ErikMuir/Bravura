@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using Bravura.Common.Utilities;
+using Bravura.Common;
 
 namespace Bravura.Tonality;
 
-public readonly struct Note : ITonality
+public record Note : ITonality
 {
     internal Note(char letter, short semitonesAboveC)
     {
@@ -11,8 +11,8 @@ public readonly struct Note : ITonality
         SemitonesAboveC = semitonesAboveC;
     }
 
-    public char Letter { get; init; }
-    public short SemitonesAboveC { get; init; }
+    public char Letter { get; }
+    public short SemitonesAboveC { get; }
 
     public KeyValuePair<char, short> KeyValuePair => new(Letter, SemitonesAboveC);
 

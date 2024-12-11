@@ -6,6 +6,6 @@ Specifies the modality of a [Key](./Bravura.Tonality.Key.md).
 
 ## Fields
 | Field | Value |
-| --- | :---: |
-| Major | 0 |
-| Minor | 1 |
+|-------|:-----:|
+| Major |   0   |
+| Minor |   1   |

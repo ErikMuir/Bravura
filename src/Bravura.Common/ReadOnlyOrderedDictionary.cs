@@ -1,18 +1,16 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace Bravura.Common.Types;
+namespace Bravura.Common;
 
-/// <inheritdoc />
 /// <summary>
 /// Represents an ordered collection of key/value pairs that are accessible by the key or index.
 /// </summary>
 /// <typeparam name="TKey">The type of keys. Cannot be <see cref="T:System.Int32" /></typeparam>
 /// <typeparam name="TValue">The type of values.</typeparam>
-public sealed class ReadOnlyOrderedDictionary<TKey, TValue> : IReadOnlyOrderedDictionary<TKey, TValue>
+public sealed class ReadOnlyOrderedDictionary<TKey, TValue>
 {
     /// <summary>
     /// An unordered dictionary of key pairs.
@@ -88,14 +86,6 @@ public sealed class ReadOnlyOrderedDictionary<TKey, TValue> : IReadOnlyOrderedDi
 
     private IEnumerable<KeyValuePair<TKey, TValue>> Enumerate()
     {
-        foreach (var key in _keys)
-        {
-            var value = _dictionary[key];
-            yield return new KeyValuePair<TKey, TValue>(key, value);
-        }
+        return from key in _keys let value = _dictionary[key] select new KeyValuePair<TKey, TValue>(key, value);
     }
-
-    IEnumerator<KeyValuePair<TKey, TValue>> IEnumerable<KeyValuePair<TKey, TValue>>.GetEnumerator() => Enumerate().GetEnumerator();
-
-    IEnumerator IEnumerable.GetEnumerator() => Enumerate().GetEnumerator();
 }

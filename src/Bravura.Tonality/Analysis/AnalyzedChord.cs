@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
-using Bravura.Common.Exceptions;
-using Bravura.Common.Utilities;
+using Bravura.Common;
 
 namespace Bravura.Tonality.Analysis;
 
@@ -10,15 +9,23 @@ public class AnalyzedChord
     public AnalyzedChord(Chord chord, Key key)
     {
         Chord = chord;
+
         Key = key;
 
         var chordSemitonesAboveKey = (Chord.Root.SemitonesAboveC - Key.Root.SemitonesAboveC).RollingRange(11);
         Interval = Intervals.Diatonic
             .Where(interval => interval.Semitones == chordSemitonesAboveKey)
             .MinBy(interval => Math.Abs(interval.Accidental.SemitonesAwayFromNatural));
-
         if (Interval is null)
             throw new BravuraException("Failed to analyze chord");
+
+        _accidental = Interval.Accidental.SemitonesAwayFromNatural == 0 ? "" : $"{Interval.Accidental}";
+
+        _romanNumeral = $"{(RomanNumeral)Interval.Degree}";
+        if (Chord.Contains(Intervals.MinorThird)) _romanNumeral = _romanNumeral.ToLower();
+
+        _quality = $"{Chord.Quality}";
+        if (_quality.StartsWith('m')) _quality = _quality[1..];
     }
 
     public Chord Chord { get; }
@@ -29,17 +36,13 @@ public class AnalyzedChord
 
     public Interval Interval { get; }
 
-    public string RomanNumeralAnalysis()
-    {
-        var accidental = Interval.Accidental.SemitonesAwayFromNatural == 0
-            ? ""
-            : $"{Interval.Accidental}";
-        var romanNumeral = $"{(RomanNumerals)Interval.Degree}";
-        romanNumeral = Chord.Contains(Intervals.MinorThird) ? romanNumeral.ToLower() : romanNumeral.ToUpper();
-        var quality = $"{Chord.Quality}";
-        if (quality.StartsWith('m')) quality = quality[1..];
-        return $"{accidental}{romanNumeral}{quality}";
-    }
+    public string RomanNumeralAnalysis => $"{_accidental}{_romanNumeral}{_quality}";
 
-    public override string ToString() => RomanNumeralAnalysis();
+    public override string ToString() => RomanNumeralAnalysis;
+
+    private readonly string _accidental;
+
+    private readonly string _romanNumeral;
+
+    private readonly string _quality;
 }

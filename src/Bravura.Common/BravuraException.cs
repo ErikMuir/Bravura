@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Bravura.Common.Exceptions;
+namespace Bravura.Common;
 
 public class BravuraException : Exception
 {

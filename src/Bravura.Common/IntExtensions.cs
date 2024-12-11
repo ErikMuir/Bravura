@@ -1,8 +1,6 @@
-using Bravura.Common.Exceptions;
+namespace Bravura.Common;
 
-namespace Bravura.Common.Utilities;
-
-public static partial class IntExtensions
+public static class IntExtensions
 {
     /// <summary>
     /// Returns the value when between 0 and high. Otherwise it will return the difference rolled over the other end of the range.

@@ -13,10 +13,11 @@ public class ChordRelationship
         Analysis = PotentialKeys
             .Select(key => new KeyValuePair<Key, ChordProgressionAnalysis>(
                 key,
-                new ChordProgressionAnalysis([new(Chord1, key), new(Chord2, key)])))
+                new ChordProgressionAnalysis([new AnalyzedChord(Chord1, key), new AnalyzedChord(Chord2, key)])))
             .ToDictionary();
+        var maxWeight = Analysis.Select(kvp => kvp.Value.Weight).Max();
         BestKeys = Analysis
-            .Where(kvp => kvp.Value.Weight == MaxWeight)
+            .Where(kvp => kvp.Value.Weight == maxWeight)
             .Select(kvp => kvp.Key)
             .ToList();
     }
@@ -26,8 +27,6 @@ public class ChordRelationship
     public Chord Chord2 { get; }
 
     public Dictionary<Key, ChordProgressionAnalysis> Analysis { get; }
-
-    public int MaxWeight => Analysis.Select(kvp => kvp.Value.Weight).Max();
 
     public List<Key> PotentialKeys { get; }
 

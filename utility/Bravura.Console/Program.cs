@@ -4,12 +4,12 @@ global using System.CommandLine;
 global using System.CommandLine.NamingConventionBinder;
 global using System.Linq;
 global using MuirDev.ConsoleTools;
-global using Bravura.Common.Utilities;
+global using Bravura.Common;
 global using Bravura.Tonality;
 global using Bravura.Tonality.Analysis;
 global using Bravura.Console.Commands;
 
-var rootCommand = new RootCommand("A console app demonstrating the Bravura dotnet music theory library")
+var rootCommand = new RootCommand("A console app demonstrating the Bravura .NET music theory library")
 {
     PitchCommand.Command,
     ChordQualityCommand.Command,

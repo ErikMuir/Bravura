@@ -5,28 +5,27 @@ Namespace: [Bravura.Tonality](./Bravura.Tonality.md)
 ### Represents an alteration to a note or scale tone by 0, 1, or 2 semitones in either direction.
 
 ```csharp
-public struct Accidental : IBaseTonality
+public struct Accidental : ITonality
 ```
 
 Inheritance: Object -> ValueType -> Accidental
-Implements: [IBaseTonality](./Bravura.Tonality.IBaseTonality.md)
+Implements: [ITonality](./Bravura.Tonality.ITonality.md)
 
 ## Constructors
-| Constructor | Description |
-| --- | --- |
-| Accidental(Int16, String, String, String) | Initializes a new instance of the [Accidental](./Bravura.Tonality.Accidental.md) struct. This constructor is `internal` so Bravura consumers cannot initialize new instances. * |
+| Constructor                       | Description                                                                                                                                                                     |
+|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Accidental(Int16, String, String) | Initializes a new instance of the [Accidental](./Bravura.Tonality.Accidental.md) struct. This constructor is `internal` so Bravura consumers cannot initialize new instances. * |
 
 ## Fields
-| Field | Type | Description |
-| --- | --- | --- |
-| SemitonesAwayFromNatural | Int16 | The number of semitones away from Natural. |
-| Name | String | The name for this instance. |
-| Symbol | String | The symbol for this instance. |
-| AsciiSymbol | String | The ASCII symbol for this instance. |
+| Field                    |  Type  | Description                                |
+|--------------------------|:------:|--------------------------------------------|
+| SemitonesAwayFromNatural | Int16  | The number of semitones away from Natural. |
+| Name                     | String | The name for this instance.                |
+| Symbol                   | String | The symbol for this instance.              |
 
 ## Methods
-| Method | Return Type | Description |
-| --- | --- | --- |
-| DisplayValue(Boolean) | String | Returns the Accidental's display value as a string. Optionally limited to only ASCII characters. |
+| Method     | Return Type | Description                                         |
+|------------|:-----------:|-----------------------------------------------------|
+| ToString() |   String    | Returns the Accidental's display value as a string. |
 
 \* See the static class [Accidentals](./Bravura.Tonality.Accidentals.md) for all instances.

@@ -1,7 +1,8 @@
+// ReSharper disable InconsistentNaming
 using System.Linq;
 using Bravura.Tonality.Analysis;
 
-namespace Bravura.Tonality.Tests;
+namespace Bravura.Tonality.Tests.Analysis;
 
 public class ChordProgressionTests
 {
@@ -19,9 +20,9 @@ public class ChordProgressionTests
         var bestAnalysis = testObject.Analysis.MaxBy(analysis => analysis.Weight);
         Assert.Equal(Keys.DMinor, bestAnalysis.Key);
         Assert.Equal(24, bestAnalysis.Weight);
-        Assert.Equal("i7", bestAnalysis.AnalyzedChords[0].RomanNumeralAnalysis());
-        Assert.Equal("♭VIMaj7", bestAnalysis.AnalyzedChords[1].RomanNumeralAnalysis());
-        Assert.Equal("ii7♭5", bestAnalysis.AnalyzedChords[2].RomanNumeralAnalysis());
-        Assert.Equal("V7♭9", bestAnalysis.AnalyzedChords[3].RomanNumeralAnalysis());
+        Assert.Equal("i7", bestAnalysis.AnalyzedChords[0].RomanNumeralAnalysis);
+        Assert.Equal("♭VIMaj7", bestAnalysis.AnalyzedChords[1].RomanNumeralAnalysis);
+        Assert.Equal("ii7♭5", bestAnalysis.AnalyzedChords[2].RomanNumeralAnalysis);
+        Assert.Equal("V7♭9", bestAnalysis.AnalyzedChords[3].RomanNumeralAnalysis);
     }
 }

@@ -31,6 +31,6 @@ public static class AnalyzedChordCommand
 
         var analyzedChord = new AnalyzedChord(parsedChord, parsedKey);
 
-        _console.Info(analyzedChord.RomanNumeralAnalysis().ToAscii());
+        _console.Info(analyzedChord.RomanNumeralAnalysis.ToAscii());
     }
 }

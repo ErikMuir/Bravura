@@ -1,23 +1,22 @@
 namespace Bravura.Tonality;
 
-public readonly struct Accidental : ITonality
+public record Accidental : ITonality
 {
     internal Accidental(
         short semitonesAwayFromNatural,
         string name,
-        string symbol,
-        string asciiSymbol)
+        string symbol)
     {
         SemitonesAwayFromNatural = semitonesAwayFromNatural;
         Name = name;
         Symbol = symbol;
-        AsciiSymbol = asciiSymbol;
     }
 
-    public short SemitonesAwayFromNatural { get; init; }
-    public string Name { get; init; }
-    public string Symbol { get; init; }
-    public string AsciiSymbol { get; init; }
+    public short SemitonesAwayFromNatural { get; }
+
+    public string Name { get; }
+
+    public string Symbol { get; }
 
     public override string ToString() => Symbol;
 }

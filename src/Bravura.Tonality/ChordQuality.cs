@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
+using Bravura.Common;
 
 namespace Bravura.Tonality;
 
-public record ChordQuality(string Symbol, string AsciiSymbol, List<Interval> Intervals) : ITonality
+public record ChordQuality(string Symbol, List<Interval> Intervals) : ITonality
 {
     public bool IsMajor => Contains(Tonality.Intervals.MajorThird) && Contains(Tonality.Intervals.PerfectFifth);
 
@@ -49,15 +50,10 @@ public record ChordQuality(string Symbol, string AsciiSymbol, List<Interval> Int
     public static bool TryParse(string val, out ChordQuality chordQuality)
     {
         chordQuality = null;
-        if (val == null) return false;
-        var trimmedVal = val.Trim();
-        foreach (var quality in ChordQualities.AllChordQualities)
-        {
-            if (quality.Symbol != trimmedVal && quality.AsciiSymbol != trimmedVal) continue;
-            chordQuality = quality;
-            return true;
-        }
-        return false;
+        var trimmedVal = val.SafeTrim();
+        chordQuality = ChordQualities.AllChordQualities.FirstOrDefault(quality =>
+            trimmedVal == quality.Symbol || trimmedVal == quality.ToString().ToAscii());
+        return chordQuality != null;
     }
 
     public override string ToString() => Symbol;
